@@ -2,8 +2,8 @@
 Protection Profile - Module for Voice and Video over IP (VVoIP)
 ===============
 
-[![Build Status](https://travis-ci.com/commoncriteria/pp-template.svg?branch=master)](https://travis-ci.com/commoncriteria/pp-template)
-[![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/pp-template.svg?maxAge=2592000)](https://github.com/commoncriteria/pp-template/issues) 
+[![Build Status](https://travis-ci.com/commoncriteria/vvoip.svg?branch=master)](https://travis-ci.com/commoncriteria/vvoip)
+[![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/vvoip.svg?maxAge=2592000)](https://github.com/commoncriteria/vvoip/issues) 
 ![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
 
 This repository hosts the draft version of the Protection Profile - Module for Voice and Video over IP (VVoIP) based on the 
