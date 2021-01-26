@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../transforms/module/module2html.xsl"?>
 
-<PP xmlns="https://niap-ccevs.org/cc/v1"
-    xmlns:sec="https://niap-ccevs.org/cc/v1/section" name="Protection Profile QQQQ"
-    xmlns:h="http://www.w3.org/1999/xhtml" boilerplate='yes'>
+<?xml-model href="https://github.com/commoncriteria/transforms/raw/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+
+<Module boilerplate="yes" target-products="Voice and Video over IP (VVoIP)" xmlns="https://niap-ccevs.org/cc/v1" name="Voice and Video over IP (VVoIP)" xmlns:h="http://www.w3.org/1999/xhtml">
 
   <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
   <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
@@ -33,7 +33,8 @@
     </entry>
   </RevisionHistory>
 
-  <sec:Introduction>
+  <chapter title="Introduction" id="int">
+      
     <section title="Overview" id="ppoverview">
 
       
@@ -241,11 +242,40 @@
 	  </config>
       </usecase>
       </usecases>
-    </section>
-  </sec:Introduction>
-
-  <sec:cclaims title="Conformance Claims"/>
-  <sec:spd title="Security Problem Description">The security problem is described in terms
+      </section>
+    </chapter>
+  
+  <chapter title="Conformance Claims" id="ConformanceClaims">
+      <!-- 2.1 CC Conformance -->
+      <cclaims>
+        <cclaim title="Conformance Statement">
+          <description> This PP-Module inherits exact conformance as required from the specified Base-PPs and as defined
+            in the CC and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated
+            May 2017).<h:br/><h:br/>
+            The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module: <h:ul>
+              <h:li>PP-Module for MDM Agents, Version 1.0</h:li>
+              <h:li>PP-Module for File Encryption Enterprise Management, Version 1.0</h:li>
+              <h:li>PP-Module for File Encryption, Version 2.0</h:li>
+            </h:ul>
+          </description>
+        </cclaim>
+        <cclaim title="CC Conformance Claims">
+          <description>This PP-Module is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria Version
+            3.1, Revision 5 [CC] when App PP, GPOS PP, or MDF is the Base-PP. <h:p/>
+            This PP-Module is conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria Version
+            3.1, Revision 5 [CC] when MDM PP is the Base-PP.
+          </description>
+        </cclaim>
+        <cclaim title="PP Claim">
+          <description>This PP-Module does not claim conformance to any Protection Profile.</description>
+        </cclaim>
+        <cclaim title="Package Claim">
+          <description>This PP-Module does not claim conformance to any packages.</description>
+        </cclaim>
+      </cclaims>
+    </chapter>
+      
+  <chapter title="Security Problem Description" id="spd">The security problem is described in terms
     of the threats that the OS is expected to address, assumptions about the
     operational environment, and any organizational security policies that the OS
     is expected to enforce.
@@ -358,8 +388,8 @@
         </OSP>
       </OSPs>
     </section> -->
-  </sec:spd>
-  <sec:Security_Objectives>
+  </chapter>
+  <chapter title="Security Objectives" id="obj">
     <section title="Security Objectives for the TOE" id="SecurityObjectivesTOE">
       <SOs>
         <SO name="O.ACCOUNTABILITY">
@@ -461,9 +491,9 @@ users of the same system.
     <section title="Security Objectives Rationale" id="SOR">
       <!-- This section is populated by boilerplates.xsl in transforms. -->
       </section>
-  </sec:Security_Objectives>
+  </chapter>
 
-  <sec:Security_Requirements>This chapter describes the security requirements
+  <chapter title="Security Requirements" id="sfrs">This chapter describes the security requirements
     which have to be fulfilled by the OS. Those requirements comprise functional
     components from Part 2 and assurance components from Part 3 of <xref g="CC"/>. The
     following notations are used: <h:ul>
@@ -1420,7 +1450,7 @@ Activities assoiated with the TSS.
         </a-component>
       </section>      
     </section>
-  </sec:Security_Requirements>
+  </chapter>
 
   <!-- 
        Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
@@ -1599,4 +1629,4 @@ Activities assoiated with the TSS.
     </feature>
   </implements>
 
-</PP>
+</Module>
