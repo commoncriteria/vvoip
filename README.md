@@ -2,7 +2,7 @@
 Protection Profile - Module for Voice and Video over IP (VVoIP)
 ===============
 
-[![Build Status](https://travis-ci.com/commoncriteria/vvoip.svg?branch=master)](https://travis-ci.com/commoncriteria/vvoip)
+![Build](https://github.com/commoncriteria/vvoip/workflows/Build/badge.svg)
 [![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/vvoip.svg?maxAge=2592000)](https://github.com/commoncriteria/vvoip/issues) 
 ![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
 
