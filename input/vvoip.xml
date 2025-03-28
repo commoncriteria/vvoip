@@ -65,7 +65,7 @@
     <url><![CDATA[https://www.niap-ccevs.org/protectionprofiles/515]]></url>
     
   </include-pkg>
-  <include-pkg id="pkg-tls">
+  <include-pkg id="pkgTLS">
     <git>
       <url>https://github.com/commoncriteria/tls</url>
       <branch>release-2.0</branch>
@@ -73,7 +73,7 @@
     <url><![CDATA[https://www.niap-ccevs.org/protectionprofiles/465]]></url>
     <depends on="fcs-eap-ext-1"/>
   </include-pkg>
-  <include-pkg id="pkg-x509">
+  <include-pkg id="pkgX509">
     <git>
       <url>https://github.com/commoncriteria/X509</url>
       <branch>master</branch>
@@ -198,45 +198,84 @@
 	</sec:Compliant_Targets_of_Evaluation>
 	<!-- 1.4 TOE_Boundary -->
     <sec:TOE_Boundary>
-        <h:p>The physical boundary for a TOE that conforms to this PP-Module is a physical or virtual network device,
-		that also provides generalized network device functionality, such as auditing, I&amp;A, and cryptographic
-		services for network communications. The TOE may be standalone or distributed, where a distributed TOE
-		is one that requires multiple distinct components to operate as a logical whole in order to fulfill the
-		requirements of this PP-Module. The TOE’s logical boundary includes all functionality required by the
-		Base-PP as well as the IPS functionality and related capabilities that are defined in this PP-Module. Any
-		functionality that is provided by the network device that is not relevant to the security requirements
-		defined by this PP-Module or the Base-PP is considered to be outside the scope of the TOE.</h:p>
+        <h:p>The TOE boundary includes the VVoIP-capable device or application (VVoIP endpoint). A VVoIP-capable
+			device is a dedicated phone whereas a VVoIP endpoint application is just one of many applications that
+			runs on a general-purpose device such as a smartphone, tablet, or PC. Regardless of whether the TOE is a
+			hardware appliance or a client application on an operating system, it will be deployed in the same
+			environment. The figure below shows a typical VVoIP infrastructure from the perspective of the TOE.
+			Many of the environmental components have direct connections between one another, but since these
+			are not visible to the TOE, these connections have not been depicted.</h:p>
+			<figure entity="images/Toe.png" title="Typical VVoIP Deployment" id="toeDeployment"/>
+		<h:p>The TOE uses a VVoIP call control server, either by connecting to an ESC or acting as one itself when using
+			P2P, in order to set up connections with other VVoIP endpoint devices or other telephony equipment such
+			as a conference bridge. The call control server also may have the ability to deliver software/firmware
+			updates to the TOE, but this can alternatively be performed by a file server. The TOE must be able to
+			process Internet Protocol version 4 (IPv4) and/or IPv6 packets.</h:p>
+		<h:p>To be able to initiate communications in a client-server architecture, the TOE needs at minimum an IP
+			address, network mask, gateway address, configuration server address, update server address (or may
+			rely on platform for updates if it is a software application configured to do so), and call control server
+			address. The address may be obtained by Dynamic Host Configuration Protocol (DHCP), manually entered
+			on the VVoIP endpoint, or inherited from the device the TOE resides on (if it is a software application);
+			addresses can belong to the same device if it performs multiple functions (such as an ESC which also
+			performs updates). The TOE should allow basic telephony functions. Once the IP addresses are obtained,
+			the TOE downloads any VVoIP application updates, downloads VVoIP endpoint configuration, and
+			connects to the call control server as a VVoIP client. When a call is finished or the line is otherwise not in
+			use, the TOE will ensure that streaming media communication paths/ports are closed while call control
+			remains open.</h:p>
+		<h:p>The TOE has three paths for three different functions that need to execute: streaming media path that
+			contains voice, video, and session control (endpoint to endpoint); call control path to control the endpoint
+			(endpoint to VVoIP call control server), and configuration/management path to configure and manage the
+			TOE (software/firmware updates, configuration updates, audit).</h:p>
+			
     </sec:TOE_Boundary>
 
 
     <!-- 1.5 Use Cases -->
     <sec:Use_Cases>
     	<h:p>
-      This PP-Module defines two potential use cases for the IPS TOE, listed below.
-    	</h:p><h:p>
-      This PP-Module also defines optional and objective requirements for functionality including separation of
-      management roles and ability to use the TSF to review collected IPS data. These functions are not
-      dependent on a particular use case being chosen.
-    	</h:p>
+			This PP-Module defines four potential use cases for the VVoIP TOE, defined below. The first two use cases
+			define the physical embodiment of the TOE, while the latter two define its role in a telecommunications
+			deployment.</h:p>
+		<h:p>
+			Regardless of the physical embodiment of the TOE, the expected functional capabilities are similar.
+			However, when the TOE is deployed in a peer-to-peer architecture, it must perform auditing and call
+			control functions that a client-server TOE does not need to perform because the Enterprise Session
+			Controller provides those functions in that architecture. A client-server TOE may also perform its own
+			auditing, but it is not required.</h:p>
       <usecases>
-        <usecase id="usecase1" title="Standalone System">
+        <usecase id="usecase1" title="Dedicated Appliance">
           <description>
-            The TOE exists as a standalone device that is capable of enforcing all of the mandatory requirements
-			defined in this PP-Module by itself.
-
+            The VVoIP endpoint is sold and packaged as a standalone network appliance that does not have
+			a direct interface to the underlying platform operating system. In this use case, conformance to
+			the NDcPP and this PP-Module is sufficient to ensure security. Note that the NDcPP defines
+			optional functionality for “distributed TOEs” – for a TOE to conform to this PP-Module, it must be
+			a single device and not a distributed TOE.
           </description>
         </usecase>
         
-        <usecase id="usecase2" title="Distributed System">
+        <usecase id="usecase2" title="Software Application">
           <description>
-            The TOE exists as a distributed system that is able to apply different IPS functions to different network
-			segments. In this case, distributed nodes may each implement all required IPS functionality, or
-			different node types may offer different functions so long as the evaluated configuration collectively
-			addresses all of the mandatory requirements defined in this PP-Module. In this deployment, it is
-			expected (though not required) that a single device be used as a central point to perform
-			configuration and collect relevant log data for the rest of the TOE.
+            The VVoIP endpoint is sold and packaged as an application that is installed on a general-purpose
+			computer or mobile device running a modifiable operating system (such as Windows or Linux).
+			This computer may run end user applications above and beyond those used for VVoIP
+			communications since it functions as a user workstation. In this case, the VVoIP endpoint
+			application is expected to conform to both this PP-Module and the App PP. 
           </description>
         </usecase>
+		<usecase id="usecase3" title="Client-Server Architecture">
+		  <description>
+		  	The VVoIP endpoint, whether hardware or software, is deployed in an environment where it
+			interacts with an Enterprise Session Controller to facilitate call control functions.
+		  </description>
+		</usecase>
+
+		<usecase id="usecase4" title="Peer-to-Peer Architecture">
+		  <description>
+		  	The VVoIP endpoint, whether hardware or software, is deployed in an environment where it
+			interacts directly with other VVoIP endpoints without the use of an Enterprise Session Controller
+			as an intermediary.
+		  </description>
+		</usecase>
       </usecases>
 
 	  
@@ -248,16 +287,16 @@
 	<!-- Product Features. Required if there are implementation-dependent requirements. -->
 	<!-- These are the product features that are defined in order to support implementation-dependent requirements. -->
   
-   <section title="Implementation-Based Features" id="sec-features">
+   <!-- <section title="Implementation-Based Features" id="sec-features">
       The following features of the TOE are implementation-based. A TOE is not required to implement these features to conform to this PP-Module, but if the feature is implemented, it is expected that associated implementation-based requirements are claimed as part of the TSF.  
       <implements>
         <feature id="feat-alerting" title="Support for Alerting">
           <description>The TOE implements the capability to alert administrators when a potential security incident has occurred.</description>
         </feature>
       </implements>			
-    </section> 
+    </section>  -->
   	
-  	<section title="Test Environment for Evaluation Activities">
+  	<!-- <section title="Test Environment for Evaluation Activities">
   		<h:p>
   		This section contains the expectations for the evaluator test environment that is used to perform the
   		test specified by the EAs.
@@ -301,7 +340,7 @@
   		shareware, or freeware product; special equipment is not necessary.
   		</h:p>
   		
-  	</section>
+  	</section> -->
 
 </sec:Introduction>   <!-- Introduction  -->
 
@@ -316,13 +355,12 @@
       <CClaimsInfo cc-version="cc-2022r1" cc-approach="direct-rationale">
         <cc-st-conf>exact</cc-st-conf>
         <cc-pt2-conf>extended</cc-pt2-conf>
-        <cc-pt3-conf>conformant</cc-pt3-conf>
+        <cc-pt3-conf>extended</cc-pt3-conf>
         <cc-pp-conf/>
-        <cc-pp-config-with>
-          <Mod-cc-ref>collaborative Protection Profile Module for Stateful Traffic Filter Firewalls v1.4 + Errata 20200625</Mod-cc-ref>
-          <Mod-cc-ref>PP-Module for Virtual Private Network (VPN) Gateways, Version 1.4</Mod-cc-ref>
-        </cc-pp-config-with>
-        <cc-pkg-claim/>
+        <cc-pp-config-with/>
+        <cc-pkg-claim>
+			<FP-cc-ref conf="conformant">Functional Package for TLS, version 1.1</FP-cc-ref>
+		</cc-pkg-claim>
       </CClaimsInfo>
     </section>  <!-- Conformance Claims -->
   
@@ -336,48 +374,6 @@
 	about its operational environment, and any organizational security policies that the TOE is expected to
 	enforce.
   	</h:p>
-  	<h:p>
-	IPS devices address a range of security threats related to detection of and reaction to potentially
-	malicious traffic on monitored networks, to which the security policies will be enforced on applicable
-	network traffic. The malicious traffic may pose a threat to one or more endpoints on the monitored
-	networks, to the network infrastructure, or to the TOE itself. The term ‘monitored networks’ is used here
-	to represent any network to which the TOE is directly connected, as well as network segments/subnets
-	that have had their traffic forwarded (redirected or copied) to the IPS for analysis.
-
-  	</h:p><h:p>
-	The term ‘IPS Data’ will be used throughout this PP-Module and includes any or all of: 
-	the data extracted from network traffic and stored on the TOE; the results of analysis performed by the TOE; and messages
-	that indicate the TOE’s reaction to that analysis. This ‘IPS Data’ described in this PP-Module refers to the
-	network traffic collected by the IPS and the resulting audit records related to analysis of that network
-	traffic, all of which is separate from the ‘audit data’ as defined in FAU_GEN from the Base-PP, such as
-	audit records related to authentication of administrators and establishment/termination of trusted
-	channels.
-  	</h:p>
-  	<h:p>
-	A site is responsible for developing its security policy and configuring a rule set that the IPS will enforce
-	and provide an appropriate response to meet their needs, relative to their own risk analysis and their
-	perceived threats. Threats mitigated by the conformant TOE can include attempts to:
-	</h:p>
-	<h:p>
-		<h:ul>
-			<h:li>Perform network-based reconnaissance (probing for information about a monitored network or its endpoints), such as through use of various scanning or mapping techniques. </h:li>
-			<h:li>Obstruct the normal function of monitored networks, endpoints, or services, such as through denial of service attacks</h:li>
-			<h:li>Gain inappropriate access to one or more networks, endpoints, or services, such as through brute
-			force password guessing attacks, or by transmitting malicious executable code, scripts, or
-			commands. </h:li>
-			<h:li>Disclose/transmit information in violation of policy, such as sending credit card numbers. Note,
-			relative to the data, it does not matter where the threat agent is located. Example: data exfiltration
-			means that data was removed without proper authorization to remove it. This may be a pull or a
-			push. It can result from intrusion from the outside or by the actions of the insider. </h:li>
-		</h:ul>
-	</h:p>
-  	<h:p>Note that this PP-Module does not repeat the threats identified in the NDcPP, though they all apply given
-	the conformance and hence dependence of this PP-Module on the NDcPP.
-  	The NDcPP contains only threats to the ability of the TOE to provide its own functions. This PP-Module
-	defines threats to resources in the operational environment that will be mitigated by an IPS TOE. Together,
-	the threats of the Base-PP and those defined in this PP-Module define the comprehensive set of security
-	threats addressed by an IPS TOE.</h:p>
-
     <section title="Threats" id="sec-threats">
 	
 		<!-- If using the standard approach, each threat references one of more Objectives -->
@@ -387,96 +383,51 @@
 		The following threats defined in this PP-Module extend the threats defined by the Base-PP.
 
       <threats>
-        <threat name="T.NETWORK_ACCESS" id="t-network-access">
-          <description> Unauthorized access may be achieved to services on a protected network from outside that network, or
-			alternately services outside a protected network from inside the protected network. If malicious external
-			devices are able to communicate with devices on the protected network via a backdoor then those devices
-			may be susceptible to the unauthorized disclosure of information.</description>
+        <threat name="T.MEDIA_DISCLOSURE" id="t-media-disclosure">
+          <description> An attacker can use the encrypted variable rate vocoder frames to their advantage to decode
+			transmitted data.</description>
 
-<addressed-by>FAU_GEN.1/IPS</addressed-by><rationale>This requirement mitigates the threat of network access by providing a log of network activity that could aid in detecting attempts to realize this threat.</rationale>
-        	<addressed-by>FMT_SMF.1/IPS</addressed-by><rationale>This requirement mitigates the threat of network access by providing a mechanism to configure the TSF's ability to detect attempts to realize this threat.</rationale>
-        	<addressed-by>IPS_IPB_EXT.1</addressed-by><rationale>This requirement mitigates the threat of network access by providing a mechanism to restrict network traffic that originates from a particular source.</rationale>
-        	<addressed-by>IPS_NTA_EXT.1</addressed-by><rationale>This requirement mitigates the threat of network access by defining the network traffic the TSF is able to examine to determine the potential realization of a threat.</rationale>
-        	<addressed-by>FAU_STG.2/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by ensuring that records of stored IPS data cannot be read without authorization or modified by any subject so as not to falsely disclose the history of activity observed on the network.</rationale>
-        	<addressed-by>FAU_STG.5/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by providing a predictable mechanism for how storage of IPS data is prioritized in the event that insufficient storage is available, allowing for the administrator to have adequate warning of the limitations of the collection process.</rationale>
-        	<addressed-by>FPT_FLS.1/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by implementing a mechanism that allows the TSF to fail closed so that network traffic is not transmitted without inspection in the event that its inspection functionality is unavailable.</rationale>
-        	<addressed-by>IPS_SBD_EXT.2 (optional)</addressed-by><rationale>This requirement mitigates the threat by allowing for detection of potential malicious network activity that would otherwise be undetected because of its fragmentation across multiple packets.</rationale>
-        	<addressed-by>FAU_ARP.1 (objective)</addressed-by><rationale>This requirement mitigates the threat by generating an alert in response to the detection of suspicious network events, allowing for timely analysis of potential threats.</rationale>
-        	<addressed-by>FAU_SAR.1 (objective)</addressed-by><rationale>This requirement mitigates the threat by providing authorized subjects with a means to review stored IPS data for detection of potential threats.</rationale>
-        	<addressed-by>FAU_SAR.2 (objective)</addressed-by><rationale>This requirement mitigates the threat by providing a mechanism to review stored network data for administrative analysis.</rationale>
-        	<addressed-by>FAU_SAR.3 (objective)</addressed-by><rationale>This requirement mitigates the threat by enforcing restrictions on the subjects that can review stored network data so that this is not disclosed to untrusted or potentially malicious subjects.</rationale>
-        	<addressed-by>FRU_RSA.1 (implementation-based)</addressed-by><rationale>This requirement mitigates the threat by enforcing network traffic quotas so that network traffic is not transmitted through the TOE without analysis.</rationale>
+			<addressed-by>FCS_COP.1/DataEncryption (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the AES encryption algorithm used to secure VVoIP communications.</rationale>
+			<addressed-by>FCS_NTP_EXT.1 (from NDcPP)</addressed-by><rationale>Mitigates the threat by defining how accurate system time is maintained, which is used to support certain cryptographic functions.</rationale>
+			<addressed-by>FCS_TLSC_EXT.1 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the TLS client implementation used to secure call control and streaming media channels used for VVoIP.</rationale>
+			<addressed-by>FCS_TLSC_EXT.2 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the TOE’s implementation of mutual authentication for its TLS client</rationale>
+			<addressed-by>FIA_X509_EXT.1/Rev (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
+			<addressed-by>FIA_X509_EXT.2 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
+			<addressed-by>FIA_X509_EXT.3 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
+			<addressed-by>FTP_ITC.1 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the trusted communications channel used for VVoIP</rationale>
+			<addressed-by>FTP_DIT_EXT.1 (refined from App PP)</addressed-by><rationale>Mitigates the threat by defining the trusted communications channel used for VVoIP.</rationale>
+			<addressed-by>FCO_VOC_EXT.1</addressed-by><rationale>Mitigates the threat by defining the use of a fixed-rate vocoder to prevent the exposure of encryption vulnerabilities that are present with variable-rate vocoders.</rationale>
+			<addressed-by>FTP_ITC.1/Control</addressed-by><rationale>Mitigates the threat by defining the application-layer channel used for communications with a VVoIP call control server.</rationale>
+			<addressed-by>FTP_ITC.1/Media</addressed-by><rationale>Mitigates the threat by defining the application-layer channel used for communications of media (voice and video) data.</rationale>
+			<addressed-by>FAU_STG_EXT.1 (optional for software-only TOEs)</addressed-by><rationale>Mitigates the threat by ensuring that audit data is securely transmitted to an external entity.</rationale>
+			<addressed-by>FCS_COP.1/SRTP (selection-based)</addressed-by><rationale>Mitigates the threat by defining the implementation of encryption used for SDES-SRTP, if supported by the TOE.</rationale>
+			<addressed-by>FCS_SRTP_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by defining the implementation of the SRTP protocol, if supported by the TOE.</rationale>
+			<addressed-by>FDP_IFC.1/CallControl (selection-based)</addressed-by><rationale>Mitigates the threat by defining a policy for protection of call control information in cases where the TOE can act as a VVoIP call control server in a peer-to-peer configuration.</rationale>
+			<addressed-by>FDP_IFF.1/CallControl (selection-based)</addressed-by><rationale>Mitigates the threat by defining the implementation of the call control policy in cases where the TOE can act as a VVoIP call control server in a peer-to-peer configuration.</rationale>
+			<addressed-by>FPT_STM_EXT.1/VVoIP (selection-based)</addressed-by><rationale>Mitigates the threat by defining how the TSF obtains system time in certain cases, which is then used as an input to other functions that support this objective.</rationale>
+
         	
 
         </threat>
 
-        <threat name="T.NETWORK_DISCLOSURE" id="t-network-disclosure">
-          <description> Sensitive information on a protected network might be disclosed resulting from ingress- or egress-based
-	  	  actions. </description>
+        <threat name="T.UNDETECTED_TRANSMISSION" id="t-undetected-transmission">
+          <description> An attacker may cause the TOE to exfiltrate audio or video media over a remote channel while in a
+			state where the user has a reasonable expectation that no media is being transmitted. </description>
         	
-        	<addressed-by>FAU_GEN.1/IPS</addressed-by><rationale>This requirement mitigates the threat of network disclosure by providing a log of network activity that could aid in detecting attempts to realize this threat.</rationale>
-        	<addressed-by>FMT_SMF.1/IPS</addressed-by><rationale>This requirement mitigates the threat of network disclosure by providing a mechanism to configure the TSF's ability to detect attempts to realize this threat.</rationale>
-        	<addressed-by>IPS_IPB_EXT.1</addressed-by><rationale>This requirement mitigates the threat of network disclosure by providing a mechanism to restrict ingress and egress of network traffic by source or destination.</rationale>
-        	<addressed-by>IPS_NTA_EXT.1</addressed-by><rationale>This requirement mitigates the threat of network disclosure by defining the network traffic the TSF is able to examine to determine the potential realization of a threat.</rationale>
-        	<addressed-by>IPS_SBD_EXT.1</addressed-by><rationale>This requirement mitigates the threat of network denial of service by providing a means to detect network traffic signatures that are indicative of attempts to establish insecure or otherwise malformed sessions over a trusted protocol.</rationale>
-        	
-        	<addressed-by>FAU_STG.2/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by ensuring that records of stored IPS data cannot be read without authorization or modified by any subject so as not to falsely disclose the history of activity observed on the network.</rationale>
-        	<addressed-by>FAU_STG.5/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by providing a predictable mechanism for how storage of IPS data is prioritized in the event that insufficient storage is available, allowing for the administrator to have adequate warning of the limitations of the collection process.</rationale>
-        	<addressed-by>FPT_FLS.1/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by implementing a mechanism that allows the TSF to fail closed so that network traffic is not transmitted without inspection in the event that its inspection functionality is unavailable.</rationale>
-        	<addressed-by>IPS_SBD_EXT.2 (optional)</addressed-by><rationale>This requirement mitigates the threat by allowing for detection of potential malicious network activity that would otherwise be undetected because of its fragmentation across multiple packets.</rationale>
-        	<addressed-by>FAU_ARP.1 (objective)</addressed-by><rationale>This requirement mitigates the threat by generating an alert in response to the detection of suspicious network events, allowing for timely analysis of potential threats.</rationale>
-        	<addressed-by>FAU_SAR.1 (objective)</addressed-by><rationale>This requirement mitigates the threat by providing authorized subjects with a means to review stored IPS data for detection of potential threats.</rationale>
-        	<addressed-by>FAU_SAR.2 (objective)</addressed-by><rationale>This requirement mitigates the threat by providing a mechanism to review stored network data for administrative analysis.</rationale>
-        	<addressed-by>FAU_SAR.3 (objective)</addressed-by><rationale>This requirement mitigates the threat by enforcing restrictions on the subjects that can review stored network data so that this is not disclosed to untrusted or potentially malicious subjects.</rationale>
-        	<addressed-by>FRU_RSA.1 (implementation-based)</addressed-by><rationale>This requirement mitigates the threat by enforcing network traffic quotas so that network traffic is not transmitted through the TOE without analysis.</rationale>
+		  	<addressed-by>FDP_IFC.1</addressed-by><rationale>Mitigates the threat by defining the existence of a media transmission policy.</rationale>
+			<addressed-by>FDP_IFF.1</addressed-by><rationale>Mitigates the threat by defining how the media transmission policy is enforced to determine when transmissions should occur.</rationale>
+			<addressed-by>FTA_SSL.3/Media</addressed-by><rationale>Mitigates the threat by requiring the TSF to terminate idle sessions.</rationale>
+			<addressed-by>FAU_GEN.1/CS-Admin (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a clientserver TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
+			<addressed-by>FAU_GEN.1/CS-VVoIP (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a clientserver TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be occurring.</rationale>
+			<addressed-by>FAU_GEN.1/P2P-Admin (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
+			<addressed-by>FAU_GEN.1/P2PVVoIP (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be
+			occurring.</rationale>
+			<addressed-by>FPT_STM_EXT.1/VVoIP (selection-based)</addressed-by><rationale>Mitigates the threat by requiring the TSF to specify how it obtains system time in certain cases, which is then used as an input to other functions that support this objective.</rationale>
+			<addressed-by>FMT_SMF.1/VVoIP</addressed-by><rationale>Mitigates the threat by requiring the TSF to implement certain the management functions specific to VVoIP functionality.</rationale>
+
         	
 		  </threat>
-		<threat name="T.NETWORK_DOS" id="t-network-dos">
-          <description> Attacks against services inside a protected network, or indirectly by virtue of access to malicious agents
-		  from within a protected network, might lead to denial of services otherwise available within a protected
-		  network. </description>
-			
-			<addressed-by>FAU_GEN.1/IPS</addressed-by><rationale>This requirement mitigates the threat of network denial of service by providing a log of network activity that could aid in detecting attempts to realize this threat.</rationale>
-			<addressed-by>FMT_SMF.1/IPS</addressed-by><rationale>This requirement mitigates the threat of network denial of service by providing a mechanism to configure the TSF's ability to detect attempts to realize this threat.</rationale>
-			<addressed-by>IPS_IPB_EXT.1</addressed-by><rationale>This requirement mitigates the threat of network denial of service by providing a mechanism to restrict network traffic that originates from a particular source.</rationale>
-			<addressed-by>IPS_NTA_EXT.1</addressed-by><rationale>This requirement mitigates the threat of network denial of service by defining the network traffic the TSF is able to examine to determine the potential realization of a threat.</rationale>
-			<addressed-by>IPS_SBD_EXT.1</addressed-by><rationale>This requirement mitigates the threat of network denial of service by providing a means to detect network traffic signatures that are indicative of denial of service attempts.</rationale>
-			
-			<addressed-by>FAU_STG.2/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by ensuring that records of stored IPS data cannot be read without authorization or modified by any subject so as not to falsely disclose the history of activity observed on the network.</rationale>
-			<addressed-by>FAU_STG.5/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by providing a predictable mechanism for how storage of IPS data is prioritized in the event that insufficient storage is available, allowing for the administrator to have adequate warning of the limitations of the collection process.</rationale>
-			<addressed-by>FPT_FLS.1/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by implementing a mechanism that allows the TSF to fail closed so that network traffic is not transmitted without inspection in the event that its inspection functionality is unavailable.</rationale>
-			<addressed-by>IPS_SBD_EXT.2 (optional)</addressed-by><rationale>This requirement mitigates the threat by allowing for detection of potential malicious network activity that would otherwise be undetected because of its fragmentation across multiple packets.</rationale>
-			<addressed-by>FAU_ARP.1 (objective)</addressed-by><rationale>This requirement mitigates the threat by generating an alert in response to the detection of suspicious network events, allowing for timely analysis of potential threats.</rationale>
-			<addressed-by>FAU_SAR.1 (objective)</addressed-by><rationale>This requirement mitigates the threat by providing authorized subjects with a means to review stored IPS data for detection of potential threats.</rationale>
-			<addressed-by>FAU_SAR.2 (objective)</addressed-by><rationale>This requirement mitigates the threat by providing a mechanism to review stored network data for administrative analysis.</rationale>
-			<addressed-by>FAU_SAR.3 (objective)</addressed-by><rationale>This requirement mitigates the threat by enforcing restrictions on the subjects that can review stored network data so that this is not disclosed to untrusted or potentially malicious subjects.</rationale>
-			<addressed-by>FRU_RSA.1 (implementation-based)</addressed-by><rationale>This requirement mitigates the threat by enforcing network traffic quotas so that network traffic is not transmitted through the TOE without analysis.</rationale>
-			
-		</threat>
-		<threat name="T.NETWORK_MISUSE" id="t-network-misuse">
-          <description> Access to services made available by a protected network might be used counter to operational
-		  environment policies. Devices located outside the protected network may attempt to conduct
-		  inappropriate activities while communicating with allowed public services (e.g. manipulation of resident
-		  tools, SQL injection, phishing, forced resets, malicious zip files, disguised executables, privilege escalation
-		  tools, and botnets). </description>
-		  
-			<addressed-by>FAU_GEN.1/IPS</addressed-by><rationale>This requirement mitigates the threat of network misuse by providing a log of network activity that could aid in detecting attempts to realize this threat.</rationale>
-			<addressed-by>FMT_SMF.1/IPS</addressed-by><rationale>This requirement mitigates the threat of network misuse by providing a mechanism to configure the TSF's ability to detect attempts to realize this threat.</rationale>
-			<addressed-by>IPS_ABD_EXT.1</addressed-by><rationale>This requirement mitigates the threat of network misuse by providing a mechanism to detect anomalous activity that may indicate network misuse.</rationale>
-			<addressed-by>IPS_IPB_EXT.1</addressed-by><rationale>This requirement mitigates the threat of network misuse by providing a mechanism to restrict network traffic that originates from within a protected network and is bound for an untrusted source, which may indicate compromise or misuse of a protected resource.</rationale>
-			<addressed-by>IPS_NTA_EXT.1</addressed-by><rationale>This requirement mitigates the threat of network misuse by defining the network traffic the TSF is able to examine to determine the potential realization of a threat.</rationale>
-	
-			<addressed-by>FAU_STG.2/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by ensuring that records of stored IPS data cannot be read without authorization or modified by any subject so as not to falsely disclose the history of activity observed on the network.</rationale>
-			<addressed-by>FAU_STG.5/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by providing a predictable mechanism for how storage of IPS data is prioritized in the event that insufficient storage is available, allowing for the administrator to have adequate warning of the limitations of the collection process.</rationale>
-			<addressed-by>FPT_FLS.1/IPS (optional)</addressed-by><rationale>This requirement mitigates the threat by implementing a mechanism that allows the TSF to fail closed so that network traffic is not transmitted without inspection in the event that its inspection functionality is unavailable.</rationale>
-			<addressed-by>IPS_SBD_EXT.2 (optional)</addressed-by><rationale>This requirement mitigates the threat by allowing for detection of potential malicious network activity that would otherwise be undetected because of its fragmentation across multiple packets.</rationale>
-			<addressed-by>FAU_ARP.1 (objective)</addressed-by><rationale>This requirement mitigates the threat by generating an alert in response to the detection of suspicious network events, allowing for timely analysis of potential threats.</rationale>
-			<addressed-by>FAU_SAR.1 (objective)</addressed-by><rationale>This requirement mitigates the threat by providing authorized subjects with a means to review stored IPS data for detection of potential threats.</rationale>
-			<addressed-by>FAU_SAR.2 (objective)</addressed-by><rationale>This requirement mitigates the threat by providing a mechanism to review stored network data for administrative analysis.</rationale>
-			<addressed-by>FAU_SAR.3 (objective)</addressed-by><rationale>This requirement mitigates the threat by enforcing restrictions on the subjects that can review stored network data so that this is not disclosed to untrusted or potentially malicious subjects.</rationale>
-			<addressed-by>FRU_RSA.1 (implementation-based)</addressed-by><rationale>This requirement mitigates the threat by enforcing network traffic quotas so that network traffic is not transmitted through the TOE without analysis.</rationale>
-			
-        </threat>
+		
       </threats>
     </section>  <!-- Threats -->
 	
@@ -485,28 +436,22 @@
 	
     <sec:Assumptions>
 		<h:p>
-		All assumptions for the operational environment of the Base-PP also apply to this PP-Module.
-		A.NO_THRU_TRAFFIC_PROTECTION is still operative, but only for the interfaces in the TOE that are
-		defined by the Base-PP and not the PP-Module.
-		</h:p><h:p>
-		The following additional assumption is made on the operational environment in order to be able to
-		ensure that the security functionality specified in the PP-Module can be provided by the TOE. If the TOE
-		is placed in an operational environment that does not meet this assumption, the TOE may no longer be
-		able to provide all of its security functionality.
+		The following assumptions that are defined in this PP-Module extend the assumptions that are defined
+		by the Base-PPs.
 		</h:p>
 
       <assumptions>
-        <assumption name="A.CONNECTIONS">
-          <description> It is assumed that the TOE is connected to distinct networks in a manner that ensures that the TOE security policies will be enforced on all applicable network traffic flowing among the attached networks. </description>
-          <objective-refer ref="OE.CONNECTIONS">
-            <rationale> The objective supports the
-			assumption by setting the
-			expectation that
-			administrators will deploy the
-			TOE in such a manner that
-			there is no network path that
-			will be exempt from the TOE’s
-			inspection capabilities. </rationale>
+        <assumption name="A.UPDATE_SOURCE">
+          <description> It is assumed that TOE software/firmware updates will be made available on either the call control
+			server that the TOE connects to or a separate file server managed by the organization. <h:p/>
+			Note that because this PP-Module specifically disallows distributed TOEs, a conformant TOE will not claim
+			OE.COMPONENTS_RUNNING when NDcPP is the Base-PP.
+		  </description>
+          <objective-refer ref="OE.UPDATE_SOURCE">
+            <rationale> The objective satisfies the assumption
+			by ensuring that TOE updates are
+			made available in the intended location. 
+			</rationale>
           </objective-refer>
         </assumption>
       </assumptions>
@@ -515,17 +460,7 @@
 	<!-- OSPs refer to Objectives or OE Objectives in standard approach documents. -->
 	<!-- In direct rationale PPs, they should refer to OE Objectives -->
     <sec:Organizational_Security_Policies>
-
-      <OSPs>
-
-      	
-        <OSP name="P.ANALYZE">
-		  <description>Analytical processes and information to derive conclusions about potential intrusions must be applied to IPS data and appropriate response actions taken.</description>
-          <objective-refer ref="OE.CONNECTIONS">
-            <rationale>The operational environment's ability to facilitate network connections is necessary for the policy to analyze the network traffic associated with these connections.</rationale>
-          </objective-refer>
-        </OSP>
-      </OSPs>
+      <OSPs/>
     </sec:Organizational_Security_Policies>
   </sec:Security_Problem_Definition> <!-- Security Problem Definition -->
   
@@ -537,16 +472,11 @@
 	<!-- This section is included in direct rationale documents if there are OE Objectives -->
     <sec:Security_Objectives_for_the_Operational_Environment>
 		<h:p>
-		All objectives for the operational environment of the Base-PP also apply to this PP-Module.
-		OE.NO_THRU_TRAFFIC_PROTECTION is still operative, but only for the interfaces in the TOE that are
-		defined by the Base-PP and not the PP-Module.
-
+		The following environmental security objectives that are defined in this PP-Module extend the objectives
+		that are defined by the Base-PPs.
 		</h:p>
-		<h:p>This PP-Module defines the following additional environmental security objectives, which extend those
-		defined in the Base-PP.</h:p>
-
 	  <SOEs>
-        <SOE name="OE.CONNECTIONS">
+        <SOE name="OE.UPDATE_SOURCE">
           <description>TOE administrators will ensure that the TOE is installed in a manner that will allow the TOE to effectively
 enforce its policies on network traffic of monitored networks.</description>
         </SOE>
@@ -565,14 +495,110 @@ enforce its policies on network traffic of monitored networks.</description>
       <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
       <cPP/>
       <sec-func-req-dir> 
-        In a PP-Configuration that includes the NDcPP, the TOE is expected to rely on some of the security
-		functions implemented by the network device as a whole and evaluated against the Base-PP. However,
-		this PP-Module does not change how any of the NDcPP functions are implemented so there is no
-		modification to the NDcPP SFRs used with this PP-Module. Note in particular that requirements that apply
-		to distributed TOEs (e.g. FCO_CPC_EXT.1, FPT_ITT.1) remain optional as this PP-Module supports but does
-		not mandate a distributed deployment.
+        In a PP-Configuration that includes the NDcPP, the VVoIP client is expected to rely on some of the security
+		functions implemented by the network device as a whole and evaluated against the NDcPP. In this case,
+		the following sections describe any modifications that the ST author must make to the SFRs defined in the
+		NDcPP in addition to what is mandated by section 5.3.
+		<!-- QQQQ: Verify this section number is correct. -->
       </sec-func-req-dir>
-      <modified-sfrs/>
+      <modified-sfrs>
+	  	<section title="Security Audit (FAU)" id="nd-mod-fau">
+			<base-sfr-spec cc-id="fau_stg_ext.1" title="Protected Audit Event Storage" id="nd-mod-fau-stg-ext-1">
+				<consistency-rationale>
+				This PP-Module modifies this SFR to prohibit the selection of any
+				“distributed TOE” behavior in FAU_STG_EXT.1.2. The SFR is otherwise
+				unchanged.</consistency-rationale>
+				<description>
+				<h:p>This SFR is modified to prohibit the selection of distributed TOE options. Any element not mentioned in this 
+				section is unchanged from its definition in the Base-PP.</h:p>
+				<h:p>The text of FAU_STG_EXT.1.2 is replaced with:</h:p>
+				<h:p><h:b>FAU_STG_EXT.1.2: </h:b>The TSF shall be able to store generated audit data on the TOE itself.
+				<h:ul><h:li>[<h:i>The TOE shall consist of a single standalone component that stores audit
+					data locally</h:i>].</h:li></h:ul></h:p>
+				<h:p><h:b>Application Note: </h:b>This PP-Module modifies the existing FAU_STG_EXT.1 SFR in the NDcPP to prohibit
+				the selection of any “distributed TOE” behavior in FAU_STG_EXT.1.2. The SFR is
+				otherwise unchanged.</h:p>
+				</description>
+				<!-- NDcPP not in XML so no change can be modeled -->
+				<no-change/>
+			</base-sfr-spec>
+		</section>
+		<section title="Crytographic Support (FCS)" id="nd-mod-fcs">
+			<base-sfr-spec cc-id="fcs_ntp_ext.1" title="NTP Protocol" id="nd-mod-fcs-ntp-ext-1"> 
+				<consistency-rationale>This PP-Module does not modify this SFR; it only modifies the circumstances
+				that trigger its inclusion in the TOE’s logical boundary.</consistency-rationale>
+				<description>
+					<h:p>This SFR is selection-based in the NDcPP and remains selection-based in this PP-Module. However, an
+					additional trigger for this SFR’s inclusion is added for the selection of “register the TOE to an ESC…” in
+					FMT_SMF.1/VVoIP. This is because any VVoIP TOE that can be registered to ESCs is required to use them
+					as NTP servers.</h:p>
+					<h:p>If the TOE is not registered to an ESC, it is not relevant to this PP-Module whether or not NTP is
+					implemented, and in this case this SFR remains selection-based on FPT_STM_EXT.1.2, which is not
+					modified by this PP-Module (i.e. a peer-to-peer TOE does not register to an ESC but may still receive time
+					data from a separate NTP source).</h:p>
+				</description>
+				<no-change/>
+			</base-sfr-spec>
+			<base-sfr-spec cc-id="fcs_tlsc_ext.1" title="TLS Client Protocol without Mutual Authentication" id="nd-mod-fcs-tlsc-ext-1">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only forces its inclusion because
+				a conformant TOE must implement TLS client functionality.</consistency-rationale>
+				<description>This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a> but is mandated by this PP-Module because TLS is used to secure
+				call control and streaming media channels regardless of the application protocol used. There is no change
+				to the SFR text itself.
+				</description>
+				<no-change/>
+			</base-sfr-spec>
+			<base-sfr-spec cc-id="fcs_tlsc_ext.2" title="TLS Client Support for Mutual Authentication" id="nd-mod-fcs-tlsc-ext-2">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only forces its inclusion because
+				a conformant TOE must implement a TLS client that enforces mutual
+				authentication.</consistency-rationale>
+				<description>This SFR is optional in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a> 
+				but is mandated by this PP-Module because the TLS implementation that
+				is used to secure call control and streaming media channels must be secured using mutual authentication.
+				There is no change to the SFR text itself.</description>
+				<no-change/>
+			</base-sfr-spec>
+		</section>
+		<section title="Identification and Authorization (FIA)" id="nd-mod-fia">
+			<base-sfr-spec cc-id="fia_x509_ext.1" iteration="Rev" title="X.509 Certificate Validation" id="nd-mod-fia-x509-ext-1">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only forces its inclusion because
+				X.509 services are required to support TLS client functionality.</consistency-rationale>
+				<description>This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</h:a> 
+				but is mandated by this PP-Module because it is a dependency
+				on the TLS functionality that this PP-Module requires. There is no change to the SFR text itself.</description>
+				<no-change/>
+			</base-sfr-spec>
+			<base-sfr-spec cc-id="fia_x509_ext.2" title="X.509 Certificate Authentication" id="nd-mod-fia-x509-ext-2">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only forces its inclusion because
+				X.509 services are required to support TLS client functionality.</consistency-rationale>
+				<description>This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</h:a> 
+				but is mandated by this PP-Module because it is a dependency
+				on the TLS functionality that this PP-Module requires. There is no change to the SFR text itself.</description>
+			<no-change/>
+			</base-sfr-spec>
+			<base-sfr-spec cc-id="fia_x509_ext.3" title="X.509 Certificate Requests" id="nd-mod-fia-x509-ext-3">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only forces its inclusion because
+				X.509 services are required to support TLS client functionality.</consistency-rationale>
+				<description>This SFR is selection-based in the NDcPP but is mandated by this PP-Module because it is a dependency
+				on the TLS functionality that this PP-Module requires. There is no change to the SFR text itself.
+				</description>
+				<no-change/>
+			</base-sfr-spec>
+		</section>
+		<section id="nd-mod-fpt" title="Protection of the TSF (FPT)">
+			<base-sfr-spec cc-id="fpt_tud_ext.1" title="Trusted Update" id="nd-mod-fpt-tud-ext-1">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only specifies that the source of
+				TOE software/firmware updates must be a specific type of server.
+				</consistency-rationale>
+				<description>This PP-Module does not modify this SFR as it is defined in the NDcPP. However, note that this PP-Module
+				expects that either the call control server or a separate file server managed by the organization to function
+				as the source of TOE software/firmware updates. The evaluator shall ensure that the test environment is
+				configured appropriately.</description>
+				<no-change/>
+			</base-sfr-spec>
+		</section>
+		
+	  </modified-sfrs>
       <additional-sfrs/>
       <con-toe>
         When this PP-Module is used to extend the NDcPP, the TOE type for the overall TOE is still a network
