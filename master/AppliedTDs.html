@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html><head><meta content="text/html;charset=utf-8" http-equiv="Content-Type"></meta><meta content="utf-8" http-equiv="encoding"></meta><title>PP-Module for IPS</title><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/x-mathjax-config">
+<html><head><meta content="text/html;charset=utf-8" http-equiv="Content-Type"></meta><meta content="utf-8" http-equiv="encoding"></meta><title>PP-Module for VVoIP</title><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/x-mathjax-config">
             MathJax.Hub.Config({
             extensions: ["tex2jax.js"],
             jax: ["input/TeX", "output/HTML-CSS"],
@@ -629,16 +629,16 @@ function showTarget(id){
 	            img[src="images/collapsed.png"] { display:none;}
 
           }
-    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/><a href="#Comment-4-">Comment: Comment-4-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for IPS</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
+    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for VVoIP</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 1.1<br/>2025-04-11<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.1</td><td>2025-04-11</td><td><abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022 updates, incorporation of TDs</td></tr>
 <tr><td>1.0</td><td>2020-10-28</td><td>Initial publication</td></tr>
-</table><h3>TDs Applied</h3><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#ConformanceClaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#sec-threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#sec-sor" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
+</table><h3>TDs Applied</h3><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#sec-features" style="text-indent:10px">1.6<span>Implementation-Based Features</span></a><a href="#feat-swapp" style="text-indent:20px">1.6.1<span>Software Application</span></a><a href="#feat-device" style="text-indent:20px">1.6.2<span>Network Device</span></a><a href="#ConformanceClaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#sec-threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#sec-sor" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
     Protection Profile for Network Devices
        Security Functional Requirements Direction
     </span></a><a href="#modsfr-ND" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#@id" style="text-indent:30px">5.1.1.1<span>Security Audit (FAU)</span></a><a href="#@id" style="text-indent:30px">5.1.1.2<span>Crytographic Support (FCS)</span></a><a href="#@id" style="text-indent:30px">5.1.1.3<span>Identification and Authorization (FIA)</span></a><a href="#@id" style="text-indent:30px">5.1.1.4<span>Protection of the TSF (FPT)</span></a><a href="#@id" style="text-indent:30px">5.1.1.5<span>Trusted Path (FTP)</span></a><a href="#addsfr-ND" style="text-indent:20px">5.1.2<span> Additional SFRs</span></a><a href="#secreq-APP" style="text-indent:10px">5.2<span>
     Protection Profile for Application Software
        Security Functional Requirements Direction
-    </span></a><a href="#modsfr-APP" style="text-indent:20px">5.2.1<span> Modified SFRs </span></a><a href="#@id" style="text-indent:30px">5.2.1.1<span>Protection of the TSF (FPT)</span></a><a href="#@id" style="text-indent:30px">5.2.1.2<span>Trusted Path/Channel (FTP)</span></a><a href="#addsfr-APP" style="text-indent:20px">5.2.2<span> Additional SFRs</span></a><a href="#man-sfrs" style="text-indent:10px">5.3<span>TOE Security Functional Requirements</span></a><a href="#ss-audit-table" style="text-indent:20px">5.3.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#m-fco" style="text-indent:20px">5.3.2<span>Communications (FCO)</span></a><a href="#m-fdp" style="text-indent:20px">5.3.3<span>User Data Protection (FDP)</span></a><a href="#m-fmt" style="text-indent:20px">5.3.4<span>Security Management (FMT)</span></a><a href="#m-fta" style="text-indent:20px">5.3.5<span>TOE Access (FTA)</span></a><a href="#obj-req-map" style="text-indent:10px">5.4<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-ND" style="text-indent:10px">6.1<span>Collaborative 
+    </span></a><a href="#modsfr-APP" style="text-indent:20px">5.2.1<span> Modified SFRs </span></a><a href="#@id" style="text-indent:30px">5.2.1.1<span>Protection of the TSF (FPT)</span></a><a href="#@id" style="text-indent:30px">5.2.1.2<span>Trusted Path/Channel (FTP)</span></a><a href="#addsfr-APP" style="text-indent:20px">5.2.2<span> Additional SFRs</span></a><a href="#man-sfrs" style="text-indent:10px">5.3<span>TOE Security Functional Requirements</span></a><a href="#ss-audit-table" style="text-indent:20px">5.3.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#m-fco" style="text-indent:20px">5.3.2<span>Communications (FCO)</span></a><a href="#m-fdp" style="text-indent:20px">5.3.3<span>User Data Protection (FDP)</span></a><a href="#m-fmt" style="text-indent:20px">5.3.4<span>Security Management (FMT)</span></a><a href="#m-fta" style="text-indent:20px">5.3.5<span>TOE Access (FTA)</span></a><a href="#" style="text-indent:20px">5.3.6<span>Trusted Path/Channels (FTP)</span></a><a href="#obj-req-map" style="text-indent:10px">5.4<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-ND" style="text-indent:10px">6.1<span>Collaborative 
     Protection Profile for Network Devices</span></a><a href="#contoe-ND" style="text-indent:20px">6.1.1<span>
 	Consistency of TOE Type
       </span></a><a href="#consecprob-ND" style="text-indent:20px">6.1.2<span>
@@ -657,10 +657,10 @@ function showTarget(id){
 		</span></a><a href="#conreq-APP" style="text-indent:20px">6.2.4<span>
 	Consistency of Requirements
       </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements
-    </span></a><a href="#sec-opt-audit-table" style="text-indent:20px">A.1.1<span>Auditable Events for Optional SFRs</span></a><a href="#fau-ops" style="text-indent:20px">A.1.2<span>Security Audit(FAU)</span></a><a href="#fpt" style="text-indent:20px">A.1.3<span>Protection of the TSF (FPT)</span></a><a href="#ips" style="text-indent:20px">A.1.4<span>Intrusion Prevention (IPS)</span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements
-    </span></a><a href="#_sec_20" style="text-indent:20px">A.2.1<span>Auditable Events for Objective SFRs</span></a><a href="#fau-obj" style="text-indent:20px">A.2.2<span>Security Audit (FAU)</span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Implementation-dependent Requirements
-    </span></a><a href="#_sec_22" style="text-indent:20px">A.3.1<span>Auditable Events for Implementation-Dependent SFRs</span></a><a href="#fru-imp_dep" style="text-indent:20px">A.3.2<span>Resource Utilization</span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements
-    </span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-FTA" style="text-indent:20px">C.2.1<span>TOE Access (FTA)</span></a><a href="#ext-comp-IPS_ABD_EXT" style="text-indent:30px">C.2.1.1<span>IPS_ABD_EXT Anomaly-Based IPS Functionality</span></a><a href="#ext-comp-IPS_IPB_EXT" style="text-indent:30px">C.2.1.2<span>IPS_IPB_EXT IP Blocking</span></a><a href="#ext-comp-IPS_NTA_EXT" style="text-indent:30px">C.2.1.3<span>IPS_NTA_EXT Network Traffic Analysis</span></a><a href="#ext-comp-IPS_SBD_EXT" style="text-indent:30px">C.2.1.4<span>IPS_SBD_EXT Signature-Based IPS Functionality</span></a><a href="#satisfiedreqs" style="text-indent:0px">Appendix D - <span>Inherently Satisfied Requirements</span></a><a href="#entropyappendix" style="text-indent:0px">Appendix E - <span>Entropy Documentation and Assessment</span></a><a href="#acronyms" style="text-indent:0px">Appendix F - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix G - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
+    </span></a><a href="#sec-opt-audit-table" style="text-indent:20px">A.1.1<span>Auditable Events for Optional SFRs</span></a><a href="#fau-ops" style="text-indent:20px">A.1.2<span>Security Audit(FAU)</span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements
+    </span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Implementation-dependent Requirements
+    </span></a><a href="#_sec_20" style="text-indent:20px">A.3.1<span>Auditable Events for Implementation-Dependent SFRs</span></a><a href="#fau-imp_dep" style="text-indent:20px">A.3.2<span>Security Audit (FAU)</span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements
+    </span></a><a href="#satisfiedreqs" style="text-indent:0px">Appendix C - <span>Inherently Satisfied Requirements</span></a><a href="#entropyappendix" style="text-indent:0px">Appendix D - <span>Entropy Documentation and Assessment</span></a><a href="#acronyms" style="text-indent:0px">Appendix E - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix F - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
     
      
     <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
@@ -869,7 +869,14 @@ The following sections list Common Criteria and technology terms used in this do
 	
 	
   
-   
+   <h2 class="indexable" data-level="2" id="sec-features">1.6 Implementation-Based Features</h2>
+      The following features of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are implementation-based. A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not required to implement these features to conform to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, but if the feature is implemented, it is expected that associated implementation-based requirements are claimed as part of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.  
+      <h3 class="indexable" data-level="3" id="feat-swapp">1.6.1 Software Application</h3><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a software application and claims the App-PP as the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</span><br/><p>
+	  If this feature is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the following requirements must be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
+            <ul><li><b><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></b></li></ul></p><h3 class="indexable" data-level="3" id="feat-device">1.6.2 Network Device</h3><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a network device and claims the NDcPP as the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</span><br/><p>
+	  If this feature is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the following requirements must be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
+            <ul></ul></p>			
+     
   	
   	
 
@@ -1014,12 +1021,12 @@ enforce its policies on network traffic of monitored networks.</span></dd></dl>
 		<h4 id="@id" class="indexable" data-level="4">5.1.1.1 Security Audit (FAU)</h4><div class="comp" id="@id"><h4>FAU_STG_EXT.1: Protected Audit Event Storage</h4><span class="description">
 				<p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is modified to prohibit the selection of distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> options. Any element not mentioned in this 
 				section is unchanged from its definition in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</p>
-				<p>The text of FAU_STG_EXT.1.2 is replaced with:</p>
-				<p><b>FAU_STG_EXT.1.2: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to store generated audit data on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> itself.
+				<p>The text of <a href="#FAU_STG_EXT.1.2">FAU_STG_EXT.1.2</a> is replaced with:</p>
+				<p><b><a href="#FAU_STG_EXT.1.2">FAU_STG_EXT.1.2</a>: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to store generated audit data on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> itself.
 				<ul><li>[<i>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall consist of a single standalone component that stores audit
 					data locally</i>].</li></ul></p>
-				<p><b>Application Note: </b>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies the existing FAU_STG_EXT.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> in the NDcPP to prohibit
-				the selection of any “distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>” behavior in FAU_STG_EXT.1.2. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is
+				<p><b>Application Note: </b>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies the existing <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> in the NDcPP to prohibit
+				the selection of any “distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>” behavior in <a href="#FAU_STG_EXT.1.2">FAU_STG_EXT.1.2</a>. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is
 				otherwise unchanged.</p>
 				</span></div><h4 id="@id" class="indexable" data-level="4">5.1.1.2 Crytographic Support (FCS)</h4><div class="comp" id="@id"><h4>FCS_NTP_EXT.1: NTP Protocol</h4><span class="description">
 					<p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the NDcPP and remains selection-based in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. However, an
@@ -1152,22 +1159,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 			
 		
 		<h3 class="indexable" data-level="3" id="ss-audit-table">5.3.1 Auditable Events for Mandatory SFRs</h3>
-			<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-mandatory" data-counter-type="ct-Table" id="at-mandatory">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="IPS_ABD_EXT.1"><td rowspan="2"><a href="#IPS_ABD_EXT.1">IPS_ABD_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="IPS_ABD_EXT.1#"><td></td></tr><tr data-sortkey="IPS_ABD_EXT.1.7"><td>Inspected traffic matches an anomaly-based IPS policy.</td><td><ul><li>Source and destination IP addresses.</li><li>The content of the header fields that were determined to match the policy.</li><li><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface that received the packet.</li><li>Aspect of the anomaly-based IPS policy rule that triggered the event (e.g. throughput, time of day, frequency, etc.).</li><li>Network-based action by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (e.g. allowed, blocked, sent reset to source IP, sent blocking notification to firewall). </li></ul></td></tr><tr data-sortkey="IPS_IPB_EXT.1"><td rowspan="2"><a href="#IPS_IPB_EXT.1">IPS_IPB_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="IPS_IPB_EXT.1#"><td></td></tr><tr data-sortkey="IPS_IPB_EXT.1.6"><td>Inspected traffic matches a list of known-good or known-bad addresses applied to an IPS policy.</td><td><ul><li>Source and destination IP addresses (and, if applicable, indication of whether the source and/or destination address matched the list).</li><li><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface that received the packet.</li><li>Network-based action by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (e.g. allowed, blocked, sent reset).</li></ul></td></tr><tr data-sortkey="IPS_NTA_EXT.1"><td rowspan="4"><a href="#IPS_NTA_EXT.1">IPS_NTA_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="IPS_NTA_EXT.1#"><td></td></tr><tr data-sortkey="IPS_NTA_EXT.1.7"><td>Modification of which IPS policies
-				are active on a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface</td><td><ul><li>Identification of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface.
-				</li><li>The IPS policy and interface mode (if
-				applicable).
-				</li></ul></td></tr><tr data-sortkey="IPS_NTA_EXT.1.8"><td>Enabling/disabling a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
-				interface with IPS policies
-				applied.
-				</td><td><ul><li>Identification of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface.
-				</li><li>The IPS policy and interface mode (if
-				applicable).
-				</li></ul></td></tr><tr data-sortkey="IPS_NTA_EXT.1.9"><td>Modification of which mode(s)
-				is/are active on a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface.
-				</td><td><ul><li>Identification of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface.
-				</li><li>The IPS policy and interface mode (if
-				applicable).
-				</li></ul></td></tr><tr data-sortkey="IPS_SBD_EXT.1"><td rowspan="2"><a href="#IPS_SBD_EXT.1">IPS_SBD_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="IPS_SBD_EXT.1#"><td></td></tr><tr data-sortkey="IPS_SBD_EXT.1.10"><td>Inspected traffic matches a signature-based IPS rule with logging enabled.</td><td><ul><li>Name or identifier of the matched signature.</li><li>Source and destination IP addresses.</li><li>The content of the header fields that were determined to match the signature.</li><li><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface that received the packet.</li><li>Network-based action by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (e.g. allowed, blocked, sent reset).</li></ul></td></tr></table>
+			<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-mandatory" data-counter-type="ct-Table" id="at-mandatory">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FCO_VOC_EXT.1"><td rowspan="2"><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCO_VOC_EXT.1#"><td></td></tr><tr data-sortkey="FCO_VOC_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_IFC.1"><td rowspan="2"><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_IFC.1#"><td></td></tr><tr data-sortkey="FDP_IFC.1.1"><td>Call Detail Record (CDR) of VVoIP peer communications.</td><td><ul><li>Calling party</li><li>Called party</li><li>Start time of call</li><li>Call duration</li></ul></td></tr><tr data-sortkey="FDP_IFF.1"><td rowspan="2"><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_IFF.1#"><td></td></tr><tr data-sortkey="FDP_IFF.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_SMF.1/VVoIP"><td rowspan="2"><a href="#FMT_SMF.1/VVoIP">FMT_SMF.1/VVoIP</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_SMF.1/VVoIP#"><td></td></tr><tr data-sortkey="FMT_SMF.1/VVoIP.1"><td><b>[selection: </b><i>Registration of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>., None</i><b>]</b></td><td><b>[selection: </b><i>IP address or identifier for the <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>, No additional information</i><b>]</b></td></tr><tr data-sortkey="FTA_SSL.3/MEDIA"><td rowspan="2"><a href="#FTA_SSL.3/MEDIA">FTA_SSL.3/MEDIA</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTA_SSL.3/MEDIA#"><td></td></tr><tr data-sortkey="FTA_SSL.3/MEDIA.1"><td>Termination of a call due to inactivity.</td><td>Call party dropped time</td></tr><tr data-sortkey="FTP_ITC.1/CONTROL"><td rowspan="3"><a href="#FTP_ITC.1/CONTROL">FTP_ITC.1/CONTROL</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTP_ITC.1/CONTROL#"><td></td></tr><tr data-sortkey="FTP_ITC.1/CONTROL.3"><td>Establishment of connection to VVoIP call control server</td><td><ul><li>Called party</li><li>Calling party</li><li>Established connection time</li><li>Terminated connection time</li></ul></td></tr><tr data-sortkey="FTP_ITC.1/CONTROL.4"><td>Termination of connection to VVoIP call control server</td><td><ul><li>Called party</li><li>Calling party</li><li>Established connection time</li><li>Terminated connection time</li></ul></td></tr><tr data-sortkey="FTP_ITC.1/MEDIA"><td rowspan="3"><a href="#FTP_ITC.1/MEDIA">FTP_ITC.1/MEDIA</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTP_ITC.1/MEDIA#"><td></td></tr><tr data-sortkey="FTP_ITC.1/MEDIA.3"><td>Establishment of connection to VVoIP peer</td><td><ul><li>Called party</li><li>Calling party</li><li>Established connection time</li><li>Terminated connection time</li></ul></td></tr><tr data-sortkey="FTP_ITC.1/MEDIA.4"><td>Termination of connection to VVoIP peer</td><td><ul><li>Called party</li><li>Calling party</li><li>Established connection time</li><li>Terminated connection time</li></ul></td></tr></table>
 		
 		
 			<h3 id="m-fco" class="indexable" data-level="3">5.3.2 Communications (FCO)</h3>
@@ -1180,6 +1172,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 							A constant bit rate vocoder provides a constant output length that does not have
 							the vulnerabilities that a variable bit rate vocoder contains when encrypted.
 						</span></div></div></div>
+					
 				</div>
 			
 			
@@ -1190,6 +1183,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 					<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">There are states when on-hook voice and video must not stream from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</span></div></div></div>
+				
 			</div>
 			
 			<div class="comp" id="FDP_IFF.1"><h4>FDP_IFF.1 Simple Security Attributes</h4>
@@ -1214,6 +1208,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 						rules: [<i>no additional rules</i>].</div></div>
 				<div class="element"><div class="reqid" id="FDP_IFF.1.5"><a href="#FDP_IFF.1.5" class="abbr">FDP_IFF.1.5</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall explicitly deny an information flow based on the following rules:
 						[<i>all TCP and UDP ports used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are closed when not in active use</i>].</div></div>
+				
 			</div>
 			
 			
@@ -1247,360 +1242,89 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 					If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims conformance to the NDcPP and “register the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>…” is
 					selected, the selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> FCS_NTP_EXT.1 must be claimed since
 					connectivity to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr> implies that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will use it as an NTP server.
-				</span></div></div></div>	
+				</span></div></div></div>
+					
 			</div>
 			
-						<h3 id="m-fta" class="indexable" data-level="3">5.3.5 TOE Access (FTA)</h3>
-							
-							
-							
-							
-			<div class="comp" id="IPS_ABD_EXT.1"><h4>IPS_ABD_EXT.1 Anomaly-Based IPS Functionality</h4>
+
+			<h3 id="m-fta" class="indexable" data-level="3">5.3.5 TOE Access (FTA)</h3>			
+			<div class="comp" id="FTA_SSL.3/MEDIA"><h4>FTA_SSL.3/MEDIA TSF-Initiated Termination (Media Channel)</h4>
 				
-				
-				
-				
-				
-				
-				<div class="element"><div class="reqid" id="IPS_ABD_EXT.1.1"><a href="#IPS_ABD_EXT.1.1" class="abbr">IPS_ABD_EXT.1.1</a></div><div class="reqdesc">
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support the definition of [<b>selection</b>: <span class="selectable-content" id="_s_38">baselines (‘expected and approved’)</span>, <span class="selectable-content" id="_s_39">anomaly (‘unexpected’) traffic patterns</span>] including the specification of [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_40">throughput ([<b>assignment</b>: 
-     <span class="assignable-content"> data elements (e.g. bytes, packets, etc.) per time period (e.g. minutes, hours, days)</span>])</span></li><li style=""><span class="selectable-content" id="_s_41">time of day;</span></li><li style=""><span class="selectable-content" id="_s_42">frequency;</span></li><li style=""><span class="selectable-content" id="_s_43">thresholds;</span></li><li style=""><span class="selectable-content" id="_s_44">[[<b>assignment</b>: 
-     <span class="assignable-content">other methods</span>]]</span></li></ul>]
-					and the following network protocol fields:
-					<ul>
-						<li>[<b>selection</b>: <span class="selectable-content" id="_s_45"> all packet header and data elements defined in <a href="#IPS_SBD_EXT.1">IPS_SBD_EXT.1</a></span>, <span class="selectable-content" id="_s_46">[<b>assignment</b>: 
-     <span class="assignable-content">subset list of packet header and data elements from <a href="#IPS_SBD_EXT.1">IPS_SBD_EXT.1</a></span>]</span>].</li>
-					</ul>
+				<div class="element"><div class="reqid" id="FTA_SSL.3.1/MEDIA"><a href="#FTA_SSL.3.1/MEDIA" class="abbr">FTA_SSL.3.1/MEDIA</a></div><div class="reqdesc">
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall terminate voice/video transmission after [<i>inactivity longer than
+					[<b>selection</b>: <span class="selectable-content" id="_s_38">[<b>assignment</b>: 
+     <span class="assignable-content">default number of seconds</span>] seconds</span>, <span class="selectable-content" id="_s_39">an administrator-configurable interval</span>]</i>].
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-					Baselines are the definition of known-good traffic (to be allowed per
-					<a href="#IPS_ABD_EXT.1.3">IPS_ABD_EXT.1.3</a>) whilst anomaly traffic is definition of (‘offending’) traffic that is
-					to be handled per other actions defined in <a href="#IPS_ABD_EXT.1.3">IPS_ABD_EXT.1.3</a>. Frequency can be
-					defined as a number of occurrences of an event (such as detection of packets
-					matching a signature) over a defined period of time, such as the number of new
-					FTP sessions established during one hour. Thresholds can be defined as an amount
-					or percentage of deviation from expected levels or limits, such as a number of
-					megabytes of data transferred via FTP per hour. 
-					</span></div></div></div>
-				<div class="element"><div class="reqid" id="IPS_ABD_EXT.1.2"><a href="#IPS_ABD_EXT.1.2" class="abbr">IPS_ABD_EXT.1.2</a></div><div class="reqdesc">
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support the definition of anomaly activity through [<b>selection</b>: <span class="selectable-content" id="_s_47">manual configuration by administrators</span>, <span class="selectable-content" id="_s_48">automated configuration</span>].
-				<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-				The “baseline” and “anomaly” can be something manually defined/configured
-				by a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> administrator (or importing definitions), or something that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is
-				able to automatically define/create by inspecting network traffic over a period
-				of time (a.k.a. “profiling”). It is not essential for the IPS <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to have a capability
-				of “profiling” a network to dynamically defining a baseline or rule; if the product
-				has this functionality, it is outside the scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
-				</span></div></div></div>
-				<div class="element"><div class="reqid" id="IPS_ABD_EXT.1.3"><a href="#IPS_ABD_EXT.1.3" class="abbr">IPS_ABD_EXT.1.3</a></div><div class="reqdesc">
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow the following operations to be associated with anomaly-based IPS policies:
-				<ul>
-					<li>In any mode, for any sensor interface: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_49">allow the traffic flow</span></li><li style=""><span class="selectable-content" id="_s_50">send a TCP reset to the source address of the offending traffic</span></li><li style=""><span class="selectable-content" id="_s_51">send a TCP reset to the destination address of the offending traffic</span></li><li style=""><span class="selectable-content" id="_s_52">send an ICMP
-								[<b>selection</b>: <span class="selectable-content" id="_s_53">host</span>, <span class="selectable-content" id="_s_54">destination</span>, <span class="selectable-content" id="_s_55">port</span>]
-								unreachable message
-								</span></li><li style=""><span class="selectable-content" id="_s_56">trigger a non-TOE network device to block the offending traffic pattern</span></li></ul>]</li>
-					<li>In inline mode:
-						<ul>
-							<li>allow the traffic flow</li>
-							<li>block/drop the traffic flow</li>
-							<li>and 
-									[<b>selection</b>: <span class="selectable-content" id="_s_57">modify and forward packets before they pass through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_58">no other actions</span>].</li>
-						</ul>
-					</li>
-				</ul>
-				</div></div>
-				
-				</div>
-							
-							
-							
-				<div class="comp" id="IPS_IPB_EXT.1"><h4>IPS_IPB_EXT.1 IP Blocking</h4>
-					
-					
-					
-					
-					
-					
-				<div class="element"><div class="reqid" id="IPS_IPB_EXT.1.1"><a href="#IPS_IPB_EXT.1.1" class="abbr">IPS_IPB_EXT.1.1</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support configuration and implementation of known-good and known-bad lists of [<b>selection</b>: <span class="selectable-content" id="_s_59">source</span>, <span class="selectable-content" id="_s_60">destination</span>] IP addresses and [<b>selection</b>: <span class="selectable-content" id="_s_61">no additional address types</span>, <span class="selectable-content" id="_s_62">
-							[<b>assignment</b>: 
-     <span class="assignable-content">list of address types</span>]</span>].
-
-					<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-						The address types defined in this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> are limited to IP addresses (e.g., a single IP
-						address or a range of IP addresses) because this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is limited to
-						inspection of IP traffic. IPS <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> are not prohibited from enabling functionality
-						that would allow/prohibit traffic flow based on other address types, such as
-						MAC addresses.
-					</span></div></div></div>
-				<div class="element"><div class="reqid" id="IPS_IPB_EXT.1.2"><a href="#IPS_IPB_EXT.1.2" class="abbr">IPS_IPB_EXT.1.2</a></div><div class="reqdesc">
-						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow [<i>Security Administrators</i>] to configure the following IPS policy elements: [<b>selection</b>: <span class="selectable-content" id="_s_63">known-good list rules</span>, <span class="selectable-content" id="_s_64">known-bad list rules</span>, <span class="selectable-content" id="_s_65">IP addresses</span>, <span class="selectable-content" id="_s_66">[<b>assignment</b>: 
-     <span class="assignable-content">other IPS policy elements</span>]</span>, <span class="selectable-content" id="_s_67">no other IPS policy elements</span>].
-					</div></div>
-				
-				</div>
-							
-							
-							
-				<div class="comp" id="IPS_NTA_EXT.1"><h4>IPS_NTA_EXT.1 Network Traffic Analysis</h4>
-					
-					
-					
-					
-					
-					
-				<div class="element"><div class="reqid" id="IPS_NTA_EXT.1.1"><a href="#IPS_NTA_EXT.1.1" class="abbr">IPS_NTA_EXT.1.1</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform analysis of IP-based network traffic forwarded to the
-					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s sensor interfaces, and detect violations of administratively-defined IPS
-					policies.
-
-					<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-						Though it might be the case in some <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> that any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface can be a sensor
-						interface, that capability is not a requirement. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> uses the term “sensor
-						interface” to refer to any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface to which one or more IPS policy has been
-						applied. An administratively-defined IPS policy is any set of rules for traffic
-						analysis, traffic blocking, signature detection, and/or anomaly detection applied
-						to one or more <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interfaces. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be capable of allowing the
-						administrator to configure the precedence of IPS policy elements (known-good
-						lists, known-bad lists, signature-based rules, and anomaly- based rules), but any
-						such configurability is not required by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
-					</span></div></div></div>
-				<div class="element"><div class="reqid" id="IPS_NTA_EXT.1.2"><a href="#IPS_NTA_EXT.1.2" class="abbr">IPS_NTA_EXT.1.2</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall process (be capable of inspecting) the following network traffic protocols:	
-					<ul>
-					<li>Internet Protocol version 4 (IPv4), RFC 791</li>
-					<li>Internet Protocol version 6 (IPv6), RFC 8200</li>
-					<li>Internet control message protocol version 4 (ICMPv4), RFC 792</li>
-					<li>Internet control message protocol version 6 (ICMPv6), RFC 2463</li>
-					<li>Transmission Control Protocol (TCP), RFC 793</li>
-					<li>User Data Protocol (UDP), RFC 768.</li>
-
-
-					</ul>
-					<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">The identification of protocol RFCs does not imply that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must ensure all
-							packets are conformant to the identified protocol RFCs at all times, nor does it
-							imply that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> would be able to enforce full conformance with the RFCs for
-							any traffic flow at any time. The identification of RFCs provides a frame of
-							reference for understanding the packet contents (headers, fields, states,
-							commands, etc.) identified else in this and other <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>. The implication is that the
-							<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must be capable of understanding the RFC implementation to the extent the
-							RFC parameters are identified throughout the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.
-						</span></div></div></div>
-				<div class="element"><div class="reqid" id="IPS_NTA_EXT.1.3"><a href="#IPS_NTA_EXT.1.3" class="abbr">IPS_NTA_EXT.1.3</a></div><div class="reqdesc">
-						<span style="" class="comment " id="Comment-2-">wording updated as this was previously clunky, but also the "session reset-capable interface" selection was removed because there are no EAs for that claim, and it also has an open-ended assignment where other types of interfaces can be specified with no instructions on how to test them.</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow the signatures to be assigned to sensor interfaces configured
-					for promiscuous and inline mode, and to
-					support designation of one or more interfaces as being used as a management interface for communication between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and external entities without simultaneously
-					being a sensor interface, as indicated by the following interface types:
-					<ul>
-					<li>Promiscuous (listen-only) mode: [<b>assignment</b>: 
-     <span class="assignable-content">list of interface types</span>]</li>
-					<li>Inline (data pass-through) mode: [<b>assignment</b>: 
-     <span class="assignable-content">list of interface types</span>]</li>
-					<li>Management mode: [<b>assignment</b>: 
-     <span class="assignable-content">list of interface types</span>].</li>
+				This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is intended to mitigate the potential unauthorized disclosure of media
+				data in the case where connectivity with the peer is lost. The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should
+				choose one or both selections if applicable. Note that if “an administratorconfigurable interval” is selected, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must select “configure the
+				termination period for idle calls” in <a href="#FMT_SMF.1.1/VVoIP">FMT_SMF.1.1/VVoIP</a>. 
+				</span></div></div></div>	
 						
-					</ul>
+				</div>
+				
+
+				<h3 id="" class="indexable" data-level="3">5.3.6 Trusted Path/Channels (FTP)</h3>
+							
+				<div class="comp" id="FTP_ITC.1/CONTROL"><h4>FTP_ITC.1/CONTROL Inter-TSF Trusted Channel (Signaling Channel)</h4>
+					
+				<div class="element"><div class="reqid" id="FTP_ITC.1.1/CONTROL"><a href="#FTP_ITC.1.1/CONTROL" class="abbr">FTP_ITC.1.1/CONTROL</a></div><div class="reqdesc">
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>be capable of using [<b>selection</b>: <span class="selectable-content" id="_s_40">Session Initiation Protocol (<abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr>)</span>, <span class="selectable-content" id="_s_41">H.323</span>] 
+					to </b>provide a trusted communication channel between itself and <b>a VVoIP
+					call control server</b> that is logically distinct from other communication channels
+					and provides assured identification of its end points and protection of the channel
+					data from modification or disclosure.
+
+
 					<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-					<p>
-					Interface types may be Ethernet, Gigabit Ethernet, etc. Promiscuous interfaces
-					are ones that listen to network traffic for the sole purpose of inspecting the
-					traffic, but do not provide any OSI Layer 2, Layer 3, or higher layer functionality,
-					so network services are not listening on the interface, and no IP protocol stack
-					enabled on the interface so no IP address is assigned to the interface. Inline
-					interfaces are interface pairings that provide a path for network traffic to
-					traverse the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> such that traffic flows can be blocked or modified by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in
-					real-time. Like promiscuous interfaces, inline interfaces typically do not support
-					OSI Layer 3 and higher functionality, though they may provide OSI Layer 2
-					functionality (with MAC address assigned to the interfaces) to allow adjacent
-					network devices to forward traffic to/through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
-					</p>
-					<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may support separate interfaces to be used for
-					administration/management purposes that can be configured as OSI Layer 3
-					interfaces for communication between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and remote entities including all
-					entities defined in FTP_ITC, and FTP_TRP. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may optionally support
-					additional interface types. Session-reset interfaces can be the same as any of the
-					promiscuous, inline, management, or other interfaces, or can be separate
-					interfaces. Session-reset functionality is not mandatory functionality for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>,
-					but is a selectable option within the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>.
-					</p>
-					<p>As mentioned in the application note for <a href="#IPS_NTA_EXT.1.1">IPS_NTA_EXT.1.1</a>, it’s not necessary for
-					the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to have multiple single-purpose interfaces (e.g. “sensor” interface,
-					“management” interface, etc.), though it is expected that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> be able to
-					enable specific ports to serve one or more specific interface functions.
-					</p>
+						Both the <abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr> and H.323 protocols rely on TLS. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the application layer
+						protocol used to secure call control functions.
 					</span></div></div></div>
-				
+				<div class="element"><div class="reqid" id="FTP_ITC.1.2/CONTROL"><a href="#FTP_ITC.1.2/CONTROL" class="abbr">FTP_ITC.1.2/CONTROL</a></div><div class="reqdesc">
+						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<i>the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, <b>the VVoIP call control server</b></i>] to initiate communication 
+						via the trusted channel.
+					</div></div>
+				<div class="element"><div class="reqid" id="FTP_ITC.1.3/CONTROL"><a href="#FTP_ITC.1.3/CONTROL" class="abbr">FTP_ITC.1.3/CONTROL</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall initiate communication via the trusted channel for [<i>establishment of call control</i>].<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">The call control channel is secured with TLS as specified in FTP_DIT_EXT.1 from
+					App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> or FTP_ITC.1 from NDcPP.</span></div></div></div>
 				
 				
 				</div>
 							
-							
-							
-				<div class="comp" id="IPS_SBD_EXT.1"><h4>IPS_SBD_EXT.1 Signature-Based IPS Functionality</h4>
+				<div class="comp" id="FTP_ITC.1/MEDIA"><h4>FTP_ITC.1/MEDIA Inter-TSF Trusted Channel (Media Channel)</h4>
 					
-					
-					
-					
-					
-					
-				<div class="element"><div class="reqid" id="IPS_SBD_EXT.1.1"><a href="#IPS_SBD_EXT.1.1" class="abbr">IPS_SBD_EXT.1.1</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support inspection of packet header contents and be able to inspect at least the following header fields: 
-					<ul>
-					<li>IPv4: version; header length; packet length; ID; IP flags; fragment offset;time to live (TTL); protocol; header checksum; source address; destination address; IP options; and [<b>selection</b>: <span class="selectable-content" id="_s_73">type of service (ToS)</span>, <span class="selectable-content" id="_s_74">no other field</span>].</li>
-					<li>IPv6: version; payload length; next header; hop limit; source address; destination address; routing header; and [<b>selection</b>: <span class="selectable-content" id="_s_75">traffic class</span>, <span class="selectable-content" id="_s_76">flow label</span>, <span class="selectable-content" id="_s_77">no other field</span>]
-					</li>
-					<li>ICMP: type; code; header checksum; and [<b>selection</b>: <span class="selectable-content" id="_s_78">ID</span>, <span class="selectable-content" id="_s_79">sequence number</span>, <span class="selectable-content" id="_s_80">[<b>assignment</b>: 
-     <span class="assignable-content">other field in the ICMP header</span>]</span>]					
-						</li>
-					<li>ICMPv6: type; code; and header checksum.</li>
-					<li>TCP: source port; destination port; sequence number; acknowledgment number; offset; reserved; TCP flags; window; checksum; urgent pointer; and TCP options.</li>
-					<li>UDP: source port; destination port; length; and UDP checksum.</li>
-					</ul>
-				</div></div>
-				<div class="element"><div class="reqid" id="IPS_SBD_EXT.1.2"><a href="#IPS_SBD_EXT.1.2" class="abbr">IPS_SBD_EXT.1.2</a></div><div class="reqdesc">
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support inspection of packet payload data and be able to inspect at least the following data elements to perform string-based pattern-matching: [
-				<ul>
-					<li>ICMPv4 data: characters beyond the first 4 bytes of the ICMP header.</li>
-					<li>ICMPv6 data: characters beyond the first 4 bytes of the ICMP header.</li>
-					<li>TCP data (characters beyond the 20 byte TCP header), with support for detection of:
-						<ol type="i">
-							<li>FTP (file transfer) commands: help, noop, stat, syst, user, abort, acct, allo, appe, cdup, cwd, dele, list, mkd, mode, nlst, pass, pasv, port, pass, quit, rein, rest, retr, rmd, rnfr, rnto, site, smnt, stor, stou, stru, and type.</li>
-							<li>HTTP (web) commands and content: commands including GET and POST, and administrator- defined strings to match URLs/URIs, and web page content.</li>
-							<li>SMTP (email) states: start state, SMTP commands state, mail header state, mail body state, abort state</li>
-							<li>[<b>selection</b>: <span class="selectable-content" id="_s_81">[<b>assignment</b>: 
-     <span class="assignable-content">other types of TCP payload inspection</span>]</span>, <span class="selectable-content" id="_s_82">no other types of TCP payload inspection</span>]</li>
-						</ol></li>
-					<li>UDP data: characters beyond the first 8 bytes of the UDP header;</li>
-					<li>[<b>assignment</b>: 
-     <span class="assignable-content">other types of packet payload inspection</span>].</li>				
-				</ul>
-				</div></div>
-				<div class="element"><div class="reqid" id="IPS_SBD_EXT.1.3"><a href="#IPS_SBD_EXT.1.3" class="abbr">IPS_SBD_EXT.1.3</a></div><div class="reqdesc">
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to detect the following header-based signatures (using fields identified in <a href="#IPS_SBD_EXT.1.1">IPS_SBD_EXT.1.1</a>) at IPS sensor interfaces: 
-				<ol type="a">
-					<li>IP Attacks
-						<ol type="i">
-							<li>IP Fragments Overlap (Teardrop attack, Bonk attack, or Boink attack)</li>
-							<li>IP source address equal to the IP destination (Land attack)</li>
-						</ol>
-					</li>
-					<li>ICMP Attacks
-						<ol type="i">
-							<li>Fragmented ICMP Traffic (e.g. Nuke attack)</li>
-							<li>Large ICMP Traffic (Ping of Death attack)</li>
-						</ol>
-					</li>
-					<li>TCP Attacks
-						<ol type="i">
-							<li>TCP NULL flags</li>
-							<li>TCP SYN+FIN flags</li>
-							<li>TCP FIN only flags</li>
-							<li>TCP SYN+RST flags</li>
-						</ol>
-					</li>
-					<li>UDP Attacks
-						<ol type="i">
-							<li><i>UDP Bomb Attack</i></li>
-							<li><i>UDP Chargen DDoS Attack</i>.</li>
-						</ol>
-					</li>
-				</ol>.
-                </div></div>
-				<div class="element"><div class="reqid" id="IPS_SBD_EXT.1.4"><a href="#IPS_SBD_EXT.1.4" class="abbr">IPS_SBD_EXT.1.4</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to detect all the following traffic-pattern detection signatures, and to have these signatures applied to IPS sensor interfaces: 
-					<ol type="a">
-						<li>Flooding a host (DoS attack)
-							<ol type="i">
-								<li>ICMP flooding (Smurf attack, and ping flood)</li>
-								<li>TCP flooding (e.g. SYN flood)</li>
-							</ol></li>
-						<li>Flooding a network (DoS attack)</li>
-						<li>Protocol and port scanning
-							<ol type="i">
-								<li>IP protocol scanning</li>
-								<li>TCP port scanning</li>
-								<li>UDP port scanning</li>
-								<li>ICMP scanning.</li>
-							</ol></li>
-					</ol>
-                <div class="appnote"><span class="note-header">Application
+				<div class="element"><div class="reqid" id="FTP_ITC.1.1/MEDIA"><a href="#FTP_ITC.1.1/MEDIA" class="abbr">FTP_ITC.1.1/MEDIA</a></div><div class="reqdesc">
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>be capable of using [<b>selection</b>: <span class="selectable-content" id="_s_42"><abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr></span>, <span class="selectable-content" id="_s_43">H.235/H.323</span>] 
+					to </b>provide a trusted communication channel between itself and <b>another VVoIP
+					endpoint or other telephony device</b> that is logically distinct from other communication channels
+					and provides assured identification of its end points and protection of the channel
+					data from modification or disclosure.
+
+
+					<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-				<p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the minimum set of packet header fields, packet payload strings,
-					signature types, and potentially malicious traffic patterns (e.g. flooding and
-					scanning) that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must be able to detect. Valid signatures can be comprised
-					of one, some, or all attributes listed in this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, and IPS <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> may support
-					inspection of additional attributes not listed in this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, but only those listed in
-					the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> will be tested by the evaluators. The set of signature types, traffic
-					patterns, etc. identified in this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> are not intended to be an exhaustive or
-					completely representative list of malicious activity, nor is it meant to address
-					DDoS attacks – the intent of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is addressing attacks form a single source
-					IP.</p><p>
-					Protocol and port scanning refers to reconnaissance attacks that scan target IP
-					addresses for open/listening/responsive services by targeting multiple
-					protocols/ports on one or more target IP address using obvious (sequentially
-					numbered) patterns of target protocol/port numbers or by randomizing the
-					protocol/port numbers and/or randomizing the time delays between
-					transmissions.
-					</p><p>
-					It is understood and expected that IPS product vendors will support pre-defined
-					signatures, but inspection of the efficacy of the pre-defined signatures
-					themselves is not objective of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. Instead, this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> focuses
-					on the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to perform detailed analysis of network traffic, and
-					those pre-defined signatures may be used during evaluation, the evaluation
-					team is expected to make use of custom-made signatures as well. This set of
-					signature types, traffic patterns, etc. has been selected to: 1) place reasonable
-					boundaries around the scope of testing; and 2) provide a sufficient sampling of
-					packet contents, and traffic patterns to demonstrate the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s ability to inspect
-					packet contents, to collect traffic pattern statistics over a period of time, and to
-					correlate collected data.
-					</p><p>An IPS sensor interface refers to any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface to which an IPS policy is currently applied.</p>
-					
-				</span></div></div></div>
-				<div class="element"><div class="reqid" id="IPS_SBD_EXT.1.5"><a href="#IPS_SBD_EXT.1.5" class="abbr">IPS_SBD_EXT.1.5</a></div><div class="reqdesc">
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow the following operations to be associated with signature-based IPS policies:
-				<ul>
-					<li>In any mode, for any sensor interface: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_83">allow the traffic flow;</span></li><li style=""><span class="selectable-content" id="_s_84">send a TCP reset to the source address of the offending traffic;</span></li><li style=""><span class="selectable-content" id="_s_85">send a TCP reset to the destination address of the offending traffic;</span></li><li style=""><span class="selectable-content" id="_s_86">send an ICMP[<b>selection</b>: <span class="selectable-content" id="_s_87">host</span>, <span class="selectable-content" id="_s_88">destination</span>, <span class="selectable-content" id="_s_89">port</span>]unreachable message;</span></li><li style=""><span class="selectable-content" id="_s_90">trigger a non-TOE network device to block the offending traffic pattern</span></li></ul>]</li>
-					<li>In inline mode:
-						<ul>
-							<li>block/drop the traffic flow;</li>
-							<li>and [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_91">allow all traffic flow;</span></li><li style=""><span class="selectable-content" id="_s_92">allow the traffic flow with following exceptions:[<b>assignment</b>: 
-     <span class="assignable-content">malicious traffic such as but not limited to IPS_EXT.1.3 and IPS_EXT.1.4 if always dropped</span>];</span></li><li style=""><span class="selectable-content" id="_s_93">modify and forward packets before they pass through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span></li></ul>].</li>
-						</ul>
-					</li>
-				</ul>
-                <div class="appnote"><span class="note-header">Application
+						This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the application layer protocol used to secure voice/video
+						transmissions once a call is established between another VVoIP endpoint or other
+						telephony device such as a call conference device
+					</span></div></div></div>
+				<div class="element"><div class="reqid" id="FTP_ITC.1.2/MEDIA"><a href="#FTP_ITC.1.2/MEDIA" class="abbr">FTP_ITC.1.2/MEDIA</a></div><div class="reqdesc">
+						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<i>the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, <b>another VVoIP endpoint or other telephony device</b></i>] 
+						to initiate communication via the trusted channel.
+					</div></div>
+				<div class="element"><div class="reqid" id="FTP_ITC.1.3/MEDIA"><a href="#FTP_ITC.1.3/MEDIA" class="abbr">FTP_ITC.1.3/MEDIA</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall initiate communication via the trusted channel for [<i>transmission of voice/video media</i>].<div class="appnote"><span class="note-header">Application
       Note:
-    </span><span class="note">The term “trigger” is used to allow for multiple types of interactions, including:
-				one in which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> initiates a authenticated connection to the remote device
-				across an IP network and uses a remote administration interface of the remote
-				device to modify the active configuration on that device; or one in which the
-				connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the non-TOE network device does not traverse
-				an IP network. If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects “trigger a non-TOE network device…” and
-				the connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the non-TOE network device traverses an
-				IP network, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must ensure that the non- <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> device type is identified
-				within FTP_ITC.1.3 (of the base), and the connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the
-				remote device must be secured in accordance with FTP_ITC.1. In the last bullet
-				of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, “modify and forward packets before they pass through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>,”
-				could include such actions as removing from packet data character strings that
-				match regular expression (regex) conditions that violate policies, such as
-				transmitting personally identifiable information or other private data (phone
-				numbers, credit-card numbers, etc.).</span></div></div></div>
-				<div class="element"><div class="reqid" id="IPS_SBD_EXT.1.6"><a href="#IPS_SBD_EXT.1.6" class="abbr">IPS_SBD_EXT.1.6</a></div><div class="reqdesc">
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support stream reassembly or equivalent to detect malicious payload even if it is split across multiple non-fragmented packets.
-
-                </div></div>
+    </span><span class="note">
+					The corresponding trusted media channel must be chosen to match the trusted
+					control channel: <abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr> – <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr>, H.323 – H.235/H.323. <p></p>
+					If “<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr>” is selected in FTP_ITC.1.1/Media, the selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>
+					FCS_COP.1/<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> and FCS_SRTP_EXT.1 must be claimed.</span></div></div></div>
+				
 				
 				</div>
 			
@@ -1620,7 +1344,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 <tr><td><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td>Mitigates the threat by defining the use of a fixed-rate vocoder to prevent the exposure of encryption vulnerabilities that are present with variable-rate vocoders.</td></tr>
 <tr><td>FTP_ITC.1/Control</td><td>Mitigates the threat by defining the application-layer channel used for communications with a VVoIP call control server.</td></tr>
 <tr><td>FTP_ITC.1/Media</td><td>Mitigates the threat by defining the application-layer channel used for communications of media (voice and video) data.</td></tr>
-<tr><td>FAU_STG_EXT.1 (optional for software-only <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr>)</td><td>Mitigates the threat by ensuring that audit data is securely transmitted to an external entity.</td></tr>
+<tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> (optional for software-only <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr>)</td><td>Mitigates the threat by ensuring that audit data is securely transmitted to an external entity.</td></tr>
 <tr><td>FCS_COP.1/<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> (selection-based)</td><td>Mitigates the threat by defining the implementation of encryption used for SDES-SRTP, if supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
 <tr><td>FCS_SRTP_EXT.1 (selection-based)</td><td>Mitigates the threat by defining the implementation of the <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> protocol, if supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
 <tr><td><a href="#FDP_IFC.1">FDP_IFC.1</a>/CallControl (selection-based)</td><td>Mitigates the threat by defining a policy for protection of call control information in cases where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can act as a VVoIP call control server in a peer-to-peer configuration.</td></tr>
@@ -1679,7 +1403,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
       </h3>
       This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> identifies several <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> from the
       NDcPP that are needed to support
-      IPS functionality.
+      VVoIP functionality.
       This is considered to be consistent because the functionality provided by the
       NDcPP is being used for its intended purpose.
       
@@ -1687,9 +1411,9 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
       defined by the
       NDcPP are as follows:
       <table><caption><span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">6</span></span>: Consistency of Requirements (NDcPP base)
-		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th></tr><tr><th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td>FAU_STG_EXT.1</td><td>
+		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th></tr><tr><th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td>
 				This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to prohibit the selection of any
-				“distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>” behavior in FAU_STG_EXT.1.2. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is otherwise
+				“distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>” behavior in <a href="#FAU_STG_EXT.1.2">FAU_STG_EXT.1.2</a>. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is otherwise
 				unchanged.</td></tr><tr><td>FCS_NTP_EXT.1</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only modifies the circumstances
 				that trigger its inclusion in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s logical boundary.</td></tr><tr><td>FCS_TLSC_EXT.1</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because
 				a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must implement TLS client functionality.</td></tr><tr><td>FCS_TLSC_EXT.2</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because
@@ -1703,23 +1427,9 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 				functionality and does not introduce any new behavior.</td></tr><tr><th colspan="2"> Additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not add any requirements when the
 	      NDcPP is the base.
-	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td></td></tr><tr><td><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td></td></tr><tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td></td></tr><tr><td><a href="#FMT_SMF.1/VVoIP">FMT_SMF.1/VVoIP</a></td><td></td></tr><tr><td><a href="#IPS_ABD_EXT.1">IPS_ABD_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to IPS functionality, which is beyond the original scope of
-    		the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></td></tr><tr><td><a href="#IPS_IPB_EXT.1">IPS_IPB_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to IPS functionality, which is beyond the original scope of
-    		the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></td></tr><tr><td><a href="#IPS_NTA_EXT.1">IPS_NTA_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to IPS functionality, which is beyond the original scope of
-    		the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></td></tr><tr><td><a href="#IPS_SBD_EXT.1">IPS_SBD_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to IPS functionality, which is beyond the original scope of
-    		the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></td></tr></tr><tr><th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_STG.2/IPS">FAU_STG.2/IPS</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> iterates an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to define an optional
-    		capability for the protection of the IPS data generated by FAU_GEN.1/IPS.</td></tr><tr><td><a href="#FAU_STG.5/IPS">FAU_STG.5/IPS</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to IPS audit data, which is beyond the original scope of the
-    		<abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FPT_FLS.1/IPS">FPT_FLS.1/IPS</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to secure failure for inline interfaces, which is a type of
-    		logical interface that was introduced in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and therefore
-    		doesn’t interfere with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#IPS_SBD_EXT.2">IPS_SBD_EXT.2</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to IPS functionality, which is beyond the original scope of
-    		the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></td></tr></tr><tr><th colspan="2"> Objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_ARP.1">FAU_ARP.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to IPS functionality, which is beyond the original scope of
-    		the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></td></tr><tr><td><a href="#FAU_SAR.1">FAU_SAR.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to review of collected IPS data, which is beyond the scope of
-    		the original <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FAU_SAR.2">FAU_SAR.2</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to review of collected IPS data, which is beyond the scope of
-    		the original <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FAU_SAR.3">FAU_SAR.3</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to review of collected IPS data, which is beyond the scope of
-    		the original <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr></tr><tr><th colspan="2"> Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FRU_RSA.1">FRU_RSA.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to quota enforcement on network interfaces that perform
-    		scanning of network traffic for enforcement of IPS requirements. This
-    		functionality was introduced in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and therefore doesn’t
-    		interfere with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr></tr><tr><th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
+	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td></td></tr><tr><td><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td></td></tr><tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td></td></tr><tr><td><a href="#FMT_SMF.1/VVoIP">FMT_SMF.1/VVoIP</a></td><td></td></tr><tr><td><a href="#FTA_SSL.3/MEDIA">FTA_SSL.3/MEDIA</a></td><td></td></tr><tr><td><a href="#FTP_ITC.1/CONTROL">FTP_ITC.1/CONTROL</a></td><td></td></tr><tr><td><a href="#FTP_ITC.1/MEDIA">FTP_ITC.1/MEDIA</a></td><td></td></tr></tr><tr><th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_GEN.1/CSADMIN">FAU_GEN.1/CSADMIN</a></td><td></td></tr><tr><td><a href="#FAU_GEN.1/CSVVOIP">FAU_GEN.1/CSVVOIP</a></td><td></td></tr></tr><tr><th colspan="2"> Objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
+	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Objective requirements.
+	    </td></tr></tr><tr><th colspan="2"> Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td></td></tr></tr><tr><th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Selection-based requirements.
 	    </td></tr></tr></table><h2 id="conrat-APP" class="indexable" data-level="2">6.2 
     Protection Profile for Application Software</h2><h3 id="contoe-APP" class="indexable" data-level="3">6.2.1 
@@ -1769,7 +1479,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
       </h3>
       This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> identifies several <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> from the
       APP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> that are needed to support
-      IPS functionality.
+      VVoIP functionality.
       This is considered to be consistent because the functionality provided by the
       APP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is being used for its intended purpose.
       
@@ -1788,485 +1498,119 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 					</td></tr><tr><th colspan="2"> Additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not add any requirements when the
 	      APP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is the base.
-	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td></td></tr><tr><td><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td></td></tr><tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td></td></tr><tr><td><a href="#FMT_SMF.1/VVoIP">FMT_SMF.1/VVoIP</a></td><td></td></tr><tr><td><a href="#IPS_ABD_EXT.1">IPS_ABD_EXT.1</a></td><td></td></tr><tr><td><a href="#IPS_IPB_EXT.1">IPS_IPB_EXT.1</a></td><td></td></tr><tr><td><a href="#IPS_NTA_EXT.1">IPS_NTA_EXT.1</a></td><td></td></tr><tr><td><a href="#IPS_SBD_EXT.1">IPS_SBD_EXT.1</a></td><td></td></tr></tr><tr><th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_STG.2/IPS">FAU_STG.2/IPS</a></td><td></td></tr><tr><td><a href="#FAU_STG.5/IPS">FAU_STG.5/IPS</a></td><td></td></tr><tr><td><a href="#FPT_FLS.1/IPS">FPT_FLS.1/IPS</a></td><td></td></tr><tr><td><a href="#IPS_SBD_EXT.2">IPS_SBD_EXT.2</a></td><td></td></tr></tr><tr><th colspan="2"> Objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_ARP.1">FAU_ARP.1</a></td><td></td></tr><tr><td><a href="#FAU_SAR.1">FAU_SAR.1</a></td><td></td></tr><tr><td><a href="#FAU_SAR.2">FAU_SAR.2</a></td><td></td></tr><tr><td><a href="#FAU_SAR.3">FAU_SAR.3</a></td><td></td></tr></tr><tr><th colspan="2"> Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FRU_RSA.1">FRU_RSA.1</a></td><td></td></tr></tr><tr><th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
+	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td></td></tr><tr><td><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td></td></tr><tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td></td></tr><tr><td><a href="#FMT_SMF.1/VVoIP">FMT_SMF.1/VVoIP</a></td><td></td></tr><tr><td><a href="#FTA_SSL.3/MEDIA">FTA_SSL.3/MEDIA</a></td><td></td></tr><tr><td><a href="#FTP_ITC.1/CONTROL">FTP_ITC.1/CONTROL</a></td><td></td></tr><tr><td><a href="#FTP_ITC.1/MEDIA">FTP_ITC.1/MEDIA</a></td><td></td></tr></tr><tr><th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_GEN.1/CSADMIN">FAU_GEN.1/CSADMIN</a></td><td></td></tr><tr><td><a href="#FAU_GEN.1/CSVVOIP">FAU_GEN.1/CSVVOIP</a></td><td></td></tr></tr><tr><th colspan="2"> Objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
+	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Objective requirements.
+	    </td></tr></tr><tr><th colspan="2"> Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td></td></tr></tr><tr><th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Selection-based requirements.
 	    </td></tr></tr></table><h1 id="opt-sfrs" class="indexable" data-level="A">Appendix A -  Optional SFRs</h1><h2 id="opt-sfrs" class="indexable" data-level="2">A.1 Strictly Optional Requirements
     </h2>
 		<h3 class="indexable" data-level="3" id="sec-opt-audit-table">A.1.1 Auditable Events for Optional SFRs</h3>
-        <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-optional" data-counter-type="ct-Table" id="at-optional">Table <span class="counter">10</span></span>: Auditable Events for Strictly Optional Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_STG.2/IPS"><td rowspan="2"><a href="#FAU_STG.2/IPS">FAU_STG.2/IPS</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_STG.2/IPS#"><td></td></tr><tr data-sortkey="FAU_STG.2/IPS.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_STG.5/IPS"><td rowspan="2"><a href="#FAU_STG.5/IPS">FAU_STG.5/IPS</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_STG.5/IPS#"><td></td></tr><tr data-sortkey="FAU_STG.5/IPS.1"><td>A local audit store reaches its storage limit.</td><td>Indication that the audit store is full, and (if configurable) how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is responding (e.g., failing to audit new auditable events, removing old audit events to make space for new events, preventing auditable events from occurring).</td></tr><tr data-sortkey="FPT_FLS.1/IPS"><td rowspan="2"><a href="#FPT_FLS.1/IPS">FPT_FLS.1/IPS</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_FLS.1/IPS#"><td></td></tr><tr data-sortkey="FPT_FLS.1/IPS.1"><td>Failure of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td><td>The type of failure that occurred. </td></tr><tr data-sortkey="IPS_SBD_EXT.2"><td rowspan="4"><a href="#IPS_SBD_EXT.2">IPS_SBD_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="IPS_SBD_EXT.2#"><td></td></tr><tr data-sortkey="IPS_SBD_EXT.2.7"><td>Inspection of encapsulated packets.</td><td>Indication of the encapsulation method.</td></tr><tr data-sortkey="IPS_SBD_EXT.2.8"><td>Failure to re-assemble a fragmented packet.</td><td><ul><li>Source and destination IP addresses.</li><li><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface that received the fragment(s).</li></ul></td></tr><tr data-sortkey="IPS_SBD_EXT.2.9"><td>Normalization of traffic by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td><td><ul><li>Source and destination IP addresses of discarded packet(s).</li><li><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface that received the packet(s)</li></ul></td></tr></table>
+        <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-optional" data-counter-type="ct-Table" id="at-optional">Table <span class="counter">10</span></span>: Auditable Events for Strictly Optional Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_GEN.1/CSADMIN"><td rowspan="2"><a href="#FAU_GEN.1/CSADMIN">FAU_GEN.1/CSADMIN</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_GEN.1/CSADMIN#"><td></td></tr><tr data-sortkey="FAU_GEN.1/CSADMIN.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_GEN.1/CSVVOIP"><td rowspan="2"><a href="#FAU_GEN.1/CSVVOIP">FAU_GEN.1/CSVVOIP</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_GEN.1/CSVVOIP#"><td></td></tr><tr data-sortkey="FAU_GEN.1/CSVVOIP.1"><td>No events specified</td><td>N/A</td></tr></table>
       
 	<h3 id="fau-ops" class="indexable" data-level="3">A.1.2 Security Audit(FAU)</h3>
-			<div class="comp" id="FAU_STG.2/IPS"><h4>FAU_STG.2/IPS Protected Audit Trail Storage</h4>
-			<div class="element"><div class="reqid" id="FAU_STG.2.1/IPS"><a href="#FAU_STG.2.1/IPS" class="abbr">FAU_STG.2.1/IPS</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall protect the stored <b>IPS</b> audit data from unauthorized deletion.</div></div>
-			<div class="element"><div class="reqid" id="FAU_STG.2.2/IPS"><a href="#FAU_STG.2.2/IPS" class="abbr">FAU_STG.2.2/IPS</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to [<i>prevent</i>] unauthorized modifications to the stored <b>IPS</b> audit data in the audit trail.</div></div>
+			<div class="comp" id="FAU_GEN.1/CSADMIN"><h4>FAU_GEN.1/CSADMIN Audit Data Generation (Client-Server Admin Events)</h4>
+			<div class="element"><div class="reqid" id="FAU_GEN.1.1/CSADMIN"><a href="#FAU_GEN.1.1/CSADMIN" class="abbr">FAU_GEN.1.1/CSADMIN</a></div><div class="reqdesc">The <b>[<b>selection</b>: <span class="selectable-content" id="_s_44"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_45"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>]</b>
+				 shall be able to generate audit data of the following auditable events:
+				 <ol type="a">
+				 	<li><s>Start-up and shutdown of the audit functions;</s></li>
+					<li><s>All auditable events for the [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_46">minimum</span>, <span class="selectable-content" id="_s_47">basic</span>, <span class="selectable-content" id="_s_48">detailed</span>, <span class="selectable-content" id="_s_49">not specified</span>] level of audit;</s></li>
+					<li>[<i>All administrative actions comprising:
+						<ol type="i">
+							<li>Administrative login and logout (name of user account shall be
+								logged if individual user accounts are required for
+								Administrators).</li>
+							<li>Changes to <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data related to configuration changes (in
+								addition to the information that a change occurred it shall be
+								logged what has been changed).</li>
+							<li>Generating/import of, changing, or deleting of cryptographic
+								keys (in addition to the action itself a unique key name or key
+								reference shall be logged).</li>
+							<li>Resetting passwords (name of related user account shall be logged).</li>
+							<li>[<b>selection</b>: <span class="selectable-content" id="_s_50">[<b>assignment</b>: 
+     <span class="assignable-content">list of other uses of privileges</span>]</span>, <span class="selectable-content" id="_s_51">no other actions</span>]</li>
+						</ol></i></li>].
+				 </ol>
+				
+				<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+				<p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the same auditable events as FAU_GEN.1/<abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr>-Admin in
+					Appendix B below. It is defined as a separate iteration because when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
+					is deployed in a client-server architecture, the Enterprise Session Controller is
+					expected to be responsible for the relevant auditing, so this capability is
+					optional when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not peer-to-peer. </p>
+				<p>If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the implementationdependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> must also be claimed. This does not need to
+					be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already
+					defines <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> as a mandatory requirement.</p></span></div></div></div>
+			<div class="element"><div class="reqid" id="FAU_GEN.1.2/CSADMIN"><a href="#FAU_GEN.1.2/CSADMIN" class="abbr">FAU_GEN.1.2/CSADMIN</a></div><div class="reqdesc">
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall record within the audit data at least the following information:
+						<ol type="a">
+							<li>Date and time of the auditable event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</li>
+							<li>For each auditable event type, based on the auditable event definitions of the functional components included 
+								in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>no additional information</i>].</li>
+						</ol>
+				</div></div>
 				
 			</div>
 		
-			<div class="comp" id="FAU_STG.5/IPS"><h4>FAU_STG.5/IPS Prevention of Audit Data Loss</h4>
-			<div class="element"><div class="reqid" id="FAU_STG.5.1/IPS"><a href="#FAU_STG.5.1/IPS" class="abbr">FAU_STG.5.1/IPS</a></div><div class="reqdesc">
-			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-				[[<b>selection</b>: <span class="selectable-content" id="_s_94">ignore generation of IPS events that would otherwise be generated</span>, <span class="selectable-content" id="_s_95">prevent audited IPS events</span>, <span class="selectable-content" id="_s_96">overwrite the oldest stored IPS data</span>]] if the <b>IPS</b> audit data storage is full.
-			
-			</div></div>
+			<div class="comp" id="FAU_GEN.1/CSVVOIP"><h4>FAU_GEN.1/CSVVOIP Audit Data Generation (Client-Server VVoIP Events)</h4>
+			<div class="element"><div class="reqid" id="FAU_GEN.1.1/CSVVOIP"><a href="#FAU_GEN.1.1/CSVVOIP" class="abbr">FAU_GEN.1.1/CSVVOIP</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate audit data of the following auditable events:
+				 <ol type="a">
+				 	<li><s>Start-up and shutdown of the audit functions;</s></li>
+					<li><s>All auditable events for the [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_52">minimum</span>, <span class="selectable-content" id="_s_53">basic</span>, <span class="selectable-content" id="_s_54">detailed</span>, <span class="selectable-content" id="_s_55">not specified</span>] level of audit;</s></li>
+					<li>[<i>auditable events defined in the Auditable Events for Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> table (<a onclick="showTarget('at-mandatory')" href="#at-mandatory" class="at-mandatory-ref">Table  <span class="counter">2</span></a>)</i>].</li>
+				 </ol>
+				</div></div>
+			<div class="element"><div class="reqid" id="FAU_GEN.1.2/CSVVOIP"><a href="#FAU_GEN.1.2/CSVVOIP" class="abbr">FAU_GEN.1.2/CSVVOIP</a></div><div class="reqdesc">
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall record within the audit data at least the following information:
+						<ol type="a">
+							<li>Date and time of the auditable event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</li>
+							<li>For each auditable event type, based on the auditable event definitions of the functional components included 
+								in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>information specified in column three of the Auditable Events table 
+								in which the event was defined</i>].</li>
+						</ol>
+				<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+					<p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the same auditable events as FAU_GEN.1/<abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr>-VVoIP in
+					Appendix B below. It is defined as a separate iteration because when the
+					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed in a client-server architecture, the Enterprise Session
+					Controller is expected to be responsible for the relevant auditing, so this
+					capability is optional when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not peer-to-peer.</p>
+					
+					<p>If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the
+					implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> must also be claimed.
+					This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP
+					because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> as a mandatory
+					requirement.</p> 
+				</span></div></div></div>
 			
 			</div>
 	
-    	
-    	
-	<h3 id="fpt" class="indexable" data-level="3">A.1.3 Protection of the TSF (FPT)</h3>
-	<div class="comp" id="FPT_FLS.1/IPS"><h4>FPT_FLS.1/IPS Failure with Preservation of Secure State</h4>
-	<div class="element"><div class="reqid" id="FPT_FLS.1.1/IPS"><a href="#FPT_FLS.1.1/IPS" class="abbr">FPT_FLS.1.1/IPS</a></div><div class="reqdesc"><span style="" class="comment " id="Comment-3-">Iterated in case this is added to NDcPP (dependency on FPT_TST)</span>
-		The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall preserve a secure state <b>for inline interfaces</b> when the following types of failures occur: [<b>assignment</b>: 
-     <span class="assignable-content">list of types of failures in the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>].<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-	The intent of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is to allow the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author to define the types of failures
-	that can occur on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> which could result in failure to effectively detect and
-	react to IPS policy violations for traffic traversing inline interface, and to not
-	allow traffic to traverse those interfaces. The first refinement “to be able” is
-	included to allow the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> administrator to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to allow traffic to
-	traverse inline interfaces when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is in a partially of fully failed state, but
-	to provide assurance that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is capable of blocking traffic if it has been
-	configured to do so. The purpose of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, as stated in <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2, is to “ensure
-	that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will always enforce its <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in the event of identified categories of
-	failures in the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.” Since some of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> require inspection of data, and that inspection cannot occur when a network interface fails, it will not always be
-	true that “all” the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> will continue to be enforced in the event of failure of
-	certain components. The intent here is to ensure that if network traffic is not
-	capable of being inspected by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, then it should automatically be treated
-	as untrusted.
-	</span></div></div></div>
-	
-	</div>
-	
-	<h3 id="ips" class="indexable" data-level="3">A.1.4 Intrusion Prevention (IPS)</h3>
-		
-	<div class="comp" id="IPS_SBD_EXT.2"><h4>IPS_SBD_EXT.2 Traffic Normalization</h4>
-		
-		
-		
-		
-		
-		
-	<div class="element"><div class="reqid" id="IPS_SBD_EXT.2.1"><a href="#IPS_SBD_EXT.2.1" class="abbr">IPS_SBD_EXT.2.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to inspect packets encapsulated through the following means: [<b>selection</b>: <span class="selectable-content" id="_s_97">GRE</span>, <span class="selectable-content" id="_s_98">IP-in-IP</span>, <span class="selectable-content" id="_s_99">IPv4-in-IPv6</span>, <span class="selectable-content" id="_s_100">MPLS</span>, <span class="selectable-content" id="_s_101"> PPTP</span>, <span class="selectable-content" id="_s_102">[<b>assignment</b>: 
-     <span class="assignable-content">other
-encapsulation methods</span>]</span>].
-	</div></div>
-	
-	<div class="element"><div class="reqid" id="IPS_SBD_EXT.2.2"><a href="#IPS_SBD_EXT.2.2" class="abbr">IPS_SBD_EXT.2.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to perform IP normalization to reassemble fragmented packets for inspection, and: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_103">For data collected at promiscuous interfaces: generate an alert if the packet cannot be reassembled;</span></li><li style=""><span class="selectable-content" id="_s_104">For data collected at inline interfaces: do not forward any packet fragments and generate an alert if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> cannot reassemble the entire packet</span></li></ul>].</div></div>
-	
-	<div class="element"><div class="reqid" id="IPS_SBD_EXT.2.3"><a href="#IPS_SBD_EXT.2.3" class="abbr">IPS_SBD_EXT.2.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to perform TCP normalization for traffic flows through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed in inline mode, and prohibit forwarding of: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_105">duplicate packets;</span></li><li style=""><span class="selectable-content" id="_s_106">changed packets;</span></li><li style=""><span class="selectable-content" id="_s_107">out-of-sequence packets;</span></li><li style=""><span class="selectable-content" id="_s_108">
-			[<b>selection</b>: <span class="selectable-content" id="_s_109">[<b>assignment</b>: 
-     <span class="assignable-content">other packet types that should not be
-forwarded</span>]</span>, <span class="selectable-content" id="_s_110">no other packets</span>]
-			</span></li></ul>].</div></div>
-	
-	
-	
-	</div>
-	
 	<h2 id="obj-sfrs" class="indexable" data-level="2">A.2 Objective Requirements
+    </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
+       Objective       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p><h2 id="impl-dep-sfrs" class="indexable" data-level="2">A.3 Implementation-dependent Requirements
     </h2>
-	<h3 class="indexable" data-level="3" id="_sec_20">A.2.1 Auditable Events for Objective SFRs</h3>
-        <span style="" class="comment " id="Comment-4-">All objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> need a review to determine if they should change status with the new release of this module.</span>
-        <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-objective" data-counter-type="ct-Table" id="at-objective">Table <span class="counter">11</span></span>: Auditable Events for Objective Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_ARP.1"><td rowspan="2"><a href="#FAU_ARP.1">FAU_ARP.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_ARP.1#"><td></td></tr><tr data-sortkey="FAU_ARP.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_SAR.1"><td rowspan="2"><a href="#FAU_SAR.1">FAU_SAR.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_SAR.1#"><td></td></tr><tr data-sortkey="FAU_SAR.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_SAR.2"><td rowspan="2"><a href="#FAU_SAR.2">FAU_SAR.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_SAR.2#"><td></td></tr><tr data-sortkey="FAU_SAR.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_SAR.3"><td rowspan="2"><a href="#FAU_SAR.3">FAU_SAR.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_SAR.3#"><td></td></tr><tr data-sortkey="FAU_SAR.3.1"><td>No events specified</td><td>N/A</td></tr></table>
-      
-	<h3 id="fau-obj" class="indexable" data-level="3">A.2.2 Security Audit (FAU)</h3>
-	<div class="comp" id="FAU_ARP.1"><h4>FAU_ARP.1 Security Alarms</h4>
-	<div class="element"><div class="reqid" id="FAU_ARP.1.1"><a href="#FAU_ARP.1.1" class="abbr">FAU_ARP.1.1</a></div><div class="reqdesc">
-	The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall take [<b>assignment</b>: 
-     <span class="assignable-content">list of actions</span>] upon detection of potential security violation.
-	<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-	<p>At minimum, the set of potential security violations must include network traffic
-		in excess of maximum quotas. Therefore, when this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is included, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author
-		must also include <a href="#FRU_RSA.1">FRU_RSA.1</a>.</p><p>In <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2, FAU_ARP is intended to depend on FAU_SAA to define a potential
-		violation of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>. FAU_SAA is not included in this IPS EP; FRU_RSA and the
-		various IPS class requirements are used instead to define the “potential security
-		violation” relevant to FAU_ARP, namely that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has detected potential
-		malicious network traffic or has experienced a spike in network traffic that has
-		exceeded its ability to inspect all network traffic which may result in some network
-		traffic being uninspected by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be used to define actions that
-		the IPS <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can take which may include generating one or more messages that
-		are not part of the audit trail that must be transmitted securely to a remote
-		audit server.</p><p>Messaging actions defined by this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that are not specifically relevant to
-		FAU_GEN.1/IPS do not need to be encrypted during transit. The primary intent of
-		this functionality is the speed of notification, not the integrity, or confidentiality
-		of the data in transit. In most cases, the audit trail applicable to FAU_STG.1
-		will be syslog data, and is being protected in transit to help ensure integrity of
-		remotely stored audit data. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is intended to cover transmission of messages
-		related to single events through protocols such as SNMP (traps) and SMTP (email).
-		In <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> that support securing SNMP traps, SMTP email, or other messaging types
-		within trusted channels (as defined by FTP_ITC.1), the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author can choose to
-		list these messaging methods within FTP_ITC.1 and/or within this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. There are
-		no additional auditable IPS events that need to be included in FAU_GEN.1/IPS.
-		</p></span></div></div></div>
-		
-		
-	</div>
-		
-	<div class="comp" id="FAU_SAR.1"><h4>FAU_SAR.1 Audit Review</h4>
-	<div class="element"><div class="reqid" id="FAU_SAR.1.1"><a href="#FAU_SAR.1.1" class="abbr">FAU_SAR.1.1</a></div><div class="reqdesc">
-	The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide [<i>Security Administrators</i>] with the capability to read [<i>IPS data</i>] from the <b>IPS</b> audit data.
-	</div></div>
-	<div class="element"><div class="reqid" id="FAU_SAR.1.2"><a href="#FAU_SAR.1.2" class="abbr">FAU_SAR.1.2</a></div><div class="reqdesc">
-	The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the <b>IPS</b> audit data in a manner suitable for the user to interpret the information.
-	<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">It is anticipated, but not required, that <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> would provide a graphical user
-		interface that would allow searching and sorting, and it would be acceptable for
-		such output to group similar events together to ease administrative review of the
-		IPS data. For example, the display might allow grouping of data by event type, or
-		by source IP address, where multiple events that occurred in a time period are
-		displayed on a single line as in the sample table below. Regardless whether such
-		a view is provided, it is expected that the administrator will be able to view the
-		details of individual event occurrences.
-		
-		
-		<table border="1">
-		<tr>
-			<th>Time/Date</th>
-			<th>Event Type</th>
-			<th>Reaction</th>
-			<th>Event total</th>
-		</tr>
-		<tr>
-			<th>2013-01-1 10:45:00</th>
-			<th>Port scan from 10.1.2.3 </th>
-			<th>Blocked all traffic from 10.1.2.3</th>
-			<th>34</th>
-		</tr>
-		</table>
-		
-		</span></div></div></div>
-		
-	</div>
-		
-	<div class="comp" id="FAU_SAR.2"><h4>FAU_SAR.2 Restricted Audit Review</h4>
-	<div class="element"><div class="reqid" id="FAU_SAR.2.1"><a href="#FAU_SAR.2.1" class="abbr">FAU_SAR.2.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall prohibit all users read access to the <b>IPS</b> audit data, except those that have been granted explicit read access.</div></div>
-		
-	</div>
-		
-	<div class="comp" id="FAU_SAR.3"><h4>FAU_SAR.3 Selectable Audit Review</h4>
-	<div class="element"><div class="reqid" id="FAU_SAR.3.1"><a href="#FAU_SAR.3.1" class="abbr">FAU_SAR.3.1</a></div><div class="reqdesc">
-		The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the ability to apply [<i>filtering and sorting</i>] of <b>IPS</b> audit data
-	based on [<i>filtering parameters: risk rating, time period, source IP address,
-	destination IP address and </i>[<b>selection</b>: <span class="selectable-content" id="_s_111">[<b>assignment</b>: 
-     <span class="assignable-content"> other filtering parameters</span>]</span>, <span class="selectable-content" id="_s_112">no other filtering parameters</span>]<i>; and sorting parameters: event ID, event type, time,
-signature ID, IPS actions performed, and </i>[<b>selection</b>: <span class="selectable-content" id="_s_113">[<b>assignment</b>: 
-     <span class="assignable-content">other sorting parameters</span>]</span>, <span class="selectable-content" id="_s_114">no other sorting parameters</span>]].
-
-
-	</div></div>
-		
-	</div>
-	
-
-	<h2 id="impl-dep-sfrs" class="indexable" data-level="2">A.3 Implementation-dependent Requirements
-    </h2>
-    	<h3 class="indexable" data-level="3" id="_sec_22">A.3.1 Auditable Events for Implementation-Dependent SFRs</h3>
-    		<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-impl-dep" data-counter-type="ct-Table" id="at-impl-dep">Table <span class="counter">12</span></span>: Auditable Events for  Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FRU_RSA.1"><td rowspan="2"><a href="#FRU_RSA.1">FRU_RSA.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FRU_RSA.1#"><td></td></tr><tr data-sortkey="FRU_RSA.1.2"><td>Traffic flow volume exceeds the maximum quota.</td><td>Identification of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface at which the quota was exceeded.</td></tr></table>
+    	<h3 class="indexable" data-level="3" id="_sec_20">A.3.1 Auditable Events for Implementation-Dependent SFRs</h3>
+    		<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-impl-dep" data-counter-type="ct-Table" id="at-impl-dep">Table <span class="counter">11</span></span>: Auditable Events for  Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_STG_EXT.1"><td rowspan="2"><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_STG_EXT.1#"><td></td></tr><tr data-sortkey="FAU_STG_EXT.1.4"><td>Traffic flow volume exceeds the maximum quota.</td><td>Identification of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface at which the quota was exceeded.</td></tr></table>
     	
 	
 
-	<h3 id="fru-imp_dep" class="indexable" data-level="3">A.3.2 Resource Utilization</h3>
-		<div class="comp" id="FRU_RSA.1"><h4>FRU_RSA.1 Maximum Quotas</h4>
+	<h3 id="fau-imp_dep" class="indexable" data-level="3">A.3.2 Security Audit (FAU)</h3>
+		<div class="comp" id="FAU_STG_EXT.1"><h4>FAU_STG_EXT.1 Protected Audit Event Storage</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#feat-swapp">Software Application</a></i></b></li></ul></div>
 			
-		<div class="element"><div class="reqid" id="FRU_RSA.1.1"><a href="#FRU_RSA.1.1" class="abbr">FRU_RSA.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce maximum quotas of the following resources: [<i>resources
-supporting inspection of network traffic</i>] that [<i>subjects</i>] can use [<i>simultaneously</i>].
-		<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-		<i><p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is optional but the behavior specified by <a href="#FAU_ARP.1">FAU_ARP.1</a> requires this function
-		to be implemented. Therefore, this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is implementation-dependent on the
-		condition that it be claimed if <a href="#FAU_ARP.1">FAU_ARP.1</a> is claimed. If <a href="#FAU_ARP.1">FAU_ARP.1</a> is not claimed
-		this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should also not be claimed because effective enforcement of maximum
-		quotas requires an alert mechanism when quotas are exceeded. Otherwise it is
-		not possible for an administrator to determine whether a lack of potential security
-		violations is caused by an absence of potential malicious activity or by the inability
-		of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to detect such activity due to an inability to process the volume of traffic
-		being received.</p><p>Conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> will impose quotas on exhaustible resources used to support
-		inspection of network traffic that ‘subjects’ (inspected network traffic flows) can
-		use simultaneously. The intent of this requirement is to ensure that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not
-		deployed in such a way that the flow of data across its sensor interfaces can
-		exceed the amount of traffic that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is capable of inspecting. If the flow
-		(volume/speed) of data to be inspected exceeds the defined quota, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> should
-		trigger an alert signifying effect of the exceeded quota. For example, when the
-		<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed inline, exceeding the quota may result in the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> dropping (not
-		forwarding) and failing to inspect network traffic; or when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not deployed
-		inline, exceeding the quota may result in traffic having been forwarded without
-		inspection. In any case, exceeding the maximum quota results in a “potential
-		security violation” relevant to <a href="#FAU_ARP.1">FAU_ARP.1</a> in that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> may have failed to
-		inspect some network traffic.</p></i>
-		</span></div></div></div>
+		<div class="element"><div class="reqid" id="FAU_STG_EXT.1.1"><a href="#FAU_STG_EXT.1.1" class="abbr">FAU_STG_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to transmit the generated audit data to <b>[<b>selection</b>: <span class="selectable-content" id="_s_56">an Enterprise Session Controller that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is registred to</span>, <span class="selectable-content" id="_s_57">an external trusted IT entity</span>]</b> using a trusted channel <b>according to FTP_DIT_EXT.1</b>.
+		</div></div>
+		<div class="element"><div class="reqid" id="FAU_STG_EXT.1.2"><a href="#FAU_STG_EXT.1.2" class="abbr">FAU_STG_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to store generated audit data on the [<b>selection</b>: <span class="selectable-content" id="_s_58"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_59"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>].</div></div>
+		<div class="element"><div class="reqid" id="FAU_STG_EXT.1.3"><a href="#FAU_STG_EXT.1.3" class="abbr">FAU_STG_EXT.1.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_60">drop new audit data</span>, <span class="selectable-content" id="_s_61">overwrite previous audit records according to the following rule: [<b>assignment</b>: 
+     <span class="assignable-content">rule for overwriting previous audit records</span>]</span>, <span class="selectable-content" id="_s_62">[<b>assignment</b>: 
+     <span class="assignable-content">other action</span>]</span>]when the local storage space for audit data is full.</div></div>
 			
 		</div>
 		
 	<h1 id="sel-sfrs" class="indexable" data-level="1">Appendix B -  Selection-based Requirements
     </h1><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
-       Selection-based       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p><h1 id="ext-comp-defs" class="indexable" data-level="A">Appendix C -  Extended Component Definitions</h1>
-	This appendix contains the definitions for all extended requirements specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
-
-    <h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.1 Extended Components Table</h2>
-
-	All extended components specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are listed in this table:
-
-<table class="sort_kids_"><caption data-sortkey="#0"><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">13</span></span>: Extended Component Definitions</b></caption><tr data-sortkey="#1"><th>Functional Class</th><th>Functional Components</th></tr><tr data-sortkey="TOE Access (FTA)"><td><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Access (FTA)</td><td>IPS_ABD_EXT Anomaly-Based IPS Functionality<br/>IPS_IPB_EXT IP Blocking<br/>IPS_NTA_EXT Network Traffic Analysis<br/>IPS_SBD_EXT Signature-Based IPS Functionality<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.2 Extended Component Definitions</h2><span class="sort_kids_"><span data-sortkey="TOE Access (FTA)"><h3 id="ext-comp-FTA" class="indexable" data-level="3">C.2.1 TOE Access (FTA)</h3>
-								Intrusion prevention involves the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s ability to collect network packets, examine their contents for
-								information that suggests malicious activity, and to perform some action in response such as terminating
-								the connection.
-							<h3 id="ext-comp-IPS_ABD_EXT" class="indexable" data-level="4">C.2.1.1 IPS_ABD_EXT Anomaly-Based IPS Functionality</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines requirements for detection of anomalous network traffic and how the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> should
-									respond if an anomaly is detected.
-								</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">IPS_ABD_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#IPS_ABD_EXT.1">IPS_ABD_EXT.1</a>,
-             Anomaly-Based IPS Functionality,
-              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to detect anomalous network traffic
-					based on some criteria and to define the response that is issued if an anomaly is detected. </p><h4>Management: IPS_ABD_EXT.1</h4><p>The following actions could be considered for the management functions in FMT: 
-					<ul>
-						<li>Configuration of anomaly detection.</li>
-						<li>Enabling and disabling actions to be taken when anomaly matches are detected.</li>
-						<li>Modification of thresholds that trigger IPS reactions.</li>
-						<li>Modification of the duration of traffic blocking actions.</li>
-					</ul>
-				</p><h4>Audit: IPS_ABD_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the
-					<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
-					<ul>
-						<li>Inspected traffic that matches an anomaly-based IPS policy.</li>
-					</ul></p><h4>IPS_ABD_EXT.1 Anomaly-Based IPS Functionality</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#IPS_NTA_EXT.1">IPS_NTA_EXT.1</a> Network Traffic Analysis<br/>
-					<a href="#IPS_SBD_EXT.1">IPS_SBD_EXT.1</a> Signature-Based IPS Functionality
-				</td></tr></table><h4 id="ext-comp-IPS_ABD_EXT.1.1">IPS_ABD_EXT.1.1</h4>
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support the definition of [<b>selection</b>: <span class="selectable-content" id="_s_38">baselines (‘expected and approved’)</span>, <span class="selectable-content" id="_s_39">anomaly (‘unexpected’) traffic patterns</span>] including the specification of [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_40">throughput ([<b>assignment</b>: 
-     <span class="assignable-content"> data elements (e.g. bytes, packets, etc.) per time period (e.g. minutes, hours, days)</span>])</span></li><li style=""><span class="selectable-content" id="_s_41">time of day;</span></li><li style=""><span class="selectable-content" id="_s_42">frequency;</span></li><li style=""><span class="selectable-content" id="_s_43">thresholds;</span></li><li style=""><span class="selectable-content" id="_s_44">[[<b>assignment</b>: 
-     <span class="assignable-content">other methods</span>]]</span></li></ul>]
-					and the following network protocol fields:
-					<ul>
-						<li>[<b>selection</b>: <span class="selectable-content" id="_s_45"> all packet header and data elements defined in <a href="#IPS_SBD_EXT.1">IPS_SBD_EXT.1</a></span>, <span class="selectable-content" id="_s_46">[<b>assignment</b>: 
-     <span class="assignable-content">subset list of packet header and data elements from <a href="#IPS_SBD_EXT.1">IPS_SBD_EXT.1</a></span>]</span>].</li>
-					</ul>
-				<h4 id="ext-comp-IPS_ABD_EXT.1.2">IPS_ABD_EXT.1.2</h4>
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support the definition of anomaly activity through [<b>selection</b>: <span class="selectable-content" id="_s_47">manual configuration by administrators</span>, <span class="selectable-content" id="_s_48">automated configuration</span>].
-				<h4 id="ext-comp-IPS_ABD_EXT.1.3">IPS_ABD_EXT.1.3</h4>
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow the following operations to be associated with anomaly-based IPS policies:
-				<ul>
-					<li>In any mode, for any sensor interface: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_49">allow the traffic flow</span></li><li style=""><span class="selectable-content" id="_s_50">send a TCP reset to the source address of the offending traffic</span></li><li style=""><span class="selectable-content" id="_s_51">send a TCP reset to the destination address of the offending traffic</span></li><li style=""><span class="selectable-content" id="_s_52">send an ICMP
-								[<b>selection</b>: <span class="selectable-content" id="_s_53">host</span>, <span class="selectable-content" id="_s_54">destination</span>, <span class="selectable-content" id="_s_55">port</span>]
-								unreachable message
-								</span></li><li style=""><span class="selectable-content" id="_s_56">trigger a non-TOE network device to block the offending traffic pattern</span></li></ul>]</li>
-					<li>In inline mode:
-						<ul>
-							<li>allow the traffic flow</li>
-							<li>block/drop the traffic flow</li>
-							<li>and 
-									[<b>selection</b>: <span class="selectable-content" id="_s_57">modify and forward packets before they pass through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_58">no other actions</span>].</li>
-						</ul>
-					</li>
-				</ul>
-				</div></div><h3 id="ext-comp-IPS_IPB_EXT" class="indexable" data-level="4">C.2.1.2 IPS_IPB_EXT IP Blocking</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines requirements for handling of inspected network traffic based on IP address.
-								</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">IPS_IPB_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#IPS_IPB_EXT.1">IPS_IPB_EXT.1</a>,
-             IP Blocking,
-              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to enforce IPS policies that are based on IP address.
-					</p><h4>Management: IPS_IPB_EXT.1</h4><p>The following actions could be considered for the management functions in FMT:
-						<ul>
-							<li>Modification of the known-good and known-bad lists (of IP addresses or address ranges).</li>
-							<li>Configuration of the known-good and known-bad lists to override signature-based IPS policies.</li>
-						</ul>
-					</p><h4>Audit: IPS_IPB_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the
-						<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:<ul>
-							<li>Inspected traffic matches a list of known-good or known-bad addresses applied to an IPS policy.</li>
-						</ul>
-					</p><h4>IPS_IPB_EXT.1 IP Blocking</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#IPS_NTA_EXT.1">IPS_NTA_EXT.1</a> Network Traffic Analysis<br/>
-						FMT_SMR.1 Security Roles
-					</td></tr></table><h4 id="ext-comp-IPS_IPB_EXT.1.1">IPS_IPB_EXT.1.1</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support configuration and implementation of known-good and known-bad lists of [<b>selection</b>: <span class="selectable-content" id="_s_59">source</span>, <span class="selectable-content" id="_s_60">destination</span>] IP addresses and [<b>selection</b>: <span class="selectable-content" id="_s_61">no additional address types</span>, <span class="selectable-content" id="_s_62">
-							[<b>assignment</b>: 
-     <span class="assignable-content">list of address types</span>]</span>].
-
-					<h4 id="ext-comp-IPS_IPB_EXT.1.2">IPS_IPB_EXT.1.2</h4>
-							
-								The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow [<b>assignment</b>: 
-     <span class="assignable-content">authorized roles</span>] to configure the following IPS policy elements: [<b>selection</b>: <span class="selectable-content" id="_s_68">known-good list rules</span>, <span class="selectable-content" id="_s_69">known-bad list rules</span>, <span class="selectable-content" id="_s_70">IP addresses</span>, <span class="selectable-content" id="_s_71">[<b>assignment</b>: 
-     <span class="assignable-content">other IPS policy elements</span>]</span>, <span class="selectable-content" id="_s_72">no other IPS policy elements</span>].
-							
-						</div></div><h3 id="ext-comp-IPS_NTA_EXT" class="indexable" data-level="4">C.2.1.3 IPS_NTA_EXT Network Traffic Analysis</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines the network traffic protocols for which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is capable of analyzing and detecting violations. 
-								</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">IPS_NTA_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#IPS_NTA_EXT.1">IPS_NTA_EXT.1</a>,
-             Network Traffic Analysis,
-              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to be able to inspect traffic for certain network
-						protocols and in certain architectural deployments.</p><h4>Management: IPS_NTA_EXT.1</h4><p>The following actions could be considered for the management functions in FMT:
-						<ul>
-							<li>Modification of the parameters that define the network traffic to be collected and analyzed.</li>
-						</ul>
-					</p><h4>Audit: IPS_NTA_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the
-						<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
-						<ul>
-						<li>Modification of which IPS policies are active on a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface.</li>
-						<li>Enabling/disabling a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface with IPS policies applied.</li>
-						<li>Modification of which mode(s) is/are active on a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface.</li>
-						</ul>
-					</p><h4>IPS_NTA_EXT.1 Network Traffic Analysis</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies.
-					</td></tr></table><h4 id="ext-comp-IPS_NTA_EXT.1.1">IPS_NTA_EXT.1.1</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform analysis of IP-based network traffic forwarded to the
-					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s sensor interfaces, and detect violations of administratively-defined IPS
-					policies.
-
-					<h4 id="ext-comp-IPS_NTA_EXT.1.2">IPS_NTA_EXT.1.2</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall process (be capable of inspecting) the following network traffic protocols:	
-					<ul>
-					<li>Internet Protocol version 4 (IPv4), RFC 791</li>
-					<li>Internet Protocol version 6 (IPv6), RFC 8200</li>
-					<li>Internet control message protocol version 4 (ICMPv4), RFC 792</li>
-					<li>Internet control message protocol version 6 (ICMPv6), RFC 2463</li>
-					<li>Transmission Control Protocol (TCP), RFC 793</li>
-					<li>User Data Protocol (UDP), RFC 768.</li>
-
-
-					</ul>
-					<h4 id="ext-comp-IPS_NTA_EXT.1.3">IPS_NTA_EXT.1.3</h4>
-						<span style="" class="comment " id="Comment-2-">wording updated as this was previously clunky, but also the "session reset-capable interface" selection was removed because there are no EAs for that claim, and it also has an open-ended assignment where other types of interfaces can be specified with no instructions on how to test them.</span>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow the signatures to be assigned to sensor interfaces configured
-					for promiscuous and inline mode, and to
-					support designation of one or more interfaces as being used as a management interface for communication between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and external entities without simultaneously
-					being a sensor interface, as indicated by the following interface types:
-					<ul>
-					<li>Promiscuous (listen-only) mode: [<b>assignment</b>: 
-     <span class="assignable-content">list of interface types</span>]</li>
-					<li>Inline (data pass-through) mode: [<b>assignment</b>: 
-     <span class="assignable-content">list of interface types</span>]</li>
-					<li>Management mode: [<b>assignment</b>: 
-     <span class="assignable-content">list of interface types</span>].</li>
-						
-					</ul>
-					</div></div><h3 id="ext-comp-IPS_SBD_EXT" class="indexable" data-level="4">C.2.1.4 IPS_SBD_EXT Signature-Based IPS Functionality</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines the network traffic protocols for which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is capable of analyzing and detecting violations. 
-								</div><h4>Component Leveling</h4><svg style="max-height: 50px;"><text x="4" fill="black" font-size="15" y="44">IPS_SBD_EXT</text><rect x="2" y="31" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="37" x2="231" y2="17" stroke="black"></line><text x="234" fill="black" font-size="15" y="44">2</text><rect x="232" y="31" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="37" x2="231" y2="37" stroke="black"></line></svg><p><a href="#IPS_SBD_EXT.1">IPS_SBD_EXT.1</a>,
-             Signature-Based IPS Functionality,
-              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to detect network traffic with certain
-						packet characteristics and take some action when this traffic is detected.</p><p><a href="#IPS_SBD_EXT.2">IPS_SBD_EXT.2</a>,
-             Traffic Normalization,
-              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to support the inspection of encapsulated or
-			fragmented traffic by normalizing it.
-		</p><h4>Management: IPS_SBD_EXT.1</h4><p>The following actions could be considered for the management functions in FMT:
-						<ul>
-						<li>Enabling and disabling signatures applied to sensor interfaces.</li>
-						<li>Updating (importing) signatures.</li>
-						<li>Creating custom signatures.</li>
-						<li>Enabling and disabling actions to be taken when signature matches are detected.</li>
-						</ul>
-					</p><h4>Audit: IPS_SBD_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the
-						<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
-						<ul>
-							<li>Inspected traffic matches a signature-based IPS rule with logging enabled.</li>
-						</ul>
-					</p><h4>IPS_SBD_EXT.1 Signature-Based IPS Functionality</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#IPS_NTA_EXT.1">IPS_NTA_EXT.1</a> Network Traffic Analysis
-					</td></tr></table><h4 id="ext-comp-IPS_SBD_EXT.1.1">IPS_SBD_EXT.1.1</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support inspection of packet header contents and be able to inspect at least the following header fields: 
-					<ul>
-					<li>IPv4: version; header length; packet length; ID; IP flags; fragment offset;time to live (TTL); protocol; header checksum; source address; destination address; IP options; and [<b>selection</b>: <span class="selectable-content" id="_s_73">type of service (ToS)</span>, <span class="selectable-content" id="_s_74">no other field</span>].</li>
-					<li>IPv6: version; payload length; next header; hop limit; source address; destination address; routing header; and [<b>selection</b>: <span class="selectable-content" id="_s_75">traffic class</span>, <span class="selectable-content" id="_s_76">flow label</span>, <span class="selectable-content" id="_s_77">no other field</span>]
-					</li>
-					<li>ICMP: type; code; header checksum; and [<b>selection</b>: <span class="selectable-content" id="_s_78">ID</span>, <span class="selectable-content" id="_s_79">sequence number</span>, <span class="selectable-content" id="_s_80">[<b>assignment</b>: 
-     <span class="assignable-content">other field in the ICMP header</span>]</span>]					
-						</li>
-					<li>ICMPv6: type; code; and header checksum.</li>
-					<li>TCP: source port; destination port; sequence number; acknowledgment number; offset; reserved; TCP flags; window; checksum; urgent pointer; and TCP options.</li>
-					<li>UDP: source port; destination port; length; and UDP checksum.</li>
-					</ul>
-				<h4 id="ext-comp-IPS_SBD_EXT.1.2">IPS_SBD_EXT.1.2</h4>
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support inspection of packet payload data and be able to inspect at least the following data elements to perform string-based pattern-matching: [
-				<ul>
-					<li>ICMPv4 data: characters beyond the first 4 bytes of the ICMP header.</li>
-					<li>ICMPv6 data: characters beyond the first 4 bytes of the ICMP header.</li>
-					<li>TCP data (characters beyond the 20 byte TCP header), with support for detection of:
-						<ol type="i">
-							<li>FTP (file transfer) commands: help, noop, stat, syst, user, abort, acct, allo, appe, cdup, cwd, dele, list, mkd, mode, nlst, pass, pasv, port, pass, quit, rein, rest, retr, rmd, rnfr, rnto, site, smnt, stor, stou, stru, and type.</li>
-							<li>HTTP (web) commands and content: commands including GET and POST, and administrator- defined strings to match URLs/URIs, and web page content.</li>
-							<li>SMTP (email) states: start state, SMTP commands state, mail header state, mail body state, abort state</li>
-							<li>[<b>selection</b>: <span class="selectable-content" id="_s_81">[<b>assignment</b>: 
-     <span class="assignable-content">other types of TCP payload inspection</span>]</span>, <span class="selectable-content" id="_s_82">no other types of TCP payload inspection</span>]</li>
-						</ol></li>
-					<li>UDP data: characters beyond the first 8 bytes of the UDP header;</li>
-					<li>[<b>assignment</b>: 
-     <span class="assignable-content">other types of packet payload inspection</span>].</li>				
-				</ul>
-				<h4 id="ext-comp-IPS_SBD_EXT.1.3">IPS_SBD_EXT.1.3</h4>
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to detect the following header-based signatures (using fields identified in <a href="#IPS_SBD_EXT.1.1">IPS_SBD_EXT.1.1</a>) at IPS sensor interfaces: 
-				<ol type="a">
-					<li>IP Attacks
-						<ol type="i">
-							<li>IP Fragments Overlap (Teardrop attack, Bonk attack, or Boink attack)</li>
-							<li>IP source address equal to the IP destination (Land attack)</li>
-						</ol>
-					</li>
-					<li>ICMP Attacks
-						<ol type="i">
-							<li>Fragmented ICMP Traffic (e.g. Nuke attack)</li>
-							<li>Large ICMP Traffic (Ping of Death attack)</li>
-						</ol>
-					</li>
-					<li>TCP Attacks
-						<ol type="i">
-							<li>TCP NULL flags</li>
-							<li>TCP SYN+FIN flags</li>
-							<li>TCP FIN only flags</li>
-							<li>TCP SYN+RST flags</li>
-						</ol>
-					</li>
-					<li>UDP Attacks
-						<ol type="i">
-							<li><i>UDP Bomb Attack</i></li>
-							<li><i>UDP Chargen DDoS Attack</i>.</li>
-						</ol>
-					</li>
-				</ol>.
-                <h4 id="ext-comp-IPS_SBD_EXT.1.4">IPS_SBD_EXT.1.4</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to detect all the following traffic-pattern detection signatures, and to have these signatures applied to IPS sensor interfaces: 
-					<ol type="a">
-						<li>Flooding a host (DoS attack)
-							<ol type="i">
-								<li>ICMP flooding (Smurf attack, and ping flood)</li>
-								<li>TCP flooding (e.g. SYN flood)</li>
-							</ol></li>
-						<li>Flooding a network (DoS attack)</li>
-						<li>Protocol and port scanning
-							<ol type="i">
-								<li>IP protocol scanning</li>
-								<li>TCP port scanning</li>
-								<li>UDP port scanning</li>
-								<li>ICMP scanning.</li>
-							</ol></li>
-					</ol>
-                <h4 id="ext-comp-IPS_SBD_EXT.1.5">IPS_SBD_EXT.1.5</h4>
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow the following operations to be associated with signature-based IPS policies:
-				<ul>
-					<li>In any mode, for any sensor interface: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_83">allow the traffic flow;</span></li><li style=""><span class="selectable-content" id="_s_84">send a TCP reset to the source address of the offending traffic;</span></li><li style=""><span class="selectable-content" id="_s_85">send a TCP reset to the destination address of the offending traffic;</span></li><li style=""><span class="selectable-content" id="_s_86">send an ICMP[<b>selection</b>: <span class="selectable-content" id="_s_87">host</span>, <span class="selectable-content" id="_s_88">destination</span>, <span class="selectable-content" id="_s_89">port</span>]unreachable message;</span></li><li style=""><span class="selectable-content" id="_s_90">trigger a non-TOE network device to block the offending traffic pattern</span></li></ul>]</li>
-					<li>In inline mode:
-						<ul>
-							<li>block/drop the traffic flow;</li>
-							<li>and [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_91">allow all traffic flow;</span></li><li style=""><span class="selectable-content" id="_s_92">allow the traffic flow with following exceptions:[<b>assignment</b>: 
-     <span class="assignable-content">malicious traffic such as but not limited to IPS_EXT.1.3 and IPS_EXT.1.4 if always dropped</span>];</span></li><li style=""><span class="selectable-content" id="_s_93">modify and forward packets before they pass through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span></li></ul>].</li>
-						</ul>
-					</li>
-				</ul>
-                <h4 id="ext-comp-IPS_SBD_EXT.1.6">IPS_SBD_EXT.1.6</h4>
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support stream reassembly or equivalent to detect malicious payload even if it is split across multiple non-fragmented packets.
-
-                </div><h4>Management: IPS_SBD_EXT.2</h4><p>The following actions could be considered for the management functions in FMT:
-			<ul>
-			<li>Enabling and disabling signatures applied to sensor interfaces.</li>
-			<li>Updating (importing) signatures.</li>
-			<li>Creating custom signatures.</li>
-			<li>Enabling and disabling actions to be taken when signature matches are detected.</li>
-			</ul>
-		</p><h4>Audit: IPS_SBD_EXT.2</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the
-			<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
-			<ul>
-				<li>Inspected traffic matches a signature-based IPS rule with logging enabled.</li>
-			</ul>
-		</p><h4>IPS_SBD_EXT.2 Traffic Normalization</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#IPS_NTA_EXT.1">IPS_NTA_EXT.1</a> Network Traffic Analysis
-		</td></tr></table><h4 id="ext-comp-IPS_SBD_EXT.2.1">IPS_SBD_EXT.2.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to inspect packets encapsulated through the following means: [<b>selection</b>: <span class="selectable-content" id="_s_97">GRE</span>, <span class="selectable-content" id="_s_98">IP-in-IP</span>, <span class="selectable-content" id="_s_99">IPv4-in-IPv6</span>, <span class="selectable-content" id="_s_100">MPLS</span>, <span class="selectable-content" id="_s_101"> PPTP</span>, <span class="selectable-content" id="_s_102">[<b>assignment</b>: 
-     <span class="assignable-content">other
-encapsulation methods</span>]</span>].
-	<h4 id="ext-comp-IPS_SBD_EXT.2.2">IPS_SBD_EXT.2.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to perform IP normalization to reassemble fragmented packets for inspection, and: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_103">For data collected at promiscuous interfaces: generate an alert if the packet cannot be reassembled;</span></li><li style=""><span class="selectable-content" id="_s_104">For data collected at inline interfaces: do not forward any packet fragments and generate an alert if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> cannot reassemble the entire packet</span></li></ul>].<h4 id="ext-comp-IPS_SBD_EXT.2.3">IPS_SBD_EXT.2.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to perform TCP normalization for traffic flows through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed in inline mode, and prohibit forwarding of: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_105">duplicate packets;</span></li><li style=""><span class="selectable-content" id="_s_106">changed packets;</span></li><li style=""><span class="selectable-content" id="_s_107">out-of-sequence packets;</span></li><li style=""><span class="selectable-content" id="_s_108">
-			[<b>selection</b>: <span class="selectable-content" id="_s_109">[<b>assignment</b>: 
-     <span class="assignable-content">other packet types that should not be
-forwarded</span>]</span>, <span class="selectable-content" id="_s_110">no other packets</span>]
-			</span></li></ul>].</div></div></span></span><h1 id="satisfiedreqs" class="indexable" data-level="A">Appendix D -  Inherently Satisfied Requirements</h1> 
+       Selection-based       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p><h1 id="satisfiedreqs" class="indexable" data-level="A">Appendix C -  Inherently Satisfied Requirements</h1> 
 		This appendix lists requirements that should be considered satisfied by products
 		successfully evaluated against this Protection Profile.  
 		However, these requirements are not featured explicitly as <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> and should not be
@@ -2284,14 +1628,14 @@ forwarded</span>]</span>, <span class="selectable-content" id="_s_110">no other 
 				<td>Rationale for Satisfaction</td>
 			</tr>
 			<tr>
-				<td><b><a href="#FAU_ARP.1">FAU_ARP.1</a> - Security Alarms</b></td>
-				<td><a href="#FAU_ARP.1">FAU_ARP.1</a> has a dependency on FAU_SAA.1. This is
+				<td><b>FAU_ARP.1 - Security Alarms</b></td>
+				<td>FAU_ARP.1 has a dependency on FAU_SAA.1. This is
 					because FAU_SAA.1 defines the behavior that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> may
 					consider to be a potential security violation while
-					<a href="#FAU_ARP.1">FAU_ARP.1</a> defines what actions the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> takes when such
+					FAU_ARP.1 defines what actions the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> takes when such
 					behavior is detected. This dependency is implicitly
 					satisfied in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> because the behavior defined
-					in <a href="#FRU_RSA.1">FRU_RSA.1</a> and the various IPS class requirements
+					in FRU_RSA.1 and the various IPS class requirements
 					collectively define potential security violation behavior so
 					a separate <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to enumerate this is redundant.
 				</td>
@@ -2303,12 +1647,12 @@ forwarded</span>]</span>, <span class="selectable-content" id="_s_110">no other 
 					therefore satisfies this dependency.</td>
 			</tr>
 		</table>
-	<h1 id="entropyappendix" class="indexable" data-level="A">Appendix E -  Entropy Documentation and Assessment</h1> 
+	<h1 id="entropyappendix" class="indexable" data-level="A">Appendix D -  Entropy Documentation and Assessment</h1> 
 		<p>
 			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not require any additional supplementary information to describe its entropy sources
 			beyond the requirements outlined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
 			</p>
-	<h1 id="acronyms" class="indexable" data-level="A">Appendix F -  Acronyms</h1><table><caption><span class="ctr" data-myid="t-acronyms" data-counter-type="ct-Table" id="t-acronyms">Table <span class="counter">14</span></span>: Acronyms
+	<h1 id="acronyms" class="indexable" data-level="A">Appendix E -  Acronyms</h1><table><caption><span class="ctr" data-myid="t-acronyms" data-counter-type="ct-Table" id="t-acronyms">Table <span class="counter">12</span></span>: Acronyms
 		</caption><tr class="header"><th>Acronym</th><th>Meaning</th></tr><tr><td><span class="term" id="abbr_Base-PP" data-plural="Base-PPs"><abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></span></td><td><span id="long_abbr_Base-PP">Base Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_CC"><abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr></span></td><td><span id="long_abbr_CC">Common Criteria</span></td></tr>
 <tr><td><span class="term" id="abbr_CEM"><abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr></span></td><td><span id="long_abbr_CEM">Common Evaluation Methodology</span></td></tr>
@@ -2329,7 +1673,7 @@ forwarded</span>]</span>, <span class="selectable-content" id="_s_110">no other 
 <tr><td><span class="term" id="abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span></td><td><span id="long_abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Security Functionality</span></td></tr>
 <tr><td><span class="term" id="abbr_TSFI" data-plural="TSFIs"><abbr class="dyn-abbr"><a href="#abbr_TSFI">TSFI</a></abbr></span></td><td><span id="long_abbr_TSFI"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Interface</span></td></tr>
 <tr><td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td></tr>
-</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix G -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">15</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibndcpp3">[NDcPP]</span></td><td><span class="description">NDcPP  - <a href="https://www.niap-ccevs.org/protectionprofiles/482">Collaborative Protection Profile for Network Devices, Version 3.0e, December 06, 2023</a></span></td></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
+</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix F -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">13</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibndcpp3">[NDcPP]</span></td><td><span class="description">NDcPP  - <a href="https://www.niap-ccevs.org/protectionprofiles/482">Collaborative Protection Profile for Network Devices, Version 3.0e, December 06, 2023</a></span></td></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
             <li><a href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART1R1.pdf">Part 1: 
 				Introduction and general model</a>, CCMB-2022-11-001, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART2R1.pdf">Part 2: 
