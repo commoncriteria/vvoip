@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html><head><title>Supporting Document - 
+    PP-Module for IPS</title><style type="text/css">
+    #toc a{
+        display: block;
+    }
+    .td-{
+        display: block;
+    }
+    svg{
+      width: 100%;
+    }
+
+    a[id^="ajq_"]{
+        color:black;
+    }
+
+    
+    body{
+       max-width: 900px;
+       margin: auto;
+    }
+    #toc span{
+       margin-left: 20px;
+    }
+    .assignable-content{
+      font-style: italic;
+    }
+    .selectable-content{
+      font-style: italic;
+    }
+    .not-selectable-content{
+      font-style: italic;
+      text-decoration: line-through;
+    }
+    .refinement{
+      font-weight: bold;
+    }
+    div.eacategory{
+      font-style: italic;
+      font-weight: bold;
+    }
+    .activity_pane .toggler::after, .activity_pane .toggler{
+       display: inline-block;
+       height: auto;
+       content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8A\
+       AAAPCAYAAAA71pVKAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAQOFAAEDhQGl\
+       VDz+AAAAB3RJTUUH4gIXFDM7fhmr1wAAAfRJREFUKM+dkk9I02EYxz/P+25uurWR\
+       tTkzI4NGl4jQgkq71K1DhnTQIDolRAQFQYSHTtGhU4e6eujQofBSFLOg0C4RUSjh\
+       FnmqTTdKpj/mfv/eX4cUpmRYn9vz8v3w8D7PA/AWGADCbI4QcAb4AnAF8IBJEdX+\
+       N0tEda40C4AHADviW1LFvpOX6+FwtAacVzqkGiWtwxo4F21OuPu7+yvxRNoDEhpY\
+       cpzavkQyc7D76FCk+vN7j7VU6RdR4xAsikjGGP9FKrN3sPfEpajv2i2zhckR4JUG\
+       UCr0erFavLkn2ytd2WPxcFOsZb74+SIQA0YPHBqIdB8Z6tChJv1m/N4P33OGAUsD\
+       BIFxPNcOkq07jyeSbbo1tTu2q6vHEqU7D/ddSKcz2ZQJjBSmx925b9NjwEMAafha\
+       eyQa/3Dq7O0243sCIEoRGAOA59nm5dM7OHVruzH+AkDjYEp23RrLT+U8Ub+fV0UR\
+       oVyaMfVa9fqquF5GKX3ja2FCuc6yWbMipYNP755UgEdr8o2FMf5ivVYdKRfzRkRW\
+       RfJTOc+2rWdAcUN5hdGP7x8viGgAXLvGbGFCKxW6tj74J3nOqVvP89M5V6kQ86UZ\
+       f7lWvWWMt7Sp41VKb21uSfqnB++6kWi8BLTzL4ioq7H4tgC4z3/QAZSBxEaBXygN\
+       v+jeFnAPAAAAAElFTkSuQmCC');
+       max-width: 15px;
+    }
+
+    a.defined{
+      color: inherit;
+      text-decoration: inherit;
+    }
+      
+    a {
+      text-decoration: none;
+      word-wrap: break-word;
+    }
+    a.abbr:link{
+      color:black;
+      text-decoration:none;
+    }
+    a.abbr:visited{
+      color:black;
+      text-decoration:none;
+    }
+    a.abbr:hover{
+      color:blue;
+      text-decoration:none;
+    }
+    a.abbr:hover:visited{
+      color:purple;
+      text-decoration:none;
+    }
+    a.abbr:active{
+      color:red;
+      text-decoration:none;
+    }
+    .note-header{
+      font-weight: bold;
+    }
+    .note p:first-child{
+      display: inline;
+    }
+
+    .indent{ margin-left:2em; }
+
+    /* Tooltip container */
+    .tooltipped {
+       position: relative;
+       display: inline-block;
+       border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+
+    /* Tooltip text */
+    .tooltiptext {
+       visibility: hidden;
+       width: 120px;
+       background-color: black;
+       color: #fff;
+       text-align: center;
+       padding: 5px 0;
+       border-radius: 6px;
+
+       /* Position the tooltip text - see examples below! */
+       position: absolute;
+       z-index: 1;
+   }
+
+   /* Show the tooltip text when you mouse over the tooltip container */
+   .tooltipped:hover .tooltiptext {
+       visibility: visible;
+   }
+   tr.major-row{
+       border-top-style: double;
+   }
+   tr.major-row td:first-child{
+       border-right-style: ridge;
+       background-color: white;
+   } 
+   table.mfs td{
+       text-align: center;
+   }
+   table.mfs td:first-child{
+       text-align: left;
+       white-space: nowrap;
+   }
+  .table-caption, caption{
+       text-align: center;
+       font-weight: bold;
+   }
+   table{
+       margin:auto;
+       margin-top:1em;
+       border-collapse:collapse; /*border: 1px solid black;*/
+   }
+   td{
+       text-align:left;
+       padding:8px 8px;
+   }
+   th{
+       padding:8px 8px;
+   }
+   thead tr td{
+       text-align: center;
+       font-style: oblique;
+       font-weight: bold;
+   }
+   tr.header{
+       border-bottom:3px solid gray;
+       padding:8px 8px;
+       text-align:left;
+       font-weight:bold; /*font-size: 90%; font-family: verdana, arial, helvetica, sans-serif; */
+   }
+   table tr:nth-child(2n+2){
+       background-color:#F4F4F4;
+   }
+
+   table.ecd_heir_dep{
+       width: 100%;
+   }
+   table.ecd_heir_dep tr{
+       background-color: inherit;
+   }
+       
+   table.ecd_heir_dep tr :first-child{
+       white-space: nowrap;
+   }
+   table.ecd_heir_dep tr :last-child{
+       width: 100%;
+   }
+
+       
+   .dependent{
+       border: 1px solid gray;
+       border-radius: 1px
+   }
+   .dependent-content{
+       margin-left: 25px;
+       font-style: italic;
+   }
+
+   .uc_table_or td, .uc_table_or tr {
+       vertical-align: middle;
+       border: 1px solid black;
+       background-color: white;
+   }
+
+   .uc_not, .uc_mf, .uc_sel, .uc_guide{
+       text-indent: 10px;
+   }
+   .uc_sel &gt; a{ 
+       font-style: italic;
+   }
+
+   .uc_not_sel, .uc_sel.uc_mf, uc_assign.uc_mf{
+       text-indent: 20px;
+   }
+
+
+   .uc_table_or tr td.or_cell{
+      white-space: nowrap;
+      border-radius: 0.6em 0 0 0.6em;
+      background-color: black;
+      color: white;
+   }
+
+   .uc_table_and, .uc_table_or {
+       width: 100%;
+       background-color: white;
+   }
+   .uc_guidance{
+       display: table;
+       background-color: gray;
+   }  
+   div.uc_inc_fcomp{
+       display: list-item;
+       list-style-type: disc;
+       list-style-position: inside;
+       }
+
+   div.validationguidelines_label{
+        padding-top: 10px;
+   }
+	
+   .evidence, .test-obj { font-style: normal; font-size: 90%;}
+   
+   
+	table.classic {
+    	width: 100%;
+    	background-color: white;
+    	border-collapse: collapse;
+    	border-width: 2px;
+  		border-color: gray;
+  		border-style: solid;
+  		color: black;
+		font-size: small;
+	}
+    table.classic th {
+  		background-color: lightgray;   
+	}
+    table.classic th:empty{
+	    background-color: white;
+		border-top: none;
+		border-left: none;
+	}
+	table.classic td, table.classic th {
+  		border-width: 2px;
+  		border-color: gray;
+  		border-style: solid;
+  		padding: 5px;
+	}
+
+   
+    .comp .description{
+        padding-bottom: 20px;
+        display: block;
+    }    
+   
+   </style></head><body><div style="text-align: center; margin-left: auto; margin-right: auto;"><h1 class="title" style="page-break-before:auto;">Supporting Document<br/>
+        Mandatory Technical Document</h1><img src="images/niaplogo.png" alt="NIAP"></img><hr width="50%"></hr><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><br/>
+    PP-Module for IPS<br/>
+      Version: 1.1<br/>2025-04-11<br/><b>National Information Assurance Partnership</b></div><div class="foreword"><h1 style="text-align: center">Foreword</h1><p>This is a Supporting Document (SD), intended to complement the Common Criteria version 3
+      and the associated Common Evaluation Methodology for
+      Information Technology Security Evaluation.</p><p>SDs may be “Guidance Documents”, that highlight specific approaches 
+      and application of the standard to areas where no mutual recognition of
+      its application is required, and as such, are not of normative nature, 
+      or “Mandatory Technical Documents”, whose application is mandatory for evaluations 
+      whose scope is covered by that of the SD.
+      The usage of the latter class is not only mandatory, but certificates
+      issued as a result of their application are recognized under the CCRA.</p><p><b>Technical Editor:</b><br/>
+      National Information Assurance Partnership (NIAP)
+      </p><p><b style="page-break-before:always;">Document history:</b><table><tr class="header"><th>Version</th><th>Date</th><th style="align:left;">Comment</th></tr><tr><td>1.1</td><td>2025-04-11</td><td>CC:2022 updates, incorporation of TDs</td></tr><tr><td>1.0</td><td>2020-10-28</td><td>Initial publication</td></tr></table></p><p><b>General Purpose:</b><br/>
+      The purpose of this SD is to define evaluation methods for the functional behavior of
+      IPS      
+      products.
+      </p><p><b>Acknowledgments:</b><br/>
+      This SD was developed with support from NIAP 
+      IPS
+      Technical Community members, with representatives from industry, government 
+      agencies, Common Criteria Test Laboratories, and members of academia.
+      </p></div><h1>Table of Contents</h1><div id="toc"><a href="#introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#scope" style="text-indent:10px">1.1<span>Technology Area and Scope of Supporting Document</span></a><a href="#structure" style="text-indent:10px">1.2<span>Structure of the Document</span></a><a href="#glossary" style="text-indent:10px">1.3<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.3.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.3.2<span>Technical Terms</span></a><a href="#sfr" style="text-indent:0px">2<span>Evaluation Activities for SFRs</span></a><a href="#aa-ND" style="text-indent:10px">2.1<span>Network Device</span></a><a href="#qq-sfrs-ND-Modified" style="text-indent:20px">2.1.1<span>Modified SFRs
+        </span></a><a href="#aa-APP" style="text-indent:10px">2.2<span>Application Software</span></a><a href="#qq-sfrs-APP-Modified" style="text-indent:20px">2.2.1<span>Modified SFRs
+        </span></a><a href="#man-sfrs" style="text-indent:10px">2.3<span>TOE SFR Evaluation Activities</span></a><a href="#m-fco" style="text-indent:20px">2.3.1<span>Communications (FCO)</span></a><a href="#m-fdp" style="text-indent:20px">2.3.2<span>User Data Protection (FDP)</span></a><a href="#m-fmt" style="text-indent:20px">2.3.3<span>Security Management (FMT)</span></a><a href="#m-fta" style="text-indent:20px">2.3.4<span>TOE Access (FTA)</span></a><a href="#opt-sfrs" style="text-indent:10px">2.4<span>Evaluation Activities for Optional SFRs</span></a><a href="#fau-ops" style="text-indent:20px">2.4.1<span>Security Audit(FAU)</span></a><a href="#fpt" style="text-indent:20px">2.4.2<span>Protection of the TSF (FPT)</span></a><a href="#ips" style="text-indent:20px">2.4.3<span>Intrusion Prevention (IPS)</span></a><a href="#sel-sfrs" style="text-indent:10px">2.5<span>Evaluation Activities for Selection-Based SFRs</span></a><a href="#obj-sfrs" style="text-indent:10px">2.6<span>Evaluation Activities for Objective SFRs</span></a><a href="#fau-obj" style="text-indent:20px">2.6.1<span>Security Audit (FAU)</span></a><a href="#impl-sfrs-" style="text-indent:10px">2.7<span>Evaluation Activities for Implementation-dependent SFRs</span></a><a href="#fru-imp_dep" style="text-indent:20px">2.7.1<span>Resource Utilization</span></a><a href="#sar_aas" style="text-indent:0px">3<span>Evaluation Activities for SARs</span></a><a href="#sup-info" style="text-indent:0px">4<span>Required Supplementary Information</span></a><a href="#biblio" style="text-indent:0px">Appendix A - <span>References</span></a></div><h1 id="introduction" class="indexable" data-level="0">1 Introduction</h1><h2 id="scope" class="indexable" data-level="1">1.1 Technology Area and Scope of Supporting Document</h2><p>The scope of the 
+    PP-Module for IPS is
+    to describe the security functionality of 
+    IPS
+    products in terms of 
+    [CC] and to define functional and assurance requirements for them.
+
+    
+    The PP-Module is intended for use with the following Base-PPs:
+        <ul><li>Network Device, version 3.0e.</li><li>Application Software, version 1.4.</li></ul><br/>
+    This SD is mandatory for evaluations of TOEs that claim conformance to a PP-Configuration that includes the PP-Module for :
+    <ul><li>IPS, Version 1.1</li></ul>
+    As such it defines Evaluation Activities for the functionality described in the PP-Module as well as any impacts to the Evaluation Activities to the Base-PP(s) it modifies.
+    </p><p> 
+Although Evaluation Activities are defined mainly for the evaluators to follow, in general they also help developers to prepare for evaluation by identifying specific requirements for their TOE.
+    The specific requirements in Evaluation Activities may in some cases clarify the meaning of Security
+    Functional Requirements (SFR), and may identify particular requirements for the content of Security
+    Targets (ST) (especially the TOE Summary Specification), user guidance documentation, and possibly
+    supplementary information (e.g. for entropy analysis or cryptographic key management architecture).</p><h2 id="structure" class="indexable" data-level="1">1.2 Structure of the Document</h2><p>Evaluation Activities can be defined for both SFRs and Security Assurance Requirements (SAR),
+    which are themselves defined in separate sections of the SD.</p><p>If any Evaluation Activity cannot be successfully completed in an evaluation, then
+    the overall verdict for the evaluation is a 'fail'.
+    In rare cases there may be acceptable reasons why an Evaluation Activity
+    may be modified or deemed not applicable for a particular TOE, 
+    but this must be approved by the Certification Body for the evaluation.</p><p>In general, if all Evaluation Activities (for both SFRs and SARs) are successfully
+    completed in an evaluation then it would be expected that the overall verdict for 
+    the evaluation is a ‘pass’.
+    To reach a ‘fail’ verdict when the Evaluation Activities have been successfully 
+    completed would require a specific justification from the evaluator as to why the 
+    Evaluation Activities were not sufficient for that TOE.
+    </p><p>Similarly, at the more granular level of assurance components, if the Evaluation 
+    Activities for an assurance component and all of its related SFR Evaluation 
+    Activities are successfully completed in an evaluation then it would be expected 
+    that the verdict for the assurance component is a ‘pass’.
+    To reach a ‘fail’ verdict for the assurance component when these Evaluation 
+    Activities have been successfully completed would require a specific justification 
+    from the evaluator as to why the Evaluation Activities were not sufficient for that TOE. 
+    </p><div class="no-link"><h2 id="glossary" class="indexable" data-level="1">1.3 Terms</h2>
+The following sections list Common Criteria and technology terms used in this document.
+    <h3 id="cc-terms" class="indexable" data-level="2">1.3.1 Common Criteria Terms</h3><table><tr><td><div id="Assurance">Assurance</div></td><td>Grounds for confidence that a TOE meets the SFRs <a href="#bibCC">[CC]</a>.</td></tr>
+<tr><td><div id="Base_Protection_Profile">Base Protection Profile (Base-PP)</div></td><td>Protection Profile used as a basis to build a PP-Configuration.</td></tr>
+<tr><td><div id="Collaborative_Protection_Profile">Collaborative Protection Profile (cPP)</div></td><td>A Protection Profile developed by
+    international technical communities and approved by multiple schemes.</td></tr>
+<tr><td><div id="Common_Criteria">Common Criteria (CC)</div></td><td>Common Criteria for Information Technology Security Evaluation (International Standard ISO/IEC 15408).</td></tr>
+<tr><td><div id="Common_Criteria_Testing_Laboratory">Common Criteria Testing Laboratory</div></td><td>
+      Within the context of the Common Criteria Evaluation and Validation Scheme (CCEVS), an IT security evaluation facility
+      accredited by the National Voluntary Laboratory Accreditation Program (NVLAP) and approved by the NIAP Validation Body to conduct Common Criteria-based evaluations.
+    </td></tr>
+<tr><td><div id="Common_Evaluation_Methodology">Common Evaluation Methodology (CEM)</div></td><td>Common Evaluation Methodology for Information Technology Security Evaluation.</td></tr>
+<tr><td><div id="Distributed_TOE">Distributed TOE</div></td><td>A TOE composed of multiple components operating as a logical whole.</td></tr>
+<tr><td><div id="Functional_Package">Functional Package (FP)</div></td><td>A document that collects SFRs for a particular protocol, technology,
+	    or functionality.</td></tr>
+<tr><td><div id="Operational_Environment">Operational Environment (OE)</div></td><td>Hardware and software that are outside the TOE boundary that support the TOE functionality and security policy.</td></tr>
+<tr><td><div id="Protection_Profile">Protection Profile (PP)</div></td><td>An implementation-independent set of security requirements for a category of products.</td></tr>
+<tr><td><div id="Protection_Profile_Configuration">Protection Profile Configuration (PP-Configuration)</div></td><td>A comprehensive set of security requirements for a product type that consists of at least one Base-PP and at least one PP-Module.</td></tr>
+<tr><td><div id="Protection_Profile_Module">Protection Profile Module (PP-Module)</div></td><td>An implementation-independent statement of security needs for a TOE type complementary to one or more Base-PPs.</td></tr>
+<tr><td><div id="Security_Assurance_Requirement">Security Assurance Requirement (SAR)</div></td><td>A requirement to assure the security of the TOE.</td></tr>
+<tr><td><div id="Security_Functional_Requirement">Security Functional Requirement (SFR)</div></td><td>A requirement for security enforcement by the TOE.</td></tr>
+<tr><td><div id="Security_Target">Security Target (ST)</div></td><td>A set of implementation-dependent security requirements for a specific product.</td></tr>
+<tr><td><div id="Target_of_Evaluation">Target of Evaluation (TOE)</div></td><td>The product under evaluation. </td></tr>
+<tr><td><div id="TOE_Security_Functionality">TOE Security Functionality (TSF)</div></td><td>The security functionality of the product under evaluation.</td></tr>
+<tr><td><div id="TOE_Summary_Specification">TOE Summary Specification (TSS)</div></td><td>A description of how a TOE satisfies the SFRs in an ST.</td></tr>
+</table><h3 id="tech-terms" class="indexable" data-level="2">1.3.2 Technical Terms</h3><table style="width: 100%"><tr><td><div id="Basic_telephony_functions">Basic telephony functions</div></td><td>
+	  	The basic functions a VVoIP phone must provide – pick up, dial tone, dial, talk.
+    </td></tr>
+<tr><td><div id="Call_control">Call control</div></td><td>
+	  	The packets exchanged between devices to establish, maintain, and tear down a
+      telephony call.
+	  </td></tr>
+<tr><td><div id="Client">Client</div></td><td>
+	  	A VVoIP endpoint.
+	  </td></tr>
+<tr><td><div id="Enterprise_Session_Controller_(ESC)">Enterprise Session Controller (ESC) (ESC)</div></td><td>
+	  	A VVoIP call control server for VVoIP devices.
+	  </td></tr>
+<tr><td><div id="H.323">H.323</div></td><td>
+	  	A communications protocol defined by ITU-T that is used for creating, modifying, and
+      terminating multimedia sessions with multiple participants.
+	  </td></tr>
+<tr><td><div id="Peer-to-Peer">Peer-to-Peer (P2P)</div></td><td>
+	  	A VVoIP architecture that forces each peer to be a server and client at the same time.
+	  </td></tr>
+<tr><td><div id="SDES-SRTP">SDES-SRTP</div></td><td>
+	  	A method of key negotiation for SRTP.</td></tr>
+<tr><td><div id="Secure_Real-Time_Transport_Protocol">Secure Real-Time Transport Protocol (SRTP)</div></td><td>
+	  	A protocol that is used to provide multimedia (voice/video) streaming services with
+      added security of encryption, message authentication and integrity, and replay
+      protection.</td></tr>
+<tr><td><div id="Sensitive_Data">Sensitive Data</div></td><td>
+      Call control/signal data, media data, and audit/management data that must be
+      protected while in transit to prevent unauthorized disclosure. </td></tr>
+<tr><td><div id="Session_Initiation_Protocol">Session Initiation Protocol (SIP)</div></td><td>
+	  	A communications protocol defined by IETF that is used for creating, modifying, and
+      terminating multimedia sessions with multiple participants.</td></tr>
+<tr><td><div id="Software/firmware_update_delivery_channel">Software/firmware update delivery channel</div></td><td>
+      A trusted channel between a client and file server (which may be the same server as
+      the call control server) for secure file download of software/firmware updates. </td></tr>
+<tr><td><div id="State">State</div></td><td>
+      A configuration of a VVoIP endpoint based on how the user is currently using or not
+      using the endpoint. Examples include:
+      <ul><li>Hook state: whether the endpoint is active (off-hook) or inactive (on-hook)</li>
+      <li>Mute state: the endpoint is active but is deliberately not transmitting data</li>
+      <li>Hold state: the endpoint is active but is deliberately not transmitting or
+        receiving data</li>
+      </ul></td></tr>
+<tr><td><div id="Streaming_media">Streaming media</div></td><td>
+      The voice/video exchanged between VVoIP endpoints.</td></tr>
+<tr><td><div id="VVoIP_Call_Control_Server">VVoIP Call Control Server</div></td><td>
+      A VVoIP infrastructure device that performs call control functions between a client and
+      other VVoIP endpoints; this may be either a dedicated device such as an ESC or a VVoIP
+      device itself when using P2P.</td></tr>
+</table></div><h1 id="sfr" class="indexable" data-level="0">2 Evaluation Activities for SFRs</h1><p>The EAs presented in this section capture the actions the evaluator performs 
+    to address technology specific aspects covering specific SARs (e.g. ASE_TSS.1, 
+    ADV_FSP.1, AGD_OPE.1, and ATE_IND.1) – this is in addition to the CEM workunits 
+    that are performed in Section <a href="#sar_aas" class="dynref">3 Evaluation Activities for SARs</a>.</p><p>Regarding design descriptions (designated by the subsections labeled TSS, as 
+    well as any required supplementary material that may be treated as proprietary), 
+    the evaluator must ensure there is specific information that satisfies the EA. 
+    For findings regarding the TSS section, the evaluator’s verdicts will be 
+    associated with the CEM workunit ASE_TSS.1-1.
+    Evaluator verdicts associated with the supplementary evidence will also be 
+    associated with ASE_TSS.1-1, 
+    since the requirement to provide such evidence is specified in ASE in the PP.</p><p>For ensuring the guidance documentation provides sufficient information for 
+    the administrators/users as it pertains to SFRs, the evaluator’s verdicts will 
+    be associated with CEM workunits ADV_FSP.1-7, AGD_OPE.1-4, and AGD_OPE.1-5.</p><p>Finally, the subsection labeled Tests is where the authors have determined 
+    that testing of the product in the context of the associated SFR is necessary.
+    While the evaluator is expected to develop tests, there may be instances where 
+    it is more practical for the developer to construct tests, or where the 
+    developer may have existing tests. 
+    Therefore, it is acceptable for the evaluator to witness developer-generated 
+    tests in lieu of executing the tests. 
+    In this case, the evaluator must ensure the developer’s tests are executing both 
+    in the manner declared by the developer and as mandated by the EA. 
+    The CEM workunits that are associated with the EAs specified in this section 
+    are: ATE_IND.1-3, ATE_IND.1-4, ATE_IND.1-5, ATE_IND.1-6, and ATE_IND.1-7.</p><h2 class="indexable" data-level="1" id="aa-ND">2.1 Network Device</h2>
+      The EAs defined in this section are only applicable in cases where the TOE claims conformance
+      to a PP-Configuration that includes the NDcPP.
+     <h3 class="indexable" data-level="2" id="qq-sfrs-ND-Modified">2.1.1 Modified SFRs
+        </h3>
+	  The PP-Module does not modify any requirements when the 
+	  NDcPP is the base.
+	<h2 class="indexable" data-level="1" id="aa-APP">2.2 Application Software</h2>
+      The EAs defined in this section are only applicable in cases where the TOE claims conformance
+      to a PP-Configuration that includes the APP PP.
+     <h3 class="indexable" data-level="2" id="qq-sfrs-APP-Modified">2.2.1 Modified SFRs
+        </h3>
+	  The PP-Module does not modify any requirements when the 
+	  APP PP is the base.
+	<h2 class="indexable" data-level="1" id="man-sfrs">2.3 TOE SFR Evaluation Activities</h2><h2 class="indexable" data-level="2" id="m-fco">2.3.1 Communications (FCO)</h2><div class="comp" id="FCO-VOC-EXT-1"><h4>FCO_VOC_EXT.1 Fixed-Rate Vocoder</h4><span class="activity_pane_body"><div class="component-activity-header">FCO_VOC_EXT.1</div>
+							
+							
+							
+						<div class="eacategory">TSS</div><div class="ea"><div class="ea">
+								The evaluator shall verify that the TSS specifies each vocoder used. The evaluator shall then examine the
+								specification for each vocoder in order to verify that no variable rate vocoders are claimed by the TSF.
+							</div></div><div class="eacategory">Guidance</div><div class="ea">
+			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall set up a test environment that contains the TOE, a call control server (which may be
+								the TOE itself), a network switch, a packet capture tool, and a second VVoIP endpoint.
+								The evaluator shall then perform the following test:
+								<span class="testlist-"><ul>
+									<li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCO_VOC_EXT.1:1</a>:
+      
+									<ul>
+										<li><b>Step 1: </b>The evaluator shall ensure the TOE and the second VVoIP endpoint are registered to a call
+										control server or are using P2P.</li>	
+										<li><b>Step 2: </b>.The evaluator shall use the TOE to dial the second VVoIP endpoint to establish a call and verify
+										the call is established by holding a voice conversation.</li>
+										<li><b>Step 3: </b>The evaluator shall review the captured traffic to verify that a fixed rate vocoder is used.</li>
+									</ul>
+									If multiple vocoders are supported, the evaluator shall reconfigure the TOE to use each individual vocoder
+									and repeat steps 1-3 for each vocoder.
+									</li>
+								</ul></span>
+							</div></div></span></div><h2 class="indexable" data-level="2" id="m-fdp">2.3.2 User Data Protection (FDP)</h2><div class="comp" id="FDP-IFC-1"><h4>FDP_IFC.1 Subset Information Flow Control</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_IFC.1</div>
+						
+						
+						
+					<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall verify that the TSS describes how streaming media is not transmitted when not in a streaming media state.</div></div><div class="eacategory">Guidance</div><div class="ea">
+			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">Testing of this component is performed through evaluation of FDP_IFF.1.</div></div></span></div><div class="comp" id="FDP-IFF-1"><h4>FDP_IFF.1 Simple Security Attributes</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_IFF.1</div>
+						
+						
+						
+					<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall verify that the TSS describes the TOE’s enforcement of the media transmission policy
+						and describes the conditions that are necessary for the TSF to transmit voice/video data to the operational
+						environment.</div></div><div class="eacategory">Guidance</div><div class="ea">
+			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall set up a test environment that contains the TOE, a call control server (which may be
+						the TOE itself), a network switch, a traffic capture tool, and a second VVoIP endpoint.
+						The evaluator shall then perform the following tests:
+						<span class="testlist-"><ul>
+							<li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FDP_IFF.1:1</a>:
+      (Conditional - physical TOE)
+								<ul>
+									<li><b>Step 1: </b>The evaluator shall place the TOE into the on-hook state without registering it to the call control
+									server or using P2P. The evaluator shall use the traffic capture tool to verify that the TOE does
+									not transmit any streaming media traffic.</li>
+									<li><b>Step 2: </b>The evaluator shall place the TOE into the off-hook state and use the traffic capture tool to
+									verify that the TOE does not transmit any streaming media traffic.</li>
+								</ul>
+							</li>
+							<li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FDP_IFF.1:2</a>:
+      (Conditional - software application TOE)
+								<ul>
+									<li><b>Step 1: </b>The evaluator shall execute the VVoIP application without registering it to the call control server
+									or using P2P. The evaluator shall use the traffic capture tool to verify that the TOE does not
+									transmit any streaming media traffic.</li>
+									<li><b>Step 2: </b>The evaluator shall place the TOE into the off-hook state (e.g., by performing a call without
+									specifying any destination data). The evaluator shall use the traffic capture tool to verify that the
+									TOE does not transmit any streaming media traffic.</li>
+								</ul>
+							</li>
+							<li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FDP_IFF.1:3</a>:
+      
+								<ul>
+									<li><b>Step 1: </b>The evaluator shall ensure the TOE is using P2P or register the TOE with the call control server
+									and verify that the TOE is registered by checking the call control server screen with current TOE
+									connections and by viewing the call control path traffic using the traffic capture tool.</li>
+									<li><b>Step 2: </b>The evaluator shall place the TOE into the on-hook state and verify using the traffic capture tool
+									that no streaming media traffic is transmitted by the TOE.</li>
+									<li><b>Step 3: </b>The evaluator shall place the TOE into the off-hook state. The evaluator shall then verify that the
+									TOE continues to not transmit streaming media traffic.</li>
+								</ul>
+							</li>
+							<li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FDP_IFF.1:4</a>:
+      
+								<ul>
+									<li><b>Step 1: </b>The evaluator shall ensure the TOE is using P2P or shall register the TOE with the call control
+									server and verify that it is registered by checking the call control server with current connections
+									and using the traffic capture tool to verify the call control path traffic.</li>
+									<li><b>Step 2: </b>The evaluator shall ensure the TOE is using P2P or shall register the second VVoIP endpoint with
+									the call control server and verify that it has been registered by checking the call control server
+									with current connections and using the traffic capture tool to verify the call control path traffic.</li>
+									<li><b>Step 3: </b>The evaluator shall use the TOE to dial the second VVoIP endpoint and connect a call. The
+									evaluator shall verify that the connection is made by having a voice/video conversation with the
+									endpoint and using the traffic capture tool to verify that a steady stream of traffic is being
+									transmitted between the two endpoints over the media channel.</li>
+									<li><b>Step 4: </b>The evaluator shall use the TOE to put the call on mute and verify that no traffic is transmitted
+									from the TOE over the media channel to the second VVoIP endpoint. If the TOE is registered to a
+									call control server, the evaluator shall also verify that a mute control message is sent to the call
+									control server and it responds.</li>
+									<li><b>Step 5: </b>The evaluator shall use the TOE to take the call off mute and verify that the streaming media
+									traffic between the TOE and the second VVoIP endpoint is resumed.</li>
+								</ul>
+							</li>
+							<li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FDP_IFF.1:5</a>:
+      
+								<ul>
+									<li><b>Step 1: </b>The evaluator shall ensure the TOE is using P2P or register the TOE to the call control server and
+									place it in the on-hook state.</li>
+									<li><b>Step 2: </b>The evaluator shall use a fuzzing tool to attempt to connect to the TOE on the full range of TCP
+									ports used by the TSF. All ports used by the TOE should be closed except for the port that is used
+									to communicate with the ESC.</li>
+								</ul>
+							</li>
+							<li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FDP_IFF.1:6</a>:
+      
+								<ul>
+									<li><b>Step 1: </b>The evaluator shall ensure the TOE and the second VVoIP endpoint are registered to a call
+									control server or are using P2P.</li>
+									<li><b>Step 2: </b>The evaluator shall place the TOE in the on-hook state.</li>
+									<li><b>Step 3: </b>The evaluator shall use a fuzzing tool to attempt to connect to the TOE on the full range of UDP
+									ports used by the TSF. All ports used by the TOE should be closed.</li>
+									<li><b>Step 4: </b>The evaluator shall place a call to the second VVoIP endpoint and verify the call is established.
+									The evaluator shall capture the traffic to determine the port used by the TOE to carry the media
+									traffic.</li>
+									<li><b>Step 5: </b>The evaluator shall hang up the call and verify that the TOE has returned to the on-hook state.</li>
+									<li><b>Step 6: </b>The evaluator shall perform fuzzing activities to verify that the port used to carry media traffic in
+									step 4 has been closed.</li>
+								</ul>
+							</li>
+							<li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FDP_IFF.1:7</a>:
+      (Conditional - "The TOE is not in the hold state" is selected in FDP_IFF.1.2)
+								<ul>
+									<li><b>Step 1: </b>The evaluator shall use the TOE to put the call on hold and verify that no streaming media traffic
+									is transmitted from the TOE over the media channel. If the TOE is registered to a call control
+									server, the evaluator shall also verify that the VVoIP endpoint on-hold call control is sent to the
+									call control server and it responds.</li>
+									<li><b>Step 2: </b>The evaluator shall use the TOE to take the call off hold and verify that the streaming media
+									traffic between the TOE and the second VVoIP endpoint is resumed.</li>
+								</ul>
+							</li>
+						</ul></span>
+						</div></div></span></div><h2 class="indexable" data-level="2" id="m-fmt">2.3.3 Security Management (FMT)</h2><div class="comp" id="FMT-SMF-1-VVOIP"><h4>FMT_SMF.1/VVoIP Specification of Management Functions (VVoIP Communications)</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SMF.1/VVoIP</div>      
+   					
+					
+					
+            	<div class="eacategory">TSS</div><div class="ea"><div class="ea">
+					The evaluator shall verify that the TSS provides a description of the TOE initial configuration and describes
+					the ability of the TSF to manage the functions that are defined in the SFR, including how each function is
+					managed (e.g. manually configured, applied via downloaded configuration file).</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
+					The evaluator shall verify that the operational guidance provides instructions on configuring any
+					functionality specifically related to VVoIP.
+					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+						The evaluator shall perform the following tests, depending on the selections made:
+						<span class="testlist-"><ul>
+						<li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FMT_SMF.1/VVoIP:1</a>:
+      (Conditional - "register the TOE to an ESC [manually]" is selected)
+							<ul>
+								<li><b>Step 1: </b>On the TOE, input IP address, gateway address, and subnet mask.</li>
+								<li><b>Step 2: </b>If the operational environment is deployed in a manner such that the configuration server and
+								ESC are two distinct servers, input the addresses for each; otherwise, input the ESC address.</li>
+								<li><b>Step 3: </b>Save the configuration.</li>
+								<li><b>Step 4: </b>Verify the TOE registers to the ESC.</li>
+							</ul>
+						</li>
+						<li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FMT_SMF.1/VVoIP:2</a>:
+      (Conditional - "register the TOE to an ESC [via DHCP server]" is selected
+							<ul>
+								<li><b>Step 1: </b>On the TOE, input the DHCP server address.</li>
+								<li><b>Step 2: </b>Verify by traffic capture that the TOE receives all needed IP addresses.</li>
+								<li><b>Step 3: </b>Verify by examining the IP address on the TOE.</li>
+								<li><b>Step 4: </b>Verify the TOE registers to the ESC. </li>
+							</ul>
+						Test EAs to verify that the TOE can act as a VVoIP call control server when using P2P (if it is selected) are
+						performed as part of testing for FDP_IFF.1/CallControl.
+						<p></p>
+						Test EAs to verify the configuration of audit behavior are performed as part of testing for FAU_STG_EXT.1.
+						<p></p>
+						Test EAs to verify the modification of transmission of audit data to an external IT entity are performed as
+						part of testing for FAU_STG_EXT.1.
+						<p></p>
+						Test EAs to verify that the idle call termination period can be specified are performed as part of testing
+						for FTA_SSL.3/Media, specifically Test 2 and Test 3.
+						<p></p>
+						Test EAs to verify that the vocoder can be specified are performed as part of testing for FCO_VOC_EXT.1.
+						</li>
+						</ul></span>
+					</div></div></span></div><h2 class="indexable" data-level="2" id="m-fta">2.3.4 TOE Access (FTA)</h2><div class="comp" id="IPS-ABD-EXT-1"><h4>IPS_ABD_EXT.1 Anomaly-Based IPS Functionality</h4><span class="activity_pane_body"><div class="component-activity-header">IPS_ABD_EXT.1</div>      
+						
+						
+						
+					<div class="eacategory">TSS</div><div class="ea"><div class="ea">
+							<p>
+							The evaluator shall verify that the TSS describes the composition, construction, and application of baselines or anomaly-based attributes specified in IPS_ABD_EXT.1.1.
+							</p><p>
+							If ‘frequency’ is selected in IPS_ABD_EXT.1.1, the TSS shall include an explanation of how frequencies can be defined on the TOE.
+							</p><p>
+							If ‘thresholds’ is selected in IPS_ABD_EXT.1.1, the TSS shall include an explanation of how the thresholds can be defined on the TOE.
+							</p><p>
+							The evaluator shall verify that each baseline or anomaly-based rule can be associated with a reaction specified in IPS_ABD_EXT.1.3.
+							</p><p>
+							The evaluator shall verify that the TSS identifies all interface types capable of applying baseline or
+							anomaly-based rules and explains how they are associated with distinct network interfaces. Where
+							interfaces can be grouped into a common interface type (e.g., where the same internal logical path is
+							used, perhaps where a common device driver is used) they can be treated collectively as a distinct network
+							interface.
+							</p>
+						</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
+							<p>
+							The evaluator shall verify that the operational guidance provides instructions to manually create baselines
+							or anomaly-based rules according to the selections made in IPS_ABD_EXT.1.1. Note that dynamic
+							“profiling” of a network to establish a baseline is outside the scope of the PP-Module
+							</p><p>
+							The evaluator shall verify that the operational guidance provides instructions to associate reactions specified in IPS_ABD_EXT.1.3 with baselines or anomaly-based rules.
+							</p><p>
+								The evaluator shall verify that the operational guidance provides instructions to associate the different policies with distinct network interfaces.</p>
+						</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+							The evaluator shall perform the following tests:<span class="testlist-"><ul>
+								<li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test IPS_ABD_EXT.1:1</a>:
+      The evaluator shall use the instructions in the operational guidance to configure baselines or anomaly-based rules for each attribute specified in IPS_ABD_EXT.1.1. The evaluator shall send traffic that does not match the baseline or matches the anomaly-based rule and verify the TOE applies the configured reaction. This shall be performed for each attribute in IPS_ABD_EXT.1.1.</li>
+								<li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test IPS_ABD_EXT.1:2</a>:
+      The evaluator shall repeat the test above to ensure that baselines or anomaly-based rules can be defined for each distinct network interface type supported by the TOE.</li>
+							</ul></span>
+						</div></div></span></div><div class="comp" id="IPS-IPB-EXT-1"><h4>IPS_IPB_EXT.1 IP Blocking</h4><span class="activity_pane_body"><div class="component-activity-header">IPS_IPB_EXT.1</div>      
+						
+						
+						
+					<div class="eacategory">TSS</div><div class="ea"><div class="ea">
+							<p>
+							The evaluator shall verify how good/bad lists affect the way in which traffic is analyzed with respect to processing packets. The evaluator shall also very that the TSS provides details for the attributes that create a known good list, a known bad list, and their associated rules, including how to define the source or destination IP address (e.g. a single IP address or a range of IP addresses).
+							</p><p>
+							If the TSF uses address types other than a single IP or a range of IP addresses (e.g., MAC addresses), the
+							evaluator shall check that the TSS explains what configurations would cause non-IP lists of known-good
+							and known-bad addresses to take precedence over IP-based address lists.
+							</p>
+						</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
+							<p>
+							The evaluator shall verify that the administrative guidance provides instructions with how each role
+							specified in the requirement can create, modify and delete the attributes of known-good and known-bad lists.
+							</p><p>
+							If the TSF uses address types other than a single IP or a range of IP addresses (e.g., MAC addresses), the
+							evaluator shall check that the operational guidance includes instructions for any configurations that would
+							cause non-IP lists of known-good and known-bad addresses to take precedence over IP-based address
+							lists.
+							</p>
+						</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+							The evaluator shall perform the following tests:
+							<span class="testlist-"><ul>
+								<li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test IPS_IPB_EXT.1:1</a>:
+      The evaluator shall use the instructions in the operational guidance to create a known-bad address
+									list. Using a single IP address, a list of addresses, or a range of addresses from that list, the evaluator shall
+									attempt to send traffic through the TOE that would otherwise be allowed by the TOE and observe the TOE
+									automatically drops that traffic.</li>
+								<li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test IPS_IPB_EXT.1:2</a>:
+      The evaluator shall use the instructions in the operational guidance to create a known-good
+									address list. Using a single IP address, a list of addresses, or a range of addresses from that list, the
+									evaluator shall attempt to send traffic that would otherwise be denied by the TOE and observe the TOE
+									automatically allowing traffic.</li>
+								<li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test IPS_IPB_EXT.1:3</a>:
+      The evaluator shall add conflicting IP addresses to each list and ensure that the TOE handles
+									conflicting traffic in a manner consistent with the precedence in IPS_NTA_EXT.1.1.
+								</li>
+							</ul></span>
+						</div></div></span></div><div class="comp" id="IPS-NTA-EXT-1"><h4>IPS_NTA_EXT.1 Network Traffic Analysis</h4><span class="activity_pane_body"><div class="element-activity-header">IPS_NTA_EXT.1.1</div>      
+						<div class="eacategory">TSS</div><div class="ea">
+							<p>
+						The evaluator shall verify that the TSS explains the TOE’s capability of analyzing IP traffic in terms of the
+						TOE’s policy hierarchy (precedence). The TSS should identify if the TOE’s policy hierarchy order is
+						configurable by the administrator for IPS policy elements (known-good lists, known-bad lists, signature-based rules, and anomaly-based rules).</p><p>
+						Regardless of whether the precedence is configurable, the evaluator shall verify that the TSS describes
+						the default precedence as well as the IP analyzing functions supported by the TOE.
+						</p>
+						</div>
+						<div class="eacategory">Guidance</div><div class="ea">
+							<p>
+						The evaluator shall verify that the guidance describes the default precedence.
+							</p><p>
+						If the precedence is configurable, the evaluator shall verify that the guidance explains how to configure the precedence.
+							</p>
+						</div>
+						<div class="eacategory">Tests</div><div class="ea">
+						There are no test EAs for this element.
+						</div>
+					<div class="element-activity-header">IPS_NTA_EXT.1.2</div>      
+						<div class="eacategory">TSS</div><div class="ea">
+						The evaluator shall verify that the TSS indicates that the following protocols are supported:
+						<ul>
+							<li>IPv4</li>
+							<li>IPv6</li>
+							<li>ICMPv4</li>
+							<li>ICMPv6</li>
+							<li>TCP</li>
+							<li>UDP</li>
+						</ul>						
+						The evaluator shall verify that the TSS describes how conformance with the identified protocols has been
+						determined by the TOE developer (e.g., third party interoperability testing, protocol compliance testing).
+												
+						</div>
+						<div class="eacategory">Guidance</div><div class="ea">
+						There are no guidance EAs for this element.
+						</div>
+						<div class="eacategory">Tests</div><div class="ea">
+						There are no test EAs for this element.
+						</div>
+					<div class="element-activity-header">IPS_NTA_EXT.1.3</div>
+						<div class="eacategory">TSS</div><div class="ea">
+						The evaluator shall verify that the TSS identifies all interface types capable of being deployed in the modes of promiscuous, and or inline mode as well as the interfaces necessary to facilitate each deployment mode
+						(at a minimum, the interfaces need to support inline mode). The evaluator shall also check that the TSS
+						provides a description for how the management interface is logically distinct from any sensor interfaces.
+						</div>
+						<div class="eacategory">Guidance</div><div class="ea">
+						<p>
+						The evaluator shall verify that the operational guidance provides instructions on how to deploy each of
+						the deployment methods outlined in the TSS. The evaluator shall also verify that the operational guidance
+						provides instructions of applying IPS policies to interfaces for each deployment mode. If the management
+						interface is configurable, the evaluator shall verify that the operational guidance explains how to
+						configure the interface as a management interface.
+						</p><p>
+						The evaluator shall verify that the operational guidance explains how the TOE sends commands to remote
+						traffic filtering devices if this functionality is supported.
+						</p>
+						</div>
+						<div class="eacategory">Tests</div><div class="ea">
+						Testing for this element is performed in conjunction with testing where promiscuous and inline interfaces are tested. 
+						</div>
+					</span></div><div class="comp" id="IPS-SBD-EXT-1"><h4>IPS_SBD_EXT.1 Signature-Based IPS Functionality</h4><span class="activity_pane_body"><div class="element-activity-header">IPS_SBD_EXT.1.1</div>      
+					<div class="eacategory">TSS</div><div class="ea">
+						<p>
+					The evaluator shall verify that the TSS describes what is comprised within a signature rule.
+						</p><p>
+					The evaluator shall verify that each signature can be associated with a reaction specified in IPS_SBD_EXT.1.5.
+						</p><p>
+					The evaluator shall verify that the TSS identifies all interface types that are capable of applying signatures
+					and explains how rules are associated with distinct network interfaces. Where interfaces can be grouped
+					into a common interface type (e.g., where the same internal logical path is used, perhaps where a
+					common device driver is used) they can be treated collectively as a distinct network interface.
+						</p>
+					</div>
+					<div class="eacategory">Guidance</div><div class="ea">
+					The evaluator shall verify that the operational guidance provides instructions with how to create and/or configure rules using the following protocols and header inspection fields:
+					<ul>
+						<li>IPv4: version; header length; packet length; ID; IP flags; fragment offset; time to live (TTL); protocol; header checksum; source address; destination address; IP options; and, if selected, type of service (ToS).</li>
+						<li>IPv6: Version; payload length; next header; hop limit; source address; destination address; routing header; and, if selected, traffic class and/or flow label</li>
+						<li>ICMP: type; code; header checksum; and, if selected, other header fields (varies based on the ICMP type and code).</li>
+						<li>ICMPv6: type; code; and header checksum.</li>
+						<li>TCP: Source port; destination port; sequence number; acknowledgment number; offset; reserved; TCP flags; window; checksum; urgent pointer; and TCP options.</li>
+						<li>UDP: source port; destination port; length; and UDP checksum.</li>
+					</ul>
+					The evaluator shall verify that the operational guidance provides instructions with how to select and/or configure reactions specified in IPS_SBD_EXT.1.5 in the signature rules.
+
+					</div>
+					<div class="eacategory">Tests</div><div class="ea">
+					The evaluator shall perform the following tests:
+					<span class="testlist-"><ul>
+						<li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test IPS_SBD_EXT.1.1:1</a>:
+      The evaluator shall use the instructions in the operational guidance to test that packet header
+							signatures can be created and/or configured with the selected and/or configured reactions specified in
+							IPS_SBD_EXT.1.5 for each of the attributes listed below. Each attribute shall be individually assigned to its
+							own unique signature:
+							<ul>
+								<li>IPv4: version; header length; packet length; ID; IP flags; fragment offset; time to live (TTL); protocol; header checksum; source address; destination address; IP options; and, if selected, type of service (ToS).</li>
+								<li>IPv6: Version; payload length; next header; hop limit; source address; destination address; routing header; and, if selected, traffic class and/or flow label</li>
+								<li>ICMP: type; code; header checksum; and, if selected, other header fields (varies based on the ICMP type and code).</li>
+							<li>ICMPv6: Type; Code; and Header Checksum.</li>
+							<li>TCP: Source port; destination port; sequence number; acknowledgment number; offset; reserved; TCP flags; window; checksum; urgent pointer; and TCP options.</li>
+							<li>UDP: Source port; destination port; length; and UDP checksum.</li>
+							
+							</ul>
+							The evaluator shall generate traffic to trigger a signature and shall then use a packet sniffer to capture traffic that ensures the reactions of each rule are performed as expected.</li>
+							<li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test IPS_SBD_EXT.1.1:2</a>:
+      The evaluator shall repeat the test above to ensure that signature-based IPS policies can be defined for each distinct network interface type capable of applying signatures as supported by the TOE.</li>
+						</ul></span>
+					</div>
+				<div class="element-activity-header">IPS_SBD_EXT.1.2</div>
+				<div class="eacategory">TSS</div><div class="ea">
+					<p>
+					The evaluator shall verify that the TSS describes what is comprised within a string-based detection
+					signature.
+					</p><p>
+					The evaluator shall verify that each packet payload string-based detection signature can be associated
+					with a reaction specified in IPS_SBD_EXT.1.5.
+					</p>
+					</div>
+					<div class="eacategory">Guidance</div><div class="ea">
+						<p>
+						The evaluator shall verify that the operational guidance provides instructions with how to configure rules using the packet payload string-based detection fields defined in IPS_SBD_EXT.1.2.
+						</p><p>
+					The evaluator shall verify that the operational guidance provides instructions with how to configure reactions specified in IPS_SBD_EXT.1.5 for each string-based detection signature.
+						</p><p>
+					The evaluator shall verify that the operational guidance provides instructions with how rules are associated with distinct network interfaces that are capable of being associated with signatures.
+						</p>
+					</div>
+					<div class="eacategory">Tests</div><div class="ea">
+					The evaluator shall perform the following tests:<span class="testlist-"><ul>
+					<li class="test-"><a id="sbd-payload-reaction" class="defined" href="#sbd-payload-reaction">Test IPS_SBD_EXT.1.2:1</a>:
+      The evaluator shall use the instructions in the operational guidance to test that packet payload
+					string-based detection rules can be assigned to the reactions specified in IPS_SBD_EXT.1.5 using the
+					attributes specified in IPS_SBD_EXT.1.2. However it is not required (nor is it feasible) to test all possible
+					strings of protocol data, the evaluator shall ensure that a selection of strings in the requirement is selected
+					to be tested. At a minimum at least one string using each of the following attributes from IPS_SBD_EXT.1.2
+					should be tested for each protocol. The evaluator shall generate packets that match the string in the rule
+					and observe the corresponding reaction is as configured.
+					<ul>
+					<li>Test at least one string of characters for ICMPv4 data: beyond the first 4 bytes of the ICMP header.</li>
+					<li>Test at least one string of characters for ICMPv6 data: beyond the first 4 bytes of the ICMP
+					header</li>
+					<li> TCP data (characters beyond the 20 byte TCP header):
+						<ol type="i">
+							<li>Test at least one FTP (file transfer) command: help, noop, stat, syst, user, abort, acct, allo,
+							appe, cdup, cwd, dele, list, mkd, mode, nlst, pass, pasv, port, pass, quit, rein, rest, retr, rmd,
+							rnfr, rnto, site, smnt, stor, stou, stru, and type.</li>
+							<li> HTTP (web) commands and content:
+							<ol>
+								<li>Test both GET and POST commands</li>
+								<li>Test at least one administrator-defined string to match URLs/URIs and webpage content.</li>
+							</ol></li>
+							<li>Test at least one SMTP (email) state: start state, SMTP commands state, mail header state, mail body state, abort state.</li>
+							<li>Test at least one string in any additional attribute type defined within the “other types of
+							TCP payload inspection” assignment, if any other types are specified.
+							</li>
+						</ol></li>
+					<li>Test at least one string of UDP data: characters beyond the first 8 bytes of the UDP header;</li>
+					<li>Test at least one string for each additional attribute type defined in the “other types of packet
+					payload inspection” assignment, if any other types are specified.</li>
+					</ul></li>
+					<li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test IPS_SBD_EXT.1.2:2</a>:
+      The evaluator shall repeat Test 1 above to ensure that signature-based IPS policies can be defined for each distinct network interface type capable of applying signatures as supported by the TOE.</li>
+					</ul></span>
+					</div>    
+                 <div class="element-activity-header">IPS_SBD_EXT.1.3</div>
+					<div class="eacategory">TSS</div><div class="ea">The evaluator shall verify that the TSS describes how the attacks defined in IPS_SBD_EXT.1.3 are processed by the TOE and what reaction is triggered when these attacks are identified.</div>
+					<div class="eacategory">Guidance</div><div class="ea">The evaluator shall verify that the operational guidance provides instructions with configuring rules to identify the attacks defined in IPS_SBD_EXT.1.3 as well as the reactions to these attacks as specified in IPS_SBD_EXT.1.5.</div>
+					<div class="eacategory">Tests</div><div class="ea">The evaluator shall create and/or configure rules for each attack signature in IPS_SBD_EXT.1.3. For each
+					attack, the TOE should apply its corresponding signature and enable it to each distinct network interface
+					type capable of applying the signatures. The evaluator shall use packet captures to ensure that the attack
+					traffic is detected by the TOE and a reaction specified in IPS_SBD_EXT.1.5 is triggered and stops the attack.
+					Each attack should be performed one after another so as to ensure that its corresponding signature
+					successfully identified and appropriately reacted to a particular attack.
+					</div>
+                 <div class="element-activity-header">IPS_SBD_EXT.1.4</div>
+					<div class="eacategory">TSS</div><div class="ea">The evaluator shall verify that the TSS describes how the attacks defined in IPS_SBD_EXT.1.4 are processed by the TOE and what reaction is triggered when these attacks are identified.
+
+					</div>
+					<div class="eacategory">Guidance</div><div class="ea">
+					The evaluator shall verify that the operational guidance provides instructions with configuring rules to identify the attacks defined in IPS_SBD_EXT.1.4 as well as the reactions to these attacks as specified in IPS_SBD_EXT.1.5.
+					</div>
+					<div class="eacategory">Tests</div><div class="ea">The evaluator shall configure individual signatures for each attack in IPS_SBD_EXT.1.4. For each attack,
+					the TOE should apply its corresponding signature and enable it to each distinct network interface type
+					capable of applying signatures. The evaluator shall use packet captures to ensure that the attack traffic is
+					detected by the TOE and a reaction specified in IPS_SBD_EXT.1.5 is triggered and stops the attack. Each
+					attack should be performed one after another so as to ensure that its corresponding signature successfully
+					identified and appropriately reacted to a particular attack.
+					</div>
+                <div class="element-activity-header">IPS_SBD_EXT.1.5</div>
+				<div class="eacategory">TSS</div><div class="ea">There are no TSS EAs for this element</div>
+				<div class="eacategory">Guidance</div><div class="ea">The guidance EAs for this element are performed in conjunction with IPS_SBD_EXT.1.1, IPS_SBD_EXT.1.3, and IPS_SBD_EXT.1.4.</div>
+				<div class="eacategory">Tests</div><div class="ea">The test EAs for this element are performed in conjunction with those for IPS_SBD_EXT.1.1, IPS_SBD_EXT.1.2, IPS_SBD_EXT.1.3, and IPS_SBD_EXT.1.4.</div>
+                 <div class="element-activity-header">IPS_SBD_EXT.1.6</div>
+					<div class="eacategory">TSS</div><div class="ea">There are no TSS EAs for this element.</div>
+					<div class="eacategory">Guidance</div><div class="ea">The evaluator shall verify that the operational guidance provides configuration instructions, if needed, to detect payload across multiple packets.</div>
+					<div class="eacategory">Tests</div><div class="ea">The evaluator shall repeat one of the tests in <a href="#sbd-payload-reaction" class="dynref">Test IPS_SBD_EXT.1.2:1</a> but generate multiple non-fragmented packets that contain the string in the rule defined. The evaluator shall verify that the malicious traffic is still detected when split across multiple non-fragmented packets.</div>
+                 </span></div><h2 class="indexable" data-level="1" id="opt-sfrs">2.4 Evaluation Activities for Optional SFRs</h2><h2 class="indexable" data-level="2" id="fau-ops">2.4.1 Security Audit(FAU)</h2><div class="comp" id="FAU-STG-2-IPS"><h4>FAU_STG.2/IPS Protected Audit Trail Storage</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_STG.2/IPS</div>
+				
+				
+				
+			<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall ensure that the TSS identifies how IPS data is protected from unauthorized modification and deletion.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall confirm the guidance documentation describes how to protect IPS data from unauthorized modification and deletion.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall devise tests that demonstrate that IPS data can be protected from unauthorized modification and deletion.</div></div></span></div><div class="comp" id="FAU-STG-5-IPS"><h4>FAU_STG.5/IPS Prevention of Audit Data Loss</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_STG.5/IPS</div>
+				
+				
+				
+				<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall ensure that the TSS identifies how IPS data logging is handled once the IPS data trail is full.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall confirm the guidance documentation describes any steps involved to manage IPS data logging when the IPS audit trail is full.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">There are no test EAs for this component.</div></div></span></div><h2 class="indexable" data-level="2" id="fpt">2.4.2 Protection of the TSF (FPT)</h2><div class="comp" id="FPT-FLS-1-IPS"><h4>FPT_FLS.1/IPS Failure with Preservation of Secure State</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_FLS.1/IPS</div>
+	
+	<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS section to determine that the TOE’s implementation of the fail secure
+	functionality is documented. The evaluator shall ensure that the TSS identifies all failures that will result
+	in the TOE preserving a secure state if triggered. The evaluator shall then ensure that the TOE will attain
+	a secure state after inserting each specified failure mode type. The evaluator shall also examine the TSS
+	to determine whether the fail-secure functionality is configurable.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no operational guidance EAs for this component.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">For each type of failure listed in the assignment, the TOE vendor must provide the evaluator with the
+	means to trigger the failure, and the evaluator shall reproduce each type of failure to ensure that an applied IPS policy remains enforced during the failure. For example, various causes including temporary
+	loss of power could result in a reboot of the TOE. If the active IPS policy at the time of the failure (e.g.
+	reboot) ensured that ICMP echo packets were dropped by the TOE, the evaluator shall confirm that at no
+	point during the shutdown or restart of the TOE is any ICMP echo packet allowed through the TOE (though
+	in this example, it should be understood that there will be a period at which IPS events are not audited
+	while the audit mechanism is pending restart).
+	</div></div></span></div><h2 class="indexable" data-level="2" id="ips">2.4.3 Intrusion Prevention (IPS)</h2><div class="comp" id="IPS-SBD-EXT-2"><h4>IPS_SBD_EXT.2 Traffic Normalization</h4><span class="activity_pane_body"><div class="element-activity-header">IPS_SBD_EXT.2.1</div>
+		<div class="eacategory">TSS</div><div class="ea">The evaluator shall verify that the TSS describes how the TOE is able to inspect traffic inside the encapsulation protocols claimed in the requirement.</div>
+		<div class="eacategory">Guidance</div><div class="ea">The evaluator shall examine the operational guidance to determine that it contains instructions for inspecting tunneled packets through the encapsulation methods identified in the requirement.</div>
+		<div class="eacategory">Tests</div><div class="ea">The evaluator shall set up the conditions necessary to execute testing from IPS_SBD_EXT.1 except that
+		the traffic to be inspected is encapsulated in one of the tunneling protocols that the TOE is capable of
+		inspecting. The evaluator shall transmit the encapsulated traffic and observe that the TSF is able to inspect
+		it and respond in the configured manner. The evaluator shall repeat this test for each type of encapsulated
+		traffic supported by the TSF.</div>
+	<div class="element-activity-header">IPS_SBD_EXT.2.2</div>
+		<div class="eacategory">TSS</div><div class="ea">The evaluator shall verify that the TSS describes how audit records are generated when packets cannot
+		be reassembled after fragmentation. Also, for inline mode, the evaluator shall examine the TSS to ensure
+		packets are dropped.</div>
+		<div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this element.</div>
+		<div class="eacategory">Tests</div><div class="ea">The evaluator shall perform the following tests:<span class="testlist-"><ul>
+		<li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test IPS_SBD_EXT.2.2:1</a>:
+      The evaluator shall generate packets that cannot be reassembled after fragmentation; the evaluator shall ensure audit events are generated for all instances of IP normalization.</li>
+		<li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test IPS_SBD_EXT.2.2:2</a>:
+      For inline mode: The evaluator shall test for automatic packet rejection for when packets cannot be reassembled after fragmentation. The evaluator shall use packet captures to ensure that the IP traffic is detected by the TOE and packets are dropped.</li>
+		<li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test IPS_SBD_EXT.2.2:3</a>:
+      The evaluator shall generate packets that can be reassembled after fragmentation; the evaluator shall ensure audit events are generated for all instances of IP normalization.</li>
+		</ul></span></div>
+		<div class="element-activity-header">IPS_SBD_EXT.2.3</div>
+	<div class="eacategory">TSS</div><div class="ea">The evaluator shall verify that the TSS describes that packets are automatically dropped for the following normalization:<ul>
+	<li>duplicate packets</li>
+	<li>changed packets</li>
+	<li>out of sequence packets</li>
+	<li>other packet types claimed in the requirement, if any</li>
+	</ul></div>
+	<div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this element.</div>
+	<div class="eacategory">Tests</div><div class="ea">The evaluator shall generate the following types of packets and observe that they are discarded by the TSF: 
+		<ul>
+		<li>duplicate packets</li>
+		<li>changed packets</li>
+		<li>out of sequence packets</li>
+		<li>other packet types claimed in the requirement, if any</li>
+		</ul>
+</div>
+		</span></div><h2 class="indexable" data-level="1" id="sel-sfrs">2.5 Evaluation Activities for Selection-Based SFRs</h2>The PP-Module does not define any selection-based requirements.<h2 class="indexable" data-level="1" id="obj-sfrs">2.6 Evaluation Activities for Objective SFRs</h2><h2 class="indexable" data-level="2" id="fau-obj">2.6.1 Security Audit (FAU)</h2><div class="comp" id="FAU-ARP-1"><h4>FAU_ARP.1 Security Alarms</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_ARP.1</div>
+		
+		
+		
+		<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall verify that the TSS includes a description of the alerts specified in the requirement and
+			the events that may trigger these alerts to be generated. The evaluator shall also verify that the TSS states
+			that audit data cannot be transmitted through the security alarms interface.
+
+		</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall verify that the guidance explains how to enable alerts specified in the requirement
+		based on the events that the TSS identifies as potential security violations.
+		</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+		For each action that can be taken by the TSF upon detection of a potential security violation, the evaluator
+		shall configure the TOE to take that action when a particular event occurs. The evaluator shall then
+		perform some action to trigger the event (e.g. by transmitting network traffic that represents the event
+		to the TOE’s sensor interfaces) and observe that the configured action occurs in response.
+		</div></div></span></div><div class="comp" id="FAU-SAR-1"><h4>FAU_SAR.1 Audit Review</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_SAR.1</div>
+	
+	
+	
+	<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS to verify that it describes the ability of administrators to view IPS data from the IPS events, the format in which this IPS data is displayed, and how an administrator is authorized to view this data.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to verify that it provides instructions on how to access and interpret IPS events using the TOE’s management interface.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall devise tests that demonstrate that IPS data (generated as defined in FAU_GEN.1/IPS) can be interpreted by authorized administrators from the TOE’s management interface.</div></div></span></div><div class="comp" id="FAU-SAR-2"><h4>FAU_SAR.2 Restricted Audit Review</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_SAR.2</div>
+	
+	
+	
+	<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS to determine that it identifies the users that are permitted to view IPS data (e.g., members of a particular group).</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to determine what actions are needed to grant or revoke a user’s ability to view IPS data.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall log on to the TOE as various users to confirm that only those users that are intended to be granted read access to IPS data are able to view it.</div></div></span></div><div class="comp" id="FAU-SAR-3"><h4>FAU_SAR.3 Selectable Audit Review</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_SAR.3</div>
+	
+	
+	<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall verify that the TSS includes a description of how the TOE has the ability to apply filtering and sorting of IPS data using the parameters listed in the requirement.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall review the operational guidance to ensure that the guidance itemizes all event types,
+	as well as describes all attributes that are to be selectable in accordance with the requirement, to include
+	those attributes listed in the assignment. The administrative guidance shall also contain instructions on
+	how to set the pre- selection, as well as explain the syntax (if present) for multi-value pre-selection. The
+	administrative guidance shall also identify those audit records that are always recorded, regardless of the
+	selection criteria currently being enforced.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall perform the following tests:
+		<span class="testlist-"><ul>
+		<li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FAU_SAR.3:1</a>:
+      For each attribute listed in the requirement, the evaluator shall devise a test to show that selecting
+the attribute causes only audit events with that attribute (or those that are always recorded, as identified
+in the administrative guidance) to be recorded. </li> 
+<li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FAU_SAR.3:2</a>:
+       [conditional]: If the TSF supports specification of more complex audit pre-selection criteria (e.g.,
+multiple attributes, logical expressions using attributes) then the evaluator shall devise tests showing that
+this capability is correctly implemented. The evaluator shall also, in the test plan, provide a short narrative
+justifying the set of tests as representative and sufficient to exercise the capability.</li></ul></span>
+		</div></div></span></div><h2 class="indexable" data-level="1" id="impl-sfrs-">2.7 Evaluation Activities for Implementation-dependent SFRs</h2><h2 class="indexable" data-level="2" id="fru-imp_dep">2.7.1 Resource Utilization</h2><div class="comp" id="FRU-RSA-1"><h4>FRU_RSA.1 Maximum Quotas</h4><span class="activity_pane_body"><div class="component-activity-header">FRU_RSA.1</div>
+			
+			
+			<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS to ensure that it identifies all resources controlled through the quota
+			mechanism, and that this list contains those resources used to support traffic inspection. The evaluator
+			shall ensure that the TSS describes how each resource is counted as “used” and how a maximum quota
+			or use is determined, as well as the action taken when the quota is reached.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to determine that it contains instructions for
+			establishing quotas (if they are configurable) and that it describes any actions administrators can or should
+			take in response to a quota being reached.
+			</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall follow the operational guidance to configure quotas for the resource (if such a
+			capability is provided). The evaluator then causes the resource quota to be reached, and observes that
+			the action specified in the TSS occurs.</div></div></span></div><h1 id="sar_aas" class="indexable" data-level="0">3 Evaluation Activities for SARs</h1><p>The PP-Module does not define any SARs beyond those defined within the
+    
+	base-PP to which it must claim conformance.
+	It is important to note that a TOE that is evaluated against the PP-Module is
+	inherently evaluated against the Base-PP as well.
+
+	The Base-PP includes a number of Evaluation Activities associated with both SFRs and SARs.
+	Additionally, the PP-Module includes a number of SFR-based Evaluation Activities 
+	that similarly refine the SARs of the Base-PPs.
+	The evaluation laboratory will evaluate the TOE against the chosen Base-PP
+      
+    and supplement that evaluation with the necessary SFRs that are taken from the PP-Module.
+    </p><h1 id="sup-info" class="indexable" data-level="0">4 Required Supplementary Information</h1><p>This Supporting Document has no required supplementary information beyond the ST, operational
+guidance, and testing.</p><h1 id="biblio" class="indexable" data-level="A">Appendix A -  References</h1><table><tr class="header"><th>Identifier</th><th>Title</th></tr>
+		<tr><td><span id="bibCC"> [CC] </span></td><td>Common Criteria for Information Technology Security Evaluation - <ul><li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
+                1: Introduction and General Model</a>, CCMB-2017-04-001, Version 3.1 Revision 5,
+              April 2017.</li><li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">Part
+                2: Security Functional Components</a>, CCMB-2017-04-002, Version 3.1 Revision 5,
+              April 2017.</li><li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">Part
+                3: Security Assurance Components</a>, CCMB-2017-04-003, Version 3.1 Revision 5,
+              April 2017.</li></ul></td></tr>
+		<tr><td><span id="bibndcpp3"></span>[NDcPP]</td><td>NDcPP  - <a href="https://www.niap-ccevs.org/protectionprofiles/482">Collaborative Protection Profile for Network Devices, Version 3.0e, December 06, 2023</a></td></tr>
+
+		
+	</table></body></html>

@@ -1,0 +1,2538 @@
+<Module xmlns="https://niap-ccevs.org/cc/v1" xmlns:sec="https://niap-ccevs.org/cc/v1/section" xmlns:h="http://www.w3.org/1999/xhtml" boilerplate="yes" target-product="IPS" target-products="IPSes" name="Intrusion Prevention System (IPS)">
+
+<!--    <cPP/>   -->                                 <!-- This empty element must be included here if this is a cPP. It must not be here if it is not.  -->
+
+<!-- for FP -->
+<!--
+<Package name="TLS"                                   
+    xmlns="https://niap-ccevs.org/cc/v1"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+-->
+
+<!-- For a PP-Module 
+<Module
+    name="Widget Clients"                              # Name of the Module  
+    xmlns="https://niap-ccevs.org/cc/v1"               # Some html magic
+    xmlns:h="http://www.w3.org/1999/xhtml"             # uses the "h" namespace for inline HTML
+    xmlns:sec="https://niap-ccevs.org/cc/v1/section"   # The "sec" namespace for sections is available
+    target-product="Widget"                            # Name of the TOE product
+    target-products="Widgets"                          # Plural name of the TOE product (optional)
+    boilerplate="yes"                                  # Whether to use boilerplate text by default (can be disabled in sections)
+    short="Wid">                                       # A short name for the PP (e.g. App or MDF)
+-->
+
+  <!-- PPReference (all documents) -->
+  <PPReference>
+    <ReferenceTable>
+      <PPVersion>1.1</PPVersion>
+      <PPAuthor>National Information Assurance Partnership</PPAuthor>
+      <PPPubDate>2025-04-11</PPPubDate>
+      <Keywords>VVoIP</Keywords>
+    </ReferenceTable>
+  </PPReference>
+
+<!-- Revision History (all documents) -->
+  <RevisionHistory>
+    <entry>
+      <version>1.1</version>
+      <date>2025-04-11</date>
+      <subject>CC:2022 updates, incorporation of TDs</subject>
+    </entry>
+    <entry>
+      <version>1.0</version>
+      <date>2020-10-28</date>
+      <subject>Initial publication</subject>
+    </entry>
+  </RevisionHistory>
+
+  <release-notes><h:h3>TDs Applied</h:h3></release-notes><include-pkg id="pkgSSH">
+    <git>
+      <url>https://github.com/commoncriteria/ssh</url>
+      <branch>master</branch>
+    </git>
+    <url>https://www.niap-ccevs.org/protectionprofiles/515</url>
+    
+  </include-pkg>
+  <include-pkg id="pkgTLS">
+    <git>
+      <url>https://github.com/commoncriteria/tls</url>
+      <branch>release-2.0</branch>
+    </git>
+    <url>https://www.niap-ccevs.org/protectionprofiles/465</url>
+    <depends on="fcs-eap-ext-1"/>
+  </include-pkg>
+  <include-pkg id="pkgX509">
+    <git>
+      <url>https://github.com/commoncriteria/X509</url>
+      <branch>master</branch>
+    </git>
+    <url>https://www.niap-ccevs.org/protectionprofiles/511</url>
+  </include-pkg>
+  <include-pkg id="pkgVPNC">
+	<git>
+	  <url>https://github.com/commoncriteria/vpnclient</url>
+	  <branch>release-2.5</branch>
+	</git>
+	<url>https://www.niap-ccevs.org/protectionprofiles/487</url>
+  </include-pkg>
+
+
+
+  <!-- Introduction (all documents) -->
+  <sec:Introduction>
+    
+    <!-- 1.1 Overview --> <!-- change -->
+    <sec:Overview>
+      The scope of this PP-Module is to describe the security functionality of a Voice/Video over IP (VVoIP)
+      endpoint in terms of <xref g="CC"/> and to define functional and assurance requirements for such products. This PPModule is intended for use with the following Base-PPs:
+      
+      <h:ul>
+        <h:li>Protection Profile for Application Software, Version 1.3 (App PP)</h:li>
+        <h:li>collaborative Protection Profile for Network Devices, Version 2.2e (NDcPP)</h:li>
+      </h:ul>
+      
+      <h:p>
+        These Base-PPs are both valid because a VVoIP endpoint is a specific type of network device or software
+        application that carries sensitive data over remote channels and uses protocols to do so that a typical
+        network device or software application does not implement. Therefore, additional security requirements
+        are necessary to ensure that sensitive communications are not subject to unauthorized disclosure to
+        unintended recipients.
+      </h:p><h:p>
+        Note that the NDcPP defines an optional architecture for a “distributed TOE” that allows for security
+        functionality to be spread across multiple distinct components. However, a TOE that conforms to the
+        NDcPP and this PP-Module will not be a distributed TOE. All security functionality will be contained within
+        a single physical device.
+      </h:p>
+    </sec:Overview>
+
+	
+	<!-- CC and Tech terms.  -->
+	<!-- CC terms are auto-generated -->
+	<!-- All tech terms are generated from the list below. -->
+	<!-- You should add and delete tech terms as required by the technology type. -->
+	<tech-terms>
+	  <!-- To remove an irrlevant CC term from the document, use the <suppress> element -->
+      <suppress>Extended Package</suppress>   
+    <term full="Basic telephony functions">
+	  	The basic functions a VVoIP phone must provide – pick up, dial tone, dial, talk.
+    </term>
+	  <term full="Call control">
+	  	The packets exchanged between devices to establish, maintain, and tear down a
+      telephony call.
+	  </term>
+	  <term full="Client">
+	  	A VVoIP endpoint.
+	  </term>
+	  <term abbr="ESC" full="Enterprise Session Controller (ESC)">
+	  	A VVoIP call control server for VVoIP devices.
+	  </term>	  
+	  <term full="H.323">
+	  	A communications protocol defined by ITU-T that is used for creating, modifying, and
+      terminating multimedia sessions with multiple participants.
+	  </term>
+	  <term abbr="P2P" full="Peer-to-Peer">
+	  	A VVoIP architecture that forces each peer to be a server and client at the same time.
+	  </term>
+	  <term full="SDES-SRTP">
+	  	A method of key negotiation for SRTP.</term>
+	  <term abbr="SIP" full="Session Initiation Protocol">
+	  	A communications protocol defined by IETF that is used for creating, modifying, and
+      terminating multimedia sessions with multiple participants.</term>
+	  <term abbr="SRTP" full="Secure Real-Time Transport Protocol">
+	  	A protocol that is used to provide multimedia (voice/video) streaming services with
+      added security of encryption, message authentication and integrity, and replay
+      protection.</term>
+    <term full="Sensitive Data">
+      Call control/signal data, media data, and audit/management data that must be
+      protected while in transit to prevent unauthorized disclosure. </term>
+    <term full="Software/firmware update delivery channel">
+      A trusted channel between a client and file server (which may be the same server as
+      the call control server) for secure file download of software/firmware updates. </term>
+    <term full="State">
+      A configuration of a VVoIP endpoint based on how the user is currently using or not
+      using the endpoint. Examples include:
+      <h:ul><h:li>Hook state: whether the endpoint is active (off-hook) or inactive (on-hook)</h:li>
+      <h:li>Mute state: the endpoint is active but is deliberately not transmitting data</h:li>
+      <h:li>Hold state: the endpoint is active but is deliberately not transmitting or
+        receiving data</h:li>
+      </h:ul></term>
+    <term full="Streaming media">
+      The voice/video exchanged between VVoIP endpoints.</term>
+    <term full="VVoIP Call Control Server">
+      A VVoIP infrastructure device that performs call control functions between a client and
+      other VVoIP endpoints; this may be either a dedicated device such as an ESC or a VVoIP
+      device itself when using P2P.</term>
+    </tech-terms>    
+
+	<!-- Other sections can be added here. -->
+	<!-- Commen examples include Scope of Document, Intended Audiance, Compliant Targets of Evaluation,
+	     TOE Boundary, TOE Operational Environment, and Roles. These sections can also be included in the
+		 TOE/PP Overview aove. -->
+
+	<!-- 1.3 Compliant_Targets_of_Evaluation -->
+    <sec:Compliant_Targets_of_Evaluation>
+		<h:p>
+			This PP-Module specifically addresses a dedicated network device or software application that facilitates
+      the exchange of voice or video communication across an Internet Protocol (IP) network. The endpoint is
+      a client (TOE) that communicates with a VVoIP call control server and may serve as its own call control
+      server when using P2P. The VVoIP endpoint shall be able to secure file download from a file server to
+      update VVoIP endpoint software and configuration, to establish secure communication for call control
+      with the call control server, and to secure streaming media to other devices.
+   	</h:p><h:p>
+			The combination of the NDcPP and this PP-Module is a network device that provides VVoIP endpoint
+      functionality in addition to all of the security functionality expected of a network device as mandated by
+      the NDcPP. The combination of the App PP and this PP-Module is a software application running on a
+      general-purpose operating system that includes VVoIP endpoint capabilities in addition to all of the
+      security functionality expected of a software application as mandated by the App PP.
+    </h:p><h:p>
+      This PP-Module describes the functional requirements and threats specific to the VVoIP endpoint. The
+      most notable additions are requirements for the call control protocol (SIP, H.323) and streaming media
+      protocol (SRTP, RTP). A conformant TOE is expected to be a standalone device or application; distributed
+      TOE’s are not permitted.
+</h:p>
+	</sec:Compliant_Targets_of_Evaluation>
+	<!-- 1.4 TOE_Boundary -->
+    <sec:TOE_Boundary>
+        <h:p>The TOE boundary includes the VVoIP-capable device or application (VVoIP endpoint). A VVoIP-capable
+			device is a dedicated phone whereas a VVoIP endpoint application is just one of many applications that
+			runs on a general-purpose device such as a smartphone, tablet, or PC. Regardless of whether the TOE is a
+			hardware appliance or a client application on an operating system, it will be deployed in the same
+			environment. The figure below shows a typical VVoIP infrastructure from the perspective of the TOE.
+			Many of the environmental components have direct connections between one another, but since these
+			are not visible to the TOE, these connections have not been depicted.</h:p>
+			<figure entity="images/Toe.png" title="Typical VVoIP Deployment" id="toeDeployment"/>
+		<h:p>The TOE uses a VVoIP call control server, either by connecting to an ESC or acting as one itself when using
+			P2P, in order to set up connections with other VVoIP endpoint devices or other telephony equipment such
+			as a conference bridge. The call control server also may have the ability to deliver software/firmware
+			updates to the TOE, but this can alternatively be performed by a file server. The TOE must be able to
+			process Internet Protocol version 4 (IPv4) and/or IPv6 packets.</h:p>
+		<h:p>To be able to initiate communications in a client-server architecture, the TOE needs at minimum an IP
+			address, network mask, gateway address, configuration server address, update server address (or may
+			rely on platform for updates if it is a software application configured to do so), and call control server
+			address. The address may be obtained by Dynamic Host Configuration Protocol (DHCP), manually entered
+			on the VVoIP endpoint, or inherited from the device the TOE resides on (if it is a software application);
+			addresses can belong to the same device if it performs multiple functions (such as an ESC which also
+			performs updates). The TOE should allow basic telephony functions. Once the IP addresses are obtained,
+			the TOE downloads any VVoIP application updates, downloads VVoIP endpoint configuration, and
+			connects to the call control server as a VVoIP client. When a call is finished or the line is otherwise not in
+			use, the TOE will ensure that streaming media communication paths/ports are closed while call control
+			remains open.</h:p>
+		<h:p>The TOE has three paths for three different functions that need to execute: streaming media path that
+			contains voice, video, and session control (endpoint to endpoint); call control path to control the endpoint
+			(endpoint to VVoIP call control server), and configuration/management path to configure and manage the
+			TOE (software/firmware updates, configuration updates, audit).</h:p>
+			
+    </sec:TOE_Boundary>
+
+
+    <!-- 1.5 Use Cases -->
+    <sec:Use_Cases>
+    	<h:p>
+			This PP-Module defines four potential use cases for the VVoIP TOE, defined below. The first two use cases
+			define the physical embodiment of the TOE, while the latter two define its role in a telecommunications
+			deployment.</h:p>
+		<h:p>
+			Regardless of the physical embodiment of the TOE, the expected functional capabilities are similar.
+			However, when the TOE is deployed in a peer-to-peer architecture, it must perform auditing and call
+			control functions that a client-server TOE does not need to perform because the Enterprise Session
+			Controller provides those functions in that architecture. A client-server TOE may also perform its own
+			auditing, but it is not required.</h:p>
+      <usecases>
+        <usecase id="usecase1" title="Dedicated Appliance">
+          <description>
+            The VVoIP endpoint is sold and packaged as a standalone network appliance that does not have
+			a direct interface to the underlying platform operating system. In this use case, conformance to
+			the NDcPP and this PP-Module is sufficient to ensure security. Note that the NDcPP defines
+			optional functionality for “distributed TOEs” – for a TOE to conform to this PP-Module, it must be
+			a single device and not a distributed TOE.
+          </description>
+        </usecase>
+        
+        <usecase id="usecase2" title="Software Application">
+          <description>
+            The VVoIP endpoint is sold and packaged as an application that is installed on a general-purpose
+			computer or mobile device running a modifiable operating system (such as Windows or Linux).
+			This computer may run end user applications above and beyond those used for VVoIP
+			communications since it functions as a user workstation. In this case, the VVoIP endpoint
+			application is expected to conform to both this PP-Module and the App PP. 
+          </description>
+        </usecase>
+		<usecase id="usecase3" title="Client-Server Architecture">
+		  <description>
+		  	The VVoIP endpoint, whether hardware or software, is deployed in an environment where it
+			interacts with an Enterprise Session Controller to facilitate call control functions.
+		  </description>
+		</usecase>
+
+		<usecase id="usecase4" title="Peer-to-Peer Architecture">
+		  <description>
+		  	The VVoIP endpoint, whether hardware or software, is deployed in an environment where it
+			interacts directly with other VVoIP endpoints without the use of an Enterprise Session Controller
+			as an intermediary.
+		  </description>
+		</usecase>
+      </usecases>
+
+	  
+    </sec:Use_Cases> 
+    
+ 
+	
+
+	<!-- Product Features. Required if there are implementation-dependent requirements. -->
+	<!-- These are the product features that are defined in order to support implementation-dependent requirements. -->
+  
+   <!-- <section title="Implementation-Based Features" id="sec-features">
+      The following features of the TOE are implementation-based. A TOE is not required to implement these features to conform to this PP-Module, but if the feature is implemented, it is expected that associated implementation-based requirements are claimed as part of the TSF.  
+      <implements>
+        <feature id="feat-alerting" title="Support for Alerting">
+          <description>The TOE implements the capability to alert administrators when a potential security incident has occurred.</description>
+        </feature>
+      </implements>			
+    </section>  -->
+  	
+  	<!-- <section title="Test Environment for Evaluation Activities">
+  		<h:p>
+  		This section contains the expectations for the evaluator test environment that is used to perform the
+  		test specified by the EAs.
+  		</h:p><h:p>
+  		It is assumed the evaluator will have tools suitable to establish sessions, modify or create session packets,
+  		and perceive whether packets are getting through the TOE as well as to examine the content of those
+  		packets. In general, it is expected that IPS rule configuration and logging capabilities of the TOE can be
+  		used to reach appropriate determinations where applicable.
+  		</h:p><h:p>
+  		The tests need to be repeated for each distinct network interface type capable of monitoring network
+  		traffic on all ‘sensor’ interfaces of the TOE, which may include ‘promiscuous’ interfaces (with or without
+  		an IP address or IP stack, and whether or not the interfaces are capable of attempting to terminate
+  		unapproved traffic flows by transmitting packets such as TCP resets), and inline (pass-through) interfaces
+  		with or without an IP address or IP stack, but not management interfaces used to remotely access the
+  		TOE, or used by the TOE to initiate outbound connections to syslog servers, AAA servers, remote traffic
+  		filtering devices, etc.
+  		</h:p><h:p>
+  		The evaluators shall minimally create a test environment that is functionally equivalent to the test
+  		environment illustrated below. The evaluators must provide justification for any differences in the test
+  		environment. The TOE may be a distributed TOE in which some SFRs or elements of SFRs are enforced
+  		by separate TOE components distributed across a network. For distributed TOEs: <h:ul>
+  		<h:li>the “TOE” in the “inline mode test topology” must be the TOE component that controls the
+  		flow of traffic, but that TOE component does not need to be the same component that collects
+  		or analyzes the traffic;</h:li>
+  		<h:li>the “TOE” in the “promiscuous mode test topology” must be the TOE component that
+  		communicates with the non-TOE traffic filtering device, but that TOE component does not need
+  		to be the same component that collects or analyzes the traffic.</h:li>
+  		</h:ul>
+  		</h:p><h:p>
+  		IPS devices that can be deployed in more than one mode, two instantiations of the TOE will more than
+  		likely make it easier to conduct testing, however, the evaluator is free to construct a test-bed where one
+  		instance of a TOE exists and there is a device that provides the necessary functions to interact with the
+  		TOE to satisfy the testing activities.
+  		</h:p><h:p>
+  			<figure entity="images/inline_mode.png" title="Sample Inline Mode Test Topology" id="inlinemode"/>
+  	   <h:br/><h:br/>
+  			<figure entity="images/promiscuous_mode.png" title="Sample Promiscuous Mode Test Topology" id="promiscuousmode"/>
+  			
+  		It is expected that the traffic generator is used to construct network packets and will provide the evaluator
+  		with the ability to simulate network attacks. The traffic generator can be a COTS (commercial off the shelf),
+  		shareware, or freeware product; special equipment is not necessary.
+  		</h:p>
+  		
+  	</section> -->
+
+</sec:Introduction>   <!-- Introduction  -->
+
+
+	<!-- cc-version: cc-2022r1 or cc-31r5   -->
+	<!-- cc-approach: standard or direct-rationale  -->
+	<!-- display: Should this info be displayed in the Conformance -->
+	<!-- Claims section? If no, you have to write a free-form section -->
+    <section title="Conformance Claims" id="ConformanceClaims">
+      
+      <!-- 2.1 CC Conformance -->
+      <CClaimsInfo cc-version="cc-2022r1" cc-approach="direct-rationale">
+        <cc-st-conf>exact</cc-st-conf>
+        <cc-pt2-conf>extended</cc-pt2-conf>
+        <cc-pt3-conf>extended</cc-pt3-conf>
+        <cc-pp-conf/>
+        <cc-pp-config-with/>
+        <cc-pkg-claim>
+			<FP-cc-ref conf="conformant">Functional Package for TLS, version 1.1</FP-cc-ref>
+		</cc-pkg-claim>
+      </CClaimsInfo>
+    </section>  <!-- Conformance Claims -->
+  
+
+  
+  <sec:Security_Problem_Definition>
+  
+    <!-- Arbitrary introductory text -->
+  	<h:p>
+	The security problem is described in terms of the threats that the TOE is expected to address, assumptions
+	about its operational environment, and any organizational security policies that the TOE is expected to
+	enforce.
+  	</h:p>
+    <section title="Threats" id="sec-threats">
+	
+		<!-- If using the standard approach, each threat references one of more Objectives -->
+		<!-- using the <objective-refer> tag.   -->
+		<!-- If using direct rationale, each threat references the SFRs that address the threat -->
+		<!-- using the <addressed-by> tag.  -->
+		The following threats defined in this PP-Module extend the threats defined by the Base-PP.
+
+      <threats>
+        <threat name="T.MEDIA_DISCLOSURE" id="t-media-disclosure">
+          <description> An attacker can use the encrypted variable rate vocoder frames to their advantage to decode
+			transmitted data.</description>
+
+			<addressed-by>FCS_COP.1/DataEncryption (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the AES encryption algorithm used to secure VVoIP communications.</rationale>
+			<addressed-by>FCS_NTP_EXT.1 (from NDcPP)</addressed-by><rationale>Mitigates the threat by defining how accurate system time is maintained, which is used to support certain cryptographic functions.</rationale>
+			<addressed-by>FCS_TLSC_EXT.1 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the TLS client implementation used to secure call control and streaming media channels used for VVoIP.</rationale>
+			<addressed-by>FCS_TLSC_EXT.2 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the TOE’s implementation of mutual authentication for its TLS client</rationale>
+			<addressed-by>FIA_X509_EXT.1/Rev (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
+			<addressed-by>FIA_X509_EXT.2 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
+			<addressed-by>FIA_X509_EXT.3 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
+			<addressed-by>FTP_ITC.1 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the trusted communications channel used for VVoIP</rationale>
+			<addressed-by>FTP_DIT_EXT.1 (refined from App PP)</addressed-by><rationale>Mitigates the threat by defining the trusted communications channel used for VVoIP.</rationale>
+			<addressed-by>FCO_VOC_EXT.1</addressed-by><rationale>Mitigates the threat by defining the use of a fixed-rate vocoder to prevent the exposure of encryption vulnerabilities that are present with variable-rate vocoders.</rationale>
+			<addressed-by>FTP_ITC.1/Control</addressed-by><rationale>Mitigates the threat by defining the application-layer channel used for communications with a VVoIP call control server.</rationale>
+			<addressed-by>FTP_ITC.1/Media</addressed-by><rationale>Mitigates the threat by defining the application-layer channel used for communications of media (voice and video) data.</rationale>
+			<addressed-by>FAU_STG_EXT.1 (optional for software-only TOEs)</addressed-by><rationale>Mitigates the threat by ensuring that audit data is securely transmitted to an external entity.</rationale>
+			<addressed-by>FCS_COP.1/SRTP (selection-based)</addressed-by><rationale>Mitigates the threat by defining the implementation of encryption used for SDES-SRTP, if supported by the TOE.</rationale>
+			<addressed-by>FCS_SRTP_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by defining the implementation of the SRTP protocol, if supported by the TOE.</rationale>
+			<addressed-by>FDP_IFC.1/CallControl (selection-based)</addressed-by><rationale>Mitigates the threat by defining a policy for protection of call control information in cases where the TOE can act as a VVoIP call control server in a peer-to-peer configuration.</rationale>
+			<addressed-by>FDP_IFF.1/CallControl (selection-based)</addressed-by><rationale>Mitigates the threat by defining the implementation of the call control policy in cases where the TOE can act as a VVoIP call control server in a peer-to-peer configuration.</rationale>
+			<addressed-by>FPT_STM_EXT.1/VVoIP (selection-based)</addressed-by><rationale>Mitigates the threat by defining how the TSF obtains system time in certain cases, which is then used as an input to other functions that support this objective.</rationale>
+
+        	
+
+        </threat>
+
+        <threat name="T.UNDETECTED_TRANSMISSION" id="t-undetected-transmission">
+          <description> An attacker may cause the TOE to exfiltrate audio or video media over a remote channel while in a
+			state where the user has a reasonable expectation that no media is being transmitted. </description>
+        	
+		  	<addressed-by>FDP_IFC.1</addressed-by><rationale>Mitigates the threat by defining the existence of a media transmission policy.</rationale>
+			<addressed-by>FDP_IFF.1</addressed-by><rationale>Mitigates the threat by defining how the media transmission policy is enforced to determine when transmissions should occur.</rationale>
+			<addressed-by>FTA_SSL.3/Media</addressed-by><rationale>Mitigates the threat by requiring the TSF to terminate idle sessions.</rationale>
+			<addressed-by>FAU_GEN.1/CS-Admin (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a clientserver TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
+			<addressed-by>FAU_GEN.1/CS-VVoIP (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a clientserver TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be occurring.</rationale>
+			<addressed-by>FAU_GEN.1/P2P-Admin (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
+			<addressed-by>FAU_GEN.1/P2PVVoIP (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be
+			occurring.</rationale>
+			<addressed-by>FPT_STM_EXT.1/VVoIP (selection-based)</addressed-by><rationale>Mitigates the threat by requiring the TSF to specify how it obtains system time in certain cases, which is then used as an input to other functions that support this objective.</rationale>
+			<addressed-by>FMT_SMF.1/VVoIP</addressed-by><rationale>Mitigates the threat by requiring the TSF to implement certain the management functions specific to VVoIP functionality.</rationale>
+
+        	
+		  </threat>
+		
+      </threats>
+    </section>  <!-- Threats -->
+	
+	<!-- Assumptions refer to operational objective objectives regardless of whether -->
+	<!-- the document uses standard or direct rationale. -->
+	
+    <sec:Assumptions>
+		<h:p>
+		The following assumptions that are defined in this PP-Module extend the assumptions that are defined
+		by the Base-PPs.
+		</h:p>
+
+      <assumptions>
+        <assumption name="A.UPDATE_SOURCE">
+          <description> It is assumed that TOE software/firmware updates will be made available on either the call control
+			server that the TOE connects to or a separate file server managed by the organization. <h:p/>
+			Note that because this PP-Module specifically disallows distributed TOEs, a conformant TOE will not claim
+			OE.COMPONENTS_RUNNING when NDcPP is the Base-PP.
+		  </description>
+          <objective-refer ref="OE.UPDATE_SOURCE">
+            <rationale> The objective satisfies the assumption
+			by ensuring that TOE updates are
+			made available in the intended location. 
+			</rationale>
+          </objective-refer>
+        </assumption>
+      </assumptions>
+    </sec:Assumptions>  <!-- Assumptions -->
+	
+	<!-- OSPs refer to Objectives or OE Objectives in standard approach documents. -->
+	<!-- In direct rationale PPs, they should refer to OE Objectives -->
+    <sec:Organizational_Security_Policies>
+      <OSPs/>
+    </sec:Organizational_Security_Policies>
+  </sec:Security_Problem_Definition> <!-- Security Problem Definition -->
+  
+  
+  <!-- This section is mandatory for standard approach documents.   -->
+  <!-- It should be included in direct rationale documents if there are OE Objectives. -->
+  <sec:Security_Objectives>
+
+	<!-- This section is included in direct rationale documents if there are OE Objectives -->
+    <sec:Security_Objectives_for_the_Operational_Environment>
+		<h:p>
+		The following environmental security objectives that are defined in this PP-Module extend the objectives
+		that are defined by the Base-PPs.
+		</h:p>
+	  <SOEs>
+        <SOE name="OE.UPDATE_SOURCE">
+          <description>TOE administrators will ensure that the TOE is installed in a manner that will allow the TOE to effectively
+enforce its policies on network traffic of monitored networks.</description>
+        </SOE>
+      </SOEs>
+      </sec:Security_Objectives_for_the_Operational_Environment>  <!-- OE Objectives -->
+
+	<!-- This section is automatically generated, but this placeholder is reuired -->
+    <section title="Security Objectives Rationale" id="sec-sor"/>
+
+  </sec:Security_Objectives>  <!-- Security_Objectives  -->
+
+
+  
+  <sec:Security_Requirements>
+    <base-pp id="ND" version="3.0e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
+      <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
+      <cPP/>
+      <sec-func-req-dir> 
+        In a PP-Configuration that includes the NDcPP, the VVoIP client is expected to rely on some of the security
+		functions implemented by the network device as a whole and evaluated against the NDcPP. In this case,
+		the following sections describe any modifications that the ST author must make to the SFRs defined in the
+		NDcPP in addition to what is mandated by section 5.3.
+		<!-- QQQQ: Verify this section number is correct. -->
+      </sec-func-req-dir>
+      <modified-sfrs>
+	  	<section title="Security Audit (FAU)" id="nd-mod-fau">
+			<base-sfr-spec cc-id="fau_stg_ext.1" title="Protected Audit Event Storage" id="nd-mod-fau-stg-ext-1">
+				<consistency-rationale>
+				This PP-Module modifies this SFR to prohibit the selection of any
+				“distributed TOE” behavior in FAU_STG_EXT.1.2. The SFR is otherwise
+				unchanged.</consistency-rationale>
+				<description>
+				<h:p>This SFR is modified to prohibit the selection of distributed TOE options. Any element not mentioned in this 
+				section is unchanged from its definition in the Base-PP.</h:p>
+				<h:p>The text of FAU_STG_EXT.1.2 is replaced with:</h:p>
+				<h:p><h:b>FAU_STG_EXT.1.2: </h:b>The TSF shall be able to store generated audit data on the TOE itself.
+				<h:ul><h:li>[<h:i>The TOE shall consist of a single standalone component that stores audit
+					data locally</h:i>].</h:li></h:ul></h:p>
+				<h:p><h:b>Application Note: </h:b>This PP-Module modifies the existing FAU_STG_EXT.1 SFR in the NDcPP to prohibit
+				the selection of any “distributed TOE” behavior in FAU_STG_EXT.1.2. The SFR is
+				otherwise unchanged.</h:p>
+				</description>
+				<!-- NDcPP not in XML so no change can be modeled -->
+				<no-change/>
+			</base-sfr-spec>
+		</section>
+		<section title="Crytographic Support (FCS)" id="nd-mod-fcs">
+			<base-sfr-spec cc-id="fcs_ntp_ext.1" title="NTP Protocol" id="nd-mod-fcs-ntp-ext-1"> 
+				<consistency-rationale>This PP-Module does not modify this SFR; it only modifies the circumstances
+				that trigger its inclusion in the TOE’s logical boundary.</consistency-rationale>
+				<description>
+					<h:p>This SFR is selection-based in the NDcPP and remains selection-based in this PP-Module. However, an
+					additional trigger for this SFR’s inclusion is added for the selection of “register the TOE to an ESC…” in
+					FMT_SMF.1/VVoIP. This is because any VVoIP TOE that can be registered to ESCs is required to use them
+					as NTP servers.</h:p>
+					<h:p>If the TOE is not registered to an ESC, it is not relevant to this PP-Module whether or not NTP is
+					implemented, and in this case this SFR remains selection-based on FPT_STM_EXT.1.2, which is not
+					modified by this PP-Module (i.e. a peer-to-peer TOE does not register to an ESC but may still receive time
+					data from a separate NTP source).</h:p>
+				</description>
+				<no-change/>
+			</base-sfr-spec>
+			<base-sfr-spec cc-id="fcs_tlsc_ext.1" title="TLS Client Protocol without Mutual Authentication" id="nd-mod-fcs-tlsc-ext-1">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only forces its inclusion because
+				a conformant TOE must implement TLS client functionality.</consistency-rationale>
+				<description>This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a> but is mandated by this PP-Module because TLS is used to secure
+				call control and streaming media channels regardless of the application protocol used. There is no change
+				to the SFR text itself.
+				</description>
+				<no-change/>
+			</base-sfr-spec>
+			<base-sfr-spec cc-id="fcs_tlsc_ext.2" title="TLS Client Support for Mutual Authentication" id="nd-mod-fcs-tlsc-ext-2">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only forces its inclusion because
+				a conformant TOE must implement a TLS client that enforces mutual
+				authentication.</consistency-rationale>
+				<description>This SFR is optional in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a> 
+				but is mandated by this PP-Module because the TLS implementation that
+				is used to secure call control and streaming media channels must be secured using mutual authentication.
+				There is no change to the SFR text itself.</description>
+				<no-change/>
+			</base-sfr-spec>
+		</section>
+		<section title="Identification and Authorization (FIA)" id="nd-mod-fia">
+			<base-sfr-spec cc-id="fia_x509_ext.1" iteration="Rev" title="X.509 Certificate Validation" id="nd-mod-fia-x509-ext-1">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only forces its inclusion because
+				X.509 services are required to support TLS client functionality.</consistency-rationale>
+				<description>This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</h:a> 
+				but is mandated by this PP-Module because it is a dependency
+				on the TLS functionality that this PP-Module requires. There is no change to the SFR text itself.</description>
+				<no-change/>
+			</base-sfr-spec>
+			<base-sfr-spec cc-id="fia_x509_ext.2" title="X.509 Certificate Authentication" id="nd-mod-fia-x509-ext-2">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only forces its inclusion because
+				X.509 services are required to support TLS client functionality.</consistency-rationale>
+				<description>This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</h:a> 
+				but is mandated by this PP-Module because it is a dependency
+				on the TLS functionality that this PP-Module requires. There is no change to the SFR text itself.</description>
+			<no-change/>
+			</base-sfr-spec>
+			<base-sfr-spec cc-id="fia_x509_ext.3" title="X.509 Certificate Requests" id="nd-mod-fia-x509-ext-3">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only forces its inclusion because
+				X.509 services are required to support TLS client functionality.</consistency-rationale>
+				<description>This SFR is selection-based in the NDcPP but is mandated by this PP-Module because it is a dependency
+				on the TLS functionality that this PP-Module requires. There is no change to the SFR text itself.
+				</description>
+				<no-change/>
+			</base-sfr-spec>
+		</section>
+		<section id="nd-mod-fpt" title="Protection of the TSF (FPT)">
+			<base-sfr-spec cc-id="fpt_tud_ext.1" title="Trusted Update" id="nd-mod-fpt-tud-ext-1">
+				<consistency-rationale>This PP-Module does not modify this SFR; it only specifies that the source of
+				TOE software/firmware updates must be a specific type of server.
+				</consistency-rationale>
+				<description>This PP-Module does not modify this SFR as it is defined in the NDcPP. However, note that this PP-Module
+				expects that either the call control server or a separate file server managed by the organization to function
+				as the source of TOE software/firmware updates. The evaluator shall ensure that the test environment is
+				configured appropriately.</description>
+				<no-change/>
+			</base-sfr-spec>
+		</section>
+		<section id="nd-mod-ftp" title="Trusted Path (FTP)">
+			<base-sfr-spec cc-id="ftp_itc.1" title="Inter-TSF Trusted Channel" id="nd-mod-ftp-itc-1">
+				<consistency-rationale>This PP-Module restricts the Base-PP SFR to a subset of existing permissible
+				functionality and does not introduce any new behavior.</consistency-rationale>
+				<description>
+				<h:p>This SFR is modified to mandate the inclusion of TLS. Any other protocols may additionally be claimed. 
+				Any element that is not included in this section is unchanged from its definition in the Base-PP.</h:p>
+				<h:p>The text of the requirement is replaced with:</h:p>
+				<h:p><h:b>FTP_ITC.1.1: </h:b>The TSF shall be capable of using <h:b>TLS and </h:b>[<h:b>selection: </h:b><h:i>IPsec, SSH, DTLS, HTTPS, <h:b>no other protocols</h:b></h:i>]
+					to provide a trusted communication channel between itself and authorized IT entities supporting the following capabilities: audit server, 
+					<h:b>streaming media channel, call control channel, software/firmware update delivery channel, </h:b> [<h:b>selection: </h:b><h:i>authentication server, 
+					[<h:b>assignment: </h:b>other capabilities], no other capabilities</h:i>] that is logically distinct from other communication channels and provides assured identification 
+					of its end points and protection of the channel data from disclosure and detection of modification of the channel data.
+				</h:p>
+				<h:p>
+					<h:b>Application Note: </h:b> The NDcPP provides the ability for the ST author to specify the protocols used to
+					establish trusted communications in FTP_ITC.1.1. This PP-Module mandates the inclusion of TLS because it is the underlying protocol used to secure
+					communications with the ESC and other VVoIP endpoints. Additional protocols
+					should be selected if they are used for securing other trusted channels. For
+					example, the TSF may communicate with an ESC using TLS for call control
+					functions but some other protocol for remote transmission of audit data. This PP-Module also specifies 
+					additional uses for the trusted channel beyond what the NDcPP defines. 
+					The remainder of the SFR is unchanged from its definition in the Base-PP.
+				</h:p>
+				</description>
+				<!-- NDcPP not in XML so no change can be modeled -->
+				<no-change/>
+			</base-sfr-spec>
+		</section>
+	  </modified-sfrs>
+      <additional-sfrs/>
+      <con-toe>
+        When this PP-Module is used to extend the NDcPP, the TOE type for the overall TOE is still a network
+		device. The TOE boundary is simply extended to include VVoIP endpoint functionality that is provided by
+		the network device.
+
+      </con-toe>
+      <con-sec-prob>
+		The threats and assumptions defined by this PP-Module (see sections 3.1 and 3.2) supplement those
+		defined in the NDcPP as follows:
+	  </con-sec-prob>
+      <con-obj/>
+      <con-op-en>The objectives for the TOE’s operational environment are consistent with the NDcPP based on the following rationale: </con-op-en>
+      
+      
+		<con-mod ref="T.UNDETECTED_TRANSMISSION">
+			The NDcPP defines threats for insecure communications and undetected
+			activity. Unauthorized and undetected use of a communications channel is
+			consistent with these threats.
+		</con-mod>
+		<con-mod ref="T.MEDIA_DISCLOSURE">
+			The NDcPP defines a threat for untrusted communications channels. The
+			threat of media disclosure through vocoder frames is a type of sidechannel attack that is unique to the functions of a VVoIP endpoint.
+			However, it is consistent with the overall threat of unintended disclosure
+			of sensitive data.
+		</con-mod>
+		<con-mod ref="A.UPDATE_SOURCE">
+			The NDcPP does not have any assumptions for the source of TOE updates,
+			only that the updates have adequate integrity protections. There is no
+			conflict with this Module assuming that TOE updates will be retrieved
+			from a particular location.
+		</con-mod>
+		  
+		<con-mod ref="OE.UPDATE_SOURCE">
+			The NDcPP requires the TOE to be able to apply software/firmware updates
+			but does not define any specific way that these updates need to be made
+			available. This PP-Module defines an objective that allows for an assumption
+			that TOE updates will be made available in a specific location.
+			A.UPDATE_SOURCE is consistent with the Base-PP objectives for the same
+			reason.
+		</con-mod>
+    	
+    	<con-mod ref="fau-gen-1-ips">The PP-Module iterates an SFR defined in the Base-PP to define additional
+    		audit events specific to IPS functionality that the IPS part of the TOE must
+    		generate.</con-mod>
+    	<con-mod ref="fmt-smf-1-ips">The PP-Module iterates an SFR defined in the Base-PP to define additional
+    		management functions specific to the IPS functionality that the IPS part of the TOE must generate. Authorizations to perform these functions are based
+    		on FMT_SMR.2 defined by the Base-PP.</con-mod>
+    	<con-mod ref="ips-abd-ext-1">This SFR applies to IPS functionality, which is beyond the original scope of
+    		the Base-PP</con-mod>
+    	<con-mod ref="ips-ipb-ext-1">This SFR applies to IPS functionality, which is beyond the original scope of
+    		the Base-PP</con-mod>
+    	<con-mod ref="ips-nta-ext-1">This SFR applies to IPS functionality, which is beyond the original scope of
+    		the Base-PP</con-mod>
+    	<con-mod ref="ips-sbd-ext-1">This SFR applies to IPS functionality, which is beyond the original scope of
+    		the Base-PP</con-mod>
+    	<con-mod ref="fau-stg-2-ips">The PP-Module iterates an SFR defined in the Base-PP to define an optional
+    		capability for the protection of the IPS data generated by FAU_GEN.1/IPS.</con-mod>
+    	<con-mod ref="fau-stg-5-ips">This SFR applies to IPS audit data, which is beyond the original scope of the
+    		Base-PP.</con-mod>
+    	<con-mod ref="fpt-fls-1-ips">This SFR applies to secure failure for inline interfaces, which is a type of
+    		logical interface that was introduced in this PP-Module and therefore
+    		doesn’t interfere with the Base-PP.</con-mod>
+    	<con-mod ref="fru-rsa-1">This SFR applies to quota enforcement on network interfaces that perform
+    		scanning of network traffic for enforcement of IPS requirements. This
+    		functionality was introduced in this PP-Module and therefore doesn’t
+    		interfere with the Base-PP.</con-mod>
+    	<con-mod ref="ips-sbd-ext-2">This SFR applies to IPS functionality, which is beyond the original scope of
+    		the Base-PP</con-mod>
+    	<con-mod ref="fau-arp-1">This SFR applies to IPS functionality, which is beyond the original scope of
+    		the Base-PP</con-mod>
+    	<con-mod ref="fau-sar-1">This SFR applies to review of collected IPS data, which is beyond the scope of
+    		the original Base-PP.</con-mod>
+    	<con-mod ref="fau-sar-2">This SFR applies to review of collected IPS data, which is beyond the scope of
+    		the original Base-PP.</con-mod>
+    	<con-mod ref="fau-sar-3">This SFR applies to review of collected IPS data, which is beyond the scope of
+    		the original Base-PP.</con-mod>
+	  
+    </base-pp>
+	<base-pp id="APP" version="1.4" name="Application Software" product="Application Software" short="APP" plural="Application Software">
+		<git>
+			<url>https://github.com/commoncriteria/application</url>
+			<branch>release-1.4</branch>
+		</git>
+		<url>https://www.niap-ccevs.org/protectionprofiles/462</url>
+		
+		<sec-func-req-dir>
+			In a PP-Configuration that includes the App PP, the VVoIP client is expected to rely on some of the security
+			functions implemented by the software application as a whole and evaluated against the App PP. In this
+			case, the following sections describe any modifications that the ST author must make to the SFRs defined
+			in the App PP in addition to what is mandated by section 5.3.
+			<!-- QQQQ:TODO: Verify this session number is correct. -->
+		</sec-func-req-dir>
+		<modified-sfrs>
+			<section title="Protection of the TSF (FPT)" id="app-mod-fpt">
+				<base-sfr-spec cc-id="fpt_tud_ext.1" title="Trusted Update" id="app-mod-fpt-tud-ext-1">
+					<consistency-rationale>This PP-Module does not modify this SFR; it only specifies that the source of
+						TOE software/firmware updates must be a specific type of server.</consistency-rationale>
+					<description>
+						This PP-Module does not modify this SFR as it is defined in the App PP. However, note that this PP-Module
+						expects that either the call control server or a separate file server managed by the organization to function
+						as the source of TOE software/firmware updates. The evaluator shall ensure that the test environment is
+						configured appropriately.
+					</description>
+					<no-change/>
+				</base-sfr-spec>
+			</section>
+			<section title="Trusted Path/Channel (FTP)" id="app-mod-ftp">
+				<base-sfr-spec cc-id="ftp_dit_ext.1" title="Protection of Data in Transit" id="app-mod-ftp-dit-ext-1">
+					<consistency-rationale>
+						This PP-Module modifies the App PP SFR by mandating the use of trusted
+						communications to secure transmitted data, mandating support for TLS, and
+						permitting support for SRTP. The first two modifications are derived from
+						selections that are already present in the App PP version of the SFR. The
+						addition of SRTP does not prevent any of the other protocols from being
+						used if supported.
+					</consistency-rationale>
+					<description>
+						<h:p>This SFR is modified from its definition in the Base-PP to mandate the inclusion of TLS as a method to protect data 
+						and to add support for the use of SRTP to protect data in transit.</h:p>
+						<h:p>The text of the requirement is replaced with:</h:p>
+						<h:p><h:b>FTP_DIT_EXT.1.1: </h:b>
+							The application shall [<h:b>selection: </h:b>
+							<h:ul>
+								<h:li><h:i>encrypt all transmitted [<h:b>selection: </h:b>
+							sensitive data, data] with <h:b>TLS as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a></h:b> and 
+							[<h:b>selection: </h:b>HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client, HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server, 
+							HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2, 
+							DTLS as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a>, 
+							SSH as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</h:a>, 
+							IPsec as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version 2.5</h:a>
+							<h:b>Secure Real-Time Transport Protocol (SRTP), no other protocols</h:b>],</h:i></h:li>
+							<h:li><h:i>invoke platform-provided functionality to encrypt all transmitted sensitive data with <h:b>TLS and </h:b>
+							[<h:b>selection: </h:b>HTTPS, DTLS, SSH, <h:b>no other protocols</h:b>],</h:i></h:li>
+							<h:li><h:i>invoke platform-provided functionality to encrypt all transmitted data with <h:b>TLS and </h:b>
+							[<h:b>selection: </h:b>HTTPS, DTLS, SSH, <h:b>no other protocols</h:b>]</h:i></h:li>
+							</h:ul>
+							] between itself and another trusted IT product.
+						</h:p>
+						<h:p><h:b>Application Note: </h:b>
+							The App PP provides the ability for the ST author to specify the protocols used to
+							establish trusted communications and the behavior that trusted communications
+							are used to protect. This PP-Module mandates the inclusion of TLS because it is
+							the underlying protocol used to secure communications with a VVoIP call control
+							server and other VVoIP endpoints. Additional protocols may be selected if they are
+							used for securing other channels. For example, the TSF may communicate with an ESC using TLS for call control functions but some other protocol for remote
+							transmission of audit data.
+						</h:p><h:p>
+							Since the App PP does not define separate SFRs for trusted channel (TOE to trusted
+							third party) and trusted path (administrator to TOE), FTP_DIT_EXT.1 is expected
+							to cover both use cases. The proper protocols should be selected accordingly.
+						</h:p><h:p>
+							Sensitive data includes at minimum call control/signal data, media data, and
+							audit/management data.
+						</h:p><h:p>
+							If “SRTP” is selected in FTP_DIT_EXT.1.1, the selection-based SFRs
+							FCS_COP.1/SRTP and FCS_SRTP_EXT.1 must be claimed.
+						</h:p>
+					</description>
+					<replace>
+						<xpath-specified xpath="*//cc:f-element[@id='fel-transmit']//cc:title">
+							<title>The application shall 
+								<selectables linebreak="yes">
+									<selectable exclusive="yes">encrypt all transmitted 
+										<selectables>
+											<selectable exclusive="yes">sensitive data</selectable>
+											<selectable exclusive="yes">data</selectable>
+										</selectables> with <h:b>TLS as defined in the <xref to="pkgTLS"/> and</h:b>
+										<selectables>
+											<selectable id="sel_all_https_cl">HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client</selectable>
+											<selectable id="sel_all_https_sv">HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server</selectable>
+											<selectable id="sel_all_https_ma">HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2</selectable>
+											<selectable id="sel_all_tls">TLS as defined in the <xref to="pkgTLS"/></selectable>
+											<selectable id="sel_all_dtls">DTLS as defined in the <xref to="pkgTLS"/></selectable>
+											<selectable id="sel_all_ssh">SSH as defined in the <xref to="pkgSSH"/></selectable>
+											<selectable>IPsec as defined in the <xref to="pkgVPNC"/></selectable>
+											<selectable><h:b>Secure Real-Time Transport Protocol (SRTP)</h:b></selectable>
+											<selectable exclusive="yes"><h:b>no other protocols</h:b></selectable>
+										</selectables>
+									</selectable>
+									<selectable exclusive="yes">invoke platform-provided functionality to encrypt all transmitted sensitive data with <h:b>TLS and</h:b>
+										<selectables>
+											<selectable>HTTPS</selectable>
+											<selectable>DTLS</selectable>
+											<selectable>SSH</selectable>
+											<selectable exclusive="yes"><h:b>no other protocols</h:b></selectable>
+										</selectables>
+									</selectable>	    	      
+									<selectable exclusive="yes">invoke platform-provided functionality to encrypt all transmitted data with <h:b>TLS and</h:b>
+										<selectables>
+											<selectable>HTTPS</selectable>
+											<selectable>DTLS</selectable>
+											<selectable>SSH</selectable>
+											<selectable><h:b>no other protocols</h:b></selectable>
+										</selectables>
+									</selectable>	    	    
+								</selectables> between itself and another trusted IT product.
+							</title>
+						</xpath-specified>
+					</replace>
+					<replace>
+						<xpath-specified xpath="*//cc:f-element[@id='fel-transmit']//cc:note">
+							<note role="application">
+								The App PP provides the ability for the ST author to specify the protocols used to
+								establish trusted communications and the behavior that trusted communications
+								are used to protect. This PP-Module mandates the inclusion of TLS because it is
+								the underlying protocol used to secure communications with a VVoIP call control
+								server and other VVoIP endpoints. Additional protocols may be selected if they are
+								used for securing other channels. For example, the TSF may communicate with an
+								ESC using TLS for call control functions but some other protocol for remote transmission of audit data.
+								<h:p/>
+								Since the App PP does not define separate SFRs for trusted channel (TOE to trusted
+								third party) and trusted path (administrator to TOE), FTP_DIT_EXT.1 is expected
+								to cover both use cases. The proper protocols should be selected accordingly.
+								<h:p/>
+								Sensitive data includes at minimum call control/signal data, media data, and
+								audit/management data.
+								<h:p/>
+								If “SRTP” is selected in FTP_DIT_EXT.1.1, the selection-based SFRs
+								FCS_COP.1/SRTP and FCS_SRTP_EXT.1 must be claimed.
+							</note>
+						</xpath-specified>
+					</replace>
+				</base-sfr-spec>
+			</section>
+		</modified-sfrs>
+		<additional-sfrs/>
+		<con-toe>
+			When this PP-Module is used to extend the App PP, the TOE type for the overall TOE is still a software
+			application. The TOE boundary is simply extended to include the VVoIP endpoint functionality that is
+			supported by the application.
+		</con-toe>
+		<con-sec-prob>
+			The threats and assumptions defined by this PP-Module (see sections 3.1 and 3.2) supplement those
+			defined in the App PP as follows:
+		</con-sec-prob>
+		<con-obj/>
+		<con-op-en>The objectives for the TOE’s operational environment are consistent with the App-PP based on the following rationale:</con-op-en>
+		<con-mod ref="T.UNDETECTED_TRANSMISSION">
+			The App PP defines threats for network attack and network eavesdropping.
+			Unauthorized and undetected use of a communications channel is
+			consistent with these threats.
+		</con-mod>
+		<con-mod ref="T.MEDIA_DISCLOSURE">
+			The App PP defines a threat for network eavesdropping. The threat of media
+			disclosure through vocoder frames is a type of side-channel attack that is
+			unique to the functions of a VVoIP endpoint. However, it is consistent with
+			the overall threat of unintended disclosure of sensitive data.
+		</con-mod>
+		<con-mod ref="A.UPDATE_SOURCE">
+			The App PP does not have any assumptions for the source of TOE updates,
+			only that the updates have adequate integrity protections. There is no
+			conflict with this Module assuming that TOE updates will be retrieved from a
+			particular location.
+		</con-mod>
+		<con-mod ref="OE.UPDATE_SOURCE">
+		<comment>This rationale could be interpreted as vague or conflicting with FPT_TUD_EXT.2, as applications 
+		that are not packaged with the OS do have format requirements. There is no defined requirement for update location, since 
+		there may be an alternate use case where "the place you get the app from" is different from "the mobile device vendor's app store" 
+		because an MDM might have a separate mobile app server that devices enrolled in the MDM must use. Is this still an anticipated 
+		use case? If so, the objective may need to be reworded in terms of a generic "trusted source" to make clear that 
+		this module is not conflicting with FPT_TUD_EXT.2's requirements.</comment>
+			The App PP requires the TOE to be able to apply software/firmware updates
+			but does not define any specific way that these updates need to be made
+			available. This PP-Module defines an objective that allows for an assumption
+			that TOE updates will be made available in a specific location.
+			A.UPDATE_SOURCE is consistent with the Base-PP objectives for the same
+			reason.
+		</con-mod>
+	</base-pp>
+	<man-sfrs>
+    
+
+		<!-- Audit table for Mandatory SFRs -->
+
+		<!-- Section for SFR Class -->
+		
+		
+			<!-- If this Class does not exist in the CC, then you need the following. -->
+			<!-- Try not to create new classes. -->
+<!--	        <class-description>A description of the new class.</class-description>        
+			<ext-comp-class class="ClassName (ClassAbbr)">
+				<description>Not sure what this is for.</description>
+			</ext-comp-class>
+-->
+	
+			<!-- For each family in the class that includes one or more  extended components  -->
+			<!-- you need to povide an extended component definition like this. -->
+<!--	        <ext-comp-def title="Cryptographic Key Management" fam-id="FCS_CKM_EXT">
+			<fam-behavior>This family defines requirements for management of cryptographic keys.
+				FCS_CKM_EXT.4 is necessary because FCS_CKM.4 does not include a requirement for the timing of 
+				key destruction.
+				FCS_CKM_EXT.5 is necessary to express requirements for key derivation, which are missing from Part 2. 
+				</fam-behavior>
+			</ext-comp-def>
+-->			
+			<!-- Next define all the components in the Class -->
+			<!-- name: Name of the requirement as it should appear in the document -->
+			<!-- id: Should look something like this, but it just needs to be unique in the document -->
+			<!-- cc-id" This is a lower-case version of the SFR name as it would appear in a document -->
+			<!-- iteration: This attribute is required only if the SFR is an iteration -->
+		
+		<section id="ss-audit-table" title="Auditable Events for Mandatory SFRs">
+			<audit-table table="mandatory" id="at-mandatory">
+	<!--			<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-mandatory">: Auditable Events for Mandatory SFRs</ctr></h:b> -->
+			</audit-table>
+		</section>
+		
+			<section title="Communications (FCO)" id="m-fco">
+				<f-component name="Fixed-Rate Vocoder" cc-id="fco_voc_ext.1" id="fco-voc-ext-1">
+					<f-element id="fco-voc-ext-1e1">
+						<title>
+							The TSF shall transmit voice media using a constant bit rate voice vocoder.
+						</title>
+						<note role="application">
+							A constant bit rate vocoder provides a constant output length that does not have
+							the vulnerabilities that a variable bit rate vocoder contains when encrypted.
+						</note>
+						<aactivity>
+							<TSS>
+								The evaluator shall verify that the TSS specifies each vocoder used. The evaluator shall then examine the
+								specification for each vocoder in order to verify that no variable rate vocoders are claimed by the TSF.
+							</TSS>
+							<Guidance/>
+							<Tests>The evaluator shall set up a test environment that contains the TOE, a call control server (which may be
+								the TOE itself), a network switch, a packet capture tool, and a second VVoIP endpoint.
+								The evaluator shall then perform the following test:
+								<testlist>
+									<test>
+									<steplist>
+										<step>The evaluator shall ensure the TOE and the second VVoIP endpoint are registered to a call
+										control server or are using P2P.</step>	
+										<step>.The evaluator shall use the TOE to dial the second VVoIP endpoint to establish a call and verify
+										the call is established by holding a voice conversation.</step>
+										<step>The evaluator shall review the captured traffic to verify that a fixed rate vocoder is used.</step>
+									</steplist>
+									If multiple vocoders are supported, the evaluator shall reconfigure the TOE to use each individual vocoder
+									and repeat steps 1-3 for each vocoder.
+									</test>
+								</testlist>
+							</Tests>
+						</aactivity>
+					</f-element>
+				</f-component>
+			</section>
+			
+			<section title="User Data Protection (FDP)" id="m-fdp">
+			<f-component name="Subset Information Flow Control" cc-id="fdp_ifc.1" id="fdp-ifc-1">
+				<f-element id="fdp-ifc-1e1">
+					<title>The TSF shall enforce the [<h:i>media transmission policy</h:i>] on [<h:i>voice/video media
+					transmitted by the TOE</h:i>].
+					</title>
+					<note role="application">There are states when on-hook voice and video must not stream from the TOE.</note>
+					<aactivity>
+						<TSS>The evaluator shall verify that the TSS describes how streaming media is not transmitted when not in a streaming media state.</TSS>
+						<Guidance/>
+						<Tests>Testing of this component is performed through evaluation of FDP_IFF.1.</Tests>
+					</aactivity>
+				</f-element>
+			</f-component>
+			
+			<f-component name="Simple Security Attributes" cc-id="fdp_iff.1" id="fdp-iff-1">
+				<f-element id="fdp-iff-1e1">
+					<title>
+						The TSF shall enforce the [<h:i>media transmission policy</h:i>] based on the following
+						types of subject and information security attributes: [<h:i>TOE hook state, VVoIP call
+						connection status, and VVoIP call control server status</h:i>].
+					</title>
+				</f-element>
+				<f-element id="fdp-iff-1e2">
+					<title>
+						The TSF shall permit an information flow between a controlled subject and
+						controlled information via a controlled operation if the following rules hold: [
+						<h:i><h:ul>
+							<h:li>The TOE is <selectables><selectable>registered with a VVoIP call control server</selectable>
+								<selectable>acting as a VVoIP call control server when using P2P</selectable></selectables>,</h:li>
+							<h:li>A call has been established with a telephony device (VVoIP endpoint),</h:li>
+							<h:li>The TOE is in the off-hook state,</h:li>
+							<h:li>The TOE is not in the mute state,</h:li>
+							<h:li><selectables><selectable>The TOE is not in the hold state</selectable>
+								<selectable exclusive="yes">no other rules</selectable></selectables></h:li>
+						</h:ul></h:i>].
+					</title>
+				</f-element>
+				<f-element id="fdp-iff-1e3">
+					<title>The TSF shall enforce [<h:i>no additional information flow control policy rules</h:i>].</title>
+				</f-element>
+				<f-element id="fdp-iff-1e4">
+					<title>The TSF shall explicitly authorize an information flow based on the following
+						rules: [<h:i>no additional rules</h:i>].</title>
+				</f-element>
+				<f-element id="fdp-iff-1e5">
+					<title>The TSF shall explicitly deny an information flow based on the following rules:
+						[<h:i>all TCP and UDP ports used by the TOE are closed when not in active use</h:i>].</title>
+					<aactivity>
+						<TSS>The evaluator shall verify that the TSS describes the TOE’s enforcement of the media transmission policy
+						and describes the conditions that are necessary for the TSF to transmit voice/video data to the operational
+						environment.</TSS>
+						<Guidance/>
+						<Tests>The evaluator shall set up a test environment that contains the TOE, a call control server (which may be
+						the TOE itself), a network switch, a traffic capture tool, and a second VVoIP endpoint.
+						The evaluator shall then perform the following tests:
+						<testlist>
+							<test>(Conditional - physical TOE)
+								<steplist>
+									<step>The evaluator shall place the TOE into the on-hook state without registering it to the call control
+									server or using P2P. The evaluator shall use the traffic capture tool to verify that the TOE does
+									not transmit any streaming media traffic.</step>
+									<step>The evaluator shall place the TOE into the off-hook state and use the traffic capture tool to
+									verify that the TOE does not transmit any streaming media traffic.</step>
+								</steplist>
+							</test>
+							<test>(Conditional - software application TOE)
+								<steplist>
+									<step>The evaluator shall execute the VVoIP application without registering it to the call control server
+									or using P2P. The evaluator shall use the traffic capture tool to verify that the TOE does not
+									transmit any streaming media traffic.</step>
+									<step>The evaluator shall place the TOE into the off-hook state (e.g., by performing a call without
+									specifying any destination data). The evaluator shall use the traffic capture tool to verify that the
+									TOE does not transmit any streaming media traffic.</step>
+								</steplist>
+							</test>
+							<test>
+								<steplist>
+									<step>The evaluator shall ensure the TOE is using P2P or register the TOE with the call control server
+									and verify that the TOE is registered by checking the call control server screen with current TOE
+									connections and by viewing the call control path traffic using the traffic capture tool.</step>
+									<step>The evaluator shall place the TOE into the on-hook state and verify using the traffic capture tool
+									that no streaming media traffic is transmitted by the TOE.</step>
+									<step>The evaluator shall place the TOE into the off-hook state. The evaluator shall then verify that the
+									TOE continues to not transmit streaming media traffic.</step>
+								</steplist>
+							</test>
+							<test>
+								<steplist>
+									<step>The evaluator shall ensure the TOE is using P2P or shall register the TOE with the call control
+									server and verify that it is registered by checking the call control server with current connections
+									and using the traffic capture tool to verify the call control path traffic.</step>
+									<step>The evaluator shall ensure the TOE is using P2P or shall register the second VVoIP endpoint with
+									the call control server and verify that it has been registered by checking the call control server
+									with current connections and using the traffic capture tool to verify the call control path traffic.</step>
+									<step>The evaluator shall use the TOE to dial the second VVoIP endpoint and connect a call. The
+									evaluator shall verify that the connection is made by having a voice/video conversation with the
+									endpoint and using the traffic capture tool to verify that a steady stream of traffic is being
+									transmitted between the two endpoints over the media channel.</step>
+									<step>The evaluator shall use the TOE to put the call on mute and verify that no traffic is transmitted
+									from the TOE over the media channel to the second VVoIP endpoint. If the TOE is registered to a
+									call control server, the evaluator shall also verify that a mute control message is sent to the call
+									control server and it responds.</step>
+									<step>The evaluator shall use the TOE to take the call off mute and verify that the streaming media
+									traffic between the TOE and the second VVoIP endpoint is resumed.</step>
+								</steplist>
+							</test>
+							<test>
+								<steplist>
+									<step>The evaluator shall ensure the TOE is using P2P or register the TOE to the call control server and
+									place it in the on-hook state.</step>
+									<step>The evaluator shall use a fuzzing tool to attempt to connect to the TOE on the full range of TCP
+									ports used by the TSF. All ports used by the TOE should be closed except for the port that is used
+									to communicate with the ESC.</step>
+								</steplist>
+							</test>
+							<test>
+								<steplist>
+									<step>The evaluator shall ensure the TOE and the second VVoIP endpoint are registered to a call
+									control server or are using P2P.</step>
+									<step>The evaluator shall place the TOE in the on-hook state.</step>
+									<step>The evaluator shall use a fuzzing tool to attempt to connect to the TOE on the full range of UDP
+									ports used by the TSF. All ports used by the TOE should be closed.</step>
+									<step>The evaluator shall place a call to the second VVoIP endpoint and verify the call is established.
+									The evaluator shall capture the traffic to determine the port used by the TOE to carry the media
+									traffic.</step>
+									<step>The evaluator shall hang up the call and verify that the TOE has returned to the on-hook state.</step>
+									<step>The evaluator shall perform fuzzing activities to verify that the port used to carry media traffic in
+									step 4 has been closed.</step>
+								</steplist>
+							</test>
+							<test>(Conditional - "The TOE is not in the hold state" is selected in FDP_IFF.1.2)
+								<steplist>
+									<step>The evaluator shall use the TOE to put the call on hold and verify that no streaming media traffic
+									is transmitted from the TOE over the media channel. If the TOE is registered to a call control
+									server, the evaluator shall also verify that the VVoIP endpoint on-hold call control is sent to the
+									call control server and it responds.</step>
+									<step>The evaluator shall use the TOE to take the call off hold and verify that the streaming media
+									traffic between the TOE and the second VVoIP endpoint is resumed.</step>
+								</steplist>
+							</test>
+						</testlist>
+						</Tests>
+					</aactivity>
+				</f-element>
+			</f-component>
+			</section>
+			
+			<section title="Security Management (FMT)" id="m-fmt">
+			<f-component name="Specification of Management Functions (VVoIP Communications)" cc-id="fmt_smf.1" iteration="VVoIP" id="fmt-smf-1-vvoip">
+				<f-element id="fmt-smf-1e1-vvoip">
+				<title>
+				The TSF shall be capable of performing the following management functions: [
+					<h:i><h:ul>
+					<h:li>Ability to <selectables>
+						<selectable>register the TOE to an ESC <selectables><selectable>manually</selectable><selectable>via DHCP server</selectable></selectables></selectable>
+						<selectable>act as a VVoIP call control server when using P2P</selectable></selectables>;
+					</h:li></h:ul>
+					<selectables linebreak="yes">
+						<selectable>Ability to configure audit behavior (e.g. changes to storage
+						locations for audit; changes to behavior when local audit
+						storage space is full);</selectable>
+						<selectable>Ability to modify the behavior of the transmission of audit data
+						to an external IT entity;</selectable>
+						<selectable>Ability to configure the termination period for idle calls;</selectable>
+						<selectable>Ability to specify the vocoder used;</selectable>
+						<selectable>Ability to disable SRTP NULL algorithm;</selectable>
+						<selectable>Ability to specify the ports to be used for SRTP communications;</selectable>
+						<selectable exclusive="yes">no other capabilities</selectable>
+					</selectables>
+					</h:i>
+					].
+				</title>   
+				<note role="application">
+					This SFR defines additional management functions for the TOE beyond what is
+					defined in each of the supported Base-PPs as FMT_SMF.1. The TOE may have all
+					management functionality implemented in the same logical interface; it is not
+					necessary for the Base-PP management functions and the PP-Module’s
+					management functions to be implemented separately.
+					<h:p/>
+					The audit-related sections are duplicates of those in the NDcPP’s definition of
+					FMT_SMF.1. If the VVoIP audit functionality is configurable separately from the
+					auditing for the device as a whole, the relevant selections should be made or
+					omitted in each iteration as needed.
+					<h:p/>
+					If the TOE claims conformance to the NDcPP and “register the TOE to an ESC…” is
+					selected, the selection-based SFR FCS_NTP_EXT.1 must be claimed since
+					connectivity to an ESC implies that the TSF will use it as an NTP server.
+				</note>         
+				<aactivity>      <!-- at minimum, only the last f-element in the f-component needs to have this -->
+   					<TSS>
+					The evaluator shall verify that the TSS provides a description of the TOE initial configuration and describes
+					the ability of the TSF to manage the functions that are defined in the SFR, including how each function is
+					managed (e.g. manually configured, applied via downloaded configuration file).</TSS>
+					<Guidance>
+					The evaluator shall verify that the operational guidance provides instructions on configuring any
+					functionality specifically related to VVoIP.
+					</Guidance>
+					<Tests>
+						The evaluator shall perform the following tests, depending on the selections made:
+						<testlist>
+						<test>(Conditional - "register the TOE to an ESC [manually]" is selected)
+							<steplist>
+								<step>On the TOE, input IP address, gateway address, and subnet mask.</step>
+								<step>If the operational environment is deployed in a manner such that the configuration server and
+								ESC are two distinct servers, input the addresses for each; otherwise, input the ESC address.</step>
+								<step>Save the configuration.</step>
+								<step>Verify the TOE registers to the ESC.</step>
+							</steplist>
+						</test>
+						<test>(Conditional - "register the TOE to an ESC [via DHCP server]" is selected
+							<steplist>
+								<step>On the TOE, input the DHCP server address.</step>
+								<step>Verify by traffic capture that the TOE receives all needed IP addresses.</step>
+								<step>Verify by examining the IP address on the TOE.</step>
+								<step>Verify the TOE registers to the ESC. </step>
+							</steplist>
+						Test EAs to verify that the TOE can act as a VVoIP call control server when using P2P (if it is selected) are
+						performed as part of testing for FDP_IFF.1/CallControl.
+						<h:p/>
+						Test EAs to verify the configuration of audit behavior are performed as part of testing for FAU_STG_EXT.1.
+						<h:p/>
+						Test EAs to verify the modification of transmission of audit data to an external IT entity are performed as
+						part of testing for FAU_STG_EXT.1.
+						<h:p/>
+						Test EAs to verify that the idle call termination period can be specified are performed as part of testing
+						for FTA_SSL.3/Media, specifically Test 2 and Test 3.
+						<h:p/>
+						Test EAs to verify that the vocoder can be specified are performed as part of testing for FCO_VOC_EXT.1.
+						</test>
+						</testlist>
+					</Tests>
+            	</aactivity>
+                </f-element>	
+			</f-component>
+			</section>
+						<section title="TOE Access (FTA)" id="m-fta">
+							<class-description>
+								Intrusion prevention involves the TOE’s ability to collect network packets, examine their contents for
+								information that suggests malicious activity, and to perform some action in response such as terminating
+								the connection.
+							</class-description>
+							
+							<ext-comp-def title="Anomaly-Based IPS Functionality" fam-id="IPS_ABD_EXT">
+								<fam-behavior>This family defines requirements for detection of anomalous network traffic and how the TSF should
+									respond if an anomaly is detected.
+								</fam-behavior>
+							</ext-comp-def>
+							
+			<f-component name="Anomaly-Based IPS Functionality" cc-id="ips_abd_ext.1" id="ips-abd-ext-1">
+				
+				<comp-lev> requires the TSF to detect anomalous network traffic
+					based on some criteria and to define the response that is issued if an anomaly is detected. </comp-lev>
+				<management>The following actions could be considered for the management functions in FMT: 
+					<h:ul>
+						<h:li>Configuration of anomaly detection.</h:li>
+						<h:li>Enabling and disabling actions to be taken when anomaly matches are detected.</h:li>
+						<h:li>Modification of thresholds that trigger IPS reactions.</h:li>
+						<h:li>Modification of the duration of traffic blocking actions.</h:li>
+					</h:ul>
+				</management>
+				<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the
+					PP/ST:
+					<h:ul>
+						<h:li>Inspected traffic that matches an anomaly-based IPS policy.</h:li>
+					</h:ul></audit>
+				<dependencies>IPS_NTA_EXT.1 Network Traffic Analysis<h:br/>
+					IPS_SBD_EXT.1 Signature-Based IPS Functionality
+				</dependencies>
+				
+				<f-element id="ips-abd-ext-1e1">
+				<title>
+				The TSF shall support the definition of <selectables>
+					<selectable>baselines (‘expected and approved’)</selectable>
+					<selectable>anomaly (‘unexpected’) traffic patterns</selectable></selectables> including the specification of <selectables linebreak="yes">
+					<selectable>throughput (<assignable> data elements (e.g. bytes, packets, etc.) per time period (e.g. minutes, hours, days)</assignable>)</selectable>
+					<selectable>time of day;</selectable>
+					<selectable>frequency;</selectable>
+					<selectable>thresholds;</selectable>
+					<selectable>[<assignable>other methods</assignable>]</selectable>
+					</selectables>
+					and the following network protocol fields:
+					<h:ul>
+						<h:li><selectables>
+						<selectable> all packet header and data elements defined in IPS_SBD_EXT.1</selectable>
+						<selectable><assignable>subset list of packet header and data elements from IPS_SBD_EXT.1</assignable></selectable>
+						</selectables>.</h:li>
+					</h:ul>
+				</title>  
+					<note role="application">
+					Baselines are the definition of known-good traffic (to be allowed per
+					IPS_ABD_EXT.1.3) whilst anomaly traffic is definition of (‘offending’) traffic that is
+					to be handled per other actions defined in IPS_ABD_EXT.1.3. Frequency can be
+					defined as a number of occurrences of an event (such as detection of packets
+					matching a signature) over a defined period of time, such as the number of new
+					FTP sessions established during one hour. Thresholds can be defined as an amount
+					or percentage of deviation from expected levels or limits, such as a number of
+					megabytes of data transferred via FTP per hour. 
+					</note>
+	          
+	
+				</f-element>
+				<f-element id="ips-adb-ext-1e2">
+				<title>
+				The TSF shall support the definition of anomaly activity through <selectables><selectable>manual configuration by administrators</selectable><selectable>automated configuration</selectable></selectables>.
+				</title>
+				<note role="application">
+				The “baseline” and “anomaly” can be something manually defined/configured
+				by a TOE administrator (or importing definitions), or something that the TOE is
+				able to automatically define/create by inspecting network traffic over a period
+				of time (a.k.a. “profiling”). It is not essential for the IPS TOE to have a capability
+				of “profiling” a network to dynamically defining a baseline or rule; if the product
+				has this functionality, it is outside the scope of this PP-Module.
+				</note>
+				
+				</f-element>
+				<f-element id="ips-adb-ext-1e3">
+				<title>
+				The TSF shall allow the following operations to be associated with anomaly-based IPS policies:
+				<h:ul>
+					<h:li>In any mode, for any sensor interface: <selectables linebreak="yes">
+						<selectable>allow the traffic flow</selectable>
+							<selectable>send a TCP reset to the source address of the offending traffic</selectable>
+							<selectable>send a TCP reset to the destination address of the offending traffic</selectable>
+							<selectable>send an ICMP
+								<selectables>
+									<selectable>host</selectable>
+									<selectable>destination</selectable>
+									<selectable>port</selectable>
+								</selectables>
+								unreachable message
+								</selectable>
+							<selectable>trigger a non-TOE network device to block the offending traffic pattern</selectable>
+					</selectables></h:li>
+					<h:li>In inline mode:
+						<h:ul>
+							<h:li>allow the traffic flow</h:li>
+							<h:li>block/drop the traffic flow</h:li>
+							<h:li>and 
+									<selectables>
+										<selectable>modify and forward packets before they pass through the TOE</selectable>
+										<selectable>no other actions</selectable></selectables>.</h:li>
+						</h:ul>
+					</h:li>
+				</h:ul>
+				</title>
+					<aactivity>      <!-- at minimum, only the last f-element in the f-component needs to have this -->
+						<TSS>
+							<h:p>
+							The evaluator shall verify that the TSS describes the composition, construction, and application of baselines or anomaly-based attributes specified in IPS_ABD_EXT.1.1.
+							</h:p><h:p>
+							If ‘frequency’ is selected in IPS_ABD_EXT.1.1, the TSS shall include an explanation of how frequencies can be defined on the TOE.
+							</h:p><h:p>
+							If ‘thresholds’ is selected in IPS_ABD_EXT.1.1, the TSS shall include an explanation of how the thresholds can be defined on the TOE.
+							</h:p><h:p>
+							The evaluator shall verify that each baseline or anomaly-based rule can be associated with a reaction specified in IPS_ABD_EXT.1.3.
+							</h:p><h:p>
+							The evaluator shall verify that the TSS identifies all interface types capable of applying baseline or
+							anomaly-based rules and explains how they are associated with distinct network interfaces. Where
+							interfaces can be grouped into a common interface type (e.g., where the same internal logical path is
+							used, perhaps where a common device driver is used) they can be treated collectively as a distinct network
+							interface.
+							</h:p>
+						</TSS>
+						<Guidance>
+							<h:p>
+							The evaluator shall verify that the operational guidance provides instructions to manually create baselines
+							or anomaly-based rules according to the selections made in IPS_ABD_EXT.1.1. Note that dynamic
+							“profiling” of a network to establish a baseline is outside the scope of the PP-Module
+							</h:p><h:p>
+							The evaluator shall verify that the operational guidance provides instructions to associate reactions specified in IPS_ABD_EXT.1.3 with baselines or anomaly-based rules.
+							</h:p><h:p>
+								The evaluator shall verify that the operational guidance provides instructions to associate the different policies with distinct network interfaces.</h:p>
+						</Guidance>
+						<Tests>
+							The evaluator shall perform the following tests:<testlist>
+								<test>The evaluator shall use the instructions in the operational guidance to configure baselines or anomaly-based rules for each attribute specified in IPS_ABD_EXT.1.1. The evaluator shall send traffic that does not match the baseline or matches the anomaly-based rule and verify the TOE applies the configured reaction. This shall be performed for each attribute in IPS_ABD_EXT.1.1.</test>
+								<test>The evaluator shall repeat the test above to ensure that baselines or anomaly-based rules can be defined for each distinct network interface type supported by the TOE.</test>
+							</testlist>
+						</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>Inspected traffic matches an anomaly-based IPS policy.</audit-event-descr>
+					<audit-event-info>Source and destination IP addresses.</audit-event-info>
+					<audit-event-info>The content of the header fields that were determined to match the policy.</audit-event-info>
+					<audit-event-info>TOE interface that received the packet.</audit-event-info>
+					<audit-event-info>Aspect of the anomaly-based IPS policy rule that triggered the event (e.g. throughput, time of day, frequency, etc.).</audit-event-info>
+					<audit-event-info>Network-based action by the TOE (e.g. allowed, blocked, sent reset to source IP, sent blocking notification to firewall). </audit-event-info>
+				</audit-event>
+				</f-component>
+							
+							<ext-comp-def title="IP Blocking" fam-id="IPS_IPB_EXT">
+								<fam-behavior>This family defines requirements for handling of inspected network traffic based on IP address.
+								</fam-behavior>
+							</ext-comp-def>
+							
+				<f-component name="IP Blocking" cc-id="ips_ipb_ext.1" id="ips-ipb-ext-1">
+					
+					<comp-lev> requires the TSF to enforce IPS policies that are based on IP address.
+					</comp-lev>
+					<management>The following actions could be considered for the management functions in FMT:
+						<h:ul>
+							<h:li>Modification of the known-good and known-bad lists (of IP addresses or address ranges).</h:li>
+							<h:li>Configuration of the known-good and known-bad lists to override signature-based IPS policies.</h:li>
+						</h:ul>
+					</management>
+					<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the
+						PP/ST:<h:ul>
+							<h:li>Inspected traffic matches a list of known-good or known-bad addresses applied to an IPS policy.</h:li>
+						</h:ul>
+					</audit>
+					<dependencies>IPS_NTA_EXT.1 Network Traffic Analysis<h:br/>
+						FMT_SMR.1 Security Roles
+					</dependencies>
+					
+				<f-element id="ips-ipb-ext-1e1">
+					<title>
+					The TSF shall support configuration and implementation of known-good and known-bad lists of <selectables>
+						<selectable>source</selectable>
+						<selectable>destination</selectable>
+						</selectables> IP addresses and <selectables>
+						<selectable>no additional address types</selectable>
+						<selectable>
+							<assignable>list of address types</assignable></selectable></selectables>.
+
+					</title>
+					<note role="application">
+						The address types defined in this SFR are limited to IP addresses (e.g., a single IP
+						address or a range of IP addresses) because this PP-Module is limited to
+						inspection of IP traffic. IPS TOEs are not prohibited from enabling functionality
+						that would allow/prohibit traffic flow based on other address types, such as
+						MAC addresses.
+					</note>
+				
+				</f-element>
+				<f-element id="ips-ipb-ext-1e2">
+					<title>
+						The TSF shall allow [<h:i>Security Administrators</h:i>] to configure the following IPS policy elements: <selectables> 
+						<selectable>known-good list rules</selectable> 
+						<selectable>known-bad list rules</selectable>
+						<selectable>IP addresses</selectable>
+						<selectable><assignable>other IPS policy elements</assignable></selectable>
+						<selectable>no other IPS policy elements</selectable></selectables>.
+					</title>
+					<ext-comp-def-title>
+						<title>
+							
+								The TSF shall allow <assignable>authorized roles</assignable> to configure the following IPS policy elements: <selectables> 
+									<selectable>known-good list rules</selectable> 
+									<selectable>known-bad list rules</selectable>
+									<selectable>IP addresses</selectable>
+									<selectable><assignable>other IPS policy elements</assignable></selectable>
+									<selectable>no other IPS policy elements</selectable></selectables>.
+							
+						</title>
+					</ext-comp-def-title>
+					<aactivity>      <!-- at minimum, only the last f-element in the f-component needs to have this -->
+						<TSS>
+							<h:p>
+							The evaluator shall verify how good/bad lists affect the way in which traffic is analyzed with respect to processing packets. The evaluator shall also very that the TSS provides details for the attributes that create a known good list, a known bad list, and their associated rules, including how to define the source or destination IP address (e.g. a single IP address or a range of IP addresses).
+							</h:p><h:p>
+							If the TSF uses address types other than a single IP or a range of IP addresses (e.g., MAC addresses), the
+							evaluator shall check that the TSS explains what configurations would cause non-IP lists of known-good
+							and known-bad addresses to take precedence over IP-based address lists.
+							</h:p>
+						</TSS>
+						<Guidance>
+							<h:p>
+							The evaluator shall verify that the administrative guidance provides instructions with how each role
+							specified in the requirement can create, modify and delete the attributes of known-good and known-bad lists.
+							</h:p><h:p>
+							If the TSF uses address types other than a single IP or a range of IP addresses (e.g., MAC addresses), the
+							evaluator shall check that the operational guidance includes instructions for any configurations that would
+							cause non-IP lists of known-good and known-bad addresses to take precedence over IP-based address
+							lists.
+							</h:p>
+						</Guidance>
+						<Tests>
+							The evaluator shall perform the following tests:
+							<testlist>
+								<test>The evaluator shall use the instructions in the operational guidance to create a known-bad address
+									list. Using a single IP address, a list of addresses, or a range of addresses from that list, the evaluator shall
+									attempt to send traffic through the TOE that would otherwise be allowed by the TOE and observe the TOE
+									automatically drops that traffic.</test>
+								<test>The evaluator shall use the instructions in the operational guidance to create a known-good
+									address list. Using a single IP address, a list of addresses, or a range of addresses from that list, the
+									evaluator shall attempt to send traffic that would otherwise be denied by the TOE and observe the TOE
+									automatically allowing traffic.</test>
+								<test>The evaluator shall add conflicting IP addresses to each list and ensure that the TOE handles
+									conflicting traffic in a manner consistent with the precedence in IPS_NTA_EXT.1.1.
+								</test>
+							</testlist>
+						</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+				<audit-event-descr>Inspected traffic matches a list of known-good or known-bad addresses applied to an IPS policy.</audit-event-descr>
+				<audit-event-info>Source and destination IP addresses (and, if applicable, indication of whether the source and/or destination address matched the list).</audit-event-info>
+				<audit-event-info>TOE interface that received the packet.</audit-event-info>
+				<audit-event-info>Network-based action by the TOE (e.g. allowed, blocked, sent reset).</audit-event-info>
+				</audit-event>
+				</f-component>
+							
+							<ext-comp-def title="Network Traffic Analysis" fam-id="IPS_NTA_EXT">
+								<fam-behavior>This family defines the network traffic protocols for which the TOE is capable of analyzing and detecting violations. 
+								</fam-behavior>
+							</ext-comp-def>
+							
+				<f-component name="Network Traffic Analysis" cc-id="ips_nta_ext.1" id="ips-nta-ext-1">
+					
+					<comp-lev> requires the TSF to be able to inspect traffic for certain network
+						protocols and in certain architectural deployments.</comp-lev>
+					<management>The following actions could be considered for the management functions in FMT:
+						<h:ul>
+							<h:li>Modification of the parameters that define the network traffic to be collected and analyzed.</h:li>
+						</h:ul>
+					</management>
+					<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the
+						PP/ST:
+						<h:ul>
+						<h:li>Modification of which IPS policies are active on a TOE interface.</h:li>
+						<h:li>Enabling/disabling a TOE interface with IPS policies applied.</h:li>
+						<h:li>Modification of which mode(s) is/are active on a TOE interface.</h:li>
+						</h:ul>
+					</audit>
+					<dependencies>No dependencies.
+					</dependencies>
+					
+				<f-element id="ips-nta-ext-1e1">
+					<title>
+					The TSF shall perform analysis of IP-based network traffic forwarded to the
+					TOE’s sensor interfaces, and detect violations of administratively-defined IPS
+					policies.
+
+					</title>
+					<note role="application">
+						Though it might be the case in some TOEs that any TOE interface can be a sensor
+						interface, that capability is not a requirement. This SFR uses the term “sensor
+						interface” to refer to any TOE interface to which one or more IPS policy has been
+						applied. An administratively-defined IPS policy is any set of rules for traffic
+						analysis, traffic blocking, signature detection, and/or anomaly detection applied
+						to one or more TOE interfaces. The TOE may be capable of allowing the
+						administrator to configure the precedence of IPS policy elements (known-good
+						lists, known-bad lists, signature-based rules, and anomaly- based rules), but any
+						such configurability is not required by this PP-Module.
+					</note>
+					<aactivity level="element">      <!-- at minimum, only the last f-element in the f-component needs to have this -->
+						<TSS>
+							<h:p>
+						The evaluator shall verify that the TSS explains the TOE’s capability of analyzing IP traffic in terms of the
+						TOE’s policy hierarchy (precedence). The TSS should identify if the TOE’s policy hierarchy order is
+						configurable by the administrator for IPS policy elements (known-good lists, known-bad lists, signature-based rules, and anomaly-based rules).</h:p><h:p>
+						Regardless of whether the precedence is configurable, the evaluator shall verify that the TSS describes
+						the default precedence as well as the IP analyzing functions supported by the TOE.
+						</h:p>
+						</TSS>
+						<Guidance>
+							<h:p>
+						The evaluator shall verify that the guidance describes the default precedence.
+							</h:p><h:p>
+						If the precedence is configurable, the evaluator shall verify that the guidance explains how to configure the precedence.
+							</h:p>
+						</Guidance>
+						<Tests>
+						There are no test EAs for this element.
+						</Tests>
+					</aactivity>
+				</f-element>
+				<f-element id="ips-nta-ext-1e2">
+					<title>
+					The TSF shall process (be capable of inspecting) the following network traffic protocols:	
+					<h:ul>
+					<h:li>Internet Protocol version 4 (IPv4), RFC 791</h:li>
+					<h:li>Internet Protocol version 6 (IPv6), RFC 8200</h:li>
+					<h:li>Internet control message protocol version 4 (ICMPv4), RFC 792</h:li>
+					<h:li>Internet control message protocol version 6 (ICMPv6), RFC 2463</h:li>
+					<h:li>Transmission Control Protocol (TCP), RFC 793</h:li>
+					<h:li>User Data Protocol (UDP), RFC 768.</h:li>
+
+
+					</h:ul>
+					</title>
+						<note role="application">The identification of protocol RFCs does not imply that the TOE must ensure all
+							packets are conformant to the identified protocol RFCs at all times, nor does it
+							imply that the TOE would be able to enforce full conformance with the RFCs for
+							any traffic flow at any time. The identification of RFCs provides a frame of
+							reference for understanding the packet contents (headers, fields, states,
+							commands, etc.) identified else in this and other SFRs. The implication is that the
+							TOE must be capable of understanding the RFC implementation to the extent the
+							RFC parameters are identified throughout the SFRs.
+						</note>					
+					
+					<aactivity level="element">      <!-- at minimum, only the last f-element in the f-component needs to have this -->
+						<TSS>
+						The evaluator shall verify that the TSS indicates that the following protocols are supported:
+						<h:ul>
+							<h:li>IPv4</h:li>
+							<h:li>IPv6</h:li>
+							<h:li>ICMPv4</h:li>
+							<h:li>ICMPv6</h:li>
+							<h:li>TCP</h:li>
+							<h:li>UDP</h:li>
+						</h:ul>						
+						The evaluator shall verify that the TSS describes how conformance with the identified protocols has been
+						determined by the TOE developer (e.g., third party interoperability testing, protocol compliance testing).
+												
+						</TSS>
+						<Guidance>
+						There are no guidance EAs for this element.
+						</Guidance>
+						<Tests>
+						There are no test EAs for this element.
+						</Tests>
+					</aactivity>
+				</f-element>
+				<f-element id="ips-nta-ext-1e3">
+					<title>
+						<comment>wording updated as this was previously clunky, but also the "session reset-capable interface" selection was removed because there are no EAs for that claim, and it also has an open-ended assignment where other types of interfaces can be specified with no instructions on how to test them.</comment>
+					The TSF shall allow the signatures to be assigned to sensor interfaces configured
+					for promiscuous and inline mode, and to
+					support designation of one or more interfaces as being used as a management interface for communication between the TOE and external entities without simultaneously
+					being a sensor interface, as indicated by the following interface types:
+					<h:ul>
+					<h:li>Promiscuous (listen-only) mode: <assignable>list of interface types</assignable></h:li>
+					<h:li>Inline (data pass-through) mode: <assignable>list of interface types</assignable></h:li>
+					<h:li>Management mode: <assignable>list of interface types</assignable>.</h:li>
+						<!--
+					<h:li><selectables linebreak="yes">
+					<selectable>[Session-reset-capable interfaces:<assignable>list of session-reset-capable interfaces</assignable></selectable>
+				    <selectable><assignable>other interface types</assignable>]</selectable>
+				    <selectable>no other interface types</selectable></selectables>.</h:li> -->
+					</h:ul>
+					</title>
+					<note role="application">
+					<h:p>
+					Interface types may be Ethernet, Gigabit Ethernet, etc. Promiscuous interfaces
+					are ones that listen to network traffic for the sole purpose of inspecting the
+					traffic, but do not provide any OSI Layer 2, Layer 3, or higher layer functionality,
+					so network services are not listening on the interface, and no IP protocol stack
+					enabled on the interface so no IP address is assigned to the interface. Inline
+					interfaces are interface pairings that provide a path for network traffic to
+					traverse the TOE such that traffic flows can be blocked or modified by the TOE in
+					real-time. Like promiscuous interfaces, inline interfaces typically do not support
+					OSI Layer 3 and higher functionality, though they may provide OSI Layer 2
+					functionality (with MAC address assigned to the interfaces) to allow adjacent
+					network devices to forward traffic to/through the TOE.
+					</h:p>
+					<h:p>The TOE may support separate interfaces to be used for
+					administration/management purposes that can be configured as OSI Layer 3
+					interfaces for communication between the TOE and remote entities including all
+					entities defined in FTP_ITC, and FTP_TRP. The TOE may optionally support
+					additional interface types. Session-reset interfaces can be the same as any of the
+					promiscuous, inline, management, or other interfaces, or can be separate
+					interfaces. Session-reset functionality is not mandatory functionality for the TOE,
+					but is a selectable option within the SFR.
+					</h:p>
+					<h:p>As mentioned in the application note for IPS_NTA_EXT.1.1, it’s not necessary for
+					the TOE to have multiple single-purpose interfaces (e.g. “sensor” interface,
+					“management” interface, etc.), though it is expected that the TOE be able to
+					enable specific ports to serve one or more specific interface functions.
+					</h:p>
+					</note>
+					<aactivity level="element">
+						<TSS>
+						The evaluator shall verify that the TSS identifies all interface types capable of being deployed in the modes of promiscuous, and or inline mode as well as the interfaces necessary to facilitate each deployment mode
+						(at a minimum, the interfaces need to support inline mode). The evaluator shall also check that the TSS
+						provides a description for how the management interface is logically distinct from any sensor interfaces.
+						</TSS>
+						<Guidance>
+						<h:p>
+						The evaluator shall verify that the operational guidance provides instructions on how to deploy each of
+						the deployment methods outlined in the TSS. The evaluator shall also verify that the operational guidance
+						provides instructions of applying IPS policies to interfaces for each deployment mode. If the management
+						interface is configurable, the evaluator shall verify that the operational guidance explains how to
+						configure the interface as a management interface.
+						</h:p><h:p>
+						The evaluator shall verify that the operational guidance explains how the TOE sends commands to remote
+						traffic filtering devices if this functionality is supported.
+						</h:p>
+						</Guidance>
+						<Tests>
+						Testing for this element is performed in conjunction with testing where promiscuous and inline interfaces are tested. 
+						</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+				<audit-event-descr>Modification of which IPS policies
+				are active on a TOE interface</audit-event-descr>
+				<audit-event-info>Identification of the TOE interface.
+				</audit-event-info>
+				<audit-event-info>The IPS policy and interface mode (if
+				applicable).
+				</audit-event-info>
+				</audit-event>
+				<audit-event>
+				<audit-event-descr>Enabling/disabling a TOE
+				interface with IPS policies
+				applied.
+				</audit-event-descr>
+				<audit-event-info>Identification of the TOE interface.
+				</audit-event-info>
+				<audit-event-info>The IPS policy and interface mode (if
+				applicable).
+				</audit-event-info>
+				</audit-event>
+				<audit-event>
+				<audit-event-descr>Modification of which mode(s)
+				is/are active on a TOE interface.
+				</audit-event-descr>
+				<audit-event-info>Identification of the TOE interface.
+				</audit-event-info>
+				<audit-event-info>The IPS policy and interface mode (if
+				applicable).
+				</audit-event-info>
+				</audit-event>
+				</f-component>
+							
+							<ext-comp-def title="Signature-Based IPS Functionality" fam-id="IPS_SBD_EXT">
+								<fam-behavior>This family defines the network traffic protocols for which the TOE is capable of analyzing and detecting violations. 
+								</fam-behavior>
+							</ext-comp-def>
+							
+				<f-component name="Signature-Based IPS Functionality" cc-id="ips_sbd_ext.1" id="ips-sbd-ext-1">
+					
+					<comp-lev> requires the TSF to detect network traffic with certain
+						packet characteristics and take some action when this traffic is detected.</comp-lev>
+					<management>The following actions could be considered for the management functions in FMT:
+						<h:ul>
+						<h:li>Enabling and disabling signatures applied to sensor interfaces.</h:li>
+						<h:li>Updating (importing) signatures.</h:li>
+						<h:li>Creating custom signatures.</h:li>
+						<h:li>Enabling and disabling actions to be taken when signature matches are detected.</h:li>
+						</h:ul>
+					</management>
+					<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the
+						PP/ST:
+						<h:ul>
+							<h:li>Inspected traffic matches a signature-based IPS rule with logging enabled.</h:li>
+						</h:ul>
+					</audit>
+					<dependencies>IPS_NTA_EXT.1 Network Traffic Analysis
+					</dependencies>
+					
+				<f-element id="ips-sbd-ext-1e1">
+				<title>
+					The TSF shall support inspection of packet header contents and be able to inspect at least the following header fields: 
+					<h:ul>
+					<h:li>IPv4: version; header length; packet length; ID; IP flags; fragment offset;time to live (TTL); protocol; header checksum; source address; destination address; IP options; and <selectables>
+						<selectable>type of service (ToS)</selectable>
+						<selectable>no other field</selectable></selectables>.</h:li>
+					<h:li>IPv6: version; payload length; next header; hop limit; source address; destination address; routing header; and <selectables>
+						<selectable>traffic class</selectable>
+						<selectable>flow label</selectable>
+						<selectable>no other field</selectable>
+						</selectables>
+					</h:li>
+					<h:li>ICMP: type; code; header checksum; and <selectables>
+						<selectable>ID</selectable>
+						<selectable>sequence number</selectable>
+						<selectable><assignable>other field in the ICMP header</assignable></selectable>
+					</selectables>					
+						</h:li>
+					<h:li>ICMPv6: type; code; and header checksum.</h:li>
+					<h:li>TCP: source port; destination port; sequence number; acknowledgment number; offset; reserved; TCP flags; window; checksum; urgent pointer; and TCP options.</h:li>
+					<h:li>UDP: source port; destination port; length; and UDP checksum.</h:li>
+					</h:ul>
+				</title>
+				<aactivity level="element">      <!-- at minimum, only the last f-element in the f-component needs to have this -->
+					<TSS>
+						<h:p>
+					The evaluator shall verify that the TSS describes what is comprised within a signature rule.
+						</h:p><h:p>
+					The evaluator shall verify that each signature can be associated with a reaction specified in IPS_SBD_EXT.1.5.
+						</h:p><h:p>
+					The evaluator shall verify that the TSS identifies all interface types that are capable of applying signatures
+					and explains how rules are associated with distinct network interfaces. Where interfaces can be grouped
+					into a common interface type (e.g., where the same internal logical path is used, perhaps where a
+					common device driver is used) they can be treated collectively as a distinct network interface.
+						</h:p>
+					</TSS>
+					<Guidance>
+					The evaluator shall verify that the operational guidance provides instructions with how to create and/or configure rules using the following protocols and header inspection fields:
+					<h:ul>
+						<h:li>IPv4: version; header length; packet length; ID; IP flags; fragment offset; time to live (TTL); protocol; header checksum; source address; destination address; IP options; and, if selected, type of service (ToS).</h:li>
+						<h:li>IPv6: Version; payload length; next header; hop limit; source address; destination address; routing header; and, if selected, traffic class and/or flow label</h:li>
+						<h:li>ICMP: type; code; header checksum; and, if selected, other header fields (varies based on the ICMP type and code).</h:li>
+						<h:li>ICMPv6: type; code; and header checksum.</h:li>
+						<h:li>TCP: Source port; destination port; sequence number; acknowledgment number; offset; reserved; TCP flags; window; checksum; urgent pointer; and TCP options.</h:li>
+						<h:li>UDP: source port; destination port; length; and UDP checksum.</h:li>
+					</h:ul>
+					The evaluator shall verify that the operational guidance provides instructions with how to select and/or configure reactions specified in IPS_SBD_EXT.1.5 in the signature rules.
+
+					</Guidance>
+					<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>The evaluator shall use the instructions in the operational guidance to test that packet header
+							signatures can be created and/or configured with the selected and/or configured reactions specified in
+							IPS_SBD_EXT.1.5 for each of the attributes listed below. Each attribute shall be individually assigned to its
+							own unique signature:
+							<h:ul>
+								<h:li>IPv4: version; header length; packet length; ID; IP flags; fragment offset; time to live (TTL); protocol; header checksum; source address; destination address; IP options; and, if selected, type of service (ToS).</h:li>
+								<h:li>IPv6: Version; payload length; next header; hop limit; source address; destination address; routing header; and, if selected, traffic class and/or flow label</h:li>
+								<h:li>ICMP: type; code; header checksum; and, if selected, other header fields (varies based on the ICMP type and code).</h:li>
+							<h:li>ICMPv6: Type; Code; and Header Checksum.</h:li>
+							<h:li>TCP: Source port; destination port; sequence number; acknowledgment number; offset; reserved; TCP flags; window; checksum; urgent pointer; and TCP options.</h:li>
+							<h:li>UDP: Source port; destination port; length; and UDP checksum.</h:li>
+							
+							</h:ul>
+							The evaluator shall generate traffic to trigger a signature and shall then use a packet sniffer to capture traffic that ensures the reactions of each rule are performed as expected.</test>
+							<test>The evaluator shall repeat the test above to ensure that signature-based IPS policies can be defined for each distinct network interface type capable of applying signatures as supported by the TOE.</test>
+						</testlist>
+					</Tests>
+				</aactivity>
+				</f-element>
+				<f-element id="ips-sbd-ext-1e2">
+				<title>
+				The TSF shall support inspection of packet payload data and be able to inspect at least the following data elements to perform string-based pattern-matching: [
+				<h:ul>
+					<h:li>ICMPv4 data: characters beyond the first 4 bytes of the ICMP header.</h:li>
+					<h:li>ICMPv6 data: characters beyond the first 4 bytes of the ICMP header.</h:li>
+					<h:li>TCP data (characters beyond the 20 byte TCP header), with support for detection of:
+						<h:ol type="i">
+							<h:li>FTP (file transfer) commands: help, noop, stat, syst, user, abort, acct, allo, appe, cdup, cwd, dele, list, mkd, mode, nlst, pass, pasv, port, pass, quit, rein, rest, retr, rmd, rnfr, rnto, site, smnt, stor, stou, stru, and type.</h:li>
+							<h:li>HTTP (web) commands and content: commands including GET and POST, and administrator- defined strings to match URLs/URIs, and web page content.</h:li>
+							<h:li>SMTP (email) states: start state, SMTP commands state, mail header state, mail body state, abort state</h:li>
+							<h:li><selectables>
+								<selectable><assignable>other types of TCP payload inspection</assignable></selectable>
+								<selectable>no other types of TCP payload inspection</selectable>
+							</selectables></h:li>
+						</h:ol></h:li>
+					<h:li>UDP data: characters beyond the first 8 bytes of the UDP header;</h:li>
+					<h:li><assignable>other types of packet payload inspection</assignable>.</h:li>				
+				</h:ul>
+				</title>
+				<aactivity level="element">
+				<TSS>
+					<h:p>
+					The evaluator shall verify that the TSS describes what is comprised within a string-based detection
+					signature.
+					</h:p><h:p>
+					The evaluator shall verify that each packet payload string-based detection signature can be associated
+					with a reaction specified in IPS_SBD_EXT.1.5.
+					</h:p>
+					</TSS>
+					<Guidance>
+						<h:p>
+						The evaluator shall verify that the operational guidance provides instructions with how to configure rules using the packet payload string-based detection fields defined in IPS_SBD_EXT.1.2.
+						</h:p><h:p>
+					The evaluator shall verify that the operational guidance provides instructions with how to configure reactions specified in IPS_SBD_EXT.1.5 for each string-based detection signature.
+						</h:p><h:p>
+					The evaluator shall verify that the operational guidance provides instructions with how rules are associated with distinct network interfaces that are capable of being associated with signatures.
+						</h:p>
+					</Guidance>
+					<Tests>
+					The evaluator shall perform the following tests:<testlist>
+					<test id="sbd-payload-reaction">The evaluator shall use the instructions in the operational guidance to test that packet payload
+					string-based detection rules can be assigned to the reactions specified in IPS_SBD_EXT.1.5 using the
+					attributes specified in IPS_SBD_EXT.1.2. However it is not required (nor is it feasible) to test all possible
+					strings of protocol data, the evaluator shall ensure that a selection of strings in the requirement is selected
+					to be tested. At a minimum at least one string using each of the following attributes from IPS_SBD_EXT.1.2
+					should be tested for each protocol. The evaluator shall generate packets that match the string in the rule
+					and observe the corresponding reaction is as configured.
+					<h:ul>
+					<h:li>Test at least one string of characters for ICMPv4 data: beyond the first 4 bytes of the ICMP header.</h:li>
+					<h:li>Test at least one string of characters for ICMPv6 data: beyond the first 4 bytes of the ICMP
+					header</h:li>
+					<h:li> TCP data (characters beyond the 20 byte TCP header):
+						<h:ol type="i">
+							<h:li>Test at least one FTP (file transfer) command: help, noop, stat, syst, user, abort, acct, allo,
+							appe, cdup, cwd, dele, list, mkd, mode, nlst, pass, pasv, port, pass, quit, rein, rest, retr, rmd,
+							rnfr, rnto, site, smnt, stor, stou, stru, and type.</h:li>
+							<h:li> HTTP (web) commands and content:
+							<h:ol>
+								<h:li>Test both GET and POST commands</h:li>
+								<h:li>Test at least one administrator-defined string to match URLs/URIs and webpage content.</h:li>
+							</h:ol></h:li>
+							<h:li>Test at least one SMTP (email) state: start state, SMTP commands state, mail header state, mail body state, abort state.</h:li>
+							<h:li>Test at least one string in any additional attribute type defined within the “other types of
+							TCP payload inspection” assignment, if any other types are specified.
+							</h:li>
+						</h:ol></h:li>
+					<h:li>Test at least one string of UDP data: characters beyond the first 8 bytes of the UDP header;</h:li>
+					<h:li>Test at least one string for each additional attribute type defined in the “other types of packet
+					payload inspection” assignment, if any other types are specified.</h:li>
+					</h:ul></test>
+					<test>The evaluator shall repeat Test 1 above to ensure that signature-based IPS policies can be defined for each distinct network interface type capable of applying signatures as supported by the TOE.</test>
+					</testlist>
+					</Tests>    
+                 </aactivity>
+				</f-element>
+				<f-element id="ips-sbd-ext-1e3">
+                <title>
+				The TSF shall be able to detect the following header-based signatures (using fields identified in IPS_SBD_EXT.1.1) at IPS sensor interfaces: 
+				<h:ol type="a">
+					<h:li>IP Attacks
+						<h:ol type="i">
+							<h:li>IP Fragments Overlap (Teardrop attack, Bonk attack, or Boink attack)</h:li>
+							<h:li>IP source address equal to the IP destination (Land attack)</h:li>
+						</h:ol>
+					</h:li>
+					<h:li>ICMP Attacks
+						<h:ol type="i">
+							<h:li>Fragmented ICMP Traffic (e.g. Nuke attack)</h:li>
+							<h:li>Large ICMP Traffic (Ping of Death attack)</h:li>
+						</h:ol>
+					</h:li>
+					<h:li>TCP Attacks
+						<h:ol type="i">
+							<h:li>TCP NULL flags</h:li>
+							<h:li>TCP SYN+FIN flags</h:li>
+							<h:li>TCP FIN only flags</h:li>
+							<h:li>TCP SYN+RST flags</h:li>
+						</h:ol>
+					</h:li>
+					<h:li>UDP Attacks
+						<h:ol type="i">
+							<h:li><h:i>UDP Bomb Attack</h:i></h:li>
+							<h:li><h:i>UDP Chargen DDoS Attack</h:i>.</h:li>
+						</h:ol>
+					</h:li>
+				</h:ol>.
+                </title>
+                <aactivity level="element">
+					<TSS>The evaluator shall verify that the TSS describes how the attacks defined in IPS_SBD_EXT.1.3 are processed by the TOE and what reaction is triggered when these attacks are identified.</TSS>
+					<Guidance>The evaluator shall verify that the operational guidance provides instructions with configuring rules to identify the attacks defined in IPS_SBD_EXT.1.3 as well as the reactions to these attacks as specified in IPS_SBD_EXT.1.5.</Guidance>
+					<Tests>The evaluator shall create and/or configure rules for each attack signature in IPS_SBD_EXT.1.3. For each
+					attack, the TOE should apply its corresponding signature and enable it to each distinct network interface
+					type capable of applying the signatures. The evaluator shall use packet captures to ensure that the attack
+					traffic is detected by the TOE and a reaction specified in IPS_SBD_EXT.1.5 is triggered and stops the attack.
+					Each attack should be performed one after another so as to ensure that its corresponding signature
+					successfully identified and appropriately reacted to a particular attack.
+					</Tests>
+                 </aactivity>
+                </f-element>
+				<f-element id="ips-sbd-ext-1e4">
+                <title>The TSF shall be able to detect all the following traffic-pattern detection signatures, and to have these signatures applied to IPS sensor interfaces: 
+					<h:ol type="a">
+						<h:li>Flooding a host (DoS attack)
+							<h:ol type="i">
+								<h:li>ICMP flooding (Smurf attack, and ping flood)</h:li>
+								<h:li>TCP flooding (e.g. SYN flood)</h:li>
+							</h:ol></h:li>
+						<h:li>Flooding a network (DoS attack)</h:li>
+						<h:li>Protocol and port scanning
+							<h:ol type="i">
+								<h:li>IP protocol scanning</h:li>
+								<h:li>TCP port scanning</h:li>
+								<h:li>UDP port scanning</h:li>
+								<h:li>ICMP scanning.</h:li>
+							</h:ol></h:li>
+					</h:ol>
+                </title>
+				<note role="application">
+				<h:p>This SFR defines the minimum set of packet header fields, packet payload strings,
+					signature types, and potentially malicious traffic patterns (e.g. flooding and
+					scanning) that the TOE must be able to detect. Valid signatures can be comprised
+					of one, some, or all attributes listed in this SFR, and IPS TOEs may support
+					inspection of additional attributes not listed in this SFR, but only those listed in
+					the SFR will be tested by the evaluators. The set of signature types, traffic
+					patterns, etc. identified in this SFR are not intended to be an exhaustive or
+					completely representative list of malicious activity, nor is it meant to address
+					DDoS attacks – the intent of this SFR is addressing attacks form a single source
+					IP.</h:p><h:p>
+					Protocol and port scanning refers to reconnaissance attacks that scan target IP
+					addresses for open/listening/responsive services by targeting multiple
+					protocols/ports on one or more target IP address using obvious (sequentially
+					numbered) patterns of target protocol/port numbers or by randomizing the
+					protocol/port numbers and/or randomizing the time delays between
+					transmissions.
+					</h:p><h:p>
+					It is understood and expected that IPS product vendors will support pre-defined
+					signatures, but inspection of the efficacy of the pre-defined signatures
+					themselves is not objective of this PP-Module. Instead, this PP-Module focuses
+					on the ability of the TOE to perform detailed analysis of network traffic, and
+					those pre-defined signatures may be used during evaluation, the evaluation
+					team is expected to make use of custom-made signatures as well. This set of
+					signature types, traffic patterns, etc. has been selected to: 1) place reasonable
+					boundaries around the scope of testing; and 2) provide a sufficient sampling of
+					packet contents, and traffic patterns to demonstrate the TOE’s ability to inspect
+					packet contents, to collect traffic pattern statistics over a period of time, and to
+					correlate collected data.
+					</h:p><h:p>An IPS sensor interface refers to any TOE interface to which an IPS policy is currently applied.</h:p>
+					
+				</note>
+                <aactivity level="element">
+					<TSS>The evaluator shall verify that the TSS describes how the attacks defined in IPS_SBD_EXT.1.4 are processed by the TOE and what reaction is triggered when these attacks are identified.
+
+					</TSS>
+					<Guidance>
+					The evaluator shall verify that the operational guidance provides instructions with configuring rules to identify the attacks defined in IPS_SBD_EXT.1.4 as well as the reactions to these attacks as specified in IPS_SBD_EXT.1.5.
+					</Guidance>
+					<Tests>The evaluator shall configure individual signatures for each attack in IPS_SBD_EXT.1.4. For each attack,
+					the TOE should apply its corresponding signature and enable it to each distinct network interface type
+					capable of applying signatures. The evaluator shall use packet captures to ensure that the attack traffic is
+					detected by the TOE and a reaction specified in IPS_SBD_EXT.1.5 is triggered and stops the attack. Each
+					attack should be performed one after another so as to ensure that its corresponding signature successfully
+					identified and appropriately reacted to a particular attack.
+					</Tests>
+                </aactivity>
+                </f-element>
+				<f-element id="ips-sbd-ext-1e5">
+                <title>
+				The TSF shall allow the following operations to be associated with signature-based IPS policies:
+				<h:ul>
+					<h:li>In any mode, for any sensor interface: <selectables linebreak="yes">
+						<selectable>allow the traffic flow;</selectable>
+						<selectable>send a TCP reset to the source address of the offending traffic;</selectable>
+						<selectable>send a TCP reset to the destination address of the offending traffic;</selectable>
+						<selectable>send an ICMP<selectables>
+							<selectable>host</selectable>
+							<selectable>destination</selectable>
+							<selectable>port</selectable></selectables>unreachable message;</selectable>
+						<selectable>trigger a non-TOE network device to block the offending traffic pattern</selectable>
+						</selectables></h:li>
+					<h:li>In inline mode:
+						<h:ul>
+							<h:li>block/drop the traffic flow;</h:li>
+							<h:li>and <selectables linebreak="yes">
+								<selectable>allow all traffic flow;</selectable>
+								<selectable>allow the traffic flow with following exceptions:<assignable>malicious traffic such as but not limited to IPS_EXT.1.3 and IPS_EXT.1.4 if always dropped</assignable>;</selectable> <selectable>modify and forward packets before they pass through the TOE</selectable></selectables>.</h:li>
+						</h:ul>
+					</h:li>
+				</h:ul>
+                </title>
+				<note role="application">The term “trigger” is used to allow for multiple types of interactions, including:
+				one in which the TOE initiates a authenticated connection to the remote device
+				across an IP network and uses a remote administration interface of the remote
+				device to modify the active configuration on that device; or one in which the
+				connection between the TOE and the non-TOE network device does not traverse
+				an IP network. If the ST author selects “trigger a non-TOE network device…” and
+				the connection between the TOE and the non-TOE network device traverses an
+				IP network, the ST author must ensure that the non- TOE device type is identified
+				within FTP_ITC.1.3 (of the base), and the connection between the TOE and the
+				remote device must be secured in accordance with FTP_ITC.1. In the last bullet
+				of the SFR, “modify and forward packets before they pass through the TOE,”
+				could include such actions as removing from packet data character strings that
+				match regular expression (regex) conditions that violate policies, such as
+				transmitting personally identifiable information or other private data (phone
+				numbers, credit-card numbers, etc.).</note>
+
+                <aactivity level="element">
+				<TSS>There are no TSS EAs for this element</TSS>
+				<Guidance>The guidance EAs for this element are performed in conjunction with IPS_SBD_EXT.1.1, IPS_SBD_EXT.1.3, and IPS_SBD_EXT.1.4.</Guidance>
+				<Tests>The test EAs for this element are performed in conjunction with those for IPS_SBD_EXT.1.1, IPS_SBD_EXT.1.2, IPS_SBD_EXT.1.3, and IPS_SBD_EXT.1.4.</Tests>
+                 </aactivity>
+                </f-element>
+				<f-element id="ips-sbd-ext-1e6">
+                <title>
+				The TSF shall support stream reassembly or equivalent to detect malicious payload even if it is split across multiple non-fragmented packets.
+
+                </title>
+                <aactivity level="element">
+					<TSS>There are no TSS EAs for this element.</TSS>
+					<Guidance>The evaluator shall verify that the operational guidance provides configuration instructions, if needed, to detect payload across multiple packets.</Guidance>
+					<Tests>The evaluator shall repeat one of the tests in <xref to="sbd-payload-reaction"/> but generate multiple non-fragmented packets that contain the string in the rule defined. The evaluator shall verify that the malicious traffic is still detected when split across multiple non-fragmented packets.</Tests>
+                 </aactivity>
+                </f-element>
+				<audit-event>
+				<audit-event-descr>Inspected traffic matches a signature-based IPS rule with logging enabled.</audit-event-descr>
+				<audit-event-info>Name or identifier of the matched signature.</audit-event-info>
+				<audit-event-info>Source and destination IP addresses.</audit-event-info>
+				<audit-event-info>The content of the header fields that were determined to match the signature.</audit-event-info>
+				<audit-event-info>TOE interface that received the packet.</audit-event-info>
+				<audit-event-info>Network-based action by the TOE (e.g. allowed, blocked, sent reset).</audit-event-info>
+				
+				</audit-event>
+				</f-component>
+			</section>
+
+
+	
+	</man-sfrs>  <!-- SFRs -->
+    
+    <opt-sfrs>
+		<section id="sec-opt-audit-table" title="Auditable Events for Optional SFRs">
+        <audit-table id="at-optional" table="optional"/>
+      </section>
+	<section title="Security Audit(FAU)" id="fau-ops">
+			<f-component name="Protected Audit Trail Storage" cc-id="fau_stg.2" iteration="IPS" id="fau-stg-2-ips">
+			<f-element id="fau-stg-2e1-ips">
+				<title>The TSF shall protect the stored <h:b>IPS</h:b> audit data from unauthorized deletion.</title>
+
+			</f-element>
+			<f-element id="fau-stg-2e2-ips">
+				<title>The TSF shall be able to [<h:i>prevent</h:i>] unauthorized modifications to the stored <h:b>IPS</h:b> audit data in the audit trail.</title>
+				<aactivity>
+				<TSS>The evaluator shall ensure that the TSS identifies how IPS data is protected from unauthorized modification and deletion.</TSS>
+				<Guidance>The evaluator shall confirm the guidance documentation describes how to protect IPS data from unauthorized modification and deletion.</Guidance>
+				<Tests>The evaluator shall devise tests that demonstrate that IPS data can be protected from unauthorized modification and deletion.</Tests>
+			</aactivity>
+				
+			</f-element>
+				<audit-event table="optional"/>
+			</f-component>
+		
+			<f-component name="Prevention of Audit Data Loss" cc-id="fau_stg.5" iteration="IPS" id="fau-stg-5-ips">
+			<f-element id="fau-stg-5e1">
+			<title>
+			The TSF shall 
+				[<selectables>
+					<selectable>ignore generation of IPS events that would otherwise be generated</selectable>
+					<selectable>prevent audited IPS events</selectable>
+					<selectable>overwrite the oldest stored IPS data</selectable>
+				</selectables>] if the <h:b>IPS</h:b> audit data storage is full.
+			
+			</title>
+			<aactivity>
+				<TSS>The evaluator shall ensure that the TSS identifies how IPS data logging is handled once the IPS data trail is full.</TSS>
+				<Guidance>The evaluator shall confirm the guidance documentation describes any steps involved to manage IPS data logging when the IPS audit trail is full.</Guidance>
+				<Tests>There are no test EAs for this component.</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event>
+			<audit-event-descr>A local audit store reaches its storage limit.</audit-event-descr>
+			<audit-event-info>Indication that the audit store is full, and (if configurable) how the TOE is responding (e.g., failing to audit new auditable events, removing old audit events to make space for new events, preventing auditable events from occurring).</audit-event-info></audit-event>
+			</f-component>
+	</section>
+    	
+    	
+	<section title="Protection of the TSF (FPT)" id="fpt">
+	<f-component name="Failure with Preservation of Secure State" cc-id="fpt_fls.1" iteration="IPS" id="fpt-fls-1-ips">
+	<f-element id="fpt-fls-1">
+	<title><comment>Iterated in case this is added to NDcPP (dependency on FPT_TST)</comment>
+		The TSF shall preserve a secure state <h:b>for inline interfaces</h:b> when the following types of failures occur: <assignable>list of types of failures in the TSF</assignable>.</title>
+	<note role="application">
+	The intent of this SFR is to allow the ST author to define the types of failures
+	that can occur on the TOE which could result in failure to effectively detect and
+	react to IPS policy violations for traffic traversing inline interface, and to not
+	allow traffic to traverse those interfaces. The first refinement “to be able” is
+	included to allow the TOE administrator to configure the TOE to allow traffic to
+	traverse inline interfaces when the TOE is in a partially of fully failed state, but
+	to provide assurance that the TOE is capable of blocking traffic if it has been
+	configured to do so. The purpose of this SFR, as stated in CC Part 2, is to “ensure
+	that the TOE will always enforce its SFRs in the event of identified categories of
+	failures in the TSF.” Since some of the SFRs require inspection of data, and that inspection cannot occur when a network interface fails, it will not always be
+	true that “all” the SFRs will continue to be enforced in the event of failure of
+	certain components. The intent here is to ensure that if network traffic is not
+	capable of being inspected by the TSF, then it should automatically be treated
+	as untrusted.
+	</note>
+	<aactivity><TSS>The evaluator shall examine the TSS section to determine that the TOE’s implementation of the fail secure
+	functionality is documented. The evaluator shall ensure that the TSS identifies all failures that will result
+	in the TOE preserving a secure state if triggered. The evaluator shall then ensure that the TOE will attain
+	a secure state after inserting each specified failure mode type. The evaluator shall also examine the TSS
+	to determine whether the fail-secure functionality is configurable.</TSS>
+	<Guidance>There are no operational guidance EAs for this component.</Guidance>
+	<Tests>For each type of failure listed in the assignment, the TOE vendor must provide the evaluator with the
+	means to trigger the failure, and the evaluator shall reproduce each type of failure to ensure that an applied IPS policy remains enforced during the failure. For example, various causes including temporary
+	loss of power could result in a reboot of the TOE. If the active IPS policy at the time of the failure (e.g.
+	reboot) ensured that ICMP echo packets were dropped by the TOE, the evaluator shall confirm that at no
+	point during the shutdown or restart of the TOE is any ICMP echo packet allowed through the TOE (though
+	in this example, it should be understood that there will be a period at which IPS events are not audited
+	while the audit mechanism is pending restart).
+	</Tests></aactivity>
+	</f-element>
+	<audit-event>
+		<audit-event-descr>Failure of the TSF.</audit-event-descr>
+		<audit-event-info>The type of failure that occurred. </audit-event-info></audit-event>
+	</f-component>
+	</section>
+	<section title="Intrusion Prevention (IPS)" id="ips">
+		
+	<f-component name="Traffic Normalization" cc-id="ips_sbd_ext.2" id="ips-sbd-ext-2">
+		
+		<comp-lev> requires the TSF to support the inspection of encapsulated or
+			fragmented traffic by normalizing it.
+		</comp-lev>
+		<management>The following actions could be considered for the management functions in FMT:
+			<h:ul>
+			<h:li>Enabling and disabling signatures applied to sensor interfaces.</h:li>
+			<h:li>Updating (importing) signatures.</h:li>
+			<h:li>Creating custom signatures.</h:li>
+			<h:li>Enabling and disabling actions to be taken when signature matches are detected.</h:li>
+			</h:ul>
+		</management>
+		<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the
+			PP/ST:
+			<h:ul>
+				<h:li>Inspected traffic matches a signature-based IPS rule with logging enabled.</h:li>
+			</h:ul>
+		</audit>
+		<dependencies>IPS_NTA_EXT.1 Network Traffic Analysis
+		</dependencies>
+		
+	<f-element id="ips-sbd-2e1">
+	<title>The TSF shall be able to inspect packets encapsulated through the following means: <selectables><selectable>GRE</selectable><selectable>IP-in-IP</selectable><selectable>IPv4-in-IPv6</selectable><selectable>MPLS</selectable><selectable> PPTP</selectable><selectable><assignable>other
+encapsulation methods</assignable></selectable></selectables>.
+	</title>
+	<aactivity level="element">
+		<TSS>The evaluator shall verify that the TSS describes how the TOE is able to inspect traffic inside the encapsulation protocols claimed in the requirement.</TSS>
+		<Guidance>The evaluator shall examine the operational guidance to determine that it contains instructions for inspecting tunneled packets through the encapsulation methods identified in the requirement.</Guidance>
+		<Tests>The evaluator shall set up the conditions necessary to execute testing from IPS_SBD_EXT.1 except that
+		the traffic to be inspected is encapsulated in one of the tunneling protocols that the TOE is capable of
+		inspecting. The evaluator shall transmit the encapsulated traffic and observe that the TSF is able to inspect
+		it and respond in the configured manner. The evaluator shall repeat this test for each type of encapsulated
+		traffic supported by the TSF.</Tests>
+	</aactivity>
+
+	</f-element>
+	
+	<f-element id="ips-sbd-ext-2e2">
+	<title>The TSF shall be able to perform IP normalization to reassemble fragmented packets for inspection, and: <selectables linebreak="yes">
+	<selectable>For data collected at promiscuous interfaces: generate an alert if the packet cannot be reassembled;</selectable>
+	<selectable>For data collected at inline interfaces: do not forward any packet fragments and generate an alert if the TSF cannot reassemble the entire packet</selectable>
+
+
+	</selectables>.</title>
+	<aactivity level="element">
+		<TSS>The evaluator shall verify that the TSS describes how audit records are generated when packets cannot
+		be reassembled after fragmentation. Also, for inline mode, the evaluator shall examine the TSS to ensure
+		packets are dropped.</TSS>
+		<Guidance>There are no guidance EAs for this element.</Guidance>
+		<Tests>The evaluator shall perform the following tests:<testlist>
+		<test>The evaluator shall generate packets that cannot be reassembled after fragmentation; the evaluator shall ensure audit events are generated for all instances of IP normalization.</test>
+		<test>For inline mode: The evaluator shall test for automatic packet rejection for when packets cannot be reassembled after fragmentation. The evaluator shall use packet captures to ensure that the IP traffic is detected by the TOE and packets are dropped.</test>
+		<test>The evaluator shall generate packets that can be reassembled after fragmentation; the evaluator shall ensure audit events are generated for all instances of IP normalization.</test>
+		</testlist></Tests>
+		</aactivity>
+		
+	</f-element>
+	
+	<f-element id="ips-sbd-ext-2e3">
+	<title>The TSF shall be able to perform TCP normalization for traffic flows through the TOE when the TOE is deployed in inline mode, and prohibit forwarding of: <selectables linebreak="yes">
+		<selectable>duplicate packets;</selectable>
+		<selectable>changed packets;</selectable>
+		<selectable>out-of-sequence packets;</selectable>
+		<selectable>
+			<selectables><selectable><assignable>other packet types that should not be
+forwarded</assignable></selectable>
+			<selectable>no other packets</selectable>
+			</selectables>
+			</selectable></selectables>.</title>
+	<aactivity level="element">
+	<TSS>The evaluator shall verify that the TSS describes that packets are automatically dropped for the following normalization:<h:ul>
+	<h:li>duplicate packets</h:li>
+	<h:li>changed packets</h:li>
+	<h:li>out of sequence packets</h:li>
+	<h:li>other packet types claimed in the requirement, if any</h:li>
+	</h:ul></TSS>
+	<Guidance>There are no guidance EAs for this element.</Guidance>
+	<Tests>The evaluator shall generate the following types of packets and observe that they are discarded by the TSF: 
+		<h:ul>
+		<h:li>duplicate packets</h:li>
+		<h:li>changed packets</h:li>
+		<h:li>out of sequence packets</h:li>
+		<h:li>other packet types claimed in the requirement, if any</h:li>
+		</h:ul>
+</Tests>
+		</aactivity>
+		
+	</f-element>
+	<audit-event>
+	<audit-event-descr>Inspection of encapsulated packets.</audit-event-descr>
+	<audit-event-info>Indication of the encapsulation method.</audit-event-info>
+	</audit-event>
+	<audit-event>
+		<audit-event-descr>Failure to re-assemble a fragmented packet.</audit-event-descr>
+		<audit-event-info>Source and destination IP addresses.</audit-event-info>
+		<audit-event-info>TOE interface that received the fragment(s).</audit-event-info>
+		</audit-event>
+	<audit-event>
+		<audit-event-descr>Normalization of traffic by the TOE.</audit-event-descr>
+		<audit-event-info>Source and destination IP addresses of discarded packet(s).</audit-event-info>
+		<audit-event-info>TOE interface that received the packet(s)</audit-event-info>
+		</audit-event>
+	</f-component>
+	</section>
+	</opt-sfrs>		
+  	<sel-sfrs/>
+	<obj-sfrs>
+	<section title="Auditable Events for Objective SFRs">
+        <comment>All objective SFRs need a review to determine if they should change status with the new release of this module.</comment>
+        <audit-table id="at-objective" table="objective"/>
+      </section>
+	<section title="Security Audit (FAU)" id="fau-obj">
+	<f-component name="Security Alarms" cc-id="fau_arp.1" id="fau-arp-1">
+	<f-element id="fau-arp-1e1">
+	<title>
+	The TSF shall take <assignable>list of actions</assignable> upon detection of potential security violation.
+	</title>
+	<note role="application">
+	<h:p>At minimum, the set of potential security violations must include network traffic
+		in excess of maximum quotas. Therefore, when this SFR is included, the ST author
+		must also include FRU_RSA.1.</h:p><h:p>In CC Part 2, FAU_ARP is intended to depend on FAU_SAA to define a potential
+		violation of the SFRs. FAU_SAA is not included in this IPS EP; FRU_RSA and the
+		various IPS class requirements are used instead to define the “potential security
+		violation” relevant to FAU_ARP, namely that the TOE has detected potential
+		malicious network traffic or has experienced a spike in network traffic that has
+		exceeded its ability to inspect all network traffic which may result in some network
+		traffic being uninspected by the TSF. This SFR should be used to define actions that
+		the IPS TOE can take which may include generating one or more messages that
+		are not part of the audit trail that must be transmitted securely to a remote
+		audit server.</h:p><h:p>Messaging actions defined by this SFR that are not specifically relevant to
+		FAU_GEN.1/IPS do not need to be encrypted during transit. The primary intent of
+		this functionality is the speed of notification, not the integrity, or confidentiality
+		of the data in transit. In most cases, the audit trail applicable to FAU_STG.1
+		will be syslog data, and is being protected in transit to help ensure integrity of
+		remotely stored audit data. This SFR is intended to cover transmission of messages
+		related to single events through protocols such as SNMP (traps) and SMTP (email).
+		In TOEs that support securing SNMP traps, SMTP email, or other messaging types
+		within trusted channels (as defined by FTP_ITC.1), the ST author can choose to
+		list these messaging methods within FTP_ITC.1 and/or within this SFR. There are
+		no additional auditable IPS events that need to be included in FAU_GEN.1/IPS.
+		</h:p></note>
+		<aactivity>
+		<TSS>The evaluator shall verify that the TSS includes a description of the alerts specified in the requirement and
+			the events that may trigger these alerts to be generated. The evaluator shall also verify that the TSS states
+			that audit data cannot be transmitted through the security alarms interface.
+
+		</TSS>
+		<Guidance>The evaluator shall verify that the guidance explains how to enable alerts specified in the requirement
+		based on the events that the TSS identifies as potential security violations.
+		</Guidance>
+		<Tests>
+		For each action that can be taken by the TSF upon detection of a potential security violation, the evaluator
+		shall configure the TOE to take that action when a particular event occurs. The evaluator shall then
+		perform some action to trigger the event (e.g. by transmitting network traffic that represents the event
+		to the TOE’s sensor interfaces) and observe that the configured action occurs in response.
+		</Tests>
+		</aactivity>
+	</f-element>
+		<audit-event table="objective"/>
+		
+	</f-component>
+		
+	<f-component name="Audit Review" cc-id="fau_sar.1" id="fau-sar-1">
+	<f-element id="fau-sar-1e1">
+	<title>
+	The TSF shall provide [<h:i>Security Administrators</h:i>] with the capability to read [<h:i>IPS data</h:i>] from the <h:b>IPS</h:b> audit data.
+	</title>
+	</f-element>
+	<f-element id="fau-sar-1e2">
+	<title>
+	The TSF shall provide the <h:b>IPS</h:b> audit data in a manner suitable for the user to interpret the information.
+	</title>
+	<note role="application">It is anticipated, but not required, that TOEs would provide a graphical user
+		interface that would allow searching and sorting, and it would be acceptable for
+		such output to group similar events together to ease administrative review of the
+		IPS data. For example, the display might allow grouping of data by event type, or
+		by source IP address, where multiple events that occurred in a time period are
+		displayed on a single line as in the sample table below. Regardless whether such
+		a view is provided, it is expected that the administrator will be able to view the
+		details of individual event occurrences.
+		
+		
+		<h:table border="1">
+		<h:tr>
+			<h:th>Time/Date</h:th>
+			<h:th>Event Type</h:th>
+			<h:th>Reaction</h:th>
+			<h:th>Event total</h:th>
+		</h:tr>
+		<h:tr>
+			<h:th>2013-01-1 10:45:00</h:th>
+			<h:th>Port scan from 10.1.2.3 </h:th>
+			<h:th>Blocked all traffic from 10.1.2.3</h:th>
+			<h:th>34</h:th>
+		</h:tr>
+		</h:table>
+		
+		</note>
+	<aactivity>
+	<TSS>The evaluator shall examine the TSS to verify that it describes the ability of administrators to view IPS data from the IPS events, the format in which this IPS data is displayed, and how an administrator is authorized to view this data.</TSS>
+	
+	<Guidance>The evaluator shall examine the operational guidance to verify that it provides instructions on how to access and interpret IPS events using the TOE’s management interface.</Guidance>
+	<Tests>The evaluator shall devise tests that demonstrate that IPS data (generated as defined in FAU_GEN.1/IPS) can be interpreted by authorized administrators from the TOE’s management interface.</Tests></aactivity>
+	</f-element>
+		<audit-event table="objective"/>
+	</f-component>
+		
+	<f-component name="Restricted Audit Review" cc-id="fau_sar.2" id="fau-sar-2">
+	<f-element id="fau-sar-2e1">
+	<title>The TSF shall prohibit all users read access to the <h:b>IPS</h:b> audit data, except those that have been granted explicit read access.</title>
+	<aactivity>
+	<TSS>The evaluator shall examine the TSS to determine that it identifies the users that are permitted to view IPS data (e.g., members of a particular group).</TSS>
+	<Guidance>The evaluator shall examine the operational guidance to determine what actions are needed to grant or revoke a user’s ability to view IPS data.</Guidance>
+	<Tests>The evaluator shall log on to the TOE as various users to confirm that only those users that are intended to be granted read access to IPS data are able to view it.</Tests>
+	</aactivity>
+	</f-element>
+		<audit-event table="objective"/>
+	</f-component>
+		
+	<f-component name="Selectable Audit Review" cc-id="fau_sar.3" id="fau-sar-3">
+	<f-element id="fau-sar-3e1">
+	<title>
+		The TSF shall provide the ability to apply [<h:i>filtering and sorting</h:i>] of <h:b>IPS</h:b> audit data
+	based on [<h:i>filtering parameters: risk rating, time period, source IP address,
+	destination IP address and </h:i><selectables>
+		<selectable><assignable> other filtering parameters</assignable></selectable>
+		<selectable>no other filtering parameters</selectable></selectables><h:i>; and sorting parameters: event ID, event type, time,
+signature ID, IPS actions performed, and </h:i><selectables>
+		<selectable><assignable>other sorting parameters</assignable></selectable>
+		<selectable>no other sorting parameters</selectable></selectables>].
+
+
+	</title>
+	<aactivity>
+	<TSS>The evaluator shall verify that the TSS includes a description of how the TOE has the ability to apply filtering and sorting of IPS data using the parameters listed in the requirement.</TSS>
+	<Guidance>The evaluator shall review the operational guidance to ensure that the guidance itemizes all event types,
+	as well as describes all attributes that are to be selectable in accordance with the requirement, to include
+	those attributes listed in the assignment. The administrative guidance shall also contain instructions on
+	how to set the pre- selection, as well as explain the syntax (if present) for multi-value pre-selection. The
+	administrative guidance shall also identify those audit records that are always recorded, regardless of the
+	selection criteria currently being enforced.</Guidance>
+	<Tests>The evaluator shall perform the following tests:
+		<testlist>
+		<test>For each attribute listed in the requirement, the evaluator shall devise a test to show that selecting
+the attribute causes only audit events with that attribute (or those that are always recorded, as identified
+in the administrative guidance) to be recorded. </test> 
+<test> [conditional]: If the TSF supports specification of more complex audit pre-selection criteria (e.g.,
+multiple attributes, logical expressions using attributes) then the evaluator shall devise tests showing that
+this capability is correctly implemented. The evaluator shall also, in the test plan, provide a short narrative
+justifying the set of tests as representative and sufficient to exercise the capability.</test></testlist>
+		</Tests></aactivity>
+	</f-element>
+		<audit-event table="objective"/>
+	</f-component>
+	</section>
+
+	</obj-sfrs>
+    
+    
+    <impl-dep-sfrs>
+    	<section title="Auditable Events for Implementation-Dependent SFRs">
+    		<audit-table id="at-impl-dep" table="impl-dep"/>
+    	</section>
+	
+
+	<section title="Resource Utilization" id="fru-imp_dep">
+		<f-component name="Maximum Quotas" cc-id="fru_rsa.1" id="fru-rsa-1">
+			<depends on="feat-alerting"/>
+		<f-element>
+		<title>The TSF shall enforce maximum quotas of the following resources: [<h:i>resources
+supporting inspection of network traffic</h:i>] that [<h:i>subjects</h:i>] can use [<h:i>simultaneously</h:i>].
+		</title>
+		<note role="application">
+		<h:i><h:p>This SFR is optional but the behavior specified by FAU_ARP.1 requires this function
+		to be implemented. Therefore, this SFR is implementation-dependent on the
+		condition that it be claimed if FAU_ARP.1 is claimed. If FAU_ARP.1 is not claimed
+		this SFR should also not be claimed because effective enforcement of maximum
+		quotas requires an alert mechanism when quotas are exceeded. Otherwise it is
+		not possible for an administrator to determine whether a lack of potential security
+		violations is caused by an absence of potential malicious activity or by the inability
+		of the TSF to detect such activity due to an inability to process the volume of traffic
+		being received.</h:p><h:p>Conformant TOEs will impose quotas on exhaustible resources used to support
+		inspection of network traffic that ‘subjects’ (inspected network traffic flows) can
+		use simultaneously. The intent of this requirement is to ensure that the TOE is not
+		deployed in such a way that the flow of data across its sensor interfaces can
+		exceed the amount of traffic that the TOE is capable of inspecting. If the flow
+		(volume/speed) of data to be inspected exceeds the defined quota, the TOE should
+		trigger an alert signifying effect of the exceeded quota. For example, when the
+		TOE is deployed inline, exceeding the quota may result in the TSF dropping (not
+		forwarding) and failing to inspect network traffic; or when the TOE is not deployed
+		inline, exceeding the quota may result in traffic having been forwarded without
+		inspection. In any case, exceeding the maximum quota results in a “potential
+		security violation” relevant to FAU_ARP.1 in that the TSF may have failed to
+		inspect some network traffic.</h:p></h:i>
+		</note>
+		<aactivity>
+			<TSS>The evaluator shall examine the TSS to ensure that it identifies all resources controlled through the quota
+			mechanism, and that this list contains those resources used to support traffic inspection. The evaluator
+			shall ensure that the TSS describes how each resource is counted as “used” and how a maximum quota
+			or use is determined, as well as the action taken when the quota is reached.</TSS>
+			<Guidance>The evaluator shall examine the operational guidance to determine that it contains instructions for
+			establishing quotas (if they are configurable) and that it describes any actions administrators can or should
+			take in response to a quota being reached.
+			</Guidance>
+			<Tests>The evaluator shall follow the operational guidance to configure quotas for the resource (if such a
+			capability is provided). The evaluator then causes the resource quota to be reached, and observes that
+			the action specified in the TSS occurs.</Tests></aactivity>
+			
+			</f-element>
+			<audit-event table="impl-dep">
+				<audit-event-descr>Traffic flow volume exceeds the maximum quota.</audit-event-descr>
+				<audit-event-info>Identification of the TOE interface at which the quota was exceeded.</audit-event-info>
+			</audit-event>
+		</f-component>
+		</section>
+	</impl-dep-sfrs>
+	
+
+
+    </sec:Security_Requirements> <!-- Security Requirements  -->
+
+
+
+
+
+  <!-- 
+		The following sections are auto generated from the SFRs in the SFR section.
+		Appendix A: Optional Requirements 
+			A.1: Strictly Optional Requirements
+			A.2: Objective requirements
+			A.3: Implementation-dependent SFRs
+		Appendix B: Selection-based requirements
+		Appendix C: Extended Component Definitions (if any)
+  -->
+
+
+	<!-- This should be included if there are SFRs that are dependencies for included SFRs, 
+	     but the dependencies are not incluuded in the PP. -->
+	<appendix title="Inherently Satisfied Requirements" id="satisfiedreqs"> 
+		This appendix lists requirements that should be considered satisfied by products
+		successfully evaluated against this Protection Profile.  
+		However, these requirements are not featured explicitly as SFRs and should not be
+		included in the ST.  
+		They are not included as standalone SFRs because it would
+		increase the time, cost, and complexity of evaluation.  This approach is permitted
+		by <xref g="CC"/> Part 1, <h:b>8.3 Dependencies between components</h:b>.
+		<h:br/>
+		This information benefits systems engineering activities which call for inclusion of 
+		particular security controls.  Evaluation against the Protection Profile
+		provides evidence that these controls are present and have been evaluated.
+		<table xmlns="http://www.w3.org/1999/xhtml">
+			<tr class="header">
+				<td>Requirement</td>
+				<td>Rationale for Satisfaction</td>
+			</tr>
+			<tr>
+				<td><b>FAU_ARP.1 - Security Alarms</b></td>
+				<td>FAU_ARP.1 has a dependency on FAU_SAA.1. This is
+					because FAU_SAA.1 defines the behavior that the TSF may
+					consider to be a potential security violation while
+					FAU_ARP.1 defines what actions the TSF takes when such
+					behavior is detected. This dependency is implicitly
+					satisfied in this PP-Module because the behavior defined
+					in FRU_RSA.1 and the various IPS class requirements
+					collectively define potential security violation behavior so
+					a separate SFR to enumerate this is redundant.
+				</td>
+			</tr>
+			<tr>
+				<td><b>FAU_GEN.1/IPS - Audit Data Generation (IPS)</b></td>
+				<td>FAU_GEN.1 has a dependency on FPT_STM.1 The
+					extended SFR FPT_STM_EXT.1 that is defined in the Base-PP provides equivalent functionality to FPT_STM.1 and
+					therefore satisfies this dependency.</td>
+			</tr>
+		</table>
+	</appendix>
+
+	<!-- Entropy documentation -->
+	<appendix title="Entropy Documentation and Assessment" id="entropyappendix"> 
+		<h:p>
+			The TOE does not require any additional supplementary information to describe its entropy sources
+			beyond the requirements outlined in the Base-PP.
+			</h:p>
+	</appendix>
+  
+
+
+	<!-- Abbreviations appendix is auto generated here -->
+	
+	<!-- Bibliography is auto generated here with CC and CEM docs. If you want other docs -->
+	<!-- included, add them here. -->
+	<bibliography>
+		<cc-entry/>
+		<entry id="bibndcpp3">
+			<tag>NDcPP</tag>
+			<description>NDcPP  - <h:a href="https://www.niap-ccevs.org/protectionprofiles/482">Collaborative Protection Profile for Network Devices, Version 3.0e, December 06, 2023</h:a></description>
+			
+		</entry>
+		
+	</bibliography>
+
+</Module>
