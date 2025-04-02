@@ -295,7 +295,7 @@
       agencies, Common Criteria Test Laboratories, and members of academia.
       </p></div><h1>Table of Contents</h1><div id="toc"><a href="#introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#scope" style="text-indent:10px">1.1<span>Technology Area and Scope of Supporting Document</span></a><a href="#structure" style="text-indent:10px">1.2<span>Structure of the Document</span></a><a href="#glossary" style="text-indent:10px">1.3<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.3.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.3.2<span>Technical Terms</span></a><a href="#sfr" style="text-indent:0px">2<span>Evaluation Activities for SFRs</span></a><a href="#aa-ND" style="text-indent:10px">2.1<span>Network Device</span></a><a href="#qq-sfrs-ND-Modified" style="text-indent:20px">2.1.1<span>Modified SFRs
         </span></a><a href="#aa-APP" style="text-indent:10px">2.2<span>Application Software</span></a><a href="#qq-sfrs-APP-Modified" style="text-indent:20px">2.2.1<span>Modified SFRs
-        </span></a><a href="#man-sfrs" style="text-indent:10px">2.3<span>TOE SFR Evaluation Activities</span></a><a href="#m-fco" style="text-indent:20px">2.3.1<span>Communications (FCO)</span></a><a href="#m-fdp" style="text-indent:20px">2.3.2<span>User Data Protection (FDP)</span></a><a href="#m-fmt" style="text-indent:20px">2.3.3<span>Security Management (FMT)</span></a><a href="#m-fta" style="text-indent:20px">2.3.4<span>TOE Access (FTA)</span></a><a href="#_sec_17" style="text-indent:20px">2.3.5<span>Trusted Path/Channels (FTP)</span></a><a href="#opt-sfrs" style="text-indent:10px">2.4<span>Evaluation Activities for Optional SFRs</span></a><a href="#fau-ops" style="text-indent:20px">2.4.1<span>Security Audit(FAU)</span></a><a href="#sel-sfrs" style="text-indent:10px">2.5<span>Evaluation Activities for Selection-Based SFRs</span></a><a href="#obj-sfrs" style="text-indent:10px">2.6<span>Evaluation Activities for Objective SFRs</span></a><a href="#impl-sfrs-" style="text-indent:10px">2.7<span>Evaluation Activities for Implementation-dependent SFRs</span></a><a href="#fau-imp_dep" style="text-indent:20px">2.7.1<span>Security Audit (FAU)</span></a><a href="#sar_aas" style="text-indent:0px">3<span>Evaluation Activities for SARs</span></a><a href="#sup-info" style="text-indent:0px">4<span>Required Supplementary Information</span></a><a href="#biblio" style="text-indent:0px">Appendix A - <span>References</span></a></div><h1 id="introduction" class="indexable" data-level="0">1 Introduction</h1><h2 id="scope" class="indexable" data-level="1">1.1 Technology Area and Scope of Supporting Document</h2><p>The scope of the 
+        </span></a><a href="#app-mod-fpt" style="text-indent:30px">2.2.1.1<span>Protection of the TSF (FPT)</span></a><a href="#app-mod-ftp" style="text-indent:30px">2.2.1.2<span>Trusted Path/Channel (FTP)</span></a><a href="#man-sfrs" style="text-indent:10px">2.3<span>TOE SFR Evaluation Activities</span></a><a href="#m-fco" style="text-indent:20px">2.3.1<span>Communications (FCO)</span></a><a href="#m-fdp" style="text-indent:20px">2.3.2<span>User Data Protection (FDP)</span></a><a href="#m-fmt" style="text-indent:20px">2.3.3<span>Security Management (FMT)</span></a><a href="#m-fta" style="text-indent:20px">2.3.4<span>TOE Access (FTA)</span></a><a href="#_sec_17" style="text-indent:20px">2.3.5<span>Trusted Path/Channels (FTP)</span></a><a href="#opt-sfrs" style="text-indent:10px">2.4<span>Evaluation Activities for Optional SFRs</span></a><a href="#fau-ops" style="text-indent:20px">2.4.1<span>Security Audit(FAU)</span></a><a href="#sel-sfrs" style="text-indent:10px">2.5<span>Evaluation Activities for Selection-Based SFRs</span></a><a href="#fau-sel_based" style="text-indent:20px">2.5.1<span>Security Audit (FAU)</span></a><a href="#fcs-sel_based" style="text-indent:20px">2.5.2<span>Cryptographic Suppot (FCS)</span></a><a href="#fdp-sel_based" style="text-indent:20px">2.5.3<span>User Data Protection (FDP)</span></a><a href="#obj-sfrs" style="text-indent:10px">2.6<span>Evaluation Activities for Objective SFRs</span></a><a href="#impl-sfrs-" style="text-indent:10px">2.7<span>Evaluation Activities for Implementation-dependent SFRs</span></a><a href="#fau-imp_dep" style="text-indent:20px">2.7.1<span>Security Audit (FAU)</span></a><a href="#sar_aas" style="text-indent:0px">3<span>Evaluation Activities for SARs</span></a><a href="#sup-info" style="text-indent:0px">4<span>Required Supplementary Information</span></a><a href="#biblio" style="text-indent:0px">Appendix A - <span>References</span></a></div><h1 id="introduction" class="indexable" data-level="0">1 Introduction</h1><h2 id="scope" class="indexable" data-level="1">1.1 Technology Area and Scope of Supporting Document</h2><p>The scope of the 
     PP-Module for VVoIP is
     to describe the security functionality of 
     VVoIP
@@ -439,9 +439,9 @@ The following sections list Common Criteria and technology terms used in this do
       to a PP-Configuration that includes the APP PP.
      <h3 class="indexable" data-level="2" id="qq-sfrs-APP-Modified">2.2.1 Modified SFRs
         </h3>
-	  The PP-Module does not modify any requirements when the 
-	  APP PP is the base.
-	<h2 class="indexable" data-level="1" id="man-sfrs">2.3 TOE SFR Evaluation Activities</h2><h2 class="indexable" data-level="2" id="m-fco">2.3.1 Communications (FCO)</h2><div class="comp" id="FCO-VOC-EXT-1"><h4>FCO_VOC_EXT.1 Fixed-Rate Vocoder</h4><span class="activity_pane_body"><div class="component-activity-header">FCO_VOC_EXT.1</div>
+			<h3 class="indexable" data-level="3" id="app-mod-fpt">2.2.1.1 Protection of the TSF (FPT)</h3>
+			<h3 class="indexable" data-level="3" id="app-mod-ftp">2.2.1.2 Trusted Path/Channel (FTP)</h3>
+		<h2 class="indexable" data-level="1" id="man-sfrs">2.3 TOE SFR Evaluation Activities</h2><h2 class="indexable" data-level="2" id="m-fco">2.3.1 Communications (FCO)</h2><div class="comp" id="FCO-VOC-EXT-1"><h4>FCO_VOC_EXT.1 Fixed-Rate Vocoder</h4><span class="activity_pane_body"><div class="component-activity-header">FCO_VOC_EXT.1</div>
 							
 							
 							
@@ -606,7 +606,7 @@ The following sections list Common Criteria and technology terms used in this do
 								<li><b>Step 4: </b>Verify the TOE registers to the ESC. </li>
 							</ul>
 						Test EAs to verify that the TOE can act as a VVoIP call control server when using P2P (if it is selected) are
-						performed as part of testing for FDP_IFF.1/CallControl.
+						performed as part of testing for FDP_IFF.1/CALLCONTROL.
 						<p></p>
 						Test EAs to verify the configuration of audit behavior are performed as part of testing for FAU_STG_EXT.1.
 						<p></p>
@@ -767,7 +767,7 @@ The following sections list Common Criteria and technology terms used in this do
 					configuration changes. The evaluator shall examine the guidance documentation and make a
 					determination of which administrative commands, including subcommands, scripts, and configuration
 					files, are related to the configuration (including enabling or disabling) of the mechanisms implemented in
-					the TOE that are necessary to enforce the requirements specified in MOD_VVOIP_V1.0. The evaluator
+					the TOE that are necessary to enforce the requirements specified in the PP-Module. The evaluator
 					shall document the methodology or approach taken to TSF data related to configuration changes. The
 					evaluator may perform this activity as part of the activities associated with ensuring that the
 					corresponding guidance documentation satisfies the requirements related to it.
@@ -791,7 +791,114 @@ The following sections list Common Criteria and technology terms used in this do
 							that an auditable event was generated in a format consistent with the guidance documentation and that
 							all audit record details specified in the SFR are present.</p>
 						<p>Note that the testing here can be accomplished in conjunction with the testing of the security mechanisms directly.</p>
-					</div></div></span></div><h2 class="indexable" data-level="1" id="sel-sfrs">2.5 Evaluation Activities for Selection-Based SFRs</h2>The PP-Module does not define any selection-based requirements.<h2 class="indexable" data-level="1" id="obj-sfrs">2.6 Evaluation Activities for Objective SFRs</h2>The PP-Module does not define any objective requirements.<h2 class="indexable" data-level="1" id="impl-sfrs-">2.7 Evaluation Activities for Implementation-dependent SFRs</h2><h2 class="indexable" data-level="2" id="fau-imp_dep">2.7.1 Security Audit (FAU)</h2><div class="comp" id="FAU-STG-EXT-1"><h4>FAU_STG_EXT.1 Protected Audit Event Storage</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_STG_EXT.1</div>
+					</div></div></span></div><h2 class="indexable" data-level="1" id="sel-sfrs">2.5 Evaluation Activities for Selection-Based SFRs</h2><h2 class="indexable" data-level="2" id="fau-sel_based">2.5.1 Security Audit (FAU)</h2><div class="comp" id="FAU-GEN-1-P2PADMIN"><h4>FAU_GEN.1/P2PADMIN Audit Data Generation (Peer-to-Peer Admin Events)</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_GEN.1/P2PADMIN</div>
+				
+				
+				
+			<div class="eacategory">TSS</div><div class="ea">
+			There are no additional TSS evaluation activities for this component.<br/></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall make a determination of the administrative actions related to TSF data related to
+					configuration changes. The evaluator shall examine the guidance documentation and make a
+					determination of which administrative commands, including subcommands, scripts, and configuration
+					files, are related to the configuration (including enabling or disabling) of the mechanisms implemented in
+					the TOE that are necessary to enforce the requirements specified in the PP-Module. The evaluator
+					shall document the methodology or approach taken to TSF data related to configuration changes. The
+					evaluator may perform this activity as part of the activities associated with ensuring that the
+					corresponding guidance documentation satisfies the requirements related to it.
+				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">For each administrative action identified in FAU_GEN.1.1/P2PADMIN, the evaluator shall perform an action
+					either on the TOE or on the operational environment that causes the event to occur. The evaluator shall
+					verify in each case that an auditable event was generated in a format consistent with the guidance
+					documentation and that all audit record details specified in the SFR are present.
+					<p></p>
+					Note that the testing here can be accomplished in conjunction with the testing of the security mechanisms directly.
+				</div></div></span></div><div class="comp" id="FAU-GEN-1-P2PVVOIP"><h4>FAU_GEN.1/P2PVVOIP Audit Data Generation (Peer-to-Peer VVoIP Events)</h4><span class="activity_pane_body"></span></div><h2 class="indexable" data-level="2" id="fcs-sel_based">2.5.2 Cryptographic Suppot (FCS)</h2><div class="comp" id="FCS-COP-1-SRTP"><h4>FCS_COP.1/SRTP Cryptographic Operation (Encryption/Decryption for SRTP</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP.1/SRTP</div>
+					
+					
+					
+				<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS to determine that it claims the use of GCM. The
+					evaluator shall verify that the TSS notes the GCM key sizes that the TOE supports for each use of GCM. If
+					GCM is supported for other uses, the evaluator shall ensure that the specific key sizes supported for each
+					use of GCM are identified. </div></div><div class="eacategory">Guidance</div><div class="ea">
+			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+					<p>The evaluator shall perform the following tests: </p>
+					<p>If the TOE claims the App PP as its Base-PP, the evaluator shall perform the AES-GCM test activities
+							identified for FCS_COP.1/SKC in the Base-PP.
+							If the TOE claims the NDcPP as its Base-PP, the evaluator shall perform the AES-GCM test activities
+							identified for FCS_COP.1/DataEncryption in the Base-PP.</p>
+					</div></div></span></div><div class="comp" id="FCS-SRTP-EXT-1"><h4>FCS_SRTP_EXT.1 Secure Real-Time Transport Protocol</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_SRTP_EXT.1</div>
+							
+							
+							
+						<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS to verify that it describes how the SRTP session is negotiated for both
+								incoming and outgoing calls. This includes how the keying material is established, as well has how requests
+								to use the NULL algorithm or other unallowed cipher suites are rejected by the TSF.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to determine that it includes instructions for how
+								to disable the use of the SRTP NULL algorithm and how to specify the ports to be used for SRTP
+								communications.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+								<p>The evaluator shall follow the procedure for initializing their device so that they are ready to receive and
+									place calls. The evaluator shall then both place and receive a call and
+									determine that the traffic sent and received by the TOE is encrypted using SRTP with the specified cipher suite.
+									The evaluator may choose one of the below two options to ensure that the call is being encrypted and to
+									view the cipher suite being used.</p>
+								<p>Option 1: The evaluator shall configure the SIP server to report whether SRTP is being used, and if so,
+									print the negotiated SRTP cipher suite. The evaluator shall confirm that SRTP was used for the calls
+									and that the correct cipher suite was negotiated.</p>
+								<p>Option 2: A packet capture tool should be used with the SIP server's private key loaded in. The
+									evaluator shall decrypt the TLS-SIP traffic, view the SDES negotiation, and ensure that the correct
+									cipher suite was negotiated.</p>
+								<p>Next, the evaluator shall configure the SIP server to only allow the SRTP NULL cipher suite. The evaluator
+									shall attempt to both place and receive a call and confirm that both attempts failed.</p>
+							</div></div></span></div><h2 class="indexable" data-level="2" id="fdp-sel_based">2.5.3 User Data Protection (FDP)</h2><div class="comp" id="FDP-IFC-1-CALLCONTROL"><h4>FDP_IFC.1/CALLCONTROL Subset Information Flow Control (for Call Control)</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_IFC.1/CALLCONTROL</div>
+					
+					
+					
+				<div class="eacategory">TSS</div><div class="ea">
+			There are no additional TSS evaluation activities for this component.<br/></div><div class="eacategory">Guidance</div><div class="ea">
+			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">Testing of this component is performed through evaluation of FDP_IFF.1/CALLCONTROL.</div></div></span></div><div class="comp" id="FDP-IFF-1-CALLCONTROL"><h4>FDP_IFF.1/CALLCONTROL Subset Information Flow Control (for Call Control)</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_IFF.1/CALLCONTROL</div>
+					
+					
+					
+				<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS to verify that it describes the call control protocol(s) used by the TOE
+						and any explicit circumstances under which the TSF will and will not transmit call control data as defined
+						in FDP_IFF.1.4/CALLCONTROL and FDP_IFF.1.5/CALLCONTROL. The TSF should only transmit call control data
+						using the protocol(s) and method(s) of endpoint identification as indicated in FDP_IFC.1/CALLCONTROL or if
+						defined any explicit allow/deny rules in FDP_IFF.1.4/CALLCONTROL and FDP_IFF.1.5/CALLCONTROL.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If any aspects of the TOE’s call control functionality are configurable (such as the specific call control
+						protocol used or the circumstances in which the TSF will or will not transmit call control data), the
+						evaluator shall examine the guidance documentation to verify that instructions for configuring this
+						behavior are provided.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall perform one or more of the following tests depending on the protocols that the TOE
+						claims to support.
+						<span class="testlist-"><ul>
+							<li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FDP_IFF.1/CALLCONTROL:1</a>:
+      (Conditional - if "SIP" is selected in FDP_IFF.1.1/CALLCONTROL)
+								<ul>
+									<li><b>Step 1: </b>Ensure the TOE is configured to use P2P and act as a call control server using the SIP protocol. </li>
+									<li><b>Step 2: </b>Use a traffic capture tool to capture call-signaling packets traversing the TOE. </li>
+									<li><b>Step 3: </b>Place a call to the TOE from another VVoIP endpoint using the SIP call control protocol to the
+										TOE and observe via packet capture that the TSF established a connection between itself and the peer.</li>
+									<li><b>Step 4: </b>Repeat step 3 with a call placed from the TOE to the other VVoIP endpoint.</li>
+									<li><b>Step 5: </b>(Conditional - if the ST claims any additional rules in FDP_IFF.1.4/CALLCONTROL) Implement any rules 
+										assigned in FDP_IFF.1.4 and verify that the specified authorized information flows occur.</li>
+									<li><b>Step 6: </b>(Conditional - if the ST claims any additional rules in FDP_IFF.1.5/CALLCONTROL) Implement any rules 
+										assigned in FDP_IFF.1.5 and verify that the specified information flows do not occur.</li>
+									<li><b>Step 7: </b>Repeat steps 1-6 for each method of endpoint identification.</li>
+								</ul>
+							</li>
+							<li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FDP_IFF.1/CALLCONTROL:2</a>:
+      (Conditional - if "H.323" is selected in FDP_IFF.1.1/CALLCONTROL)
+								<ul>
+									<li><b>Step 1: </b>Ensure the TOE is configured to use P2P and act as a call control server using the H.323 protocol.</li>
+									<li><b>Step 2: </b>Use a traffic capture tool to capture call-signaling packets traversing the TOE. </li>
+									<li><b>Step 3: </b>Place a call to the TOE from another VVoIP endpoint using the H.323 call control protocol to the
+										TOE and observe via packet capture that the TSF established a connection between itself and the peer.</li>
+									<li><b>Step 4: </b>Repeat step 3 with a call placed from the TOE to the other VVoIP endpoint.</li>
+									<li><b>Step 5: </b>(Conditional – if the ST claims any additional rules in FDP_IFF.1.4/CALLCONTROL) Implement any rules 
+										assigned in FDP_IFF.1.4/CallControl and verify that the specified authorized information flows occur.</li>
+									<li><b>Step 6: </b>(Conditional - if the ST claims any additional rules in FDP_IFF.1.5/CALLCONTROL) Implement any rules 
+										assigned in FDP_IFF.1.5 and verify that the specified information flows do not occur.</li>
+									<li><b>Step 7: </b>Repeat steps 1-6 for each method of endpoint identification.</li>
+								</ul>
+							</li>
+						</ul></span>
+					
+					</div></div></span></div><h2 class="indexable" data-level="1" id="obj-sfrs">2.6 Evaluation Activities for Objective SFRs</h2>The PP-Module does not define any objective requirements.<h2 class="indexable" data-level="1" id="impl-sfrs-">2.7 Evaluation Activities for Implementation-dependent SFRs</h2><h2 class="indexable" data-level="2" id="fau-imp_dep">2.7.1 Security Audit (FAU)</h2><div class="comp" id="FAU-STG-EXT-1"><h4>FAU_STG_EXT.1 Protected Audit Event Storage</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_STG_EXT.1</div>
 			
 			
 			<div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS to ensure that it identifies all resources controlled through the quota

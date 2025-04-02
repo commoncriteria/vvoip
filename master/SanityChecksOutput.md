@@ -2,6 +2,16 @@
         /Module[1]""/sec:Security_Requirements[1]""/opt-sfrs[1]""/section[2]""/f-component[1]""/f-element[1]""/title[1]"The"/h:ol[1]""/h:li[2]""/h:s[1]"All audit"/selectables[1]""
 * Error: Found a "selectables" element that is buried under stricken text:
         /Module[1]""/sec:Security_Requirements[1]""/opt-sfrs[1]""/section[2]""/f-component[2]""/f-element[1]""/title[1]"The TSF s"/h:ol[1]""/h:li[2]""/h:s[1]"All audit"/selectables[1]""
+* Error: Found a "selectables" element that is buried under stricken text:
+        /Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[1]""/f-element[1]""/title[1]"The"/h:ol[1]""/h:li[2]""/h:s[1]"All audit"/selectables[1]""
+* Error: Found a "selectables" element that is buried under stricken text:
+        /Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[2]""/f-element[1]""/title[1]"The TSF s"/h:ol[1]""/h:li[2]""/h:s[1]"All audit"/selectables[1]""
+* Error: f-element FTP_DIT_EXT.1.1  appears not to have an associated evaluation activity.:
+        /Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/modified-sfrs[1]""/section[2]""/base-sfr-spec[1]""/replace[1]""/xpath-specified[1]""/f-component[1]""/f-element[1]""
+* Error: f-element FAU_GEN.1.1/P2PVVOIP  appears not to have an associated evaluation activity.:
+        /Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[2]""/f-element[1]""
+* Error: f-element FAU_GEN.1.2/P2PVVOIP  appears not to have an associated evaluation activity.:
+        /Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[2]""/f-element[2]""
 * Warning: This document still has at least one comment.
 * Error: Detected dangling id-reference to fcs-eap-ext-1 from attribute
         on/Module[1]""/include-pkg[2]""/depends[1]""/on[1]""
@@ -65,5 +75,7 @@
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[6]""/f-component[2]""/f-element[3]""/note[1]"The corre"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[6]""/f-component[2]""/f-element[3]""/aactivity[1]""/Tests[1]"The vendo"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/opt-sfrs[1]""/section[2]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"For each "/h:p[1]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[1]""/f-element[2]""/note[1]"If the TO"/h:p[1]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"For each "/h:p[1]""
 * Warning: fau_gen.1 in opt-sfrs section is missing a _depends_/_optional_ sub tree (We're transitioning to using depends and not sections). /Module[1]""/sec:Security_Requirements[1]""/opt-sfrs[1]""/section[2]""/f-component[1]""
 * Warning: fau_gen.1 in opt-sfrs section is missing a _depends_/_optional_ sub tree (We're transitioning to using depends and not sections). /Module[1]""/sec:Security_Requirements[1]""/opt-sfrs[1]""/section[2]""/f-component[2]""

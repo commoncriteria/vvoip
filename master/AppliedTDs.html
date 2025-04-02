@@ -632,7 +632,7 @@ function showTarget(id){
     </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for VVoIP</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 1.1<br/>2025-04-11<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.1</td><td>2025-04-11</td><td><abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022 updates, incorporation of TDs</td></tr>
 <tr><td>1.0</td><td>2020-10-28</td><td>Initial publication</td></tr>
-</table><h3>TDs Applied</h3><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#sec-features" style="text-indent:10px">1.6<span>Implementation-Based Features</span></a><a href="#feat-swapp" style="text-indent:20px">1.6.1<span>Software Application</span></a><a href="#feat-device" style="text-indent:20px">1.6.2<span>Network Device</span></a><a href="#ConformanceClaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#sec-threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#sec-sor" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
+</table><h3>TDs Applied</h3><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#sec-features" style="text-indent:10px">1.6<span>Implementation-Based Features</span></a><a href="#feat-swapp" style="text-indent:20px">1.6.1<span>Software Application with Logging</span></a><a href="#ConformanceClaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#sec-threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#sec-sor" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
     Protection Profile for Network Devices
        Security Functional Requirements Direction
     </span></a><a href="#modsfr-ND" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#@id" style="text-indent:30px">5.1.1.1<span>Security Audit (FAU)</span></a><a href="#@id" style="text-indent:30px">5.1.1.2<span>Crytographic Support (FCS)</span></a><a href="#@id" style="text-indent:30px">5.1.1.3<span>Identification and Authorization (FIA)</span></a><a href="#@id" style="text-indent:30px">5.1.1.4<span>Protection of the TSF (FPT)</span></a><a href="#@id" style="text-indent:30px">5.1.1.5<span>Trusted Path (FTP)</span></a><a href="#addsfr-ND" style="text-indent:20px">5.1.2<span> Additional SFRs</span></a><a href="#secreq-APP" style="text-indent:10px">5.2<span>
@@ -659,8 +659,8 @@ function showTarget(id){
       </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements
     </span></a><a href="#sec-opt-audit-table" style="text-indent:20px">A.1.1<span>Auditable Events for Optional SFRs</span></a><a href="#fau-ops" style="text-indent:20px">A.1.2<span>Security Audit(FAU)</span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements
     </span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Implementation-dependent Requirements
-    </span></a><a href="#_sec_20" style="text-indent:20px">A.3.1<span>Auditable Events for Implementation-Dependent SFRs</span></a><a href="#fau-imp_dep" style="text-indent:20px">A.3.2<span>Security Audit (FAU)</span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements
-    </span></a><a href="#satisfiedreqs" style="text-indent:0px">Appendix C - <span>Inherently Satisfied Requirements</span></a><a href="#entropyappendix" style="text-indent:0px">Appendix D - <span>Entropy Documentation and Assessment</span></a><a href="#acronyms" style="text-indent:0px">Appendix E - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix F - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
+    </span></a><a href="#_sec_23" style="text-indent:20px">A.3.1<span>Auditable Events for Implementation-Dependent SFRs</span></a><a href="#fau-imp_dep" style="text-indent:20px">A.3.2<span>Security Audit (FAU)</span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements
+    </span></a><a href="#fau-sel_based" style="text-indent:10px">B.1<span>Security Audit (FAU)</span></a><a href="#fcs-sel_based" style="text-indent:10px">B.2<span>Cryptographic Suppot (FCS)</span></a><a href="#fdp-sel_based" style="text-indent:10px">B.3<span>User Data Protection (FDP)</span></a><a href="#satisfiedreqs" style="text-indent:0px">Appendix C - <span>Inherently Satisfied Requirements</span></a><a href="#entropyappendix" style="text-indent:0px">Appendix D - <span>Entropy Documentation and Assessment</span></a><a href="#acronyms" style="text-indent:0px">Appendix E - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix F - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
     
      
     <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
@@ -871,11 +871,10 @@ The following sections list Common Criteria and technology terms used in this do
   
    <h2 class="indexable" data-level="2" id="sec-features">1.6 Implementation-Based Features</h2>
       The following features of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are implementation-based. A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not required to implement these features to conform to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, but if the feature is implemented, it is expected that associated implementation-based requirements are claimed as part of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.  
-      <h3 class="indexable" data-level="3" id="feat-swapp">1.6.1 Software Application</h3><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a software application and claims the App-PP as the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</span><br/><p>
+      <h3 class="indexable" data-level="3" id="feat-swapp">1.6.1 Software Application with Logging</h3><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a software application and claims the App-PP as the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> additionally implements logging features (i.e. includes one or more of the following <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>: 
+		  <a href="#FAU_GEN.1/CSADMIN">FAU_GEN.1/CSADMIN</a>, <a href="#FAU_GEN.1/CSVVOIP">FAU_GEN.1/CSVVOIP</a>, <a href="#FAU_GEN.1/P2PADMIN">FAU_GEN.1/P2PADMIN</a>, <a href="#FAU_GEN.1/P2PVVOIP">FAU_GEN.1/P2PVVOIP</a>).</span><br/><p>
 	  If this feature is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the following requirements must be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
-            <ul><li><b><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></b></li></ul></p><h3 class="indexable" data-level="3" id="feat-device">1.6.2 Network Device</h3><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a network device and claims the NDcPP as the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</span><br/><p>
-	  If this feature is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the following requirements must be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
-            <ul></ul></p>			
+            <ul><li><b><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></b></li></ul></p>			
      
   	
   	
@@ -1130,7 +1129,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 							audit/management data.
 						</p><p>
 							If “<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr>” is selected in FTP_DIT_EXT.1.1, the selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>
-							FCS_COP.1/<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> and FCS_SRTP_EXT.1 must be claimed.
+							<a href="#FCS_COP.1/SRTP">FCS_COP.1/SRTP</a> and <a href="#FCS_SRTP_EXT.1">FCS_SRTP_EXT.1</a> must be claimed.
 						</p>
 					</span></div><h3 id="addsfr-APP" class="indexable" data-level="3">5.2.2  Additional SFRs</h3>
 This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> for any <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> where the APP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is claimed as the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
@@ -1159,11 +1158,15 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 			
 		
 		<h3 class="indexable" data-level="3" id="ss-audit-table">5.3.1 Auditable Events for Mandatory SFRs</h3>
-			<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-mandatory" data-counter-type="ct-Table" id="at-mandatory">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FCO_VOC_EXT.1"><td rowspan="2"><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCO_VOC_EXT.1#"><td></td></tr><tr data-sortkey="FCO_VOC_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_IFC.1"><td rowspan="2"><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_IFC.1#"><td></td></tr><tr data-sortkey="FDP_IFC.1.1"><td>Call Detail Record (CDR) of VVoIP peer communications.</td><td><ul><li>Calling party</li><li>Called party</li><li>Start time of call</li><li>Call duration</li></ul></td></tr><tr data-sortkey="FDP_IFF.1"><td rowspan="2"><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_IFF.1#"><td></td></tr><tr data-sortkey="FDP_IFF.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_SMF.1/VVoIP"><td rowspan="2"><a href="#FMT_SMF.1/VVoIP">FMT_SMF.1/VVoIP</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_SMF.1/VVoIP#"><td></td></tr><tr data-sortkey="FMT_SMF.1/VVoIP.1"><td><b>[selection: </b><i>Registration of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>., None</i><b>]</b></td><td><b>[selection: </b><i>IP address or identifier for the <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>, No additional information</i><b>]</b></td></tr><tr data-sortkey="FTA_SSL.3/MEDIA"><td rowspan="2"><a href="#FTA_SSL.3/MEDIA">FTA_SSL.3/MEDIA</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTA_SSL.3/MEDIA#"><td></td></tr><tr data-sortkey="FTA_SSL.3/MEDIA.1"><td>Termination of a call due to inactivity.</td><td>Call party dropped time</td></tr><tr data-sortkey="FTP_ITC.1/CONTROL"><td rowspan="3"><a href="#FTP_ITC.1/CONTROL">FTP_ITC.1/CONTROL</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTP_ITC.1/CONTROL#"><td></td></tr><tr data-sortkey="FTP_ITC.1/CONTROL.3"><td>Establishment of connection to VVoIP call control server</td><td><ul><li>Called party</li><li>Calling party</li><li>Established connection time</li><li>Terminated connection time</li></ul></td></tr><tr data-sortkey="FTP_ITC.1/CONTROL.4"><td>Termination of connection to VVoIP call control server</td><td><ul><li>Called party</li><li>Calling party</li><li>Established connection time</li><li>Terminated connection time</li></ul></td></tr><tr data-sortkey="FTP_ITC.1/MEDIA"><td rowspan="3"><a href="#FTP_ITC.1/MEDIA">FTP_ITC.1/MEDIA</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTP_ITC.1/MEDIA#"><td></td></tr><tr data-sortkey="FTP_ITC.1/MEDIA.3"><td>Establishment of connection to VVoIP peer</td><td><ul><li>Called party</li><li>Calling party</li><li>Established connection time</li><li>Terminated connection time</li></ul></td></tr><tr data-sortkey="FTP_ITC.1/MEDIA.4"><td>Termination of connection to VVoIP peer</td><td><ul><li>Called party</li><li>Calling party</li><li>Established connection time</li><li>Terminated connection time</li></ul></td></tr></table>
+			<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-mandatory" data-counter-type="ct-Table" id="at-mandatory">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FCO_VOC_EXT.1"><td rowspan="2"><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCO_VOC_EXT.1#"><td></td></tr><tr data-sortkey="FCO_VOC_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_IFC.1"><td rowspan="2"><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_IFC.1#"><td></td></tr><tr data-sortkey="FDP_IFC.1.1"><td>Call Detail Record (CDR) of VVoIP peer communications.</td><td><ul><li>Calling party</li><li>Called party</li><li>Start time of call</li><li>Call duration</li></ul></td></tr><tr data-sortkey="FDP_IFF.1"><td rowspan="2"><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_IFF.1#"><td></td></tr><tr data-sortkey="FDP_IFF.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_SMF.1/VVoIP"><td rowspan="2"><a href="#FMT_SMF.1/VVoIP">FMT_SMF.1/VVoIP</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_SMF.1/VVoIP#"><td></td></tr><tr data-sortkey="FMT_SMF.1/VVoIP.1"><td><b>[selection: </b><i>Registration of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>., None</i><b>]</b></td><td><b>[selection: </b><i>IP address or identifier for the <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>, No additional information</i><b>]</b></td></tr><tr data-sortkey="FTA_SSL.3/MEDIA"><td rowspan="2"><a href="#FTA_SSL.3/MEDIA">FTA_SSL.3/MEDIA</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTA_SSL.3/MEDIA#"><td></td></tr><tr data-sortkey="FTA_SSL.3/MEDIA.1"><td>Termination of a call due to inactivity.</td><td>Call party dropped time</td></tr><tr data-sortkey="FTP_ITC.1/CONTROL"><td rowspan="3"><a href="#FTP_ITC.1/CONTROL">FTP_ITC.1/CONTROL</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTP_ITC.1/CONTROL#"><td></td></tr><tr data-sortkey="FTP_ITC.1/CONTROL.3"><td>Establishment of connection to VVoIP call control server</td><td><ul><li>Called party</li><li>Calling party</li><li>Established connection time</li></ul></td></tr><tr data-sortkey="FTP_ITC.1/CONTROL.4"><td>Termination of connection to VVoIP call control server</td><td><ul><li>Called party</li><li>Calling party</li><li>Terminated connection time</li></ul></td></tr><tr data-sortkey="FTP_ITC.1/MEDIA"><td rowspan="3"><a href="#FTP_ITC.1/MEDIA">FTP_ITC.1/MEDIA</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTP_ITC.1/MEDIA#"><td></td></tr><tr data-sortkey="FTP_ITC.1/MEDIA.3"><td>Establishment of connection to VVoIP peer</td><td><ul><li>Called party</li><li>Calling party</li><li>Connection time to VVoIP peer</li></ul></td></tr><tr data-sortkey="FTP_ITC.1/MEDIA.4"><td>Termination of connection to VVoIP peer</td><td><ul><li>Called party</li><li>Calling party</li><li>Disconnection time to VVoIP peer</li></ul></td></tr></table>
 		
 		
 			<h3 id="m-fco" class="indexable" data-level="3">5.3.2 Communications (FCO)</h3>
 				<div class="comp" id="FCO_VOC_EXT.1"><h4>FCO_VOC_EXT.1 Fixed-Rate Vocoder</h4>
+					
+					
+					
+					
 					<div class="element"><div class="reqid" id="FCO_VOC_EXT.1.1"><a href="#FCO_VOC_EXT.1.1" class="abbr">FCO_VOC_EXT.1.1</a></div><div class="reqdesc">
 							The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall transmit voice media using a constant bit rate voice vocoder.
 						<div class="appnote"><span class="note-header">Application
@@ -1196,7 +1199,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit an information flow between a controlled subject and
 						controlled information via a controlled operation if the following rules hold: [
 						<i><ul>
-							<li>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is [<b>selection</b>: <span class="selectable-content" id="_s_23">registered with a VVoIP call control server</span>, <span class="selectable-content" id="_s_24">acting as a VVoIP call control server when using <abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr></span>],</li>
+							<li>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is [<b>selection</b>: <span class="selectable-content" id="_s_23">registered with a VVoIP call control server</span>, <span class="selectable-content" id="sel-p2p-server-iff">acting as a VVoIP call control server when using <abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr></span>],</li>
 							<li>A call has been established with a telephony device (VVoIP endpoint),</li>
 							<li>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is in the off-hook state,</li>
 							<li>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not in the mute state,</li>
@@ -1217,7 +1220,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 				<div class="element"><div class="reqid" id="FMT_SMF.1.1/VVoIP"><a href="#FMT_SMF.1.1/VVoIP" class="abbr">FMT_SMF.1.1/VVoIP</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of performing the following management functions: [
 					<i><ul>
-					<li>Ability to [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_27">register the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr> [<b>selection</b>: <span class="selectable-content" id="_s_28">manually</span>, <span class="selectable-content" id="_s_29">via DHCP server</span>]</span></li><li style=""><span class="selectable-content" id="_s_30">act as a VVoIP call control server when using <abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr></span></li></ul>];
+					<li>Ability to [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_27">register the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr> [<b>selection</b>: <span class="selectable-content" id="_s_28">manually</span>, <span class="selectable-content" id="_s_29">via DHCP server</span>]</span></li><li style=""><span class="selectable-content" id="sel-p2p-server-smf">act as a VVoIP call control server when using <abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr></span></li></ul>];
 					</li></ul>
 					[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_31">Ability to configure audit behavior (e.g. changes to storage
 						locations for audit; changes to behavior when local audit
@@ -1299,7 +1302,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 				<div class="comp" id="FTP_ITC.1/MEDIA"><h4>FTP_ITC.1/MEDIA Inter-TSF Trusted Channel (Media Channel)</h4>
 					
 				<div class="element"><div class="reqid" id="FTP_ITC.1.1/MEDIA"><a href="#FTP_ITC.1.1/MEDIA" class="abbr">FTP_ITC.1.1/MEDIA</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>be capable of using [<b>selection</b>: <span class="selectable-content" id="_s_42"><abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr></span>, <span class="selectable-content" id="_s_43">H.235/H.323</span>] 
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>be capable of using [<b>selection</b>: <span class="selectable-content" id="sel_media_srtp"><abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr></span>, <span class="selectable-content" id="_s_43">H.235/H.323</span>] 
 					to </b>provide a trusted communication channel between itself and <b>another VVoIP
 					endpoint or other telephony device</b> that is logically distinct from other communication channels
 					and provides assured identification of its end points and protection of the channel
@@ -1323,7 +1326,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 					The corresponding trusted media channel must be chosen to match the trusted
 					control channel: <abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr> – <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr>, H.323 – H.235/H.323. <p></p>
 					If “<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr>” is selected in FTP_ITC.1.1/Media, the selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>
-					FCS_COP.1/<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> and FCS_SRTP_EXT.1 must be claimed.</span></div></div></div>
+					<a href="#FCS_COP.1/SRTP">FCS_COP.1/SRTP</a> and <a href="#FCS_SRTP_EXT.1">FCS_SRTP_EXT.1</a> must be claimed.</span></div></div></div>
 				
 				
 				</div>
@@ -1345,10 +1348,10 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 <tr><td>FTP_ITC.1/Control</td><td>Mitigates the threat by defining the application-layer channel used for communications with a VVoIP call control server.</td></tr>
 <tr><td>FTP_ITC.1/Media</td><td>Mitigates the threat by defining the application-layer channel used for communications of media (voice and video) data.</td></tr>
 <tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> (optional for software-only <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr>)</td><td>Mitigates the threat by ensuring that audit data is securely transmitted to an external entity.</td></tr>
-<tr><td>FCS_COP.1/<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> (selection-based)</td><td>Mitigates the threat by defining the implementation of encryption used for SDES-SRTP, if supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
-<tr><td>FCS_SRTP_EXT.1 (selection-based)</td><td>Mitigates the threat by defining the implementation of the <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> protocol, if supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
-<tr><td><a href="#FDP_IFC.1">FDP_IFC.1</a>/CallControl (selection-based)</td><td>Mitigates the threat by defining a policy for protection of call control information in cases where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can act as a VVoIP call control server in a peer-to-peer configuration.</td></tr>
-<tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a>/CallControl (selection-based)</td><td>Mitigates the threat by defining the implementation of the call control policy in cases where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can act as a VVoIP call control server in a peer-to-peer configuration.</td></tr>
+<tr><td><a href="#FCS_COP.1/SRTP">FCS_COP.1/SRTP</a> (selection-based)</td><td>Mitigates the threat by defining the implementation of encryption used for SDES-SRTP, if supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
+<tr><td><a href="#FCS_SRTP_EXT.1">FCS_SRTP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the implementation of the <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> protocol, if supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
+<tr><td><a href="#FDP_IFC.1/CALLCONTROL">FDP_IFC.1/CALLCONTROL</a> (selection-based)</td><td>Mitigates the threat by defining a policy for protection of call control information in cases where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can act as a VVoIP call control server in a peer-to-peer configuration.</td></tr>
+<tr><td><a href="#FDP_IFF.1/CALLCONTROL">FDP_IFF.1/CALLCONTROL</a> (selection-based)</td><td>Mitigates the threat by defining the implementation of the call control policy in cases where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can act as a VVoIP call control server in a peer-to-peer configuration.</td></tr>
 <tr><td>FPT_STM_EXT.1/VVoIP (selection-based)</td><td>Mitigates the threat by defining how the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> obtains system time in certain cases, which is then used as an input to other functions that support this objective.</td></tr>
 <tr class="major-row"><td rowspan="9"><a href="#T.UNDETECTED_TRANSMISSION">T.UNDETECTED_​TRANSMISSION</a><br/></td><td><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td>Mitigates the threat by defining the existence of a media transmission policy.</td></tr>
 <tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td>Mitigates the threat by defining how the media transmission policy is enforced to determine when transmissions should occur.</td></tr>
@@ -1429,9 +1432,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 	      NDcPP is the base.
 	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td></td></tr><tr><td><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td></td></tr><tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td></td></tr><tr><td><a href="#FMT_SMF.1/VVoIP">FMT_SMF.1/VVoIP</a></td><td></td></tr><tr><td><a href="#FTA_SSL.3/MEDIA">FTA_SSL.3/MEDIA</a></td><td></td></tr><tr><td><a href="#FTP_ITC.1/CONTROL">FTP_ITC.1/CONTROL</a></td><td></td></tr><tr><td><a href="#FTP_ITC.1/MEDIA">FTP_ITC.1/MEDIA</a></td><td></td></tr></tr><tr><th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_GEN.1/CSADMIN">FAU_GEN.1/CSADMIN</a></td><td></td></tr><tr><td><a href="#FAU_GEN.1/CSVVOIP">FAU_GEN.1/CSVVOIP</a></td><td></td></tr></tr><tr><th colspan="2"> Objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Objective requirements.
-	    </td></tr></tr><tr><th colspan="2"> Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td></td></tr></tr><tr><th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
-	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Selection-based requirements.
-	    </td></tr></tr></table><h2 id="conrat-APP" class="indexable" data-level="2">6.2 
+	    </td></tr></tr><tr><th colspan="2"> Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td></td></tr></tr><tr><th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_GEN.1/P2PADMIN">FAU_GEN.1/P2PADMIN</a></td><td></td></tr><tr><td><a href="#FAU_GEN.1/P2PVVOIP">FAU_GEN.1/P2PVVOIP</a></td><td></td></tr><tr><td><a href="#FCS_COP.1/SRTP">FCS_COP.1/SRTP</a></td><td></td></tr><tr><td><a href="#FCS_SRTP_EXT.1">FCS_SRTP_EXT.1</a></td><td></td></tr><tr><td><a href="#FDP_IFC.1/CALLCONTROL">FDP_IFC.1/CALLCONTROL</a></td><td></td></tr><tr><td><a href="#FDP_IFF.1/CALLCONTROL">FDP_IFF.1/CALLCONTROL</a></td><td></td></tr></tr></table><h2 id="conrat-APP" class="indexable" data-level="2">6.2 
     Protection Profile for Application Software</h2><h3 id="contoe-APP" class="indexable" data-level="3">6.2.1 
 	Consistency of TOE Type
       </h3>
@@ -1483,6 +1484,11 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
       This is considered to be consistent because the functionality provided by the
       APP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is being used for its intended purpose.
       
+          The <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> also identifies a number of modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> from the
+          APP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>
+          that are used entirely to provide functionality for
+	  VVoIP.
+        
           The rationale for why this does not conflict with the claims
       defined by the
       APP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> are as follows:
@@ -1500,9 +1506,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 	      APP <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is the base.
 	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td></td></tr><tr><td><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td></td></tr><tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td></td></tr><tr><td><a href="#FMT_SMF.1/VVoIP">FMT_SMF.1/VVoIP</a></td><td></td></tr><tr><td><a href="#FTA_SSL.3/MEDIA">FTA_SSL.3/MEDIA</a></td><td></td></tr><tr><td><a href="#FTP_ITC.1/CONTROL">FTP_ITC.1/CONTROL</a></td><td></td></tr><tr><td><a href="#FTP_ITC.1/MEDIA">FTP_ITC.1/MEDIA</a></td><td></td></tr></tr><tr><th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_GEN.1/CSADMIN">FAU_GEN.1/CSADMIN</a></td><td></td></tr><tr><td><a href="#FAU_GEN.1/CSVVOIP">FAU_GEN.1/CSVVOIP</a></td><td></td></tr></tr><tr><th colspan="2"> Objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Objective requirements.
-	    </td></tr></tr><tr><th colspan="2"> Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td></td></tr></tr><tr><th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
-	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Selection-based requirements.
-	    </td></tr></tr></table><h1 id="opt-sfrs" class="indexable" data-level="A">Appendix A -  Optional SFRs</h1><h2 id="opt-sfrs" class="indexable" data-level="2">A.1 Strictly Optional Requirements
+	    </td></tr></tr><tr><th colspan="2"> Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td></td></tr></tr><tr><th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_GEN.1/P2PADMIN">FAU_GEN.1/P2PADMIN</a></td><td></td></tr><tr><td><a href="#FAU_GEN.1/P2PVVOIP">FAU_GEN.1/P2PVVOIP</a></td><td></td></tr><tr><td><a href="#FCS_COP.1/SRTP">FCS_COP.1/SRTP</a></td><td></td></tr><tr><td><a href="#FCS_SRTP_EXT.1">FCS_SRTP_EXT.1</a></td><td></td></tr><tr><td><a href="#FDP_IFC.1/CALLCONTROL">FDP_IFC.1/CALLCONTROL</a></td><td></td></tr><tr><td><a href="#FDP_IFF.1/CALLCONTROL">FDP_IFF.1/CALLCONTROL</a></td><td></td></tr></tr></table><h1 id="opt-sfrs" class="indexable" data-level="A">Appendix A -  Optional SFRs</h1><h2 id="opt-sfrs" class="indexable" data-level="2">A.1 Strictly Optional Requirements
     </h2>
 		<h3 class="indexable" data-level="3" id="sec-opt-audit-table">A.1.1 Auditable Events for Optional SFRs</h3>
         <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-optional" data-counter-type="ct-Table" id="at-optional">Table <span class="counter">10</span></span>: Auditable Events for Strictly Optional Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_GEN.1/CSADMIN"><td rowspan="2"><a href="#FAU_GEN.1/CSADMIN">FAU_GEN.1/CSADMIN</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_GEN.1/CSADMIN#"><td></td></tr><tr data-sortkey="FAU_GEN.1/CSADMIN.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_GEN.1/CSVVOIP"><td rowspan="2"><a href="#FAU_GEN.1/CSVVOIP">FAU_GEN.1/CSVVOIP</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_GEN.1/CSVVOIP#"><td></td></tr><tr data-sortkey="FAU_GEN.1/CSVVOIP.1"><td>No events specified</td><td>N/A</td></tr></table>
@@ -1591,26 +1595,184 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
     </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
        Objective       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p><h2 id="impl-dep-sfrs" class="indexable" data-level="2">A.3 Implementation-dependent Requirements
     </h2>
-    	<h3 class="indexable" data-level="3" id="_sec_20">A.3.1 Auditable Events for Implementation-Dependent SFRs</h3>
+    	<h3 class="indexable" data-level="3" id="_sec_23">A.3.1 Auditable Events for Implementation-Dependent SFRs</h3>
     		<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-impl-dep" data-counter-type="ct-Table" id="at-impl-dep">Table <span class="counter">11</span></span>: Auditable Events for  Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_STG_EXT.1"><td rowspan="2"><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_STG_EXT.1#"><td></td></tr><tr data-sortkey="FAU_STG_EXT.1.4"><td>Traffic flow volume exceeds the maximum quota.</td><td>Identification of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface at which the quota was exceeded.</td></tr></table>
     	
 	
 
 	<h3 id="fau-imp_dep" class="indexable" data-level="3">A.3.2 Security Audit (FAU)</h3>
-		<div class="comp" id="FAU_STG_EXT.1"><h4>FAU_STG_EXT.1 Protected Audit Event Storage</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#feat-swapp">Software Application</a></i></b></li></ul></div>
+		<div class="comp" id="FAU_STG_EXT.1"><h4>FAU_STG_EXT.1 Protected Audit Event Storage</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#feat-swapp">Software Application with Logging</a></i></b></li></ul></div>
 			
-		<div class="element"><div class="reqid" id="FAU_STG_EXT.1.1"><a href="#FAU_STG_EXT.1.1" class="abbr">FAU_STG_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to transmit the generated audit data to <b>[<b>selection</b>: <span class="selectable-content" id="_s_56">an Enterprise Session Controller that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is registred to</span>, <span class="selectable-content" id="_s_57">an external trusted IT entity</span>]</b> using a trusted channel <b>according to FTP_DIT_EXT.1</b>.
+		<div class="element"><div class="reqid" id="FAU_STG_EXT.1.1"><a href="#FAU_STG_EXT.1.1" class="abbr">FAU_STG_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to transmit the generated audit data to <b>[<b>selection</b>: <span class="selectable-content" id="_s_70">an Enterprise Session Controller that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is registred to</span>, <span class="selectable-content" id="_s_71">an external trusted IT entity</span>]</b> using a trusted channel <b>according to FTP_DIT_EXT.1</b>.
 		</div></div>
-		<div class="element"><div class="reqid" id="FAU_STG_EXT.1.2"><a href="#FAU_STG_EXT.1.2" class="abbr">FAU_STG_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to store generated audit data on the [<b>selection</b>: <span class="selectable-content" id="_s_58"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_59"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>].</div></div>
-		<div class="element"><div class="reqid" id="FAU_STG_EXT.1.3"><a href="#FAU_STG_EXT.1.3" class="abbr">FAU_STG_EXT.1.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_60">drop new audit data</span>, <span class="selectable-content" id="_s_61">overwrite previous audit records according to the following rule: [<b>assignment</b>: 
-     <span class="assignable-content">rule for overwriting previous audit records</span>]</span>, <span class="selectable-content" id="_s_62">[<b>assignment</b>: 
+		<div class="element"><div class="reqid" id="FAU_STG_EXT.1.2"><a href="#FAU_STG_EXT.1.2" class="abbr">FAU_STG_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to store generated audit data on the [<b>selection</b>: <span class="selectable-content" id="_s_72"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_73"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>].</div></div>
+		<div class="element"><div class="reqid" id="FAU_STG_EXT.1.3"><a href="#FAU_STG_EXT.1.3" class="abbr">FAU_STG_EXT.1.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_74">drop new audit data</span>, <span class="selectable-content" id="_s_75">overwrite previous audit records according to the following rule: [<b>assignment</b>: 
+     <span class="assignable-content">rule for overwriting previous audit records</span>]</span>, <span class="selectable-content" id="_s_76">[<b>assignment</b>: 
      <span class="assignable-content">other action</span>]</span>]when the local storage space for audit data is full.</div></div>
 			
 		</div>
 		
 	<h1 id="sel-sfrs" class="indexable" data-level="1">Appendix B -  Selection-based Requirements
-    </h1><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
-       Selection-based       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p><h1 id="satisfiedreqs" class="indexable" data-level="A">Appendix C -  Inherently Satisfied Requirements</h1> 
+    </h1>
+		<h2 id="fau-sel_based" class="indexable" data-level="2">B.1 Security Audit (FAU)</h2>
+			<div class="comp" id="FAU_GEN.1/P2PADMIN"><h4>FAU_GEN.1/P2PADMIN Audit Data Generation (Peer-to-Peer Admin Events)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
+           <a href="#FDP_IFF.1.2">FDP_IFF.1.2</a>, <a href="#FMT_SMF.1.1/VVoIP">FMT_SMF.1.1/VVoIP</a>.
+           </i></b></div>
+				
+				<div class="element"><div class="reqid" id="FAU_GEN.1.1/P2PADMIN"><a href="#FAU_GEN.1.1/P2PADMIN" class="abbr">FAU_GEN.1.1/P2PADMIN</a></div><div class="reqdesc">The <b>[<b>selection</b>: <span class="selectable-content" id="_s_56"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_57"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>]</b>
+				 shall be able to generate audit data of the following auditable events:
+				 <ol type="a">
+				 	<li><s>Start-up and shutdown of the audit functions;</s></li>
+					<li><s>All auditable events for the [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_58">minimum</span>, <span class="selectable-content" id="_s_59">basic</span>, <span class="selectable-content" id="_s_60">detailed</span>, <span class="selectable-content" id="_s_61">not specified</span>] level of audit;</s></li>
+					<li>[<i>All administrative actions comprising:
+						<ol type="i">
+							<li>Administrative login and logout (name of user account shall be
+								logged if individual user accounts are required for
+								Administrators).</li>
+							<li>Changes to <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data related to configuration changes (in
+								addition to the information that a change occurred it shall be
+								logged what has been changed).</li>
+							<li>Generating/import of, changing, or deleting of cryptographic
+								keys (in addition to the action itself a unique key name or key
+								reference shall be logged).</li>
+							<li>Resetting passwords (name of related user account shall be logged).</li>
+							<li>[<b>selection</b>: <span class="selectable-content" id="_s_62">[<b>assignment</b>: 
+     <span class="assignable-content">list of other uses of privileges</span>]</span>, <span class="selectable-content" id="_s_63">no other actions</span>]</li>
+						</ol></i></li>].
+				 </ol>
+				
+				</div></div>
+				<div class="element"><div class="reqid" id="FAU_GEN.1.2/P2PADMIN"><a href="#FAU_GEN.1.2/P2PADMIN" class="abbr">FAU_GEN.1.2/P2PADMIN</a></div><div class="reqdesc">
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall record within the audit data at least the following information:
+						<ol type="a">
+							<li>Date and time of the auditable event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</li>
+							<li>For each auditable event type, based on the auditable event definitions of the functional components included 
+								in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>no additional information</i>].</li>
+						</ol>
+				<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+					If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a hardware device and claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, this is inherently
+					satisfied through FAU_GEN.1 as defined by the NDcPP. Any other relevant
+					auditable events for the functionality described in the NDcPP is defined
+					there (the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not include any auditing requirements). <p></p>
+					
+					If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the
+					implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> must also be claimed.
+					This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP
+					because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> as a mandatory
+					requirement.
+				</span></div></div></div>
+			</div>
+			<div class="comp" id="FAU_GEN.1/P2PVVOIP"><h4>FAU_GEN.1/P2PVVOIP Audit Data Generation (Peer-to-Peer VVoIP Events)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
+           <a href="#FDP_IFF.1.2">FDP_IFF.1.2</a>, <a href="#FMT_SMF.1.1/VVoIP">FMT_SMF.1.1/VVoIP</a>.
+           </i></b></div>
+				
+				<div class="element"><div class="reqid" id="FAU_GEN.1.1/P2PVVOIP"><a href="#FAU_GEN.1.1/P2PVVOIP" class="abbr">FAU_GEN.1.1/P2PVVOIP</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate audit data of the following auditable events:
+				 <ol type="a">
+				 	<li><s>Start-up and shutdown of the audit functions;</s></li>
+					<li><s>All auditable events for the [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_64">minimum</span>, <span class="selectable-content" id="_s_65">basic</span>, <span class="selectable-content" id="_s_66">detailed</span>, <span class="selectable-content" id="_s_67">not specified</span>] level of audit;</s></li>
+					<li>[<i>auditable events defined in the Auditable Events for Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> table (<a onclick="showTarget('at-mandatory')" href="#at-mandatory" class="at-mandatory-ref">Table  <span class="counter">2</span></a>)</i>].</li>
+				 </ol>
+				</div></div>
+				<div class="element"><div class="reqid" id="FAU_GEN.1.2/P2PVVOIP"><a href="#FAU_GEN.1.2/P2PVVOIP" class="abbr">FAU_GEN.1.2/P2PVVOIP</a></div><div class="reqdesc">
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall record within the audit data at least the following information:
+						<ol type="a">
+							<li>Date and time of the auditable event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</li>
+							<li>For each auditable event type, based on the auditable event definitions of the functional components included 
+								in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>information specified in column three of the Auditable Events table 
+								in which the event was defined</i>].</li>
+						</ol>
+				<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+					If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the
+					implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> must also be claimed.
+					This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP
+					because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> as a mandatory
+					requirement.
+				</span></div></div></div>
+			</div>
+		
+
+		<h2 id="fcs-sel_based" class="indexable" data-level="2">B.2 Cryptographic Suppot (FCS)</h2>
+			<div class="comp" id="FCS_COP.1/SRTP"><h4>FCS_COP.1/SRTP Cryptographic Operation (Encryption/Decryption for SRTP</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
+           FTP_DIT_EXT.1.1.
+           </i></b></div>
+			
+			<div class="element"><div class="reqid" id="FCS_COP.1.1/SRTP"><a href="#FCS_COP.1.1/SRTP" class="abbr">FCS_COP.1.1/SRTP</a></div><div class="reqdesc">
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>encryption/decryption to support SDES-SRTP</i>] in
+					accordance with a specified cryptographic algorithm [<i>AES-GCM (as defined NIST SP 800-38D)</i>] and
+					cryptographic key sizes [<i>256-bit</i>].
+				<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+					The NDcPP and App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> each define their own iteration of FCS_COP.1 for AES
+					encryption and decryption (FCS_COP.1/DataEncryption and FCS_COP.1/SKC,
+					respectively). The encryption and decryption used specifically for <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> has been
+					broken out into a separate iteration for readability purposes; the same
+					cryptographic library that implements the AES algorithms claimed in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>
+					requirements can be used here. Note that GCM is a supported AES mode both in
+					this iteration and in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr>.</span></div></div></div>
+			</div>
+			<div class="comp" id="FCS_SRTP_EXT.1"><h4>FCS_SRTP_EXT.1 Secure Real-Time Transport Protocol</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
+           FTP_DIT_EXT.1.1, <a href="#FTP_ITC.1.1/MEDIA">FTP_ITC.1.1/MEDIA</a>.
+           </i></b></div>
+				
+				
+				
+				
+				
+
+				<div class="element"><div class="reqid" id="FCS_SRTP_EXT.1.1"><a href="#FCS_SRTP_EXT.1.1" class="abbr">FCS_SRTP_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the Secure Real-Time Transport Protocol (<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr>) that
+						complies with RFC 3711, and use Security Descriptions for Media Streams (SDES)
+						in compliance with RFC 4568 to provide key information for the <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> connection.</div></div>
+				<div class="element"><div class="reqid" id="FCS_SRTP_EXT.1.2"><a href="#FCS_SRTP_EXT.1.2" class="abbr">FCS_SRTP_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement SDES-SRTP supporting the following cipher suites: [<i>AEAD_AES_256_GCM, in accordance with RFC 7714</i>].<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+					This requirement specifies that the <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> session that will be used to carry the
+					VVoIP traffic will be keyed according to an SDES dialogue using the
+					identified cipher suite.</span></div></div></div>
+				<div class="element"><div class="reqid" id="FCS_SRTP_EXT.1.3"><a href="#FCS_SRTP_EXT.1.3" class="abbr">FCS_SRTP_EXT.1.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure the <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> NULL algorithm can be disabled.</div></div>
+				<div class="element"><div class="reqid" id="FCS_SRTP_EXT.1.4"><a href="#FCS_SRTP_EXT.1.4" class="abbr">FCS_SRTP_EXT.1.4</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow the <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> ports to be used for <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> communications to be specified by an Authorized Administrator.<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+						This requirement specifies that the <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> session that will be used to carry the VoIP traffic will be keyed according to an SDES dialog using the identified cipher suite.</span></div></div></div>
+			</div>
+		
+		<h2 id="fdp-sel_based" class="indexable" data-level="2">B.3 User Data Protection (FDP)</h2>
+			<div class="comp" id="FDP_IFC.1/CALLCONTROL"><h4>FDP_IFC.1/CALLCONTROL Subset Information Flow Control (for Call Control)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
+           <a href="#FDP_IFF.1.2">FDP_IFF.1.2</a>, <a href="#FMT_SMF.1.1/VVoIP">FMT_SMF.1.1/VVoIP</a>.
+           </i></b></div>
+			
+			<div class="element"><div class="reqid" id="FDP_IFC.1.1/CALLCONTROL"><a href="#FDP_IFC.1.1/CALLCONTROL" class="abbr">FDP_IFC.1.1/CALLCONTROL</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce the [<i>call control policy</i>] on [<i>call control information transmitted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></i>].</div></div>
+			</div>
+			<div class="comp" id="FDP_IFF.1/CALLCONTROL"><h4>FDP_IFF.1/CALLCONTROL Subset Information Flow Control (for Call Control)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
+           <a href="#FDP_IFF.1.2">FDP_IFF.1.2</a>, <a href="#FMT_SMF.1.1/VVoIP">FMT_SMF.1.1/VVoIP</a>.
+           </i></b></div>
+			
+			<div class="element"><div class="reqid" id="FDP_IFF.1.1/CALLCONTROL"><a href="#FDP_IFF.1.1/CALLCONTROL" class="abbr">FDP_IFF.1.1/CALLCONTROL</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce the [<i>call control policy</i>] based on the following types of subject and information security attributes: 
+					[<b>assignment</b>: 
+     <span class="assignable-content">method by which the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> identifies each endpoint for a call</span>] <b> using the following call control protocols: [<b>selection</b>: <span class="selectable-content" id="_s_68"><abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr></span>, <span class="selectable-content" id="_s_69">H.323</span>]</b>.<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should complete the assignment with an endpoint
+					identifier (i.e. how the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> identifies the endpoints each endpoint for a
+					call). For example, the endpoint could be identified by an IP address, a
+					phone number, or a username.</span></div></div></div>
+			<div class="element"><div class="reqid" id="FDP_IFF.1.2/CALLCONTROL"><a href="#FDP_IFF.1.2/CALLCONTROL" class="abbr">FDP_IFF.1.2/CALLCONTROL</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit an information flow between a controlled subject
+				and controlled information via a controlled operation if the following rules hold: 
+				[<i>when valid communication with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is attempted, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will establish a connection 
+				between itself and the peer</i>].<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">The validity of a call is determined by the protocol and the identifier of the endpoint.</span></div></div></div>
+			<div class="element"><div class="reqid" id="FDP_IFF.1.3/CALLCONTROL"><a href="#FDP_IFF.1.3/CALLCONTROL" class="abbr">FDP_IFF.1.3/CALLCONTROL</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce <s>the</s> [<i>no additional information flow control policy rules</i>].</div></div>
+			<div class="element"><div class="reqid" id="FDP_IFF.1.4/CALLCONTROL"><a href="#FDP_IFF.1.4/CALLCONTROL" class="abbr">FDP_IFF.1.4/CALLCONTROL</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall explicitly authorize an information flow based on the following rules: [<b>assignment</b>: 
+     <span class="assignable-content">rules based on security attributes that explicitly authorize information flows</span>].</div></div>
+			<div class="element"><div class="reqid" id="FDP_IFF.1.5/CALLCONTROL"><a href="#FDP_IFF.1.5/CALLCONTROL" class="abbr">FDP_IFF.1.5/CALLCONTROL</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall explicitly deny an information flow based on the following rules: [<b>assignment</b>: 
+     <span class="assignable-content">rules based on security attributes that explicitly deny information flows</span>].</div></div>
+			</div>
+		
+	<h1 id="satisfiedreqs" class="indexable" data-level="A">Appendix C -  Inherently Satisfied Requirements</h1> 
 		This appendix lists requirements that should be considered satisfied by products
 		successfully evaluated against this Protection Profile.  
 		However, these requirements are not featured explicitly as <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> and should not be
