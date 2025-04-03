@@ -135,11 +135,10 @@
 	  <term full="Client">
 	  	A VVoIP endpoint.
 	  </term>
-	  <term abbr="ESC" full="Enterprise Session Controller (ESC)">
+	  <term abbr="ESC" full="Enterprise Session Controller">
 	  	A VVoIP call control server for VVoIP devices.
 	  </term>
 	  <term abbr="DHCP" full="Dynamic Host Configuration Protocol"/>
-	  <term abbr="ESC" full="Enterprise Session Controller"/>	  
 	  <term full="H.323">
 	  	A communications protocol defined by ITU-T that is used for creating, modifying, and
       terminating multimedia sessions with multiple participants.
@@ -1046,6 +1045,9 @@ enforce its policies on network traffic of monitored networks.</description>
 		</section>
 		
 			<section title="Communications (FCO)" id="m-fco">
+				<ext-comp-def fam-id="FCO_VOC_EXT" title="Fixed-Rate Vocoder">
+					<fam-behavior>Components in this family define the use of vocoders in audio transmission.</fam-behavior>
+				</ext-comp-def>
 				<f-component name="Fixed-Rate Vocoder" cc-id="fco_voc_ext.1" id="fco-voc-ext-1">
 					<comp-lev>requires the TSF to use a constant bit rate vocoder as opposed to a variable one.</comp-lev>
 					<management>The following actions could be considered for the management functions in FMT: 
@@ -1259,7 +1261,7 @@ enforce its policies on network traffic of monitored networks.</description>
 				The TSF shall be capable of performing the following management functions: [
 					<h:i><h:ul>
 					<h:li>Ability to <selectables>
-						<selectable>register the TOE to an ESC <selectables><selectable>manually</selectable><selectable>via DHCP server</selectable></selectables></selectable>
+						<selectable id="sel-register">register the TOE to an ESC <selectables><selectable>manually</selectable><selectable>via DHCP server</selectable></selectables></selectable>
 						<selectable id="sel-p2p-server-smf">act as a VVoIP call control server when using P2P</selectable></selectables>;
 					</h:li></h:ul>
 					<selectables linebreak="yes">
@@ -1900,6 +1902,9 @@ enforce its policies on network traffic of monitored networks.</description>
 				</aactivity>
 			</f-element>
 			</f-component>
+			<ext-comp-def fam-id="FCS_SRTP_EXT" title="Secure Real-Time Transport Protocol">
+					<fam-behavior>Components in this family define the implementation of the Secure Real-Time Transport Protocol (SRTP).</fam-behavior>
+				</ext-comp-def>
 			<f-component name="Secure Real-Time Transport Protocol" cc-id="fcs_srtp_ext.1" id="fcs-srtp-ext-1">
 				<depends on="sel_all_srtp" or="sel_media_srtp"/>
 				<comp-lev>requires the TSF to implement SRTP and defines conditions on its use.</comp-lev>
@@ -2045,6 +2050,7 @@ enforce its policies on network traffic of monitored networks.</description>
 		</section>
 		<section title="Protection of the TSF (FPT)" id="fpt-sel_based">
 			<f-component name="Reliable Time Stamps (VVoIP Communications)" cc-id="fpt_stm_ext.1" iteration="VVOIP" id="fpt-stm-ext-1-vvoip">
+				<depends on="sel-register"/>
 				<f-element id="fpt-stm-ext-1e1-vvoip">
 					<title>The TSF shall be able to provide reliable time stamps for its own use.</title>
 				</f-element>
@@ -2262,51 +2268,15 @@ enforce its policies on network traffic of monitored networks.</description>
 
 	<!-- This should be included if there are SFRs that are dependencies for included SFRs, 
 	     but the dependencies are not incluuded in the PP. -->
-	<appendix title="Inherently Satisfied Requirements" id="satisfiedreqs"> 
-		This appendix lists requirements that should be considered satisfied by products
-		successfully evaluated against this Protection Profile.  
-		However, these requirements are not featured explicitly as SFRs and should not be
-		included in the ST.  
-		They are not included as standalone SFRs because it would
-		increase the time, cost, and complexity of evaluation.  This approach is permitted
-		by <xref g="CC"/> Part 1, <h:b>8.3 Dependencies between components</h:b>.
-		<h:br/>
-		This information benefits systems engineering activities which call for inclusion of 
-		particular security controls.  Evaluation against the Protection Profile
-		provides evidence that these controls are present and have been evaluated.
-		<table xmlns="http://www.w3.org/1999/xhtml">
-			<tr class="header">
-				<td>Requirement</td>
-				<td>Rationale for Satisfaction</td>
-			</tr>
-			<tr>
-				<td><b>FAU_ARP.1 - Security Alarms</b></td>
-				<td>FAU_ARP.1 has a dependency on FAU_SAA.1. This is
-					because FAU_SAA.1 defines the behavior that the TSF may
-					consider to be a potential security violation while
-					FAU_ARP.1 defines what actions the TSF takes when such
-					behavior is detected. This dependency is implicitly
-					satisfied in this PP-Module because the behavior defined
-					in FRU_RSA.1 and the various IPS class requirements
-					collectively define potential security violation behavior so
-					a separate SFR to enumerate this is redundant.
-				</td>
-			</tr>
-			<tr>
-				<td><b>FAU_GEN.1/IPS - Audit Data Generation (IPS)</b></td>
-				<td>FAU_GEN.1 has a dependency on FPT_STM.1 The
-					extended SFR FPT_STM_EXT.1 that is defined in the Base-PP provides equivalent functionality to FPT_STM.1 and
-					therefore satisfies this dependency.</td>
-			</tr>
-		</table>
-	</appendix>
 
 	<!-- Entropy documentation -->
 	<appendix title="Entropy Documentation and Assessment" id="entropyappendix"> 
 		<h:p>
 			The TOE does not require any additional supplementary information to describe its entropy sources
-			beyond the requirements outlined in the Base-PP.
-			</h:p>
+			beyond the requirements outlined in the Base-PPs. As with other Base-PP requirements, the only
+			additional requirement is that the entropy documentation also applies to the specific VVoIP capabilities
+			of the TOE that require random data, in addition to any functionality required by the claimed Base-PP.
+		</h:p>
 	</appendix>
   
 
