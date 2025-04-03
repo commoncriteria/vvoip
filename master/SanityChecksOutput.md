@@ -16,6 +16,7 @@
 * Error: Detected dangling id-reference to fcs-eap-ext-1 from attribute
         on/Module[1]""/include-pkg[2]""/depends[1]""/on[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Problem_Definition[1]""/sec:Assumptions[1]""/assumptions[1]""/assumption[1]""/description[1]"It is ass"/h:p[1]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_Operational_Environment[1]""/SOEs[1]""/SOE[1]""/description[1]"TOE admin"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/modified-sfrs[1]""/section[2]""/base-sfr-spec[1]""/replace[2]""/xpath-specified[1]""/note[1]"The App P"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/modified-sfrs[1]""/section[2]""/base-sfr-spec[1]""/replace[2]""/xpath-specified[1]""/note[1]"The App P"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/modified-sfrs[1]""/section[2]""/base-sfr-spec[1]""/replace[2]""/xpath-specified[1]""/note[1]"The App P"/h:p[3]""

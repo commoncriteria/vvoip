@@ -819,6 +819,15 @@ The following sections list Common Criteria and technology terms used in this do
 			connects to the call control server as a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> client. When a call is finished or the line is otherwise not in
 			use, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will ensure that streaming media communication paths/ports are closed while call control
 			remains open.</p>
+		<p>To be able to initiate communications in <abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> needs at minimum an <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address, network mask,
+			gateway address, and update server address (or may rely on platform for updates if it is a software
+			application configured to do so). The address may be obtained by <abbr class="dyn-abbr"><a href="#abbr_DHCP">DHCP</a></abbr>, manually entered on the <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr>
+			endpoint, or inherited from the device the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> resides on (if it is a software application). The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> should
+			allow basic telephony functions. Once the <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> addresses are obtained, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> downloads any <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> application updates. The endpoint configuration for <abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> of telephony functions is local. When the
+			<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> initiates a call, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> connects to the other peer’s call control (which is active) and the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a
+			client. When the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> receives a call, the other peer acts as a client and connects to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s call control.
+			When a call is finished or the line is otherwise not in use, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will ensure that streaming media
+			communication paths/ports are closed while call control remains open.</p>
 		<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has three paths for three different functions that need to execute: streaming media path that
 			contains voice, video, and session control (endpoint to endpoint); call control path to control the endpoint
 			(endpoint to <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control server), and configuration/management path to configure and manage the
@@ -947,7 +956,7 @@ provide all of its security functionality.
       <dl><dt class="assumption defined" id="A.UPDATE_SOURCE">A.UPDATE_SOURCE</dt><dd><span class="description"> It is assumed that <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software/firmware updates will be made available on either the call control
 			server that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> connects to or a separate file server managed by the organization. <p></p>
 			Note that because this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> specifically disallows distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr>, a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will not claim
-			<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.COMPONENTS_RUNNING when NDcPP is the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
+			A.COMPONENTS_RUNNING when NDcPP is the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
 		  </span></dd></dl>
       
 	
@@ -969,7 +978,10 @@ provide all of its security functionality.
 		that are defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr>.
 		</p>
 	  <dl><dt class="SOE defined" id="OE.UPDATE_SOURCE">OE.UPDATE_SOURCE</dt><dd><span class="description"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> administrators will ensure that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is installed in a manner that will allow the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to effectively
-enforce its policies on network traffic of monitored networks.</span></dd></dl>
+			enforce its policies on network traffic of monitored networks. <p></p>
+			Note that because this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> specifically disallows distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr>, a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will not claim
+			<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.COMPONENTS_RUNNING when NDcPP is the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
+		</span></dd></dl>
         
 
 	
@@ -1103,7 +1115,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 							HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2, 
 							DTLS as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</a>, 
 							SSH as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</a>, 
-							IPsec as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version 2.5</a>
+							IPsec as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version 2.5</a>,
 							<b>Secure Real-Time Transport Protocol (<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr>), no other protocols</b>],</i></li>
 							<li><i>invoke platform-provided functionality to encrypt all transmitted sensitive data with <b>TLS and </b>
 							[<b>selection: </b>HTTPS, DTLS, SSH, <b>no other protocols</b>],</i></li>

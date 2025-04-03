@@ -227,6 +227,15 @@
 			connects to the call control server as a VVoIP client. When a call is finished or the line is otherwise not in
 			use, the TOE will ensure that streaming media communication paths/ports are closed while call control
 			remains open.</h:p>
+		<h:p>To be able to initiate communications in P2P, the TOE needs at minimum an IP address, network mask,
+			gateway address, and update server address (or may rely on platform for updates if it is a software
+			application configured to do so). The address may be obtained by DHCP, manually entered on the VVoIP
+			endpoint, or inherited from the device the TOE resides on (if it is a software application). The TOE should
+			allow basic telephony functions. Once the IP addresses are obtained, the TOE downloads any VVoIP application updates. The endpoint configuration for P2P TOE of telephony functions is local. When the
+			TOE initiates a call, the TOE connects to the other peer’s call control (which is active) and the TOE is a
+			client. When the TOE receives a call, the other peer acts as a client and connects to the TOE’s call control.
+			When a call is finished or the line is otherwise not in use, the TOE will ensure that streaming media
+			communication paths/ports are closed while call control remains open.</h:p>
 		<h:p>The TOE has three paths for three different functions that need to execute: streaming media path that
 			contains voice, video, and session control (endpoint to endpoint); call control path to control the endpoint
 			(endpoint to VVoIP call control server), and configuration/management path to configure and manage the
@@ -451,7 +460,7 @@
           <description> It is assumed that TOE software/firmware updates will be made available on either the call control
 			server that the TOE connects to or a separate file server managed by the organization. <h:p/>
 			Note that because this PP-Module specifically disallows distributed TOEs, a conformant TOE will not claim
-			OE.COMPONENTS_RUNNING when NDcPP is the Base-PP.
+			A.COMPONENTS_RUNNING when NDcPP is the Base-PP.
 		  </description>
           <objective-refer ref="OE.UPDATE_SOURCE">
             <rationale> The objective satisfies the assumption
@@ -484,7 +493,10 @@
 	  <SOEs>
         <SOE name="OE.UPDATE_SOURCE">
           <description>TOE administrators will ensure that the TOE is installed in a manner that will allow the TOE to effectively
-enforce its policies on network traffic of monitored networks.</description>
+			enforce its policies on network traffic of monitored networks. <h:p/>
+			Note that because this PP-Module specifically disallows distributed TOEs, a conformant TOE will not claim
+			OE.COMPONENTS_RUNNING when NDcPP is the Base-PP.
+		</description>
         </SOE>
       </SOEs>
       </sec:Security_Objectives_for_the_Operational_Environment>  <!-- OE Objectives -->
@@ -789,7 +801,7 @@ enforce its policies on network traffic of monitored networks.</description>
 							HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2, 
 							DTLS as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a>, 
 							SSH as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</h:a>, 
-							IPsec as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version 2.5</h:a>
+							IPsec as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version 2.5</h:a>,
 							<h:b>Secure Real-Time Transport Protocol (SRTP), no other protocols</h:b>],</h:i></h:li>
 							<h:li><h:i>invoke platform-provided functionality to encrypt all transmitted sensitive data with <h:b>TLS and </h:b>
 							[<h:b>selection: </h:b>HTTPS, DTLS, SSH, <h:b>no other protocols</h:b>],</h:i></h:li>
