@@ -57,9 +57,9 @@
          The scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is to describe the security functionality of a Voice/Video over <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr>) endpoint in terms of <a href="#bibCC">[CC]</a> and to define functional and assurance requirements for such products. This PPModule is intended for use with the following <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr>: 
         <ul>
             <li>
-                Protection Profile for Application Software, Version 1.3 (App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>)
+                Protection Profile for Application Software, Version 1.4 (App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>)
             </li>
-            <li>collaborative Protection Profile for Network Devices, Version 2.2e (NDcPP)</li>
+            <li>collaborative Protection Profile for Network Devices, Version 3.0e (NDcPP)</li>
         </ul>
         <p>
              These <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr> are both valid because a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> endpoint is a specific type of network device or software application that carries sensitive data over remote channels and uses protocols to do so that a typical network device or software application does not implement. Therefore, additional security requirements are necessary to ensure that sensitive communications are not subject to unauthorized disclosure to unintended recipients. 
@@ -345,7 +345,7 @@
             <dd>
                 <ul>
                     <li>
-                        This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is Functional Package for TLS, version 1.1 conformant.
+                        This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is Functional Package for TLS, version 2.0 conformant.
                     </li>
                     <li>
                         This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not conform to any assurance packages.
@@ -513,7 +513,7 @@
                 </p>
                 <p>The text of the requirement is replaced with:</p>
                 <p>
-                    <b>FTP_ITC.1.1: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of using <b>TLS and </b>[<b>selection: </b><i>IPsec, SSH, DTLS, HTTPS, <b>no other protocols</b></i>] to provide a trusted communication channel between itself and authorized IT entities supporting the following capabilities: audit server, <b>streaming media channel, call control channel, software/firmware update delivery channel, </b> [<b>selection: </b><i>authentication server, [<b>assignment: </b>other capabilities], no other capabilities</i>] that is logically distinct from other communication channels and provides assured identification of its end points and protection of the channel data from disclosure and detection of modification of the channel data. 
+                    <b>FTP_ITC.1.1: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of using <b>TLS and </b>[<b>selection: </b><i>IPsec, SSH, DTLS, HTTPS, <b>no other protocols</b></i>] <b>to</b> provide a <b>trusted</b> communication channel between itself and authorized IT entities supporting the following capabilities: audit server, <b>streaming media channel, call control channel, software/firmware update delivery channel, </b> [<b>selection: </b><i>authentication server, [<b>assignment: </b>other capabilities], no other capabilities</i>] that is logically distinct from other communication channels and provides assured identification of its end points and protection of the channel data from modification or disclosure. 
                 </p>
                 <p>
                      <b>Application Note: </b> The NDcPP provides the ability for the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author to specify the protocols used to establish trusted communications in FTP_ITC.1.1. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> mandates the inclusion of TLS because it is the underlying protocol used to secure communications with the <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr> and other <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> endpoints. Additional protocols should be selected if they are used for securing other trusted channels. For example, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> may communicate with an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr> using TLS for call control functions but some other protocol for remote transmission of audit data. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> also specifies additional uses for the trusted channel beyond what the NDcPP defines. The remainder of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is unchanged from its definition in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. 
@@ -874,7 +874,7 @@
                     <a href="#FTP_ITC.1.1/CONTROL" class="abbr">FTP_ITC.1.1/CONTROL</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>be capable of using [<b>selection</b>: <span class="selectable-content" id="_s_40">Session Initiation Protocol (<abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr>)</span>, <span class="selectable-content" id="_s_41">H.323</span>] to </b>provide a trusted communication channel between itself and <b>a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control server</b> that is logically distinct from other communication channels and provides assured identification of its end points and protection of the channel data from modification or disclosure. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>be capable of using [<b>selection</b>: <span class="selectable-content" id="_s_40">Session Initiation Protocol (<abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr>)</span>, <span class="selectable-content" id="_s_41">H.323</span>] to </b>provide a <b>trusted </b>communication channel between itself and <b>a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control server</b> that is logically distinct from other communication channels and provides assured identification of its end points and protection of the channel data from modification or disclosure. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> Both the <abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr> and H.323 protocols rely on TLS. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the application layer protocol used to secure call control functions. </span>
                     </div>

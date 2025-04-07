@@ -1,6 +1,5 @@
 output/vvoip-esr.html: CESG
 output/vvoip-release-linkable.html: 0e
-output/vvoip-release-linkable.html: 2e
 output/vvoip-release-linkable.html: 38D
 output/vvoip-release-linkable.html: CEM
 output/vvoip-release-linkable.html: Crytographic
@@ -34,7 +33,6 @@ output/vvoip-release-linkable.html: unallowed
 output/vvoip-release-linkable.html: vocoder
 output/vvoip-release-linkable.html: vocoders
 output/vvoip-release.html: 0e
-output/vvoip-release.html: 2e
 output/vvoip-release.html: 38D
 output/vvoip-release.html: CEM
 output/vvoip-release.html: Crytographic
@@ -90,7 +88,6 @@ output/vvoip-sd.html: unallowed
 output/vvoip-sd.html: vocoder
 output/vvoip-sd.html: vocoders
 output/vvoip.html: 0e
-output/vvoip.html: 2e
 output/vvoip.html: 38D
 output/vvoip.html: CEM
 output/vvoip.html: Crytographic
