@@ -859,7 +859,7 @@
                     <a href="#FTA_SSL.3.1/MEDIA" class="abbr">FTA_SSL.3.1/MEDIA</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall terminate voice/video transmission after [<i>inactivity longer than [<b>selection</b>: <span class="selectable-content" id="_s_38">[<b>assignment</b>: <span class="assignable-content">default number of seconds</span>] seconds</span>, <span class="selectable-content" id="_s_39">an administrator-configurable interval</span>]</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall terminate <b>voice/video transmission</b> after [<i>inactivity longer than [<b>selection</b>: <span class="selectable-content" id="_s_38">[<b>assignment</b>: <span class="assignable-content">default number of seconds</span>] seconds</span>, <span class="selectable-content" id="_s_39">an administrator-configurable interval</span>]</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is intended to mitigate the potential unauthorized disclosure of media data in the case where connectivity with the peer is lost. The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should choose one or both selections if applicable. Note that if &ldquo;an administratorconfigurable interval&rdquo; is selected, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must select &ldquo;configure the termination period for idle calls&rdquo; in <a href="#FMT_SMF.1.1/VVoIP">FMT_SMF.1.1/VVoIP</a>. </span>
                     </div>
@@ -1142,7 +1142,7 @@
                 <td><a href="#FTA_SSL.3/MEDIA">FTA_SSL.3/MEDIA</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines session termination behavior for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s media channel. This interface is specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and is not within the scope of the NDcPP.</td>
             </tr>
             <tr>
-                <td><a href="#FTP_ITC.1/CONTROL">FTP_ITC.1/CONTROL</a></td><td>TThis <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the trusted communications protocol used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s signaling channel, which is specific to the <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> technology and does not conflict with the functionality defined in the NDcPP.</td>
+                <td><a href="#FTP_ITC.1/CONTROL">FTP_ITC.1/CONTROL</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the trusted communications protocol used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s signaling channel, which is specific to the <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> technology and does not conflict with the functionality defined in the NDcPP.</td>
             </tr>
             <tr>
                 <td><a href="#FTP_ITC.1/MEDIA">FTP_ITC.1/MEDIA</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the trusted communications protocol used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s media channel, which is specific to the <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> technology and does not conflict with the functionality defined in the NDcPP.</td>
@@ -1365,7 +1365,7 @@
                                 This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the same auditable events as FAU_GEN.1/<abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr>-Admin in Appendix B below. It is defined as a separate iteration because when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed in a client-server architecture, the Enterprise Session Controller is expected to be responsible for the relevant auditing, so this capability is optional when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not peer-to-peer. 
                             </p>
                             <p>
-                                If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the implementationdependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> must also be claimed. This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> as a mandatory requirement.
+                                If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> <a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> must also be claimed. This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines <span class="no-link">FAU_STG_EXT.1</span> as a mandatory requirement.
                             </p>
                         </span>
                     </div>
@@ -1579,7 +1579,7 @@
         <div class="comp" id="FCS_COP.1/SRTP">
             <h4>FCS_COP.1/SRTP Cryptographic Operation (Encryption/Decryption for SRTP</h4>
             <div class="statustag">
-                <b><i>The inclusion of this selection-based component depends upon selection in FTP_DIT_EXT.1.1. </i></b>
+                <b><i>The inclusion of this selection-based component depends upon selection in FTP_DIT_EXT.1.1, <a href="#FTP_ITC.1.1/MEDIA">FTP_ITC.1.1/MEDIA</a>. </i></b>
             </div>
             <div class="element">
                 <div class="reqid" id="FCS_COP.1.1/SRTP">
