@@ -559,7 +559,7 @@
 				<description>
 					<h:p>This SFR is selection-based in the NDcPP and remains selection-based in this PP-Module. However, an
 					additional trigger for this SFR’s inclusion is added for the selection of “register the TOE to an ESC…” in
-					FMT_SMF.1/VVoIP. This is because any VVoIP TOE that can be registered to ESCs is required to use them
+					FMT_SMF.1/VVoIP if the TOE is a hardware device. This is because any hardware-based VVoIP TOE that can be registered to ESCs is required to use them
 					as NTP servers.</h:p>
 					<h:p>If the TOE is not registered to an ESC, it is not relevant to this PP-Module whether or not NTP is
 					implemented, and in this case this SFR remains selection-based on FPT_STM_EXT.1.2, which is not
@@ -619,10 +619,19 @@
 				<consistency-rationale>This PP-Module does not modify this SFR; it only specifies that the source of
 				TOE software/firmware updates must be a specific type of server.
 				</consistency-rationale>
-				<description>This PP-Module does not modify this SFR as it is defined in the NDcPP. However, note that this PP-Module
+				<description>
+				<h:p>This PP-Module does not modify this SFR as it is defined in the NDcPP. However, note that this PP-Module
 				expects that either the call control server or a separate file server managed by the organization to function
 				as the source of TOE software/firmware updates. The evaluator shall ensure that the test environment is
-				configured appropriately.</description>
+				configured appropriately.</h:p>
+				<h:p/>
+				<h:p><h:b>Evaluation Activities:</h:b></h:p>
+				<h:p>There is no change to the EAs specified for this SFR in the NDcPP Supporting Document. Note however
+						that the following additional configuration steps are necessary in order for this testing to be performed:
+						<h:ul><h:li>The evaluator shall deploy a call control server or dedicated file server in the TOE’s operational environment</h:li>
+						<h:li>The evaluator shall load valid and invalid candidate updates to the call control server or dedicated file server</h:li>
+						<h:li>The evaluator shall configure the TOE to use the call control server or dedicated file server as its
+							source for software/firmware updates</h:li></h:ul></h:p></description>
 				<no-change/>
 			</base-sfr-spec>
 		</section>
@@ -761,7 +770,7 @@
 			Base-PP.</con-mod>
 	  
     </base-pp>
-	<base-pp id="APP" version="1.4" name="Application Software" product="Application Software" short="APP" plural="Application Software">
+	<base-pp id="APP" version="2.0" name="Application Software" product="Application Software" short="APP" plural="Application Software">
 		<git>
 			<url>https://github.com/commoncriteria/application</url>
 			<branch>release-1.4</branch>
@@ -781,10 +790,17 @@
 					<consistency-rationale>This PP-Module does not modify this SFR; it only specifies that the source of
 						TOE software/firmware updates must be a specific type of server.</consistency-rationale>
 					<description>
-						This PP-Module does not modify this SFR as it is defined in the App PP. However, note that this PP-Module
+						<h:p>This PP-Module does not modify this SFR as it is defined in the App PP. However, note that this PP-Module
 						expects that either the call control server or a separate file server managed by the organization to function
-						as the source of TOE software/firmware updates. The evaluator shall ensure that the test environment is
-						configured appropriately.
+						as the source of TOE software/firmware updates. A vendor provided source should only be used if a call control server 
+						or separate file server cannot be configured.</h:p>
+						<h:p><h:b>Evaluation Activities: </h:b></h:p>
+						<h:p>There is no change to the EAs specified for this SFR in the App PP. Note however that the following
+							additional configuration steps may be necessary when relying on a call control server or dedicated file server in order for this testing to be performed:
+							<h:ul><h:li>The evaluator shall deploy a call control server or dedicated file server in the TOE’s operational environment</h:li>
+							<h:li>The evaluator shall load valid and invalid candidate updates to the call control server or dedicated file server</h:li>
+							<h:li>The evaluator shall configure the TOE or its operational environment (whichever is selected to implement the security functions)
+							to use the call control server or dedicated file server as its source for software/firmware updates.</h:li></h:ul></h:p>
 					</description>
 					<no-change/>
 				</base-sfr-spec>
@@ -807,10 +823,12 @@
 							The application shall [<h:b>selection: </h:b>
 							<h:ul>
 								<h:li><h:i>encrypt all transmitted [<h:b>selection: </h:b>
-							sensitive data, data] with <h:b>TLS as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a></h:b> and 
+							sensitive data, data] with <h:b>[selection: TLS as a server as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a> and also supports functionality for 
+							[<h:b>selection: </h:b>mutual authentication, none], TLS as a client as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a>]</h:b> and 
 							[<h:b>selection: </h:b>HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client, HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server, 
 							HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2, 
-							DTLS as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a>, 
+							DTLS as a server defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a> and also supports functionality for 
+							[<h:b>selection: </h:b>mutual authentication, none], DTLS as a client as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a>, 
 							SSH as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</h:a>, 
 							IPsec as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version 2.5</h:a>,
 							<h:b>Secure Real-Time Transport Protocol (SRTP), no other protocols</h:b>],</h:i></h:li>
@@ -2079,7 +2097,12 @@
 					<title>The TSF shall be able to provide reliable time stamps for its own use.</title>
 				</f-element>
 				<f-element id="fpt-stm-ext-1e2-vvoip">
-					<title>The TSF shall [<h:i>synchronize time with an <h:b>ESC</h:b></h:i>].</title>
+					<title>The TSF shall [<h:i>synchronize time with <h:b><selectables>
+						<selectable>an ESC</selectable>
+						<selectable>the TOE platform</selectable>
+					</selectables></h:b></h:i>].</title>
+					<note role="Application">The selection made for this requirement depends on the TOE type. If the TOE is a hardware device, "an ESC" must be selected. 
+					If the TOE is a software application, "the TOE platform" must be selected. If the TOE is a software VVoIP application, FMT_SMF.1.1/VVoIP is not required as the TOE relies upon the platform for time.</note>
 					<aactivity>
 						<TSS>
 						<h:p>The evaluator shall examine the TSS to ensure that it lists each security function that makes use of time,
@@ -2105,15 +2128,21 @@
 	
 
 	<section title="Security Audit (FAU)" id="fau-imp_dep">
-		<f-component name="Protected Audit Event Storage" cc-id="fau_stg_ext.1" id="fau-stg-ext-1">
+		<f-component name="Audit data storage location" cc-id="fau_stg.1" id="fau-stg-1">
 			<depends on="feat-swapp"/>
 		<f-element>
-		<title>The TSF shall be able to transmit the generated audit data to <h:b><selectables>
-			<selectable>an Enterprise Session Controller that the TOE is registred to</selectable>
-			<selectable>an external trusted IT entity</selectable>
-		</selectables></h:b> using a trusted channel <h:b>according to FTP_DIT_EXT.1</h:b>.
+		<title>
+		The TSF shall be able to store generated audit data on the [<h:i><h:b><selectables>
+			<selectable>TOE itself</selectable>
+			<selectable>TOE platform</selectable></selectables></h:b>, transmit the generated audit data to <h:b><selectables>
+			<selectable>an Enterprise Session Controller that the TOE is registered to</selectable>
+			<selectable>an external IT entity</selectable></selectables></h:b> using a trusted channel according to <h:b>FTP_DIT_EXT.1.</h:b></h:i>]
 		</title>
-		</f-element>
+		<note role="application">
+		This SFR is modified from its definition in [CC] Part 2 to define storage for audit data. Specifically, it is required that this data be stored both on the TOE itself 
+		and that it be transmitted securely to an external entity. Note that this SFR is only applicable for software application TOEs that implement logging, because the NDcPP 
+		specifies log data storage requirements itself. This SFR should not be claimed when the NDcPP is the Base-PP.</note>
+		<!-- </f-element>
 		<f-element id="fau-stg-ext-1e2">
 		<title>The TSF shall be able to store generated audit data on the <selectables>
 			<selectable>TOE</selectable>
@@ -2124,20 +2153,14 @@
 			<selectable>drop new audit data</selectable>
 			<selectable>overwrite previous audit records according to the following rule: <assignable>rule for overwriting previous audit records</assignable></selectable>
 			<selectable><assignable>other action</assignable></selectable>
-		</selectables>when the local storage space for audit data is full.</title>
+		</selectables>when the local storage space for audit data is full.</title> -->
 		<aactivity>
 			<TSS>
 			<h:p>The evaluator shall examine the TSS to ensure it describes the means by which the audit data are
 				transferred to the external audit server, and how the trusted channel is provided.</h:p>
-			<h:p>The evaluator shall examine the TSS to ensure it describes the amount of audit data that are stored locally;
-				whether that data is stored by the TOE or through the TOE’s invocation of a platform auditing mechanism;
-				what happens when the local audit data store is full; and how these records are protected against
-				unauthorized access.</h:p>
-			<h:p>The evaluator shall examine the TSS to ensure that it details the behavior of the TOE when the storage
-				space for audit data is full. When the option ‘overwrite previous audit record’ is selected this description
-				should include an outline of the rule for overwriting audit data. If ‘other actions’ are chosen such as
-				sending the new audit data to an external IT entity, then the related behavior of the TOE shall also be
-				detailed in the TSS.</h:p>
+			<h:p>The evaluator shall examine the TSS to ensure it describes the amount of audit data that are stored locally and
+				whether that data is stored by the TOE or through the TOE’s invocation of a platform auditing mechanism.
+			</h:p>	
 			<h:p>The evaluator shall examine the TSS to ensure that it details whether the transmission of audit information
 				to an external IT entity can be done in real-time or periodically. In case the TOE does not perform
 				transmission in real-time the evaluator needs to verify that the TSS provides details about what event
@@ -2154,10 +2177,6 @@
 				example, when an audit event is generated, is it simultaneously sent to the external server and the local
 				store, or is the local store used as a buffer and “cleared” periodically by sending the data to the audit
 				server.</h:p>
-			<h:p>The evaluator shall also ensure that the guidance documentation describes all possible configuration
-				options for FAU_STG_EXT.1.3 and the resulting behavior of the TOE for each possible configuration. The
-				description of possible configuration options and resulting behavior shall correspond to those described
-				in the TSS.</h:p>
 			</Guidance>
 			<Tests>
 			<h:p>Testing of the trusted channel mechanism for audit will be performed as specified in the associated EAs
@@ -2177,30 +2196,62 @@
 						evaluator shall repeat this test as necessary to show that changing the available configuration options will
 						result in the TOE performing the expected behavior in each case.</h:p>
 				</test>
-				<test>
-					<h:p>The evaluator shall perform operations that generate audit data and verify that this data is stored
-					locally. The evaluator shall perform operations that generate audit data until the local storage space is
-					exceeded and verifies that the TOE complies with the behavior defined in FAU_STG_EXT.1.3. Depending
-					on the configuration this means that the evaluator has to check the content of the audit data when the
-					audit data is just filled to the maximum and then verifies that: </h:p>
-					<h:ul><h:li>The audit data remains unchanged with every new auditable event that should be tracked but
-							that the audit data is recorded again after the local storage for audit data is cleared (for the
-							option ‘drop new audit data’ in FAU_STG_EXT.1.3).</h:li>
-						<h:li>The existing audit data is overwritten with every new auditable event that should be tracked
-							according to the specified rule (for the option ‘overwrite previous audit records’ in
-							FAU_STG_EXT.1.3).</h:li>
-						<h:li>The TOE behaves as specified (for the option ‘other action’ in FAU_STG_EXT.1.3).</h:li></h:ul>
-					<h:p>If the behavior of the TOE when the local audit storage space is full is configurable, the evaluator shall
-						repeat this test for each configuration option and observe that the intended result occurs.</h:p>
-					<h:p>If the local storage location of the audit data is configurable, the evaluator shall repeat this test as needed
-						to demonstrate that specifying a new location for storage of audit data results in audit data being stored
-						to the desired location.</h:p>
-				</test>
+				
 			</testlist>
 			</Tests></aactivity>
 			
 			</f-element>
 			<audit-event table="impl-dep"/>
+		</f-component>
+		<f-component cc-id="fau_stg.5" name="Prevention of audit data loss" id="fau-stg-5">
+			<depends on="feat-swapp"/>
+			<f-element>
+				<title>The TSF shall <selectables>
+					<selectable>ignore audited events</selectable>
+					<selectable>overwrite the oldest stored audit records</selectable>
+					<selectable><assignable>other actions to be taken in case of audit storage failure and conditions for the actions</assignable></selectable>
+				</selectables> if the audit data storage is full.</title>
+				<aactivity>
+					<TSS>
+					<h:p>The evaluator shall examine the TSS to ensure it describes what happens when the local audit data store is full; and how these records are protected against
+						unauthorized access.</h:p>
+					<h:p>The evaluator shall examine the TSS to ensure that it details the behavior of the TOE when the storage
+							space for audit data is full. When the option ‘overwrite the oldest stored audit records’ is selected this description
+							should include an outline of the rule for overwriting audit data. If ‘other actions...’ are chosen such as
+							sending the new audit data to an external IT entity, then the related behavior of the TOE shall also be
+							detailed in the TSS.</h:p>
+					</TSS>
+					<Guidance>
+						<h:p>The evaluator shall ensure that the guidance documentation describes all possible configuration
+							options for FAU_STG.5 and the resulting behavior of the TOE for each possible configuration. The
+							description of possible configuration options and resulting behavior shall correspond to those described
+							in the TSS.</h:p>
+					</Guidance>
+					<Tests>
+						<testlist>
+							<test>
+								<h:p>The evaluator shall perform operations that generate audit data and verify that this data is stored
+								locally. The evaluator shall perform operations that generate audit data until the local storage space is
+								exceeded and verifies that the TOE complies with the behavior defined in FAU_STG.5. Depending
+								on the configuration this means that the evaluator has to check the content of the audit data when the
+								audit data is just filled to the maximum and then verifies that: </h:p>
+								<h:ul><h:li>The audit data remains unchanged with every new auditable event that should be tracked but
+										that the audit data is recorded again after the local storage for audit data is cleared (for the
+										option ‘ignore audited events’ in FAU_STG.5).</h:li>
+										<h:li>The oldest audit data is overwritten with every new auditable event that should be tracked
+											according to the specified rule (for the option ‘overwrite the oldest stored audit records’ in
+											FAU_STG.5).</h:li>
+										<h:li>The TOE behaves as specified (for the option ‘other action’ in FAU_STG.5).</h:li></h:ul>
+								<h:p>If the behavior of the TOE when the local audit storage space is full is configurable, the evaluator shall
+									repeat this test for each configuration option and observe that the intended result occurs.</h:p>
+								<h:p>If the local storage location of the audit data is configurable, the evaluator shall repeat this test as needed
+									to demonstrate that specifying a new location for storage of audit data results in audit data being stored
+									to the desired location.</h:p>
+							</test>
+						</testlist>
+					</Tests>
+				</aactivity>
+			</f-element>
 		</f-component>
 		</section>
 	</impl-dep-sfrs>
