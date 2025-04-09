@@ -20,6 +20,10 @@
         <div id="commmentbox-">
             <a href="#Comment-1-">Comment: Comment-1-</a>
             <br>
+            <a href="#Comment-2-">Comment: Comment-2-</a>
+            <br>
+            <a href="#Comment-3-">Comment: Comment-3-</a>
+            <br>
         </div>
         <h1 class="title" style="page-break-before:auto;">PP-Module for VVoIP</h1>
         <h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1>
@@ -801,7 +805,7 @@
                     <a href="#FDP_IFF.1.3" class="abbr">FDP_IFF.1.3</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce [<i>no additional information flow control policy rules</i>].
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce <s>the</s> [<i>no additional information flow control policy rules</i>].
                 </div>
             </div>
             <div class="element">
@@ -878,7 +882,7 @@
                                  The audit-related sections are duplicates of those in the NDcPP&rsquo;s definition of FMT_SMF.1. If the <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> audit functionality is configurable separately from the auditing for the device as a whole, the relevant selections should be made or omitted in each iteration as needed. 
                             </p>
                             <p>
-                                 If "register the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>..." is selected, regardless of <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> selection, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must include the selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> <a href="#FPT_STM_EXT.1/VVOIP">FPT_STM_EXT.1/VVOIP</a>. 
+                                 If "register the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>..." is selected, regardless of <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> selection, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must include the selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> FPT_STM_EXT.1/VVOIP. 
                             </p>
                             <p>
                                  If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims conformance to the NDcPP and &ldquo;register the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>&hellip;&rdquo; is selected, the selection-based NDcPP <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> FCS_NTP_EXT.1 must additionally be claimed since connectivity to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr> implies that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will use it as an <abbr class="dyn-abbr"><a href="#abbr_NTP">NTP</a></abbr> server. In this case, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not need to implement two distinct time services for different purposes. The same time service defined by FPT_STM_EXT.1 may be used here as well. Note however, for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must use ESCs to which it is registered as its <abbr class="dyn-abbr"><a href="#abbr_NTP">NTP</a></abbr> time sources. 
@@ -996,25 +1000,22 @@
                 <tr class="major-row">
                     <td rowspan="18"><a href="#T.MEDIA_DISCLOSURE">T.MEDIA_​DISCLOSURE</a>
                         <br>
-                    </td><td>FCS_COP.1/DataEncryption (refined from NDcPP)</td><td>Mitigates the threat by defining the AES encryption algorithm used to secure <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> communications.</td>
+                    </td><td>FCS_NTP_EXT.1 (from NDcPP)</td><td>Mitigates the threat by defining how accurate system time is maintained, which is used to support certain cryptographic functions.</td>
                 </tr>
                 <tr>
-                    <td>FCS_NTP_EXT.1 (from NDcPP)</td><td>Mitigates the threat by defining how accurate system time is maintained, which is used to support certain cryptographic functions.</td>
+                    <td>FCS_TLSC_EXT.1 (refined from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.0</a>)</td><td>Mitigates the threat by defining the TLS client implementation used to secure call control and streaming media channels used for <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr>.</td>
                 </tr>
                 <tr>
-                    <td>FCS_TLSC_EXT.1 (refined from NDcPP)</td><td>Mitigates the threat by defining the TLS client implementation used to secure call control and streaming media channels used for <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr>.</td>
+                    <td>FCS_TLSC_EXT.2 (refined from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.0</a>)</td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s implementation of mutual authentication for its TLS client</td>
                 </tr>
                 <tr>
-                    <td>FCS_TLSC_EXT.2 (refined from NDcPP)</td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s implementation of mutual authentication for its TLS client</td>
+                    <td>FIA_X509_EXT.1/Rev (refined from <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>)</td><td>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</td>
                 </tr>
                 <tr>
-                    <td>FIA_X509_EXT.1/Rev (refined from NDcPP)</td><td>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</td>
+                    <td>FIA_X509_EXT.2 (refined from <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>)</td><td>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</td>
                 </tr>
                 <tr>
-                    <td>FIA_X509_EXT.2 (refined from NDcPP)</td><td>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</td>
-                </tr>
-                <tr>
-                    <td>FIA_X509_EXT.3 (refined from NDcPP)</td><td>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</td>
+                    <td>FIA_X509_EXT.3 (refined from <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>)</td><td>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</td>
                 </tr>
                 <tr>
                     <td>FTP_ITC.1 (refined from NDcPP)</td><td>Mitigates the threat by defining the trusted communications channel used for <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr></td>
@@ -1026,13 +1027,16 @@
                     <td><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td>Mitigates the threat by defining the use of a fixed-rate vocoder to prevent the exposure of encryption vulnerabilities that are present with variable-rate vocoders.</td>
                 </tr>
                 <tr>
-                    <td>FTP_ITC.1/Control</td><td>Mitigates the threat by defining the application-layer channel used for communications with a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control server.</td>
+                    <td><a href="#FTP_ITC.1/CONTROL">FTP_ITC.1/CONTROL</a></td><td>Mitigates the threat by defining the application-layer channel used for communications with a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control server.</td>
                 </tr>
                 <tr>
-                    <td>FTP_ITC.1/Media</td><td>Mitigates the threat by defining the application-layer channel used for communications of media (voice and video) data.</td>
+                    <td><a href="#FTP_ITC.1/MEDIA">FTP_ITC.1/MEDIA</a></td><td>Mitigates the threat by defining the application-layer channel used for communications of media (voice and video) data.</td>
                 </tr>
                 <tr>
-                    <td>FAU_STG_EXT.1 (optional for software-only <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr>)</td><td>Mitigates the threat by ensuring that audit data is securely transmitted to an external entity.</td>
+                    <td><a href="#FAU_STG.1">FAU_STG.1</a> (optional for software-only <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr>)</td><td>Mitigates the threat by ensuring that audit data is securely transmitted to an external entity.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FAU_STG.5">FAU_STG.5</a> (optional for software-only <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr>)</td><td>Mitigates the threat by defining behavior for response to log space overruns.</td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_COP.1/SRTP">FCS_COP.1/SRTP</a> (selection-based)</td><td>Mitigates the threat by defining the implementation of encryption used for SDES-SRTP, if supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td>
@@ -1047,7 +1051,7 @@
                     <td><a href="#FDP_IFF.1/CALLCONTROL">FDP_IFF.1/CALLCONTROL</a> (selection-based)</td><td>Mitigates the threat by defining the implementation of the call control policy in cases where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can act as a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control server in a peer-to-peer configuration.</td>
                 </tr>
                 <tr>
-                    <td>FPT_STM_EXT.1/<abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> (selection-based)</td><td>Mitigates the threat by defining how the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> obtains system time in certain cases, which is then used as an input to other functions that support this objective.</td>
+                    <td><a href="#FPT_STM_EXT.1/VVoIP">FPT_STM_EXT.1/VVoIP</a> (selection-based)</td><td>Mitigates the threat by defining how the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> obtains system time in certain cases, which is then used as an input to other functions that support this objective.</td>
                 </tr>
                 <tr class="major-row">
                     <td rowspan="9"><a href="#T.UNDETECTED_TRANSMISSION">T.UNDETECTED_​TRANSMISSION</a>
@@ -1058,22 +1062,22 @@
                     <td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td>Mitigates the threat by defining how the media transmission policy is enforced to determine when transmissions should occur.</td>
                 </tr>
                 <tr>
-                    <td>FTA_SSL.3/Media</td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to terminate idle sessions.</td>
+                    <td><a href="#FTA_SSL.3/MEDIA">FTA_SSL.3/MEDIA</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to terminate idle sessions.</td>
                 </tr>
                 <tr>
-                    <td>FAU_GEN.1/CS-Admin (optional)</td><td>Mitigates the threat by optionally allowing a clientserver <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of administrative actions, which could diagnose mis-configuration of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that could lead to unattended transmissions.</td>
+                    <td><a href="#FAU_GEN.1/CSADMIN">FAU_GEN.1/CSADMIN</a> (optional)</td><td>Mitigates the threat by optionally allowing a clientserver <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of administrative actions, which could diagnose mis-configuration of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that could lead to unattended transmissions.</td>
                 </tr>
                 <tr>
-                    <td>FAU_GEN.1/CS-VVoIP (optional)</td><td>Mitigates the threat by optionally allowing a clientserver <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of call data, which could diagnose when unattended transmissions may be occurring.</td>
+                    <td>FAU_GEN.1/CSVVoIP (optional)</td><td>Mitigates the threat by optionally allowing a clientserver <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of call data, which could diagnose when unattended transmissions may be occurring.</td>
                 </tr>
                 <tr>
-                    <td>FAU_GEN.1/<abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr>-Admin (selection-based)</td><td>Mitigates the threat by requiring a peer-to-peer <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of administrative actions, which could diagnose mis-configuration of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that could lead to unattended transmissions.</td>
+                    <td><a href="#FAU_GEN.1/P2PADMIN">FAU_GEN.1/P2PADMIN</a> (selection-based)</td><td>Mitigates the threat by requiring a peer-to-peer <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of administrative actions, which could diagnose mis-configuration of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that could lead to unattended transmissions.</td>
                 </tr>
                 <tr>
                     <td>FAU_GEN.1/P2PVVoIP (selection-based)</td><td>Mitigates the threat by requiring a peer-to-peer <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of call data, which could diagnose when unattended transmissions may be occurring.</td>
                 </tr>
                 <tr>
-                    <td>FPT_STM_EXT.1/<abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> (selection-based)</td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to specify how it obtains system time in certain cases, which is then used as an input to other functions that support this objective.</td>
+                    <td><a href="#FPT_STM_EXT.1/VVoIP">FPT_STM_EXT.1/VVoIP</a> (selection-based)</td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to specify how it obtains system time in certain cases, which is then used as an input to other functions that support this objective.</td>
                 </tr>
                 <tr>
                     <td><a href="#FMT_SMF.1/VVoIP">FMT_SMF.1/VVoIP</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement certain the management functions specific to <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> functionality.</td>
@@ -1131,7 +1135,7 @@
                 <th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
             </tr>
             <tr>
-                <td>FAU_STG_EXT.1</td><td> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to prohibit the selection of any &ldquo;distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rdquo; behavior in FAU_STG_EXT.1.2. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is otherwise unchanged.</td>
+                <td>FAU_STG_EXT.1</td><td> <span style="" class="comment " id="Comment-1-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> will need to be revisited when its upstream definitions are finalized. We assume that this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is going to be be refactored to <a href="#FAU_STG.1">FAU_STG.1</a> in the next release of the NDcPP, but it's unclear in what form the distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> selections will be included.</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to prohibit the selection of any &ldquo;distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rdquo; behavior in FAU_STG_EXT.1.2. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is otherwise unchanged.</td>
             </tr>
             <tr>
                 <td>FCS_NTP_EXT.1</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only modifies the circumstances that trigger its inclusion in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s logical boundary.</td>
@@ -1143,7 +1147,7 @@
                 <td>FCS_TLSC_EXT.2</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must implement a TLS client that enforces mutual authentication.</td>
             </tr>
             <tr>
-                <td>FIA_X509_EXT.1/REV</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because X.509 services are required to support TLS client functionality.</td>
+                <td>FIA_X509_EXT.1/REV</td><td><span style="" class="comment " id="Comment-2-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, as well as FIA_X509_EXT.2 and 3 will need to be revisited once a determination has been made about the relationship between the NDcPP and X.509 package, and how we can model the relationship from the perspective of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> (i.e., any required selections or claims).</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because X.509 services are required to support TLS client functionality.</td>
             </tr>
             <tr>
                 <td>FIA_X509_EXT.2</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because X.509 services are required to support TLS client functionality.</td>
@@ -1206,10 +1210,10 @@
                 <th colspan="2"> Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
             </tr>
             <tr>
-                <td><a href="#FAU_STG.1">FAU_STG.1</a></td><td></td>
+                <td><a href="#FAU_STG.1">FAU_STG.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is implementation-dependent and is explicitly not claimed when the NDcPP is the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. Therefore there is no conflict between this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and the NDcPP.</td>
             </tr>
             <tr>
-                <td><a href="#FAU_STG.5">FAU_STG.5</a></td><td></td>
+                <td><a href="#FAU_STG.5">FAU_STG.5</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is implementation-dependent and is explicitly not claimed when the NDcPP is the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. Therefore there is no conflict between this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and the NDcPP.</td>
             </tr>
             <tr>
                 <th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
@@ -1233,7 +1237,7 @@
                 <td><a href="#FDP_IFF.1/CALLCONTROL">FDP_IFF.1/CALLCONTROL</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control policy. The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>&rsquo;s implementation of this protocol does not prevent the enforcement of any NDcPP <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</td>
             </tr>
             <tr>
-                <td><a href="#FPT_STM_EXT.1/VVOIP">FPT_STM_EXT.1/VVOIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s reliance on ESCs to act as its <abbr class="dyn-abbr"><a href="#abbr_NTP">NTP</a></abbr> servers in deployments where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is registered to them. It is duplicative of the FPT_STM_EXT.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but is refined to identify the use of the <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr> as a specific <abbr class="dyn-abbr"><a href="#abbr_NTP">NTP</a></abbr> server, which is a restriction not present in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td>
+                <td><a href="#FPT_STM_EXT.1/VVoIP">FPT_STM_EXT.1/VVoIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s reliance on ESCs to act as its <abbr class="dyn-abbr"><a href="#abbr_NTP">NTP</a></abbr> servers in deployments where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is registered to them. It is duplicative of the FPT_STM_EXT.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but is refined to identify the use of the <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr> as a specific <abbr class="dyn-abbr"><a href="#abbr_NTP">NTP</a></abbr> server, which is a restriction not present in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td>
             </tr>
         </table>
         <h2 id="conrat-APP" class="indexable" data-level="2">6.2 Protection Profile for Application Software</h2>
@@ -1269,7 +1273,7 @@
                     <th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objective</th><th>Consistency Rationale</th>
                 </tr>
                 <tr>
-                    <td><a href="#OE.UPDATE_SOURCE">OE.UPDATE_SOURCE</a></td><td> <span style="" class="comment " id="Comment-1-">This rationale could be interpreted as vague or conflicting with FPT_TUD_EXT.2, as applications that are not packaged with the OS do have format requirements. There is no defined requirement for update location, since there may be an alternate use case where "the place you get the app from" is different from "the mobile device vendor's app store" because an MDM might have a separate mobile app server that devices enrolled in the MDM must use. Is this still an anticipated use case? If so, the objective may need to be reworded in terms of a generic "trusted source" to make clear that this module is not conflicting with FPT_TUD_EXT.2's requirements.</span> The App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to be able to apply software/firmware updates but does not define any specific way that these updates need to be made available. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines an objective that allows for an assumption that <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> updates will be made available in a specific location. <a href="#A.UPDATE_SOURCE">A.UPDATE_SOURCE</a> is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives for the same reason. </td>
+                    <td><a href="#OE.UPDATE_SOURCE">OE.UPDATE_SOURCE</a></td><td> <span style="" class="comment " id="Comment-3-">This rationale could be interpreted as vague or conflicting with FPT_TUD_EXT.2, as applications that are not packaged with the OS do have format requirements. There is no defined requirement for update location, since there may be an alternate use case where "the place you get the app from" is different from "the mobile device vendor's app store" because an MDM might have a separate mobile app server that devices enrolled in the MDM must use. Is this still an anticipated use case? If so, the objective may need to be reworded in terms of a generic "trusted source" to make clear that this module is not conflicting with FPT_TUD_EXT.2's requirements.</span> The App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to be able to apply software/firmware updates but does not define any specific way that these updates need to be made available. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines an objective that allows for an assumption that <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> updates will be made available in a specific location. <a href="#A.UPDATE_SOURCE">A.UPDATE_SOURCE</a> is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives for the same reason. </td>
                 </tr>
             </table>
         </p>
@@ -1340,10 +1344,10 @@
                 <th colspan="2"> Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
             </tr>
             <tr>
-                <td><a href="#FAU_STG.1">FAU_STG.1</a></td><td></td>
+                <td><a href="#FAU_STG.1">FAU_STG.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to protect, store, and transmit audit data to a remote server using a secure channel. The App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not define its own requirements for auditing but it does not prohibit audit functionality, so this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>&rsquo;s inclusion of an audit function does not conflict with the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.</td>
             </tr>
             <tr>
-                <td><a href="#FAU_STG.5">FAU_STG.5</a></td><td></td>
+                <td><a href="#FAU_STG.5">FAU_STG.5</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to handle log space overruns in a defined manner. The App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not define its own requirements for auditing but it does not prohibit audit functionality, so this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>&rsquo;s inclusion of an audit function does not conflict with the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.</td>
             </tr>
             <tr>
                 <th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
@@ -1367,7 +1371,7 @@
                 <td><a href="#FDP_IFF.1/CALLCONTROL">FDP_IFF.1/CALLCONTROL</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control policy. The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>&rsquo;s implementation of this protocol does not prevent the enforcement of any App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</td>
             </tr>
             <tr>
-                <td><a href="#FPT_STM_EXT.1/VVOIP">FPT_STM_EXT.1/VVOIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s reliance on ESCs to act as its <abbr class="dyn-abbr"><a href="#abbr_NTP">NTP</a></abbr> servers in deployments where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is registered to them. The App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not define a specific method for how a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to receive time data so there is no contradiction here. </td>
+                <td><a href="#FPT_STM_EXT.1/VVoIP">FPT_STM_EXT.1/VVoIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s reliance on ESCs to act as its <abbr class="dyn-abbr"><a href="#abbr_NTP">NTP</a></abbr> servers in deployments where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is registered to them. The App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not define a specific method for how a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to receive time data so there is no contradiction here. </td>
             </tr>
         </table>
         <h1 id="opt-sfrs" class="indexable" data-level="A">Appendix A - Optional SFRs</h1>
@@ -1408,10 +1412,10 @@
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">
                             <p>
-                                This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the same auditable events as FAU_GEN.1/<abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr>-Admin in Appendix B below. It is defined as a separate iteration because when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed in a client-server architecture, the Enterprise Session Controller is expected to be responsible for the relevant auditing, so this capability is optional when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not peer-to-peer. 
+                                This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the same auditable events as <a href="#FAU_GEN.1/P2PADMIN">FAU_GEN.1/P2PADMIN</a> in Appendix B below. It is defined as a separate iteration because when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed in a client-server architecture, the Enterprise Session Controller is expected to be responsible for the relevant auditing, so this capability is optional when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not peer-to-peer. 
                             </p>
                             <p>
-                                If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> FAU_STG_EXT.1 must also be claimed. This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines <span class="no-link">FAU_STG_EXT.1</span> as a mandatory requirement.
+                                If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> <a href="#FAU_STG.1">FAU_STG.1</a> and <a href="#FAU_STG.5">FAU_STG.5</a> must also be claimed. This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines <span class="no-link">FAU_STG.1</span> as a mandatory requirement.
                             </p>
                         </span>
                     </div>
@@ -1471,7 +1475,7 @@
                                 This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the same auditable events as FAU_GEN.1/<abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr>-VVoIP in Appendix B below. It is defined as a separate iteration because when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed in a client-server architecture, the Enterprise Session Controller is expected to be responsible for the relevant auditing, so this capability is optional when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not peer-to-peer.
                             </p>
                             <p>
-                                If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> FAU_STG_EXT.1 must also be claimed. This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines FAU_STG_EXT.1 as a mandatory requirement.
+                                If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> <a href="#FAU_STG.1">FAU_STG.1</a> and <a href="#FAU_STG.5">FAU_STG.5</a> must also be claimed. This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines <a href="#FAU_STG.1">FAU_STG.1</a> as a mandatory requirement.
                             </p>
                         </span>
                     </div>
@@ -1524,6 +1528,9 @@
                 </div>
                 <div class="reqdesc">
                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_76">ignore audited events</span>, <span class="selectable-content" id="_s_77">overwrite the oldest stored audit records</span>, <span class="selectable-content" id="_s_78">[<b>assignment</b>: <span class="assignable-content">other actions to be taken in case of audit storage failure and conditions for the actions</span>]</span>] if the audit data storage is full.
+                    <div class="appnote">
+                        <span class="note-header">Application Note: </span><span class="note">Note that this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is only applicable for software application <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> that implement logging, because the NDcPP specifies log data storage requirements itself. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should not be claimed when the NDcPP is the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1581,7 +1588,7 @@
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a hardware device and claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, this is inherently satisfied through FAU_GEN.1 as defined by the NDcPP. Any other relevant auditable events for the functionality described in the NDcPP is defined there (the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not include any auditing requirements). 
                             <p></p>
-                             If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> FAU_STG_EXT.1 must also be claimed. This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines FAU_STG_EXT.1 as a mandatory requirement. </span>
+                             If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> <a href="#FAU_STG.1">FAU_STG.1</a> and <a href="#FAU_STG.5">FAU_STG.5</a> must also be claimed. This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines <span class="no-link">FAU_STG.1</span> as a mandatory requirement. </span>
                     </div>
                 </div>
             </div>
@@ -1623,7 +1630,7 @@
                         </li>
                     </ol>
                     <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> FAU_STG_EXT.1 must also be claimed. This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines FAU_STG_EXT.1 as a mandatory requirement. </span>
+                        <span class="note-header">Application Note: </span><span class="note"> If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> and conforms to the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> <a href="#FAU_STG.1">FAU_STG.1</a> and <a href="#FAU_STG.5">FAU_STG.5</a> must also be claimed. This does not need to be claimed when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> conforms to the NDcPP because that <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> already defines <span class="no-link">FAU_STG.1</span> as a mandatory requirement. </span>
                     </div>
                 </div>
             </div>
@@ -1639,7 +1646,7 @@
                     <a href="#FCS_COP.1.1/SRTP" class="abbr">FCS_COP.1.1/SRTP</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>encryption/decryption to support SDES-SRTP</i>] in accordance with a specified cryptographic algorithm [<i>AES-GCM (as defined NIST SP 800-38D)</i>] and cryptographic key sizes [<i>256-bit</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>encryption/decryption to support SDES-SRTP</i>] in accordance with a specified cryptographic algorithm [<i>AES-GCM</i>] and cryptographic key sizes [<i>256-bit</i>] that meet the following: [<i>NIST SP 800-38D</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> The NDcPP and App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> each define their own iteration of FCS_COP.1 for AES encryption and decryption (FCS_COP.1/DataEncryption and FCS_COP.1/SKC, respectively). The encryption and decryption used specifically for <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> has been broken out into a separate iteration for readability purposes; the same cryptographic library that implements the AES algorithms claimed in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements can be used here. Note that GCM is a supported AES mode both in this iteration and in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr>.</span>
                     </div>
@@ -1758,25 +1765,25 @@
             </div>
         </div>
         <h2 id="fpt-sel_based" class="indexable" data-level="2">B.4 Protection of the TSF (FPT)</h2>
-        <div class="comp" id="FPT_STM_EXT.1/VVOIP">
-            <h4>FPT_STM_EXT.1/VVOIP Reliable Time Stamps (VVoIP Communications)</h4>
+        <div class="comp" id="FPT_STM_EXT.1/VVoIP">
+            <h4>FPT_STM_EXT.1/VVoIP Reliable Time Stamps (VVoIP Communications)</h4>
             <div class="statustag">
                 <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FMT_SMF.1.1/VVoIP">FMT_SMF.1.1/VVoIP</a>. </i></b>
             </div>
             <div class="element">
-                <div class="reqid" id="FPT_STM_EXT.1.1/VVOIP">
-                    <a href="#FPT_STM_EXT.1.1/VVOIP" class="abbr">FPT_STM_EXT.1.1/VVOIP</a>
+                <div class="reqid" id="FPT_STM_EXT.1.1/VVoIP">
+                    <a href="#FPT_STM_EXT.1.1/VVoIP" class="abbr">FPT_STM_EXT.1.1/VVoIP</a>
                 </div>
                 <div class="reqdesc">
                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to provide reliable time stamps for its own use.
                 </div>
             </div>
             <div class="element">
-                <div class="reqid" id="FPT_STM_EXT.1.2/VVOIP">
-                    <a href="#FPT_STM_EXT.1.2/VVOIP" class="abbr">FPT_STM_EXT.1.2/VVOIP</a>
+                <div class="reqid" id="FPT_STM_EXT.1.2/VVoIP">
+                    <a href="#FPT_STM_EXT.1.2/VVoIP" class="abbr">FPT_STM_EXT.1.2/VVoIP</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>synchronize time with <b>[<b>selection</b>: <span class="selectable-content" id="_s_70">an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr></span>, <span class="selectable-content" id="_s_71">the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>]</b></i>].
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>synchronize time with <b>[<b>selection</b>: <span class="selectable-content" id="sel_esc_sync">an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr></span>, <span class="selectable-content" id="_s_71">the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>]</b></i>].
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">The selection made for this requirement depends on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> type. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a hardware device, "an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>" must be selected. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a software application, "the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform" must be selected. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a software <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> application, <a href="#FMT_SMF.1.1/VVoIP">FMT_SMF.1.1/VVoIP</a> is not required as the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> relies upon the platform for time.</span>
                     </div>
@@ -1958,7 +1965,7 @@
                         The iterations of FAU_GEN.1.2 explicitly requires that the software application <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> associate timestamps with audit records; therefore it is duplicative to include a separate timestamp requirement. Additionally, the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> has an assumption of relying upon a trustworthy computing platform with a reliable time clock for its execution, so the dependency is also met through the assumption.
                     </p>
                     <p>
-                        Alternatively, if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is registered to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>, the selectionbased requirement FPT_STM_EXT.1/<abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> must be claimed, which is sufficient to address the dependency as the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will receive time data from the operational environment that is assumed to be reliable.
+                        Alternatively, if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is registered to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>, the selectionbased requirement <a href="#FPT_STM_EXT.1/VVoIP">FPT_STM_EXT.1/VVoIP</a> must be claimed, which is sufficient to address the dependency as the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will receive time data from the operational environment that is assumed to be reliable.
                     </p>
                     <p>
                         If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims conformance to the NDcPP, the dependency is also explicitly met through FPT_STM_EXT.1, regardless of whether the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed in a client-server configuration (with registration to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>) or peer-to-peer configuration (with no <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr> involved).
