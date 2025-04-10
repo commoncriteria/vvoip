@@ -9,7 +9,6 @@ output/vvoip-release-linkable.html: FIA
 output/vvoip-release-linkable.html: MDM
 output/vvoip-release-linkable.html: MSA
 output/vvoip-release-linkable.html: P2PVVoIP
-output/vvoip-release-linkable.html: PPModule
 output/vvoip-release-linkable.html: RTP
 output/vvoip-release-linkable.html: SDES
 output/vvoip-release-linkable.html: SKC
@@ -38,7 +37,6 @@ output/vvoip-release.html: MDM
 output/vvoip-release.html: MSA
 output/vvoip-release.html: NDcPP’s
 output/vvoip-release.html: P2PVVoIP
-output/vvoip-release.html: PPModule
 output/vvoip-release.html: RTP
 output/vvoip-release.html: SDES
 output/vvoip-release.html: SKC
@@ -87,7 +85,6 @@ output/vvoip.html: MDM
 output/vvoip.html: MSA
 output/vvoip.html: NDcPP’s
 output/vvoip.html: P2PVVoIP
-output/vvoip.html: PPModule
 output/vvoip.html: RTP
 output/vvoip.html: SDES
 output/vvoip.html: SKC
