@@ -400,8 +400,9 @@
       <threats>
         <threat name="T.MEDIA_DISCLOSURE" id="t-media-disclosure">
           <description> An attacker can use the encrypted variable rate vocoder frames to their advantage to decode
-			transmitted data.</description>
+			transmitted data. An attacker can also use improperly protected data to discern sensitive information.</description>
 
+			<addressed-by>FAU_STG_EXT.1 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by ensuring that audit data is securely stored locally and transmitted to an external entity.</rationale>
 			<addressed-by>FCS_NTP_EXT.1 (from NDcPP)</addressed-by><rationale>Mitigates the threat by defining how accurate system time is maintained, which is used to support certain cryptographic functions.</rationale>
 			<addressed-by>FCS_TLSC_EXT.1 (refined from <xref to="pkgTLS"/>)</addressed-by><rationale>Mitigates the threat by defining the TLS client implementation used to secure call control and streaming media channels used for VVoIP.</rationale>
 			<addressed-by>FCS_TLSC_EXT.2 (refined from <xref to="pkgTLS"/>)</addressed-by><rationale>Mitigates the threat by defining the TOE’s implementation of mutual authentication for its TLS client</rationale>
@@ -411,6 +412,7 @@
 			<addressed-by>FTP_ITC.1 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the trusted communications channel used for VVoIP</rationale>
 			<addressed-by>FTP_DIT_EXT.1 (refined from App PP)</addressed-by><rationale>Mitigates the threat by defining the trusted communications channel used for VVoIP.</rationale>
 			<addressed-by>FCO_VOC_EXT.1</addressed-by><rationale>Mitigates the threat by defining the use of a fixed-rate vocoder to prevent the exposure of encryption vulnerabilities that are present with variable-rate vocoders.</rationale>
+			<addressed-by>FPT_TUD_EXT.1 (refined from NDcPP and App PP)</addressed-by><rationale>Mitigates the threat by ensuring the cryptographic functions or other TSF can be updated to remain secure.</rationale>
 			<addressed-by>FTP_ITC.1/CONTROL</addressed-by><rationale>Mitigates the threat by defining the application-layer channel used for communications with a VVoIP call control server.</rationale>
 			<addressed-by>FTP_ITC.1/MEDIA</addressed-by><rationale>Mitigates the threat by defining the application-layer channel used for communications of media (voice and video) data.</rationale>
 			<addressed-by>FAU_STG.1 (optional for software-only TOEs)</addressed-by><rationale>Mitigates the threat by ensuring that audit data is securely transmitted to an external entity.</rationale>

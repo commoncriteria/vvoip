@@ -374,7 +374,7 @@
         <dl>
             <dt class="threat defined" id="T.MEDIA_DISCLOSURE">T.MEDIA_DISCLOSURE</dt>
             <dd>
-                <span class="description"> An attacker can use the encrypted variable rate vocoder frames to their advantage to decode transmitted data.</span>
+                <span class="description"> An attacker can use the encrypted variable rate vocoder frames to their advantage to decode transmitted data. An attacker can also use improperly protected data to discern sensitive information.</span>
             </dd>
             <dt class="threat defined" id="T.UNDETECTED_TRANSMISSION">T.UNDETECTED_TRANSMISSION</dt>
             <dd>
@@ -998,9 +998,12 @@
                     <th>Threat</th><th>Addressed by</th><th>Rationale</th>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="18"><a href="#T.MEDIA_DISCLOSURE">T.MEDIA_​DISCLOSURE</a>
+                    <td rowspan="20"><a href="#T.MEDIA_DISCLOSURE">T.MEDIA_​DISCLOSURE</a>
                         <br>
-                    </td><td>FCS_NTP_EXT.1 (from NDcPP)</td><td>Mitigates the threat by defining how accurate system time is maintained, which is used to support certain cryptographic functions.</td>
+                    </td><td>FAU_STG_EXT.1 (refined from NDcPP)</td><td>Mitigates the threat by ensuring that audit data is securely stored locally and transmitted to an external entity.</td>
+                </tr>
+                <tr>
+                    <td>FCS_NTP_EXT.1 (from NDcPP)</td><td>Mitigates the threat by defining how accurate system time is maintained, which is used to support certain cryptographic functions.</td>
                 </tr>
                 <tr>
                     <td>FCS_TLSC_EXT.1 (refined from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.0</a>)</td><td>Mitigates the threat by defining the TLS client implementation used to secure call control and streaming media channels used for <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr>.</td>
@@ -1025,6 +1028,9 @@
                 </tr>
                 <tr>
                     <td><a href="#FCO_VOC_EXT.1">FCO_VOC_EXT.1</a></td><td>Mitigates the threat by defining the use of a fixed-rate vocoder to prevent the exposure of encryption vulnerabilities that are present with variable-rate vocoders.</td>
+                </tr>
+                <tr>
+                    <td>FPT_TUD_EXT.1 (refined from NDcPP and App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>)</td><td>Mitigates the threat by ensuring the cryptographic functions or other <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> can be updated to remain secure.</td>
                 </tr>
                 <tr>
                     <td><a href="#FTP_ITC.1/CONTROL">FTP_ITC.1/CONTROL</a></td><td>Mitigates the threat by defining the application-layer channel used for communications with a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control server.</td>
