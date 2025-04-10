@@ -445,8 +445,8 @@
 		  	<addressed-by>FDP_IFC.1</addressed-by><rationale>Mitigates the threat by defining the existence of a media transmission policy.</rationale>
 			<addressed-by>FDP_IFF.1</addressed-by><rationale>Mitigates the threat by defining how the media transmission policy is enforced to determine when transmissions should occur.</rationale>
 			<addressed-by>FTA_SSL.3/MEDIA</addressed-by><rationale>Mitigates the threat by requiring the TSF to terminate idle sessions.</rationale>
-			<addressed-by>FAU_GEN.1/CSADMIN (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a clientserver TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
-			<addressed-by>FAU_GEN.1/CSVVoIP (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a clientserver TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be occurring.</rationale>
+			<addressed-by>FAU_GEN.1/CSADMIN (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a client-server TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
+			<addressed-by>FAU_GEN.1/CSVVoIP (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a client-server TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be occurring.</rationale>
 			<addressed-by>FAU_GEN.1/P2PADMIN (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
 			<addressed-by>FAU_GEN.1/P2PVVoIP (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be
 			occurring.</rationale>
@@ -555,7 +555,7 @@
 				<no-change/>
 			</base-sfr-spec>
 		</section>
-		<section title="Crytographic Support (FCS)" id="nd-mod-fcs">
+		<section title="Cryptographic Support (FCS)" id="nd-mod-fcs">
 			<base-sfr-spec cc-id="fcs_ntp_ext.1" title="NTP Protocol" id="nd-mod-fcs-ntp-ext-1"> 
 				<consistency-rationale>This PP-Module does not modify this SFR; it only modifies the circumstances
 				that trigger its inclusion in the TOE’s logical boundary.</consistency-rationale>
@@ -760,7 +760,7 @@
 			adds an iteration of FAU_GEN.1 for the auditable events that relate
 			specifically to VVoIP endpoint behavior that must apply for peer-to-peer
 			TOEs.</con-mod>
-    	<con-mod ref="fcs-cop-1-srtp">TThis SFR defines the AES functionality used to support SRTP. This does not
+    	<con-mod ref="fcs-cop-1-srtp">This SFR defines the AES functionality used to support SRTP. This does not
 			conflict with the NDcPP because the TOE can still use
 			FCS_COP.1/DataEncryption to make claims related to all other uses of AES.</con-mod>
     	<con-mod ref="fcs-srtp-ext-1">This SFR defines support for the SRTP protocol, which is specific to VVoIP
@@ -1333,7 +1333,7 @@
 					</h:p>
 					<h:p>
 					If "register the TOE to an ESC..." is selected, regardless of Base-PP selection, the ST 
-					must include the selection-based SFR FPT_STM_EXT.1/VVOIP.
+					must include the selection-based SFR FPT_STM_EXT.1/VVoIP.
 					</h:p>
 					<h:p>
 					If the TOE claims conformance to the NDcPP and “register the TOE to an ESC…” is
@@ -1414,7 +1414,7 @@
 				<note role="application">
 				This SFR is intended to mitigate the potential unauthorized disclosure of media
 				data in the case where connectivity with the peer is lost. The ST author should
-				choose one or both selections if applicable. Note that if “an administratorconfigurable interval” is selected, the ST author must select “configure the
+				choose one or both selections if applicable. Note that if “an administrator-configurable interval” is selected, the ST author must select “configure the
 				termination period for idle calls” in FMT_SMF.1.1/VVoIP. 
 				</note>
 	          
@@ -2130,12 +2130,11 @@
 						</TSS>
 						<Guidance>The evaluator shall review the guidance to confirm that it provides instructions for how to synchronize the time. If <xref to="sel_esc_sync"/> is selected in FPT_STM_EXT.1.1, 
 						this should include instructions on how to enable NTP synchronization with an ESC.</Guidance>
-						<Tests>
-							<h:div>
-							<depends on="sel_esc_sync"/>
-							The evaluator shall use the guidance documentation to configure the NTP client on the TOE and set up a
-							communication path with the ESC. The evaluator will observe that the ESC has set the time to what is
-							expected.</h:div></Tests>
+						<Tests>(Conditional - "an ESC" is selected in FPT_STM_EXT.1.2/VVoIP)
+							<h:p>The evaluator shall use the guidance documentation to configure the NTP client on the TOE and set up a
+								communication path with the ESC. The evaluator will observe that the ESC has set the time to what is
+								expected.</h:p>
+							</Tests>
 					</aactivity>
 				</f-element>
 				<audit-event/>
@@ -2336,7 +2335,7 @@
 				<h:td>
 					<h:p>This SFR defines the TOE security attributes that can be
 					managed and what management role can administer them.
-					Specifically, this is indirectly dependent on FDP_IFF.1. The PPModule defines two iterations of FDP_IFF.1. Each of these
+					Specifically, this is indirectly dependent on FDP_IFF.1. The PP-Module defines two iterations of FDP_IFF.1. Each of these
 					iterations define explicit rules that determine when the TSF
 					transmits call control and media data.</h:p>
 					<h:p>The relevant attributes are either directly under the control of
@@ -2401,7 +2400,7 @@
 					assumption of relying upon a trustworthy computing platform
 					with a reliable time clock for its execution, so the dependency is
 					also met through the assumption.</h:p>
-					<h:p>Alternatively, if the TOE is registered to an ESC, the selectionbased requirement FPT_STM_EXT.1/VVoIP must be claimed,
+					<h:p>Alternatively, if the TOE is registered to an ESC, the selection-based requirement FPT_STM_EXT.1/VVoIP must be claimed,
 					which is sufficient to address the dependency as the TSF will
 					receive time data from the operational environment that is
 					assumed to be reliable.</h:p>
