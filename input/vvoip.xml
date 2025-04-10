@@ -96,8 +96,8 @@
     <!-- 1.1 Overview --> <!-- change -->
     <sec:Overview>
       The scope of this PP-Module is to describe the security functionality of a Voice/Video over IP (VVoIP)
-      endpoint in terms of <xref g="CC"/> and to define functional and assurance requirements for such products. This PPModule is intended for use with the following Base-PPs:
-      
+      endpoint in terms of <xref g="CC"/> and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PPs:
+      f
       <h:ul>
         <h:li>Protection Profile for Application Software, Version 1.4 (App PP)</h:li>
         <h:li>collaborative Protection Profile for Network Devices, Version 3.0e (NDcPP)</h:li>
