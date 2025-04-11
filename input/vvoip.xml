@@ -96,8 +96,8 @@
     <!-- 1.1 Overview --> <!-- change -->
     <sec:Overview>
       The scope of this PP-Module is to describe the security functionality of a Voice/Video over IP (VVoIP)
-      endpoint in terms of <xref g="CC"/> and to define functional and assurance requirements for such products. This PPModule is intended for use with the following Base-PPs:
-      
+      endpoint in terms of <xref g="CC"/> and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PPs:
+      f
       <h:ul>
         <h:li>Protection Profile for Application Software, Version 1.4 (App PP)</h:li>
         <h:li>collaborative Protection Profile for Network Devices, Version 3.0e (NDcPP)</h:li>
@@ -411,21 +411,23 @@
       <threats>
         <threat name="T.MEDIA_DISCLOSURE" id="t-media-disclosure">
           <description> An attacker can use the encrypted variable rate vocoder frames to their advantage to decode
-			transmitted data.</description>
+			transmitted data. An attacker can also use improperly protected data to discern sensitive information.</description>
 
-			<addressed-by>FCS_COP.1/DataEncryption (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the AES encryption algorithm used to secure VVoIP communications.</rationale>
+			<addressed-by>FAU_STG_EXT.1 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by ensuring that audit data is securely stored locally and transmitted to an external entity.</rationale>
 			<addressed-by>FCS_NTP_EXT.1 (from NDcPP)</addressed-by><rationale>Mitigates the threat by defining how accurate system time is maintained, which is used to support certain cryptographic functions.</rationale>
-			<addressed-by>FCS_TLSC_EXT.1 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the TLS client implementation used to secure call control and streaming media channels used for VVoIP.</rationale>
-			<addressed-by>FCS_TLSC_EXT.2 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the TOE’s implementation of mutual authentication for its TLS client</rationale>
-			<addressed-by>FIA_X509_EXT.1/Rev (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
-			<addressed-by>FIA_X509_EXT.2 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
-			<addressed-by>FIA_X509_EXT.3 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
+			<addressed-by>FCS_TLSC_EXT.1 (refined from <xref to="pkgTLS"/>)</addressed-by><rationale>Mitigates the threat by defining the TLS client implementation used to secure call control and streaming media channels used for VVoIP.</rationale>
+			<addressed-by>FCS_TLSC_EXT.2 (refined from <xref to="pkgTLS"/>)</addressed-by><rationale>Mitigates the threat by defining the TOE’s implementation of mutual authentication for its TLS client</rationale>
+			<addressed-by>FIA_X509_EXT.1/Rev (refined from <xref to="pkgX509"/>)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
+			<addressed-by>FIA_X509_EXT.2 (refined from <xref to="pkgX509"/>)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
+			<addressed-by>FIA_X509_EXT.3 (refined from <xref to="pkgX509"/>)</addressed-by><rationale>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</rationale>
 			<addressed-by>FTP_ITC.1 (refined from NDcPP)</addressed-by><rationale>Mitigates the threat by defining the trusted communications channel used for VVoIP</rationale>
 			<addressed-by>FTP_DIT_EXT.1 (refined from App PP)</addressed-by><rationale>Mitigates the threat by defining the trusted communications channel used for VVoIP.</rationale>
 			<addressed-by>FCO_VOC_EXT.1</addressed-by><rationale>Mitigates the threat by defining the use of a fixed-rate vocoder to prevent the exposure of encryption vulnerabilities that are present with variable-rate vocoders.</rationale>
-			<addressed-by>FTP_ITC.1/Control</addressed-by><rationale>Mitigates the threat by defining the application-layer channel used for communications with a VVoIP call control server.</rationale>
-			<addressed-by>FTP_ITC.1/Media</addressed-by><rationale>Mitigates the threat by defining the application-layer channel used for communications of media (voice and video) data.</rationale>
-			<addressed-by>FAU_STG_EXT.1 (optional for software-only TOEs)</addressed-by><rationale>Mitigates the threat by ensuring that audit data is securely transmitted to an external entity.</rationale>
+			<addressed-by>FPT_TUD_EXT.1 (refined from NDcPP and App PP)</addressed-by><rationale>Mitigates the threat by ensuring the cryptographic functions or other TSF can be updated to remain secure.</rationale>
+			<addressed-by>FTP_ITC.1/CONTROL</addressed-by><rationale>Mitigates the threat by defining the application-layer channel used for communications with a VVoIP call control server.</rationale>
+			<addressed-by>FTP_ITC.1/MEDIA</addressed-by><rationale>Mitigates the threat by defining the application-layer channel used for communications of media (voice and video) data.</rationale>
+			<addressed-by>FAU_STG.1 (optional for software-only TOEs)</addressed-by><rationale>Mitigates the threat by ensuring that audit data is securely transmitted to an external entity.</rationale>
+			<addressed-by>FAU_STG.5 (optional for software-only TOEs)</addressed-by><rationale>Mitigates the threat by defining behavior for response to log space overruns.</rationale>
 			<addressed-by>FCS_COP.1/SRTP (selection-based)</addressed-by><rationale>Mitigates the threat by defining the implementation of encryption used for SDES-SRTP, if supported by the TOE.</rationale>
 			<addressed-by>FCS_SRTP_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by defining the implementation of the SRTP protocol, if supported by the TOE.</rationale>
 			<addressed-by>FDP_IFC.1/CALLCONTROL (selection-based)</addressed-by><rationale>Mitigates the threat by defining a policy for protection of call control information in cases where the TOE can act as a VVoIP call control server in a peer-to-peer configuration.</rationale>
@@ -442,10 +444,10 @@
         	
 		  	<addressed-by>FDP_IFC.1</addressed-by><rationale>Mitigates the threat by defining the existence of a media transmission policy.</rationale>
 			<addressed-by>FDP_IFF.1</addressed-by><rationale>Mitigates the threat by defining how the media transmission policy is enforced to determine when transmissions should occur.</rationale>
-			<addressed-by>FTA_SSL.3/Media</addressed-by><rationale>Mitigates the threat by requiring the TSF to terminate idle sessions.</rationale>
-			<addressed-by>FAU_GEN.1/CS-Admin (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a clientserver TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
-			<addressed-by>FAU_GEN.1/CS-VVoIP (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a clientserver TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be occurring.</rationale>
-			<addressed-by>FAU_GEN.1/P2P-Admin (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
+			<addressed-by>FTA_SSL.3/MEDIA</addressed-by><rationale>Mitigates the threat by requiring the TSF to terminate idle sessions.</rationale>
+			<addressed-by>FAU_GEN.1/CSADMIN (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a client-server TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
+			<addressed-by>FAU_GEN.1/CSVVoIP (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a client-server TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be occurring.</rationale>
+			<addressed-by>FAU_GEN.1/P2PADMIN (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
 			<addressed-by>FAU_GEN.1/P2PVVoIP (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be
 			occurring.</rationale>
 			<addressed-by>FPT_STM_EXT.1/VVoIP (selection-based)</addressed-by><rationale>Mitigates the threat by requiring the TSF to specify how it obtains system time in certain cases, which is then used as an input to other functions that support this objective.</rationale>
@@ -534,6 +536,7 @@
 	  	<section title="Security Audit (FAU)" id="nd-mod-fau">
 			<base-sfr-spec cc-id="fau_stg_ext.1" title="Protected Audit Event Storage" id="nd-mod-fau-stg-ext-1">
 				<consistency-rationale>
+				<comment>This SFR will need to be revisited when its upstream definitions are finalized. We assume that this SFR is going to be be refactored to FAU_STG.1 in the next release of the NDcPP, but it's unclear in what form the distributed TOE selections will be included.</comment>
 				This PP-Module modifies this SFR to prohibit the selection of any
 				“distributed TOE” behavior in FAU_STG_EXT.1.2. The SFR is otherwise
 				unchanged.</consistency-rationale>
@@ -552,14 +555,14 @@
 				<no-change/>
 			</base-sfr-spec>
 		</section>
-		<section title="Crytographic Support (FCS)" id="nd-mod-fcs">
+		<section title="Cryptographic Support (FCS)" id="nd-mod-fcs">
 			<base-sfr-spec cc-id="fcs_ntp_ext.1" title="NTP Protocol" id="nd-mod-fcs-ntp-ext-1"> 
 				<consistency-rationale>This PP-Module does not modify this SFR; it only modifies the circumstances
 				that trigger its inclusion in the TOE’s logical boundary.</consistency-rationale>
 				<description>
 					<h:p>This SFR is selection-based in the NDcPP and remains selection-based in this PP-Module. However, an
 					additional trigger for this SFR’s inclusion is added for the selection of “register the TOE to an ESC…” in
-					FMT_SMF.1/VVoIP. This is because any VVoIP TOE that can be registered to ESCs is required to use them
+					FMT_SMF.1/VVoIP if the TOE is a hardware device. This is because any hardware-based VVoIP TOE that can be registered to ESCs is required to use them
 					as NTP servers.</h:p>
 					<h:p>If the TOE is not registered to an ESC, it is not relevant to this PP-Module whether or not NTP is
 					implemented, and in this case this SFR remains selection-based on FPT_STM_EXT.1.2, which is not
@@ -590,7 +593,8 @@
 		</section>
 		<section title="Identification and Authorization (FIA)" id="nd-mod-fia">
 			<base-sfr-spec cc-id="fia_x509_ext.1" iteration="Rev" title="X.509 Certificate Validation" id="nd-mod-fia-x509-ext-1">
-				<consistency-rationale>This PP-Module does not modify this SFR; it only forces its inclusion because
+				<consistency-rationale><comment>This SFR, as well as FIA_X509_EXT.2 and 3 will need to be revisited once a determination has been made about the relationship between the NDcPP and X.509 package, and how we can model the relationship from the perspective of this PP-Module (i.e., any required selections or claims).</comment>
+				This PP-Module does not modify this SFR; it only forces its inclusion because
 				X.509 services are required to support TLS client functionality.</consistency-rationale>
 				<description>This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</h:a> 
 				but is mandated by this PP-Module because it is a dependency
@@ -619,10 +623,19 @@
 				<consistency-rationale>This PP-Module does not modify this SFR; it only specifies that the source of
 				TOE software/firmware updates must be a specific type of server.
 				</consistency-rationale>
-				<description>This PP-Module does not modify this SFR as it is defined in the NDcPP. However, note that this PP-Module
+				<description>
+				<h:p>This PP-Module does not modify this SFR as it is defined in the NDcPP. However, note that this PP-Module
 				expects that either the call control server or a separate file server managed by the organization to function
 				as the source of TOE software/firmware updates. The evaluator shall ensure that the test environment is
-				configured appropriately.</description>
+				configured appropriately.</h:p>
+				<h:p/>
+				<h:p><h:b>Evaluation Activities:</h:b></h:p>
+				<h:p>There is no change to the EAs specified for this SFR in the NDcPP Supporting Document. Note however
+						that the following additional configuration steps are necessary in order for this testing to be performed:
+						<h:ul><h:li>The evaluator shall deploy a call control server or dedicated file server in the TOE’s operational environment</h:li>
+						<h:li>The evaluator shall load valid and invalid candidate updates to the call control server or dedicated file server</h:li>
+						<h:li>The evaluator shall configure the TOE to use the call control server or dedicated file server as its
+							source for software/firmware updates</h:li></h:ul></h:p></description>
 				<no-change/>
 			</base-sfr-spec>
 		</section>
@@ -733,7 +746,10 @@
 			adds an iteration of FAU_GEN.1 for the auditable events that relate
 			specifically to VVoIP endpoint behavior that may apply for client-server
 			TOEs.</con-mod>
-    	<con-mod ref="fau-stg-ext-1">This SFR is implementation-dependent and is explicitly not claimed when the
+    	<con-mod ref="fau-stg-1">This SFR is implementation-dependent and is explicitly not claimed when the
+			NDcPP is the Base-PP. Therefore there is no conflict between this SFR and
+			the NDcPP.</con-mod>
+			<con-mod ref="fau-stg-5">This SFR is implementation-dependent and is explicitly not claimed when the
 			NDcPP is the Base-PP. Therefore there is no conflict between this SFR and
 			the NDcPP.</con-mod>
     	<con-mod ref="fau-gen-1-p2padmin">The NDcPP already defines an audit generation function. This PP-Module
@@ -744,7 +760,7 @@
 			adds an iteration of FAU_GEN.1 for the auditable events that relate
 			specifically to VVoIP endpoint behavior that must apply for peer-to-peer
 			TOEs.</con-mod>
-    	<con-mod ref="fcs-cop-1-srtp">TThis SFR defines the AES functionality used to support SRTP. This does not
+    	<con-mod ref="fcs-cop-1-srtp">This SFR defines the AES functionality used to support SRTP. This does not
 			conflict with the NDcPP because the TOE can still use
 			FCS_COP.1/DataEncryption to make claims related to all other uses of AES.</con-mod>
     	<con-mod ref="fcs-srtp-ext-1">This SFR defines support for the SRTP protocol, which is specific to VVoIP
@@ -761,7 +777,7 @@
 			Base-PP.</con-mod>
 	  
     </base-pp>
-	<base-pp id="APP" version="1.4" name="Application Software" product="Application Software" short="APP" plural="Application Software">
+	<base-pp id="APP" version="2.0" name="Application Software" product="Application Software" short="APP" plural="Application Software">
 		<git>
 			<url>https://github.com/commoncriteria/application</url>
 			<branch>release-1.4</branch>
@@ -781,10 +797,17 @@
 					<consistency-rationale>This PP-Module does not modify this SFR; it only specifies that the source of
 						TOE software/firmware updates must be a specific type of server.</consistency-rationale>
 					<description>
-						This PP-Module does not modify this SFR as it is defined in the App PP. However, note that this PP-Module
+						<h:p>This PP-Module does not modify this SFR as it is defined in the App PP. However, note that this PP-Module
 						expects that either the call control server or a separate file server managed by the organization to function
-						as the source of TOE software/firmware updates. The evaluator shall ensure that the test environment is
-						configured appropriately.
+						as the source of TOE software/firmware updates. A vendor provided source should only be used if a call control server 
+						or separate file server cannot be configured.</h:p>
+						<h:p><h:b>Evaluation Activities: </h:b></h:p>
+						<h:p>There is no change to the EAs specified for this SFR in the App PP. Note however that the following
+							additional configuration steps may be necessary when relying on a call control server or dedicated file server in order for this testing to be performed:
+							<h:ul><h:li>The evaluator shall deploy a call control server or dedicated file server in the TOE’s operational environment</h:li>
+							<h:li>The evaluator shall load valid and invalid candidate updates to the call control server or dedicated file server</h:li>
+							<h:li>The evaluator shall configure the TOE or its operational environment (whichever is selected to implement the security functions)
+							to use the call control server or dedicated file server as its source for software/firmware updates.</h:li></h:ul></h:p>
 					</description>
 					<no-change/>
 				</base-sfr-spec>
@@ -807,10 +830,12 @@
 							The application shall [<h:b>selection: </h:b>
 							<h:ul>
 								<h:li><h:i>encrypt all transmitted [<h:b>selection: </h:b>
-							sensitive data, data] with <h:b>TLS as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a></h:b> and 
+							sensitive data, data] with <h:b>[selection: TLS as a server as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a> and also supports functionality for 
+							[<h:b>selection: </h:b>mutual authentication, none], TLS as a client as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a>]</h:b> and 
 							[<h:b>selection: </h:b>HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client, HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server, 
 							HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2, 
-							DTLS as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a>, 
+							DTLS as a server defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a> and also supports functionality for 
+							[<h:b>selection: </h:b>mutual authentication, none], DTLS as a client as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a>, 
 							SSH as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</h:a>, 
 							IPsec as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version 2.5</h:a>,
 							<h:b>Secure Real-Time Transport Protocol (SRTP), no other protocols</h:b>],</h:i></h:li>
@@ -990,11 +1015,13 @@
 			that relate specifically to VVoIP endpoint behavior. The App PP does not
 			mandate that the TOE include an audit function but it is not prohibited by
 			the PP.</con-mod>
-    	<con-mod ref="fau-stg-ext-1">This SFR defines the ability of the TOE to protect, store, and transmit audit
+    	<con-mod ref="fau-stg-1">This SFR defines the ability of the TOE to protect, store, and transmit audit
 			data to a remote server using a secure channel. The App PP does not define
 			its own requirements for auditing but it does not prohibit audit functionality,
-			so this PP-Module’s inclusion of an audit function does not conflict with the
-			PP.</con-mod>
+			so this PP-Module’s inclusion of an audit function does not conflict with the PP.</con-mod>
+		<con-mod ref="fau-stg-5">This SFR defines the ability of the TOE to handle log space overruns in a defined manner. 
+			The App PP does not define its own requirements for auditing but it does not prohibit audit functionality,
+			so this PP-Module’s inclusion of an audit function does not conflict with the PP.</con-mod>
     	<con-mod ref="fau-gen-1-p2padmin">This PP-Module specifies an iteration of FAU_GEN.1 for the auditable events
 			that relate specifically to the administration of the VVoIP endpoint. The App
 			PP does not mandate that the TOE include an audit function but it is not
@@ -1156,7 +1183,7 @@
 					</note>
 				</f-element>
 				<f-element id="fdp-iff-1e3">
-					<title>The TSF shall enforce [<h:i>no additional information flow control policy rules</h:i>].</title>
+					<title>The TSF shall enforce <h:s>the</h:s> [<h:i>no additional information flow control policy rules</h:i>].</title>
 				</f-element>
 				<f-element id="fdp-iff-1e4">
 					<title>The TSF shall explicitly authorize an information flow based on the following
@@ -1306,7 +1333,7 @@
 					</h:p>
 					<h:p>
 					If "register the TOE to an ESC..." is selected, regardless of Base-PP selection, the ST 
-					must include the selection-based SFR FPT_STM_EXT.1/VVOIP.
+					must include the selection-based SFR FPT_STM_EXT.1/VVoIP.
 					</h:p>
 					<h:p>
 					If the TOE claims conformance to the NDcPP and “register the TOE to an ESC…” is
@@ -1352,10 +1379,10 @@
 						Test EAs to verify that the TOE can act as a VVoIP call control server when using P2P (if it is selected) are
 						performed as part of testing for FDP_IFF.1/CALLCONTROL.
 						<h:p/>
-						Test EAs to verify the configuration of audit behavior are performed as part of testing for FAU_STG_EXT.1.
+						Test EAs to verify the configuration of audit behavior are performed as part of testing for FAU_STG.1 and FAU_STG.5.
 						<h:p/>
 						Test EAs to verify the modification of transmission of audit data to an external IT entity are performed as
-						part of testing for FAU_STG_EXT.1.
+						part of testing for FAU_STG.1.
 						<h:p/>
 						Test EAs to verify that the idle call termination period can be specified are performed as part of testing
 						for FTA_SSL.3/MEDIA, specifically Test 2 and Test 3.
@@ -1387,7 +1414,7 @@
 				<note role="application">
 				This SFR is intended to mitigate the potential unauthorized disclosure of media
 				data in the case where connectivity with the peer is lost. The ST author should
-				choose one or both selections if applicable. Note that if “an administratorconfigurable interval” is selected, the ST author must select “configure the
+				choose one or both selections if applicable. Note that if “an administrator-configurable interval” is selected, the ST author must select “configure the
 				termination period for idle calls” in FMT_SMF.1.1/VVoIP. 
 				</note>
 	          
@@ -1462,9 +1489,7 @@
 					to </h:b>provide a <h:b>trusted </h:b>communication channel between itself and <h:b>a VVoIP
 					call control server</h:b> that is logically distinct from other communication channels
 					and provides assured identification of its end points and protection of the channel
-					data from modification or disclosure.
-
-
+					data from disclosure and detection of modification of the channel data.
 					</title>
 					<note role="application">
 						Both the SIP and H.323 protocols rely on TLS. This SFR defines the application layer
@@ -1544,9 +1569,7 @@
 					to </h:b>provide a trusted communication channel between itself and <h:b>another VVoIP
 					endpoint or other telephony device</h:b> that is logically distinct from other communication channels
 					and provides assured identification of its end points and protection of the channel
-					data from modification or disclosure.
-
-
+					data from disclosure and detection of modification of the channel data.
 					</title>
 					<note role="application">
 						<h:p>This SFR defines the application layer protocol used to secure voice/video
@@ -1669,14 +1692,15 @@
 				
 				</title>
 				<note role="application">
-				<h:p>This SFR defines the same auditable events as FAU_GEN.1/P2P-Admin in
+				<h:p>This SFR defines the same auditable events as FAU_GEN.1/P2PADMIN in
 					Appendix B below. It is defined as a separate iteration because when the TOE
 					is deployed in a client-server architecture, the Enterprise Session Controller is
 					expected to be responsible for the relevant auditing, so this capability is
 					optional when the TOE is not peer-to-peer. </h:p>
-				<h:p>If the TOE claims this SFR and conforms to the App PP, the implementation-dependent SFR FAU_STG_EXT.1 must also be claimed. This does not need to
+				<h:p>If the TOE claims this SFR and conforms to the App PP, the implementation-dependent SFRs FAU_STG.1 and FAU_STG.5 must also be claimed. This does not need to
 					be claimed when the TOE conforms to the NDcPP because that PP already
-					defines <no-link>FAU_STG_EXT.1</no-link> as a mandatory requirement.</h:p></note>
+					defines <no-link>FAU_STG.1</no-link> as a mandatory requirement.</h:p></note>
+					<!-- QQQQ: NOTE: Making an assumption about the NDcPP converting their FAU_STG_EXT.1 to using FAU_STG.1, as we are doing here.  -->
 			</f-element>
 			<f-element id='fau-gen-1e2-csadmin'>
 				<title>
@@ -1743,9 +1767,9 @@
 					capability is optional when the TOE is not peer-to-peer.</h:p>
 					
 					<h:p>If the TOE claims this SFR and conforms to the App PP, the
-					implementation-dependent SFR FAU_STG_EXT.1 must also be claimed.
+					implementation-dependent SFRs FAU_STG.1 and FAU_STG.5 must also be claimed.
 					This does not need to be claimed when the TOE conforms to the NDcPP
-					because that PP already defines FAU_STG_EXT.1 as a mandatory
+					because that PP already defines FAU_STG.1 as a mandatory
 					requirement.</h:p> 
 				</note>
 				<aactivity>
@@ -1819,10 +1843,11 @@
 					there (the App PP does not include any auditing requirements). <h:p/>
 					
 					If the TOE claims this SFR and conforms to the App PP, the
-					implementation-dependent SFR FAU_STG_EXT.1 must also be claimed.
+					implementation-dependent SFRs FAU_STG.1 and FAU_STG.5 must also be claimed.
 					This does not need to be claimed when the TOE conforms to the NDcPP
-					because that PP already defines FAU_STG_EXT.1 as a mandatory
+					because that PP already defines <no-link>FAU_STG.1</no-link> as a mandatory
 					requirement.
+					<!-- QQQQ: NOTE: Making an assumption about the NDcPP converting their FAU_STG_EXT.1 to using FAU_STG.1, as we are doing here.  -->
 				</note>
 				<aactivity>
 				<TSS/>
@@ -1844,6 +1869,7 @@
 				</Tests>
 			</aactivity>
 				</f-element>
+				<audit-event/>
 			</f-component>
 			<f-component name="Audit Data Generation (Peer-to-Peer VVoIP Events)" cc-id="fau_gen.1" iteration="P2PVVOIP" id="fau-gen-1-p2pvvoip">
 				<depends on="sel-p2p-server-iff" or="sel-p2p-server-smf"/>
@@ -1872,10 +1898,11 @@
 				</title>
 				<note role="application">
 					If the TOE claims this SFR and conforms to the App PP, the
-					implementation-dependent SFR FAU_STG_EXT.1 must also be claimed.
+					implementation-dependent SFRs FAU_STG.1 and FAU_STG.5 must also be claimed.
 					This does not need to be claimed when the TOE conforms to the NDcPP
-					because that PP already defines FAU_STG_EXT.1 as a mandatory
+					because that PP already defines <no-link>FAU_STG.1</no-link> as a mandatory
 					requirement.
+					<!-- QQQQ: NOTE: Making an assumption about the NDcPP converting their FAU_STG_EXT.1 to using FAU_STG.1, as we are doing here.  -->
 				</note>
 				<aactivity>
 					<TSS/>
@@ -1891,6 +1918,7 @@
 						<h:p>Note that the testing here can be accomplished in conjunction with the testing of the security mechanisms directly.</h:p></Tests>
 				</aactivity>
 				</f-element>
+				<audit-event/>
 			</f-component>
 		</section>
 
@@ -1900,8 +1928,8 @@
 			<f-element id="fcs-cop-1e1-srtp">
 				<title>
 					The TSF shall perform [<h:i>encryption/decryption to support SDES-SRTP</h:i>] in
-					accordance with a specified cryptographic algorithm [<h:i>AES-GCM (as defined NIST SP 800-38D)</h:i>] and
-					cryptographic key sizes [<h:i>256-bit</h:i>].
+					accordance with a specified cryptographic algorithm [<h:i>AES-GCM</h:i>] and
+					cryptographic key sizes [<h:i>256-bit</h:i>] that meet the following: [<h:i>NIST SP 800-38D</h:i>].
 				</title>
 				<note role="application">
 					The NDcPP and App PP each define their own iteration of FCS_COP.1 for AES
@@ -1925,6 +1953,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
+			<audit-event/>
 			</f-component>
 			<ext-comp-def fam-id="FCS_SRTP_EXT" title="Secure Real-Time Transport Protocol">
 					<fam-behavior>Components in this family define the implementation of the Secure Real-Time Transport Protocol (SRTP).</fam-behavior>
@@ -1982,6 +2011,7 @@
 							</Tests>
 						</aactivity>
 				</f-element>
+				<audit-event/>
 			</f-component>
 		</section>
 		<section title="User Data Protection (FDP)" id="fdp-sel_based">
@@ -1995,6 +2025,7 @@
 					<Tests>Testing of this component is performed through evaluation of FDP_IFF.1/CALLCONTROL.</Tests>
 				</aactivity>
 			</f-element>
+			<audit-event/>
 			</f-component>
 			<f-component name="Subset Information Flow Control (for Call Control)" cc-id="fdp_iff.1" iteration="CALLCONTROL" id="fdp-iff-1-callcontrol">
 			<depends on="sel-p2p-server-iff" or="sel-p2p-server-smf"/>
@@ -2070,29 +2101,46 @@
 					</Tests>
 				</aactivity>
 			</f-element>
+			<audit-event/>
 			</f-component>
 		</section>
 		<section title="Protection of the TSF (FPT)" id="fpt-sel_based">
-			<f-component name="Reliable Time Stamps (VVoIP Communications)" cc-id="fpt_stm_ext.1" iteration="VVOIP" id="fpt-stm-ext-1-vvoip">
+			<f-component name="Reliable Time Stamps (VVoIP Communications)" cc-id="fpt_stm_ext.1" iteration="VVoIP" id="fpt-stm-ext-1-vvoip">
 				<depends on="sel-register"/>
 				<f-element id="fpt-stm-ext-1e1-vvoip">
 					<title>The TSF shall be able to provide reliable time stamps for its own use.</title>
 				</f-element>
 				<f-element id="fpt-stm-ext-1e2-vvoip">
+<<<<<<< HEAD
 					<title>The TSF shall [<h:i>synchronize time with an <h:b>ESC</h:b></h:i>].</title>
+					<ext-comp-def-title><title>
+						The TSF shall <assignable></assignable>.
+					</title></ext-comp-def-title>
+=======
+					<title>The TSF shall [<h:i>synchronize time with <h:b><selectables>
+						<selectable id="sel_esc_sync">an ESC</selectable>
+						<selectable>the TOE platform</selectable>
+					</selectables></h:b></h:i>].</title>
+					<note role="Application">The selection made for this requirement depends on the TOE type. If the TOE is a hardware device, "an ESC" must be selected. 
+					If the TOE is a software application, "the TOE platform" must be selected. If the TOE is a software VVoIP application, FMT_SMF.1.1/VVoIP is not required as the TOE relies upon the platform for time.</note>
+>>>>>>> 96f751632d64a3d8fc1073a419bbb542e4033b2f
 					<aactivity>
 						<TSS>
 						<h:p>The evaluator shall examine the TSS to ensure that it lists each security function that makes use of time,
 							and that it provides a description of how the time is maintained and considered reliable in the context of
 							each of the time related functions.</h:p>
-						<h:p>The evaluator shall also verify that the TSS describes the ability of the TOE to support NTP synchronization with an ESC.</h:p>
+						<h:p>If <xref to="sel_esc_sync"/> is selected in FPT_STM_EXT.1.1, the evaluator shall also verify that the TSS describes the ability of the TOE to support NTP synchronization with an ESC.</h:p>
 						</TSS>
-						<Guidance>The evaluator shall review the guidance to confirm that it provides instructions for how to enable NTP synchronization with an ESC.</Guidance>
-						<Tests>The evaluator shall use the guidance documentation to configure the NTP client on the TOE and set up a
-							communication path with the ESC. The evaluator will observe that the ESC has set the time to what is
-							expected.</Tests>
+						<Guidance>The evaluator shall review the guidance to confirm that it provides instructions for how to synchronize the time. If <xref to="sel_esc_sync"/> is selected in FPT_STM_EXT.1.1, 
+						this should include instructions on how to enable NTP synchronization with an ESC.</Guidance>
+						<Tests>(Conditional - "an ESC" is selected in FPT_STM_EXT.1.2/VVoIP)
+							<h:p>The evaluator shall use the guidance documentation to configure the NTP client on the TOE and set up a
+								communication path with the ESC. The evaluator will observe that the ESC has set the time to what is
+								expected.</h:p>
+							</Tests>
 					</aactivity>
 				</f-element>
+				<audit-event/>
 			</f-component>
 		</section>
 	</sel-sfrs>
@@ -2105,15 +2153,21 @@
 	
 
 	<section title="Security Audit (FAU)" id="fau-imp_dep">
-		<f-component name="Protected Audit Event Storage" cc-id="fau_stg_ext.1" id="fau-stg-ext-1">
+		<f-component name="Audit data storage location" cc-id="fau_stg.1" id="fau-stg-1">
 			<depends on="feat-swapp"/>
 		<f-element>
-		<title>The TSF shall be able to transmit the generated audit data to <h:b><selectables>
-			<selectable>an Enterprise Session Controller that the TOE is registred to</selectable>
-			<selectable>an external trusted IT entity</selectable>
-		</selectables></h:b> using a trusted channel <h:b>according to FTP_DIT_EXT.1</h:b>.
+		<title>
+		The TSF shall be able to store generated audit data on the [<h:i><h:b><selectables>
+			<selectable>TOE itself</selectable>
+			<selectable>TOE platform</selectable></selectables></h:b>, transmit the generated audit data to <h:b><selectables>
+			<selectable>an Enterprise Session Controller that the TOE is registered to</selectable>
+			<selectable>an external IT entity</selectable></selectables></h:b> using a trusted channel according to <h:b>FTP_DIT_EXT.1.</h:b></h:i>]
 		</title>
-		</f-element>
+		<note role="application">
+		This SFR is modified from its definition in [CC] Part 2 to define storage for audit data. Specifically, it is required that this data be stored both on the TOE itself 
+		and that it be transmitted securely to an external entity. Note that this SFR is only applicable for software application TOEs that implement logging, because the NDcPP 
+		specifies log data storage requirements itself. This SFR should not be claimed when the NDcPP is the Base-PP.</note>
+		<!-- </f-element>
 		<f-element id="fau-stg-ext-1e2">
 		<title>The TSF shall be able to store generated audit data on the <selectables>
 			<selectable>TOE</selectable>
@@ -2124,20 +2178,14 @@
 			<selectable>drop new audit data</selectable>
 			<selectable>overwrite previous audit records according to the following rule: <assignable>rule for overwriting previous audit records</assignable></selectable>
 			<selectable><assignable>other action</assignable></selectable>
-		</selectables>when the local storage space for audit data is full.</title>
+		</selectables>when the local storage space for audit data is full.</title> -->
 		<aactivity>
 			<TSS>
 			<h:p>The evaluator shall examine the TSS to ensure it describes the means by which the audit data are
 				transferred to the external audit server, and how the trusted channel is provided.</h:p>
-			<h:p>The evaluator shall examine the TSS to ensure it describes the amount of audit data that are stored locally;
-				whether that data is stored by the TOE or through the TOE’s invocation of a platform auditing mechanism;
-				what happens when the local audit data store is full; and how these records are protected against
-				unauthorized access.</h:p>
-			<h:p>The evaluator shall examine the TSS to ensure that it details the behavior of the TOE when the storage
-				space for audit data is full. When the option ‘overwrite previous audit record’ is selected this description
-				should include an outline of the rule for overwriting audit data. If ‘other actions’ are chosen such as
-				sending the new audit data to an external IT entity, then the related behavior of the TOE shall also be
-				detailed in the TSS.</h:p>
+			<h:p>The evaluator shall examine the TSS to ensure it describes the amount of audit data that are stored locally and
+				whether that data is stored by the TOE or through the TOE’s invocation of a platform auditing mechanism.
+			</h:p>	
 			<h:p>The evaluator shall examine the TSS to ensure that it details whether the transmission of audit information
 				to an external IT entity can be done in real-time or periodically. In case the TOE does not perform
 				transmission in real-time the evaluator needs to verify that the TSS provides details about what event
@@ -2154,10 +2202,6 @@
 				example, when an audit event is generated, is it simultaneously sent to the external server and the local
 				store, or is the local store used as a buffer and “cleared” periodically by sending the data to the audit
 				server.</h:p>
-			<h:p>The evaluator shall also ensure that the guidance documentation describes all possible configuration
-				options for FAU_STG_EXT.1.3 and the resulting behavior of the TOE for each possible configuration. The
-				description of possible configuration options and resulting behavior shall correspond to those described
-				in the TSS.</h:p>
 			</Guidance>
 			<Tests>
 			<h:p>Testing of the trusted channel mechanism for audit will be performed as specified in the associated EAs
@@ -2177,30 +2221,65 @@
 						evaluator shall repeat this test as necessary to show that changing the available configuration options will
 						result in the TOE performing the expected behavior in each case.</h:p>
 				</test>
-				<test>
-					<h:p>The evaluator shall perform operations that generate audit data and verify that this data is stored
-					locally. The evaluator shall perform operations that generate audit data until the local storage space is
-					exceeded and verifies that the TOE complies with the behavior defined in FAU_STG_EXT.1.3. Depending
-					on the configuration this means that the evaluator has to check the content of the audit data when the
-					audit data is just filled to the maximum and then verifies that: </h:p>
-					<h:ul><h:li>The audit data remains unchanged with every new auditable event that should be tracked but
-							that the audit data is recorded again after the local storage for audit data is cleared (for the
-							option ‘drop new audit data’ in FAU_STG_EXT.1.3).</h:li>
-						<h:li>The existing audit data is overwritten with every new auditable event that should be tracked
-							according to the specified rule (for the option ‘overwrite previous audit records’ in
-							FAU_STG_EXT.1.3).</h:li>
-						<h:li>The TOE behaves as specified (for the option ‘other action’ in FAU_STG_EXT.1.3).</h:li></h:ul>
-					<h:p>If the behavior of the TOE when the local audit storage space is full is configurable, the evaluator shall
-						repeat this test for each configuration option and observe that the intended result occurs.</h:p>
-					<h:p>If the local storage location of the audit data is configurable, the evaluator shall repeat this test as needed
-						to demonstrate that specifying a new location for storage of audit data results in audit data being stored
-						to the desired location.</h:p>
-				</test>
+				
 			</testlist>
 			</Tests></aactivity>
 			
 			</f-element>
 			<audit-event table="impl-dep"/>
+		</f-component>
+		<f-component cc-id="fau_stg.5" name="Prevention of audit data loss" id="fau-stg-5">
+			<depends on="feat-swapp"/>
+			<f-element>
+				<title>The TSF shall <selectables>
+					<selectable>ignore audited events</selectable>
+					<selectable>overwrite the oldest stored audit records</selectable>
+					<selectable><assignable>other actions to be taken in case of audit storage failure and conditions for the actions</assignable></selectable>
+				</selectables> if the audit data storage is full.</title>
+				<note role="application">Note that this SFR is only applicable for software application TOEs that implement logging, because the NDcPP 
+		specifies log data storage requirements itself. This SFR should not be claimed when the NDcPP is the Base-PP.</note>
+				<aactivity>
+					<TSS>
+					<h:p>The evaluator shall examine the TSS to ensure it describes what happens when the local audit data store is full; and how these records are protected against
+						unauthorized access.</h:p>
+					<h:p>The evaluator shall examine the TSS to ensure that it details the behavior of the TOE when the storage
+							space for audit data is full. When the option ‘overwrite the oldest stored audit records’ is selected this description
+							should include an outline of the rule for overwriting audit data. If ‘other actions...’ are chosen such as
+							sending the new audit data to an external IT entity, then the related behavior of the TOE shall also be
+							detailed in the TSS.</h:p>
+					</TSS>
+					<Guidance>
+						<h:p>The evaluator shall ensure that the guidance documentation describes all possible configuration
+							options for FAU_STG.5 and the resulting behavior of the TOE for each possible configuration. The
+							description of possible configuration options and resulting behavior shall correspond to those described
+							in the TSS.</h:p>
+					</Guidance>
+					<Tests>
+						<testlist>
+							<test>
+								<h:p>The evaluator shall perform operations that generate audit data and verify that this data is stored
+								locally. The evaluator shall perform operations that generate audit data until the local storage space is
+								exceeded and verifies that the TOE complies with the behavior defined in FAU_STG.5. Depending
+								on the configuration this means that the evaluator has to check the content of the audit data when the
+								audit data is just filled to the maximum and then verifies that: </h:p>
+								<h:ul><h:li>The audit data remains unchanged with every new auditable event that should be tracked but
+										that the audit data is recorded again after the local storage for audit data is cleared (for the
+										option ‘ignore audited events’ in FAU_STG.5).</h:li>
+										<h:li>The oldest audit data is overwritten with every new auditable event that should be tracked
+											according to the specified rule (for the option ‘overwrite the oldest stored audit records’ in
+											FAU_STG.5).</h:li>
+										<h:li>The TOE behaves as specified (for the option ‘other action’ in FAU_STG.5).</h:li></h:ul>
+								<h:p>If the behavior of the TOE when the local audit storage space is full is configurable, the evaluator shall
+									repeat this test for each configuration option and observe that the intended result occurs.</h:p>
+								<h:p>If the local storage location of the audit data is configurable, the evaluator shall repeat this test as needed
+									to demonstrate that specifying a new location for storage of audit data results in audit data being stored
+									to the desired location.</h:p>
+							</test>
+						</testlist>
+					</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event/>
 		</f-component>
 		</section>
 	</impl-dep-sfrs>
@@ -2259,7 +2338,7 @@
 				<h:td>
 					<h:p>This SFR defines the TOE security attributes that can be
 					managed and what management role can administer them.
-					Specifically, this is indirectly dependent on FDP_IFF.1. The PPModule defines two iterations of FDP_IFF.1. Each of these
+					Specifically, this is indirectly dependent on FDP_IFF.1. The PP-Module defines two iterations of FDP_IFF.1. Each of these
 					iterations define explicit rules that determine when the TSF
 					transmits call control and media data.</h:p>
 					<h:p>The relevant attributes are either directly under the control of
@@ -2324,7 +2403,7 @@
 					assumption of relying upon a trustworthy computing platform
 					with a reliable time clock for its execution, so the dependency is
 					also met through the assumption.</h:p>
-					<h:p>Alternatively, if the TOE is registered to an ESC, the selectionbased requirement FPT_STM_EXT.1/VVoIP must be claimed,
+					<h:p>Alternatively, if the TOE is registered to an ESC, the selection-based requirement FPT_STM_EXT.1/VVoIP must be claimed,
 					which is sufficient to address the dependency as the TSF will
 					receive time data from the operational environment that is
 					assumed to be reliable.</h:p>
