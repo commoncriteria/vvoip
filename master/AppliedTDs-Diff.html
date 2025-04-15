@@ -493,7 +493,7 @@
         </div>
         <h4 id="@id" class="indexable" data-level="4">5.1.1.3 Identification and Authorization (FIA)</h4>
         <div class="comp" id="@id">
-            <h4>FIA_X509_EXT.1/REV: X.509 Certificate Validation</h4>
+            <h4>FIA_X509_EXT.1/Rev: X.509 Certificate Validation</h4>
             <span class="description">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a> but is mandated by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> because it is a dependency on the TLS functionality that this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> requires. There is no change to the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> text itself.</span>
         </div>
         <div class="comp" id="@id">
@@ -918,7 +918,7 @@
                     <a href="#FTP_ITC.1.1/CONTROL" class="abbr">FTP_ITC.1.1/CONTROL</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>be capable of using [<b>selection</b>: <span class="selectable-content" id="_s_40">Session Initiation Protocol (<abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr>)</span>, <span class="selectable-content" id="_s_41">H.323</span>] to </b>provide a <b>trusted </b>communication channel between itself and <b>a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control server</b> that is logically distinct from other communication channels and provides assured identification of its end points and protection of the channel data from modification or disclosure. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>be capable of using [<b>selection</b>: <span class="selectable-content" id="_s_40">Session Initiation Protocol (<abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr>)</span>, <span class="selectable-content" id="_s_41">H.323</span>] to </b>provide a <b>trusted </b>communication channel between itself and <b>a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control server</b> that is logically distinct from other communication channels and provides assured identification of its end points and protection of the channel data from disclosure and detection of modification of the channel data. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> Both the <abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr> and H.323 protocols rely on TLS. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the application layer protocol used to secure call control functions. </span>
                     </div>
@@ -951,7 +951,7 @@
                     <a href="#FTP_ITC.1.1/MEDIA" class="abbr">FTP_ITC.1.1/MEDIA</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>be capable of using [<b>selection</b>: <span class="selectable-content" id="sel_media_srtp"><abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr></span>, <span class="selectable-content" id="_s_43">H.235/H.323</span>] to </b>provide a trusted communication channel between itself and <b>another <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> endpoint or other telephony device</b> that is logically distinct from other communication channels and provides assured identification of its end points and protection of the channel data from modification or disclosure. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>be capable of using [<b>selection</b>: <span class="selectable-content" id="sel_media_srtp"><abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr></span>, <span class="selectable-content" id="_s_43">H.235/H.323</span>] to </b>provide a trusted communication channel between itself and <b>another <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> endpoint or other telephony device</b> that is logically distinct from other communication channels and provides assured identification of its end points and protection of the channel data from disclosure and detection of modification of the channel data. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">
                             <p>
@@ -998,9 +998,7 @@
                     <th>Threat</th><th>Addressed by</th><th>Rationale</th>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="20"><a href="#T.MEDIA_DISCLOSURE">T.MEDIA_​DISCLOSURE</a>
-                        <br>
-                    </td><td>FAU_STG_EXT.1 (refined from NDcPP)</td><td>Mitigates the threat by ensuring that audit data is securely stored locally and transmitted to an external entity.</td>
+                    <td rowspan="20"><a href="#T.MEDIA_DISCLOSURE">T.MEDIA_​DISCLOSURE</a></td><td>FAU_STG_EXT.1 (refined from NDcPP)</td><td>Mitigates the threat by ensuring that audit data is securely stored locally and transmitted to an external entity.</td>
                 </tr>
                 <tr>
                     <td>FCS_NTP_EXT.1 (from NDcPP)</td><td>Mitigates the threat by defining how accurate system time is maintained, which is used to support certain cryptographic functions.</td>
@@ -1060,9 +1058,7 @@
                     <td><a href="#FPT_STM_EXT.1/VVoIP">FPT_STM_EXT.1/VVoIP</a> (selection-based)</td><td>Mitigates the threat by defining how the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> obtains system time in certain cases, which is then used as an input to other functions that support this objective.</td>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="9"><a href="#T.UNDETECTED_TRANSMISSION">T.UNDETECTED_​TRANSMISSION</a>
-                        <br>
-                    </td><td><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td>Mitigates the threat by defining the existence of a media transmission policy.</td>
+                    <td rowspan="9"><a href="#T.UNDETECTED_TRANSMISSION">T.UNDETECTED_​TRANSMISSION</a></td><td><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td>Mitigates the threat by defining the existence of a media transmission policy.</td>
                 </tr>
                 <tr>
                     <td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td>Mitigates the threat by defining how the media transmission policy is enforced to determine when transmissions should occur.</td>
@@ -1153,7 +1149,7 @@
                 <td>FCS_TLSC_EXT.2</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must implement a TLS client that enforces mutual authentication.</td>
             </tr>
             <tr>
-                <td>FIA_X509_EXT.1/REV</td><td><span style="" class="comment " id="Comment-2-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, as well as FIA_X509_EXT.2 and 3 will need to be revisited once a determination has been made about the relationship between the NDcPP and X.509 package, and how we can model the relationship from the perspective of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> (i.e., any required selections or claims).</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because X.509 services are required to support TLS client functionality.</td>
+                <td>FIA_X509_EXT.1/Rev</td><td><span style="" class="comment " id="Comment-2-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, as well as FIA_X509_EXT.2 and 3 will need to be revisited once a determination has been made about the relationship between the NDcPP and X.509 package, and how we can model the relationship from the perspective of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> (i.e., any required selections or claims).</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because X.509 services are required to support TLS client functionality.</td>
             </tr>
             <tr>
                 <td>FIA_X509_EXT.2</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because X.509 services are required to support TLS client functionality.</td>

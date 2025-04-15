@@ -1478,9 +1478,7 @@
 					to </h:b>provide a <h:b>trusted </h:b>communication channel between itself and <h:b>a VVoIP
 					call control server</h:b> that is logically distinct from other communication channels
 					and provides assured identification of its end points and protection of the channel
-					data from modification or disclosure.
-
-
+					data from disclosure and detection of modification of the channel data.
 					</title>
 					<note role="application">
 						Both the SIP and H.323 protocols rely on TLS. This SFR defines the application layer
@@ -1560,9 +1558,7 @@
 					to </h:b>provide a trusted communication channel between itself and <h:b>another VVoIP
 					endpoint or other telephony device</h:b> that is logically distinct from other communication channels
 					and provides assured identification of its end points and protection of the channel
-					data from modification or disclosure.
-
-
+					data from disclosure and detection of modification of the channel data.
 					</title>
 					<note role="application">
 						<h:p>This SFR defines the application layer protocol used to secure voice/video
@@ -2110,6 +2106,7 @@
 					</selectables></h:b></h:i>].</title>
 					<note role="Application">The selection made for this requirement depends on the TOE type. If the TOE is a hardware device, "an ESC" must be selected. 
 					If the TOE is a software application, "the TOE platform" must be selected. If the TOE is a software VVoIP application, FMT_SMF.1.1/VVoIP is not required as the TOE relies upon the platform for time.</note>
+
 					<aactivity>
 						<TSS>
 						<h:p>The evaluator shall examine the TSS to ensure that it lists each security function that makes use of time,
