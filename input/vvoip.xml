@@ -2111,25 +2111,13 @@
 					<title>The TSF shall be able to provide reliable time stamps for its own use.</title>
 				</f-element>
 				<f-element id="fpt-stm-ext-1e2-vvoip">
-<<<<<<< HEAD
-<<<<<<< HEAD
-					<title>The TSF shall [<h:i>synchronize time with an <h:b>ESC</h:b></h:i>].</title>
-					<ext-comp-def-title><title>
-						The TSF shall <assignable></assignable>.
-					</title></ext-comp-def-title>
-=======
-=======
->>>>>>> 96f751632d64a3d8fc1073a419bbb542e4033b2f
 					<title>The TSF shall [<h:i>synchronize time with <h:b><selectables>
 						<selectable id="sel_esc_sync">an ESC</selectable>
 						<selectable>the TOE platform</selectable>
 					</selectables></h:b></h:i>].</title>
 					<note role="Application">The selection made for this requirement depends on the TOE type. If the TOE is a hardware device, "an ESC" must be selected. 
 					If the TOE is a software application, "the TOE platform" must be selected. If the TOE is a software VVoIP application, FMT_SMF.1.1/VVoIP is not required as the TOE relies upon the platform for time.</note>
-<<<<<<< HEAD
->>>>>>> 96f751632d64a3d8fc1073a419bbb542e4033b2f
-=======
->>>>>>> 96f751632d64a3d8fc1073a419bbb542e4033b2f
+
 					<aactivity>
 						<TSS>
 						<h:p>The evaluator shall examine the TSS to ensure that it lists each security function that makes use of time,
