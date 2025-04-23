@@ -36,7 +36,7 @@
   <!-- PPReference (all documents) -->
   <PPReference>
     <ReferenceTable>
-      <PPVersion>1.1</PPVersion>
+      <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
       <PPPubDate>2025-04-11</PPPubDate>
       <Keywords>VVoIP</Keywords>
@@ -46,7 +46,7 @@
 <!-- Revision History (all documents) -->
   <RevisionHistory>
     <entry>
-      <version>1.1</version>
+      <version>2.0</version>
       <date>2025-04-11</date>
       <subject>CC:2022 updates, incorporation of TDs</subject>
     </entry>
