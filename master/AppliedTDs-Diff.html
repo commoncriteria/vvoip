@@ -26,6 +26,8 @@
             <br>
             <a href="#Comment-4-">Comment: Comment-4-</a>
             <br>
+            <a href="#Comment-5-">Comment: Comment-5-</a>
+            <br>
         </div>
         <h1 class="title" style="page-break-before:auto;">PP-Module for VVoIP</h1>
         <h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1>
@@ -62,8 +64,12 @@
         <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
          The scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is to describe the security functionality of a Voice/Video over <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr>) endpoint in terms of <a href="#bibCC">[CC]</a> and to define functional and assurance requirements for such products. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is intended for use with the following <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr>: f 
         <ul>
-            <li>Protection Profile for Application Software, Version 2.0</li>
-            <li>Network Device collaborative Protection Profile, Version 4.0</li>
+            <li>
+                Protection Profile for Application Software, Version 2.0<span style="" class="comment " id="Comment-1-"> please update references in the bib.</span>
+            </li>
+            <li>
+                Network Device collaborative Protection Profile, Version 4.0<span style="" class="comment " id="Comment-2-"> please update references in the bib.</span>
+            </li>
         </ul>
         <p>
              These <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr> are both valid because a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> endpoint is a specific type of network device or software application that carries sensitive data over remote channels and uses protocols to do so that a typical network device or software application does not implement. Therefore, additional security requirements are necessary to ensure that sensitive communications are not subject to unauthorized disclosure to unintended recipients. 
@@ -347,7 +353,7 @@
             <dd>
                 The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>: 
                 <ul>
-                    <li>Network Device collaborative Protection Profile Version 4.0 please update references in the bib.</li>
+                    <li>Network Device collaborative Protection Profile Version 4.0</li>
                     <li>Protection Profile for Application Software Version 2.0</li>
                 </ul>
             </dd>
@@ -1141,7 +1147,7 @@
                 <th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
             </tr>
             <tr>
-                <td>FAU_STG_EXT.1</td><td> <span style="" class="comment " id="Comment-2-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> will need to be revisited when its upstream definitions are finalized. We assume that this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is going to be be refactored to <a href="#FAU_STG.1">FAU_STG.1</a> in the next release of the NDcPP, but it's unclear in what form the distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> selections will be included.</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to prohibit the selection of any &ldquo;distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rdquo; behavior in FAU_STG_EXT.1.2. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is otherwise unchanged.</td>
+                <td>FAU_STG_EXT.1</td><td> <span style="" class="comment " id="Comment-3-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> will need to be revisited when its upstream definitions are finalized. We assume that this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is going to be be refactored to <a href="#FAU_STG.1">FAU_STG.1</a> in the next release of the NDcPP, but it's unclear in what form the distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> selections will be included.</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to prohibit the selection of any &ldquo;distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rdquo; behavior in FAU_STG_EXT.1.2. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is otherwise unchanged.</td>
             </tr>
             <tr>
                 <td>FCS_NTP_EXT.1</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only modifies the circumstances that trigger its inclusion in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s logical boundary.</td>
@@ -1153,7 +1159,7 @@
                 <td>FCS_TLSC_EXT.2</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must implement a TLS client that enforces mutual authentication.</td>
             </tr>
             <tr>
-                <td>FIA_X509_EXT.1/Rev</td><td><span style="" class="comment " id="Comment-3-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, as well as FIA_X509_EXT.2 and 3 will need to be revisited once a determination has been made about the relationship between the NDcPP and X.509 package, and how we can model the relationship from the perspective of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> (i.e., any required selections or claims).</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because X.509 services are required to support TLS client functionality.</td>
+                <td>FIA_X509_EXT.1/Rev</td><td><span style="" class="comment " id="Comment-4-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, as well as FIA_X509_EXT.2 and 3 will need to be revisited once a determination has been made about the relationship between the NDcPP and X.509 package, and how we can model the relationship from the perspective of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> (i.e., any required selections or claims).</span> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because X.509 services are required to support TLS client functionality.</td>
             </tr>
             <tr>
                 <td>FIA_X509_EXT.2</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only forces its inclusion because X.509 services are required to support TLS client functionality.</td>
@@ -1279,7 +1285,7 @@
                     <th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objective</th><th>Consistency Rationale</th>
                 </tr>
                 <tr>
-                    <td><a href="#OE.UPDATE_SOURCE">OE.UPDATE_SOURCE</a></td><td> <span style="" class="comment " id="Comment-4-">This rationale could be interpreted as vague or conflicting with FPT_TUD_EXT.2, as applications that are not packaged with the OS do have format requirements. There is no defined requirement for update location, since there may be an alternate use case where "the place you get the app from" is different from "the mobile device vendor's app store" because an MDM might have a separate mobile app server that devices enrolled in the MDM must use. Is this still an anticipated use case? If so, the objective may need to be reworded in terms of a generic "trusted source" to make clear that this module is not conflicting with FPT_TUD_EXT.2's requirements.</span> The App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to be able to apply software/firmware updates but does not define any specific way that these updates need to be made available. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines an objective that allows for an assumption that <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> updates will be made available in a specific location. <a href="#A.UPDATE_SOURCE">A.UPDATE_SOURCE</a> is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives for the same reason. </td>
+                    <td><a href="#OE.UPDATE_SOURCE">OE.UPDATE_SOURCE</a></td><td> <span style="" class="comment " id="Comment-5-">This rationale could be interpreted as vague or conflicting with FPT_TUD_EXT.2, as applications that are not packaged with the OS do have format requirements. There is no defined requirement for update location, since there may be an alternate use case where "the place you get the app from" is different from "the mobile device vendor's app store" because an MDM might have a separate mobile app server that devices enrolled in the MDM must use. Is this still an anticipated use case? If so, the objective may need to be reworded in terms of a generic "trusted source" to make clear that this module is not conflicting with FPT_TUD_EXT.2's requirements.</span> The App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to be able to apply software/firmware updates but does not define any specific way that these updates need to be made available. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines an objective that allows for an assumption that <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> updates will be made available in a specific location. <a href="#A.UPDATE_SOURCE">A.UPDATE_SOURCE</a> is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives for the same reason. </td>
                 </tr>
             </table>
         </p>
