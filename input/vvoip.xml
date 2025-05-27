@@ -99,8 +99,8 @@
       endpoint in terms of <xref g="CC"/> and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PPs:
       f
       <h:ul>
-        <h:li>Protection Profile for Application Software, Version 2.0</h:li>
-        <h:li>Network Device collaborative Protection Profile, Version 4.0</h:li>
+        <h:li>Protection Profile for Application Software, Version 2.0<comment> please update references in the bib.</comment></h:li>
+        <h:li>Network Device collaborative Protection Profile, Version 4.0<comment> please update references in the bib.</comment></h:li>
       </h:ul>
       
       <h:p>
@@ -384,7 +384,7 @@
         <cc-pt3-conf>extended</cc-pt3-conf>
         <cc-pp-conf/>
         <cc-pp-config-with>
-			<PP-cc-ref>Network Device collaborative Protection Profile Version 4.0<comment> please update references in the bib.</comment></PP-cc-ref>
+			<PP-cc-ref>Network Device collaborative Protection Profile Version 4.0</PP-cc-ref>
 			<PP-cc-ref>Protection Profile for Application Software Version 2.0</PP-cc-ref>
 		</cc-pp-config-with>
         <cc-pkg-claim>
