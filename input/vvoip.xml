@@ -99,8 +99,8 @@
       endpoint in terms of <xref g="CC"/> and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PPs:
       f
       <h:ul>
-        <h:li>Protection Profile for Application Software, Version 1.4 (App PP)</h:li>
-        <h:li>collaborative Protection Profile for Network Devices, Version 3.0e (NDcPP)</h:li>
+        <h:li>Protection Profile for Application Software, Version 2.0</h:li>
+        <h:li>Network Device collaborative Protection Profile, Version 4.0</h:li>
       </h:ul>
       
       <h:p>
@@ -383,7 +383,10 @@
         <cc-pt2-conf>extended</cc-pt2-conf>
         <cc-pt3-conf>extended</cc-pt3-conf>
         <cc-pp-conf/>
-        <cc-pp-config-with/>
+        <cc-pp-config-with>
+			<PP-cc-ref>Network Device collaborative Protection Profile Version 4.0<comment> please update references in the bib.</comment></PP-cc-ref>
+			<PP-cc-ref>Protection Profile for Application Software Version 2.0</PP-cc-ref>
+		</cc-pp-config-with>
         <cc-pkg-claim>
 			<FP-cc-ref conf="conformant">Functional Package for TLS, version 2.0</FP-cc-ref>
 		</cc-pkg-claim>
@@ -522,7 +525,7 @@
 
   
   <sec:Security_Requirements>
-    <base-pp id="ND" version="3.0e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
+    <base-pp id="ND" version="4.0" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
       <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
       <cPP/>
       <sec-func-req-dir> 
