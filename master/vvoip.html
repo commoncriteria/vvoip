@@ -629,9 +629,9 @@ function showTarget(id){
 	            img[src="images/collapsed.png"] { display:none;}
 
           }
-    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/><a href="#Comment-4-">Comment: Comment-4-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for VVoIP</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
-      Version: 2.0<br/>2025-04-11<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>2.0</td><td>2025-04-11</td><td><abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022 updates, incorporation of TDs</td></tr>
-<tr><td>1.0</td><td>2020-10-28</td><td>Initial publication</td></tr>
+    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/><a href="#Comment-4-">Comment: Comment-4-</a><br/><a href="#Comment-5-">Comment: Comment-5-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for VVoIP</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
+      Version: 2.0<br/>2025-04-11<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2020-10-28</td><td>Initial publication</td></tr>
+<tr><td>2.0</td><td>2025-04-11</td><td><abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022 updates, incorporation of TDs</td></tr>
 </table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#sec-features" style="text-indent:10px">1.6<span>Implementation-Based Features</span></a><a href="#feat-swapp" style="text-indent:20px">1.6.1<span>Software Application with Logging</span></a><a href="#ConformanceClaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#sec-threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#sec-sor" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
     Protection Profile for Network Devices
        Security Functional Requirements Direction
@@ -1134,7 +1134,8 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 							DTLS as a server defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</a> and also supports functionality for 
 							[<b>selection: </b>mutual authentication, none], DTLS as a client as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</a>, 
 							SSH as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</a>, 
-							IPsec as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version 2.5</a>,
+							IPsec as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version
+								3.0</a>,
 							<b>Secure Real-Time Transport Protocol (<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr>), no other protocols</b>],</i></li>
 							<li><i>invoke platform-provided functionality to encrypt all transmitted sensitive data with <b>TLS and </b>
 							[<b>selection: </b>HTTPS, DTLS, SSH, <b>no other protocols</b>],</i></li>
@@ -1394,7 +1395,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 					<i><ul>
 					<li>Ability to [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="sel-register">register the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr> [<b>selection</b>: <span class="selectable-content" id="_s_28">manually</span>, <span class="selectable-content" id="_s_29">via <abbr class="dyn-abbr"><a href="#abbr_DHCP">DHCP</a></abbr> server</span>]</span></li><li style=""><span class="selectable-content" id="sel-p2p-server-smf">act as a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> call control server when using <abbr class="dyn-abbr"><a href="#abbr_P2P">P2P</a></abbr></span></li></ul>];
 					</li></ul>
-					[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_31">Ability to configure audit behavior (e.g. changes to storage
+					[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_31">Ability to configure audit behavior (e.g., changes to storage
 						locations for audit; changes to behavior when local audit
 						storage space is full);</span></li><li style=""><span class="selectable-content" id="_s_32">Ability to modify the behavior of the transmission of audit data
 						to an external IT entity;</span></li><li style=""><span class="selectable-content" id="_s_33">Ability to configure the termination period for idle calls;</span></li><li style=""><span class="selectable-content" id="_s_34">Ability to specify the vocoder used;</span></li><li style=""><span class="selectable-content" id="_s_35">Ability to disable <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> NULL algorithm;</span></li><li style=""><span class="selectable-content" id="_s_36">Ability to specify the ports to be used for <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> communications;</span></li><li style=""><span class="selectable-content" id="_s_37">no other capabilities</span></li></ul>]
@@ -1440,7 +1441,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
             	<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
 					The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> provides a description of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> initial configuration and describes
 					the ability of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to manage the functions that are defined in the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, including how each function is
-					managed (e.g. manually configured, applied via downloaded configuration file).</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
+					managed (e.g., manually configured, applied via downloaded configuration file).</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 					The evaluator shall verify that the operational guidance provides instructions on configuring any
 					functionality specifically related to <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr>.
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
@@ -1617,8 +1618,8 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 									<p>The evaluator shall ensure that, when the physical connectivity is restored, communications are
 										appropriately protected and no <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data is sent in plaintext. </p>
 									<p>In the case where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is able to detect when the cable is removed from the device, another physical
-										network device (e.g. a core switch) shall be used to interrupt the connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the
-										call control server. The interruption shall not be performed at the virtual node (e.g. virtual switch) and
+										network device (e.g., a core switch) shall be used to interrupt the connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the
+										call control server. The interruption shall not be performed at the virtual node (e.g., virtual switch) and
 										must be physical in nature.</p>
 									<p>Further EAs are associated with the specific protocols.</p>
 									</li>
@@ -1692,8 +1693,8 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 									<p>The evaluator shall ensure that, when the physical connectivity is restored, communications are
 										appropriately protected and no <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data is sent in plaintext. </p>
 									<p>In the case where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is able to detect when the cable is removed from the device, another physical
-										network device (e.g. a core switch) shall be used to interrupt the connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the
-										call control server. The interruption shall not be performed at the virtual node (e.g. virtual switch) and
+										network device (e.g., a core switch) shall be used to interrupt the connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the
+										call control server. The interruption shall not be performed at the virtual node (e.g., virtual switch) and
 										must be physical in nature.</p>
 									<p>Further EAs are associated with the specific protocols.</p>
 									</li>
@@ -1708,10 +1709,10 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 <tr><td>FCS_NTP_EXT.1 (from NDcPP)</td><td>Mitigates the threat by defining how accurate system time is maintained, which is used to support certain cryptographic functions.</td></tr>
 <tr><td>FCS_TLSC_EXT.1 (refined from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a>)</td><td>Mitigates the threat by defining the TLS client implementation used to secure call control and streaming media channels used for <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr>.</td></tr>
+        2.1</a>)</td><td>Mitigates the threat by defining the TLS client implementation used to secure call control and streaming media channels used for <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr>.</td></tr>
 <tr><td>FCS_TLSC_EXT.2 (refined from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a>)</td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s implementation of mutual authentication for its TLS client</td></tr>
+        2.1</a>)</td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s implementation of mutual authentication for its TLS client</td></tr>
 <tr><td>FIA_X509_EXT.1/Rev (refined from <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
         version 
         1.0</a>)</td><td>Mitigates the threat by defining requirements for the use of X.509 certificates that TLS functionality depends on.</td></tr>
@@ -1737,9 +1738,9 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 <tr class="major-row"><td rowspan="9"><a href="#T.UNDETECTED_TRANSMISSION">T.UNDETECTED_​TRANSMISSION</a></td><td><a href="#FDP_IFC.1">FDP_IFC.1</a></td><td>Mitigates the threat by defining the existence of a media transmission policy.</td></tr>
 <tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td>Mitigates the threat by defining how the media transmission policy is enforced to determine when transmissions should occur.</td></tr>
 <tr><td><a href="#FTA_SSL.3/MEDIA">FTA_SSL.3/MEDIA</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to terminate idle sessions.</td></tr>
-<tr><td><a href="#FAU_GEN.1/CSADMIN">FAU_GEN.1/CSADMIN</a> (optional)</td><td>Mitigates the threat by optionally allowing a client-server <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of administrative actions, which could diagnose mis-configuration of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that could lead to unattended transmissions.</td></tr>
+<tr><td><a href="#FAU_GEN.1/CSADMIN">FAU_GEN.1/CSADMIN</a> (optional)</td><td>Mitigates the threat by optionally allowing a client-server <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of administrative actions, which could diagnose misconfiguration of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that could lead to unattended transmissions.</td></tr>
 <tr><td>FAU_GEN.1/CSVVoIP (optional)</td><td>Mitigates the threat by optionally allowing a client-server <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of call data, which could diagnose when unattended transmissions may be occurring.</td></tr>
-<tr><td><a href="#FAU_GEN.1/P2PADMIN">FAU_GEN.1/P2PADMIN</a> (selection-based)</td><td>Mitigates the threat by requiring a peer-to-peer <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of administrative actions, which could diagnose mis-configuration of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that could lead to unattended transmissions.</td></tr>
+<tr><td><a href="#FAU_GEN.1/P2PADMIN">FAU_GEN.1/P2PADMIN</a> (selection-based)</td><td>Mitigates the threat by requiring a peer-to-peer <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of administrative actions, which could diagnose misconfiguration of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that could lead to unattended transmissions.</td></tr>
 <tr><td>FAU_GEN.1/P2PVVoIP (selection-based)</td><td>Mitigates the threat by requiring a peer-to-peer <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide an audit trail of call data, which could diagnose when unattended transmissions may be
 			occurring.</td></tr>
 <tr><td><a href="#FPT_STM_EXT.1/VVoIP">FPT_STM_EXT.1/VVoIP</a> (selection-based)</td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to specify how it obtains system time in certain cases, which is then used as an input to other functions that support this objective.</td></tr>
@@ -1760,7 +1761,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 	  <table><caption><span class="ctr" data-myid="t-con-sec-prob-def" data-counter-type="ct-Table" id="t-con-sec-prob-def">Table <span class="counter">4</span></span>: Consistency of Security Problem Definition (NDcPP base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Threat, Assumption, OSP</th><th>Consistency Rationale</th></tr><tr><td><a href="#T.MEDIA_DISCLOSURE">T.MEDIA_DISCLOSURE</a></td><td>
 			The NDcPP defines a threat for untrusted communications channels. The
-			threat of media disclosure through vocoder frames is a type of sidechannel attack that is unique to the functions of a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> endpoint.
+			threat of media disclosure through vocoder frames is a type of side channel attack that is unique to the functions of a <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> endpoint.
 			However, it is consistent with the overall threat of unintended disclosure
 			of sensitive data.
 		</td></tr><tr><td><a href="#T.UNDETECTED_TRANSMISSION">T.UNDETECTED_TRANSMISSION</a></td><td>
@@ -1796,7 +1797,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
       NDcPP are as follows:
       <table><caption><span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">6</span></span>: Consistency of Requirements (NDcPP base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th></tr><tr><th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td>FAU_STG_EXT.1</td><td>
-				<span style="" class="comment " id="Comment-2-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> will need to be revisited when its upstream definitions are finalized. We assume that this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is going to be be refactored to <a href="#FAU_STG.1">FAU_STG.1</a> in the next release of the NDcPP, but it's unclear in what form the distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> selections will be included.</span>
+				<span style="" class="comment " id="Comment-2-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> will need to be revisited when its upstream definitions are finalized. We assume that this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is going to be refactored to <a href="#FAU_STG.1">FAU_STG.1</a> in the next release of the NDcPP, but it's unclear in what form the distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> selections will be included.</span>
 				This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to prohibit the selection of any
 				“distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>” behavior in FAU_STG_EXT.1.2. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is otherwise
 				unchanged.</td></tr><tr><td>FCS_NTP_EXT.1</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only modifies the circumstances
@@ -2158,7 +2159,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 						evaluator shall record the particular software (name, version) used on the audit server during testing. The
 						evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is capable of transferring audit data to an external audit server
 						automatically without administrator intervention.</p>
-					<p>If the ability to modify this behavior is configurable (e.g. if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can be configured to transmit audit
+					<p>If the ability to modify this behavior is configurable (e.g., if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can be configured to transmit audit
 						data either to an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr> to which it is registered or to an external trusted IT entity that is not an <abbr class="dyn-abbr"><a href="#abbr_ESC">ESC</a></abbr>), the
 						evaluator shall repeat this test as necessary to show that changing the available configuration options will
 						result in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performing the expected behavior in each case.</p>
@@ -2589,7 +2590,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 				<td>
 					<p>For the purpose of logging and processing <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> telephony
 					functions, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is identified solely by underlying system or
-					configuration characteristics (e.g. <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address, phone number)
+					configuration characteristics (e.g., <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address, phone number)
 					independent of the identity of the user interacting with the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</p>
 					<p>When the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a software application, neither this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>
@@ -2721,7 +2722,8 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 <tr><td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td></tr>
 <tr><td><span class="term" id="abbr_UDP"><abbr class="dyn-abbr"><a href="#abbr_UDP">UDP</a></abbr></span></td><td><span id="long_abbr_UDP">User Datagram Protocol</span></td></tr>
 <tr><td><span class="term" id="abbr_VVoIP"><abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr></span></td><td><span id="long_abbr_VVoIP">Voice/Video over <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr></span></td></tr>
-</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix G -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">12</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibAppPP">[App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>]</span></td><td><span class="description"><a href="https://www.niap-ccevs.org/protectionprofiles/516">Protection Profile for Application Software, Version 2.0, June 16, 2025</a></span></td></tr><tr><td><span id="bibndcpp3">[NDcPP]</span></td><td><span class="description">NDcPP  - <a href="https://www.niap-ccevs.org/protectionprofiles/482">Collaborative Protection Profile for Network Devices, Version 3.0e, December 06, 2023</a></span></td></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
+</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix G -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">12</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibAppPP">[App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>]</span></td><td><span class="description"><a href="https://www.niap-ccevs.org/protectionprofiles/516">Protection Profile for Application Software, Version 2.0, June 16, 2025</a></span></td></tr><tr><td><span id="bibndcpp3">[NDcPP]</span></td><td><span class="description">NDcPP - <a href="https://www.niap-ccevs.org/protectionprofiles/482">Collaborative Protection Profile for
+				Network Devices, Version 4.0 December 06, 2023</a> <span style="" class="comment " id="Comment-5-">Adjust date when published.</span></span></td></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
             <li><a href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART1R1.pdf">Part 1: 
 				Introduction and general model</a>, CCMB-2022-11-001, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART2R1.pdf">Part 2: 

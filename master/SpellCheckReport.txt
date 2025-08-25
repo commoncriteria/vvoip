@@ -1,5 +1,4 @@
 output/vvoip-esr.html: CESG
-output/vvoip-release-linkable.html: 0e
 output/vvoip-release-linkable.html: 38D
 output/vvoip-release-linkable.html: CEM
 output/vvoip-release-linkable.html: CSVVoIP
@@ -19,14 +18,12 @@ output/vvoip-release-linkable.html: UID
 output/vvoip-release-linkable.html: Vocoder
 output/vvoip-release-linkable.html: duplicative
 output/vvoip-release-linkable.html: exfiltrate
-output/vvoip-release-linkable.html: mis
-output/vvoip-release-linkable.html: sidechannel
+output/vvoip-release-linkable.html: misconfiguration
 output/vvoip-release-linkable.html: subcommands
 output/vvoip-release-linkable.html: subnet
 output/vvoip-release-linkable.html: unallowed
 output/vvoip-release-linkable.html: vocoder
 output/vvoip-release-linkable.html: vocoders
-output/vvoip-release.html: 0e
 output/vvoip-release.html: 38D
 output/vvoip-release.html: CEM
 output/vvoip-release.html: CSVVoIP
@@ -47,13 +44,11 @@ output/vvoip-release.html: UID
 output/vvoip-release.html: Vocoder
 output/vvoip-release.html: duplicative
 output/vvoip-release.html: exfiltrate
-output/vvoip-release.html: mis
+output/vvoip-release.html: misconfiguration
 output/vvoip-release.html: role’
-output/vvoip-release.html: sidechannel
 output/vvoip-release.html: user’
 output/vvoip-release.html: vocoder
 output/vvoip-release.html: vocoders
-output/vvoip-sd.html: 0e
 output/vvoip-sd.html: AGD
 output/vvoip-sd.html: CEM
 output/vvoip-sd.html: CallControl
@@ -74,7 +69,6 @@ output/vvoip-sd.html: unallowed
 output/vvoip-sd.html: vocoder
 output/vvoip-sd.html: vocoders
 output/vvoip-sd.html: ’
-output/vvoip.html: 0e
 output/vvoip.html: 38D
 output/vvoip.html: CEM
 output/vvoip.html: CSVVoIP
@@ -98,10 +92,9 @@ output/vvoip.html: duplicative
 output/vvoip.html: evaluator’s
 output/vvoip.html: events’
 output/vvoip.html: exfiltrate
-output/vvoip.html: mis
+output/vvoip.html: misconfiguration
 output/vvoip.html: records’
 output/vvoip.html: role’
-output/vvoip.html: sidechannel
 output/vvoip.html: subcommands
 output/vvoip.html: subnet
 output/vvoip.html: unallowed

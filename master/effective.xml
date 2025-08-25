@@ -19,7 +19,7 @@
     target-product="Widget"                            # Name of the TOE product
     target-products="Widgets"                          # Plural name of the TOE product (optional)
     boilerplate="yes"                                  # Whether to use boilerplate text by default (can be disabled in sections)
-    short="Wid">                                       # A short name for the PP (e.g. App or MDF)
+    short="Wid">                                       # A short name for the PP (e.g., App or MDF)
 -->
 
   <!-- PPReference (all documents) -->
@@ -34,16 +34,18 @@
 
 <!-- Revision History (all documents) -->
   <RevisionHistory>
+     <entry>
+      <version>1.0</version>
+      <date>2020-10-28</date>
+      <subject>Initial publication</subject>
+    </entry>
+  	
     <entry>
       <version>2.0</version>
       <date>2025-04-11</date>
       <subject>CC:2022 updates, incorporation of TDs</subject>
     </entry>
-    <entry>
-      <version>1.0</version>
-      <date>2020-10-28</date>
-      <subject>Initial publication</subject>
-    </entry>
+   
   </RevisionHistory>
 
   <release-notes><h:h3>TDs Applied</h:h3></release-notes><include-pkg id="pkgSSH">
@@ -57,7 +59,7 @@
   <include-pkg id="pkgTLS">
     <git>
       <url>https://github.com/commoncriteria/tls</url>
-      <branch>release-2.0</branch>
+      <branch>release-2.1</branch>
     </git>
     <url>https://www.niap-ccevs.org/protectionprofiles/465</url>
     <depends on="fcs-eap-ext-1"/>
@@ -72,7 +74,7 @@
   <include-pkg id="pkgVPNC">
 	<git>
 	  <url>https://github.com/commoncriteria/vpnclient</url>
-	  <branch>release-2.5</branch>
+	  <branch>release-3.0</branch>
 	</git>
 	<url>https://www.niap-ccevs.org/protectionprofiles/487</url>
   </include-pkg>
@@ -437,9 +439,9 @@
 		  	<addressed-by>FDP_IFC.1</addressed-by><rationale>Mitigates the threat by defining the existence of a media transmission policy.</rationale>
 			<addressed-by>FDP_IFF.1</addressed-by><rationale>Mitigates the threat by defining how the media transmission policy is enforced to determine when transmissions should occur.</rationale>
 			<addressed-by>FTA_SSL.3/MEDIA</addressed-by><rationale>Mitigates the threat by requiring the TSF to terminate idle sessions.</rationale>
-			<addressed-by>FAU_GEN.1/CSADMIN (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a client-server TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
+			<addressed-by>FAU_GEN.1/CSADMIN (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a client-server TOE to provide an audit trail of administrative actions, which could diagnose misconfiguration of the TOE that could lead to unattended transmissions.</rationale>
 			<addressed-by>FAU_GEN.1/CSVVoIP (optional)</addressed-by><rationale>Mitigates the threat by optionally allowing a client-server TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be occurring.</rationale>
-			<addressed-by>FAU_GEN.1/P2PADMIN (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of administrative actions, which could diagnose mis-configuration of the TOE that could lead to unattended transmissions.</rationale>
+			<addressed-by>FAU_GEN.1/P2PADMIN (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of administrative actions, which could diagnose misconfiguration of the TOE that could lead to unattended transmissions.</rationale>
 			<addressed-by>FAU_GEN.1/P2PVVoIP (selection-based)</addressed-by><rationale>Mitigates the threat by requiring a peer-to-peer TOE to provide an audit trail of call data, which could diagnose when unattended transmissions may be
 			occurring.</rationale>
 			<addressed-by>FPT_STM_EXT.1/VVoIP (selection-based)</addressed-by><rationale>Mitigates the threat by requiring the TSF to specify how it obtains system time in certain cases, which is then used as an input to other functions that support this objective.</rationale>
@@ -528,7 +530,7 @@
 	  	<section title="Security Audit (FAU)" id="nd-mod-fau">
 			<base-sfr-spec cc-id="fau_stg_ext.1" title="Protected Audit Event Storage" id="nd-mod-fau-stg-ext-1">
 				<consistency-rationale>
-				<comment>This SFR will need to be revisited when its upstream definitions are finalized. We assume that this SFR is going to be be refactored to FAU_STG.1 in the next release of the NDcPP, but it's unclear in what form the distributed TOE selections will be included.</comment>
+				<comment>This SFR will need to be revisited when its upstream definitions are finalized. We assume that this SFR is going to be refactored to FAU_STG.1 in the next release of the NDcPP, but it's unclear in what form the distributed TOE selections will be included.</comment>
 				This PP-Module modifies this SFR to prohibit the selection of any
 				“distributed TOE” behavior in FAU_STG_EXT.1.2. The SFR is otherwise
 				unchanged.</consistency-rationale>
@@ -683,7 +685,7 @@
 		</con-mod>
 		<con-mod ref="T.MEDIA_DISCLOSURE">
 			The NDcPP defines a threat for untrusted communications channels. The
-			threat of media disclosure through vocoder frames is a type of sidechannel attack that is unique to the functions of a VVoIP endpoint.
+			threat of media disclosure through vocoder frames is a type of side channel attack that is unique to the functions of a VVoIP endpoint.
 			However, it is consistent with the overall threat of unintended disclosure
 			of sensitive data.
 		</con-mod>
@@ -829,7 +831,8 @@
 							DTLS as a server defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a> and also supports functionality for 
 							[<h:b>selection: </h:b>mutual authentication, none], DTLS as a client as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a>, 
 							SSH as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</h:a>, 
-							IPsec as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version 2.5</h:a>,
+							IPsec as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version
+								3.0</h:a>,
 							<h:b>Secure Real-Time Transport Protocol (SRTP), no other protocols</h:b>],</h:i></h:li>
 							<h:li><h:i>invoke platform-provided functionality to encrypt all transmitted sensitive data with <h:b>TLS and </h:b>
 							[<h:b>selection: </h:b>HTTPS, DTLS, SSH, <h:b>no other protocols</h:b>],</h:i></h:li>
@@ -1296,7 +1299,7 @@
 						<selectable id="sel-p2p-server-smf">act as a VVoIP call control server when using P2P</selectable></selectables>;
 					</h:li></h:ul>
 					<selectables linebreak="yes">
-						<selectable>Ability to configure audit behavior (e.g. changes to storage
+						<selectable>Ability to configure audit behavior (e.g., changes to storage
 						locations for audit; changes to behavior when local audit
 						storage space is full);</selectable>
 						<selectable>Ability to modify the behavior of the transmission of audit data
@@ -1344,7 +1347,7 @@
    					<TSS>
 					The evaluator shall verify that the TSS provides a description of the TOE initial configuration and describes
 					the ability of the TSF to manage the functions that are defined in the SFR, including how each function is
-					managed (e.g. manually configured, applied via downloaded configuration file).</TSS>
+					managed (e.g., manually configured, applied via downloaded configuration file).</TSS>
 					<Guidance>
 					The evaluator shall verify that the operational guidance provides instructions on configuring any
 					functionality specifically related to VVoIP.
@@ -1530,8 +1533,8 @@
 									<h:p>The evaluator shall ensure that, when the physical connectivity is restored, communications are
 										appropriately protected and no TSF data is sent in plaintext. </h:p>
 									<h:p>In the case where the TOE is able to detect when the cable is removed from the device, another physical
-										network device (e.g. a core switch) shall be used to interrupt the connection between the TOE and the
-										call control server. The interruption shall not be performed at the virtual node (e.g. virtual switch) and
+										network device (e.g., a core switch) shall be used to interrupt the connection between the TOE and the
+										call control server. The interruption shall not be performed at the virtual node (e.g., virtual switch) and
 										must be physical in nature.</h:p>
 									<h:p>Further EAs are associated with the specific protocols.</h:p>
 									</test>
@@ -1617,8 +1620,8 @@
 									<h:p>The evaluator shall ensure that, when the physical connectivity is restored, communications are
 										appropriately protected and no TSF data is sent in plaintext. </h:p>
 									<h:p>In the case where the TOE is able to detect when the cable is removed from the device, another physical
-										network device (e.g. a core switch) shall be used to interrupt the connection between the TOE and the
-										call control server. The interruption shall not be performed at the virtual node (e.g. virtual switch) and
+										network device (e.g., a core switch) shall be used to interrupt the connection between the TOE and the
+										call control server. The interruption shall not be performed at the virtual node (e.g., virtual switch) and
 										must be physical in nature.</h:p>
 									<h:p>Further EAs are associated with the specific protocols.</h:p>
 									</test>
@@ -2202,7 +2205,7 @@
 						evaluator shall record the particular software (name, version) used on the audit server during testing. The
 						evaluator shall verify that the TOE is capable of transferring audit data to an external audit server
 						automatically without administrator intervention.</h:p>
-					<h:p>If the ability to modify this behavior is configurable (e.g. if the TOE can be configured to transmit audit
+					<h:p>If the ability to modify this behavior is configurable (e.g., if the TOE can be configured to transmit audit
 						data either to an ESC to which it is registered or to an external trusted IT entity that is not an ESC), the
 						evaluator shall repeat this test as necessary to show that changing the available configuration options will
 						result in the TOE performing the expected behavior in each case.</h:p>
@@ -2305,7 +2308,7 @@
 				<h:td>
 					<h:p>For the purpose of logging and processing VVoIP telephony
 					functions, the TOE is identified solely by underlying system or
-					configuration characteristics (e.g. IP address, phone number)
+					configuration characteristics (e.g., IP address, phone number)
 					independent of the identity of the user interacting with the
 					TOE.</h:p>
 					<h:p>When the TOE is a software application, neither this PP-Module
@@ -2439,7 +2442,8 @@
 		<cc-entry/>
 		<entry id="bibndcpp3">
 			<tag>NDcPP</tag>
-			<description>NDcPP  - <h:a href="https://www.niap-ccevs.org/protectionprofiles/482">Collaborative Protection Profile for Network Devices, Version 3.0e, December 06, 2023</h:a></description>			
+			<description>NDcPP - <h:a href="https://www.niap-ccevs.org/protectionprofiles/482">Collaborative Protection Profile for
+				Network Devices, Version 4.0 December 06, 2023</h:a> <comment>Adjust date when published.</comment></description>			
 		</entry>
 		<entry id="bibAppPP">
 			<tag>App PP</tag>
