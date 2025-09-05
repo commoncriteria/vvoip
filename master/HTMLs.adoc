@@ -1,7 +1,4 @@
-* https://commoncriteria.github.io/vvoip/master/AppliedTDs-Diff.html[AppliedTDs-Diff.html]
-* https://commoncriteria.github.io/vvoip/master/AppliedTDs.html[AppliedTDs.html]
 * https://commoncriteria.github.io/vvoip/master/diff-v1.0.html[diff-v1.0.html]
-* https://commoncriteria.github.io/vvoip/master/vvoip-esr.html[vvoip-esr.html]
 * https://commoncriteria.github.io/vvoip/master/vvoip-release-linkable.html[vvoip-release-linkable.html]
 * https://commoncriteria.github.io/vvoip/master/vvoip-release.html[vvoip-release.html]
 * https://commoncriteria.github.io/vvoip/master/vvoip-sd.html[vvoip-sd.html]

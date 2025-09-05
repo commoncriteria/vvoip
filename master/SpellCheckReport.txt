@@ -1,4 +1,3 @@
-output/vvoip-esr.html: CESG
 output/vvoip-release-linkable.html: 38D
 output/vvoip-release-linkable.html: CEM
 output/vvoip-release-linkable.html: CSVVoIP
