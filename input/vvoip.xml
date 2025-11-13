@@ -102,7 +102,7 @@
       f
       <h:ul>
         <h:li>Protection Profile for Application Software, Version 2.0</h:li>
-        <h:li>Network Device collaborative Protection Profile, Version 4.0<comment> please update references in the bib.</comment></h:li>
+        <h:li>Network Device collaborative Protection Profile, Version 4.0</h:li>
       </h:ul>
       
       <h:p>
@@ -2484,20 +2484,8 @@
 	
 	<!-- Bibliography is auto generated here with CC and CEM docs. If you want other docs -->
 	<!-- included, add them here. -->
-	<bibliography>
-		<cc-entry/>
-		<entry id="bibndcpp3">
-			<tag>NDcPP</tag>
-			<description>NDcPP - <h:a
-				href="https://www.niap-ccevs.org/protectionprofiles/482">Collaborative Protection Profile for
-				Network Devices, Version 4.0 December 06, 2023</h:a> <comment>Adjust date when published.</comment></description>			
-		</entry>
-		<entry id="bibAppPP">
-			<tag>App PP</tag>
-			<description><h:a href="https://www.niap-ccevs.org/protectionprofiles/516"
-				>Protection Profile for Application Software, Version 2.0, June 16, 2025</h:a></description>
-		</entry>
-	</bibliography>
+	<bibliography/>
+		
 
 </Module>
 <!-- </Package>  -->
