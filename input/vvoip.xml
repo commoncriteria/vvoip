@@ -871,33 +871,35 @@
 						<h:p><h:b>FTP_DIT_EXT.1.1: </h:b>
 							The application shall [<h:b>selection: </h:b>
 							<h:ul>
-								<h:li><h:i>not transmit any [<h:b>selection, choose one of: </h:b>data, sensitive data</h:i></h:li>
+								<h:li><h:i>not transmit any [<h:b>selection, choose one of: </h:b>data, sensitive
+									data</h:i>]</h:li>
 								<h:li><h:i>encrypt all transmitted [<h:b>selection, choose one of: </h:b>sensitive data, data] with 
-									<h:b>TLS as a server as defined in Functional Package for Transport Layer Security (TLS),
+									<h:b>TLS as a server as defined in the Functional Package for Transport Layer Security (TLS),
 										version 2.1 and also supports functionality for [<h:b>selection:</h:b> mutual authentication, none] 
-										and TLS as a client as defined in Functional Package for Transport Layer Security (TLS), version 2.1</h:b> and 
+										and TLS as a client as defined in the Functional Package for Transport Layer Security (TLS), version 2.1</h:b> and 
 								<h:b>[selection:</h:b> <h:ul>
 									<h:li>HTTPS as a client in accordance with FCS_HTTPS_EXT.1 and FCS_HTTPS_EXT.2</h:li>
 									<h:li>HTTPS as a server in accordance with FCS_HTTPS_EXT.1</h:li>
 									<h:li>HTTPS as a server with support for mutual authentication in accordance with FCS_HTTPS_EXT.1
 										and FCS_HTTPS_EXT.2</h:li>
 									<h:li>DTLS as a server defined in the Functional Package for Transport Layer Security (TLS),
-										version 2.1 and also supports functionality for [selection: <h:i>mutual authentication, none</h:i>]</h:li>
+										version 2.1 and also supports functionality for [selection: <h:b>mutual authentication,
+											none</h:b>]</h:li>
 									<h:li>DTLS as a client defined in the Functional Package for Transport Layer Security (TLS), version 2.1</h:li>
 									<h:li>SSH as defined in the Functional Package for Secure Shell (SSH), version 2.0</h:li>
 									<h:li>IPsec as defined in the VPN Client PP-Module, version 3.0</h:li>
 									<h:li><h:b>Secure Real-Time Transport Protocol (SRTP)</h:b></h:li>
 								</h:ul>
-								for [<h:b>assignment:</h:b> function(s)] using certificates as defined in the Functional
+								] for [<h:b>assignment:</h:b> function(s)] using certificates as defined in the Functional
 									Package for X.509
 							<h:li>invoke platform-provided functionality to encrypt all transmitted sensitive data with <h:b>TLS and </h:b>
 							[<h:b>selection: </h:b>HTTPS, DTLS, SSH, IPsec] for [<h:b>assignment:</h:b> function(s)]
-								using certificates as defined in Functional Package for X.509</h:li>
+								using certificates as defined in the Functional Package for X.509</h:li>
 							<h:li>invoke platform-provided functionality to encrypt all transmitted data with <h:b>TLS and </h:b>
 								[<h:b>selection: </h:b>HTTPS, DTLS, SSH, IPsec] for [<h:b>assignment:</h:b> function(s)]
-								using certificates as defined in Functional Package for X.509</h:li>
+								using certificates as defined in the Functional Package for X.509</h:li>
 							</h:i></h:li></h:ul>
-							] between itself and another trusted IT product							
+							] between itself and another trusted IT product.							
 						</h:p>
 						<h:p><h:b>Application Note: </h:b>
 							The App PP provides the ability for the ST author to specify the protocols used to
