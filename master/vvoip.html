@@ -1087,11 +1087,13 @@ provide all of its security functionality.</p>
 				<p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is modified to mandate the inclusion of TLS. Any other protocols may additionally be claimed. 
 				Any element that is not included in this section is unchanged from its definition in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</p>
 				<p>The text of the requirement is replaced with:</p>
-				<p><b>FTP_ITC.1.1: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of using <b>TLS and </b>[<b>selection: </b><i>IPsec, SSH, DTLS, HTTPS, <b>no other protocols</b></i>]
-					<b>to</b> provide a <b>trusted</b> communication channel between itself and authorized IT entities supporting the following capabilities: audit server, 
+				<p><b>FTP_ITC.1.1: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of using <b>TLS as defined in the Functional Package for TLS and
+				</b>[<b>selection: </b><i>IPsec, SSH as defined in the Functional Package for SSH, DTLS
+					as defined in the Functional Package for TLS, HTTPS, <b>no other protocols</b></i>]
+					to provide a trusted communication channel between itself and authorized IT entities supporting the following capabilities: audit server, 
 					<b>streaming media channel, call control channel, software/firmware update delivery channel, </b> [<b>selection: </b><i>authentication server, 
 					[<b>assignment: </b>other capabilities], no other capabilities</i>] that is logically distinct from other communication channels and provides assured identification 
-					of its end points and protection of the channel	data from modification or disclosure.
+					of its end points and protection of the channel data from disclosure and detection of modification of the channel data.
 				</p>
 				<p>
 					<b>Application Note: </b> The NDcPP provides the ability for the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author to specify the protocols used to
@@ -1136,23 +1138,33 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 						<p><b>FTP_DIT_EXT.1.1: </b>
 							The application shall [<b>selection: </b>
 							<ul>
-								<li><i>encrypt all transmitted [<b>selection: </b>
-							sensitive data, data] with <b>[selection: TLS as a server as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</a> and also supports functionality for 
-							[<b>selection: </b>mutual authentication, none], TLS as a client as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</a>]</b> and 
-							[<b>selection: </b>HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client, HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server, 
-							HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2, 
-							DTLS as a server defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</a> and also supports functionality for 
-							[<b>selection: </b>mutual authentication, none], DTLS as a client as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</a>, 
-							SSH as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</a>, 
-							IPsec as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/487">PP-Module for VPN Client, version
-								3.0</a>,
-							<b>Secure Real-Time Transport Protocol (<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr>), no other protocols</b>],</i></li>
-							<li><i>invoke platform-provided functionality to encrypt all transmitted sensitive data with <b>TLS and </b>
-							[<b>selection: </b>HTTPS, DTLS, SSH, <b>no other protocols</b>],</i></li>
-							<li><i>invoke platform-provided functionality to encrypt all transmitted data with <b>TLS and </b>
-							[<b>selection: </b>HTTPS, DTLS, SSH, <b>no other protocols</b>]</i></li>
-							</ul>
-							] between itself and another trusted IT product.
+								<li><i>not transmit any [<b>selection, choose one of: </b>data, sensitive data</i></li>
+								<li><i>encrypt all transmitted [<b>selection, choose one of: </b>sensitive data, data] with 
+									<b>TLS as a server as defined in Functional Package for Transport Layer Security (TLS),
+										version 2.1 and also supports functionality for [<b>selection:</b> mutual authentication, none] 
+										and TLS as a client as defined in Functional Package for Transport Layer Security (TLS), version 2.1</b> and 
+								<b>[selection:</b> <ul>
+									<li>HTTPS as a client in accordance with FCS_HTTPS_EXT.1 and FCS_HTTPS_EXT.2</li>
+									<li>HTTPS as a server in accordance with FCS_HTTPS_EXT.1</li>
+									<li>HTTPS as a server with support for mutual authentication in accordance with FCS_HTTPS_EXT.1
+										and FCS_HTTPS_EXT.2</li>
+									<li>DTLS as a server defined in the Functional Package for Transport Layer Security (TLS),
+										version 2.1 and also supports functionality for [selection: <i>mutual authentication, none</i>]</li>
+									<li>DTLS as a client defined in the Functional Package for Transport Layer Security (TLS), version 2.1</li>
+									<li>SSH as defined in the Functional Package for Secure Shell (SSH), version 2.0</li>
+									<li>IPsec as defined in the VPN Client <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, version 3.0</li>
+									<li><b>Secure Real-Time Transport Protocol (<abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr>)</b></li>
+								</ul>
+								for [<b>assignment:</b> function(s)] using certificates as defined in the Functional
+									Package for X.509
+							<li>invoke platform-provided functionality to encrypt all transmitted sensitive data with <b>TLS and </b>
+							[<b>selection: </b>HTTPS, DTLS, SSH, IPsec] for [<b>assignment:</b> function(s)]
+								using certificates as defined in Functional Package for X.509</li>
+							<li>invoke platform-provided functionality to encrypt all transmitted data with <b>TLS and </b>
+								[<b>selection: </b>HTTPS, DTLS, SSH, IPsec] for [<b>assignment:</b> function(s)]
+								using certificates as defined in Functional Package for X.509</li>
+							</i></li></ul>
+							] between itself and another trusted IT product							
 						</p>
 						<p><b>Application Note: </b>
 							The App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> provides the ability for the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author to specify the protocols used to
