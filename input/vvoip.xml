@@ -883,8 +883,8 @@
 									<h:li>HTTPS as a server with support for mutual authentication in accordance with FCS_HTTPS_EXT.1
 										and FCS_HTTPS_EXT.2</h:li>
 									<h:li>DTLS as a server defined in the Functional Package for Transport Layer Security (TLS),
-										version 2.1 and also supports functionality for [selection: <h:b>mutual authentication,
-											none</h:b>]</h:li>
+										version 2.1 and also supports functionality for [<h:b>selection:</h:b> mutual authentication,
+											none]</h:li>
 									<h:li>DTLS as a client defined in the Functional Package for Transport Layer Security (TLS), version 2.1</h:li>
 									<h:li>SSH as defined in the Functional Package for Secure Shell (SSH), version 2.0</h:li>
 									<h:li>IPsec as defined in the VPN Client PP-Module, version 3.0</h:li>
