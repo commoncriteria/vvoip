@@ -622,9 +622,9 @@
 			<base-sfr-spec cc-id="fau_stg_ext.1" title="Protected Audit Event Storage" id="nd-mod-fau-stg-ext-1">
 				<consistency-rationale>
 				This PP-Module modifies this SFR to prohibit the selection of any
-				“distributed TOE” behavior in FAU_STG_EXT.1.2. Any element not specified in this section is unchanged from its definition in the Base-PP..</consistency-rationale>
+				“distributed TOE” behavior in FAU_STG_EXT.1.2. </consistency-rationale>
 				<description>
-				<h:p>This SFR is modified to prohibit the selection of distributed TOE options.</h:p>
+					<h:p>This SFR is modified to prohibit the selection of distributed TOE options. Any element not specified in this section is unchanged from its definition in the Base-PP.</h:p>
 				<h:p>The text of FAU_STG_EXT.1.2 is replaced with:</h:p>
 				<h:p><h:b>FAU_STG_EXT.1.2 </h:b>The TSF shall be able to store generated audit data on the TOE
 					itself. In addition, 
