@@ -622,12 +622,11 @@
 			<base-sfr-spec cc-id="fau_stg_ext.1" title="Protected Audit Event Storage" id="nd-mod-fau-stg-ext-1">
 				<consistency-rationale>
 				This PP-Module modifies this SFR to prohibit the selection of any
-				“distributed TOE” behavior in FAU_STG_EXT.1.2. The SFR is otherwise
-				unchanged.</consistency-rationale>
+				“distributed TOE” behavior in FAU_STG_EXT.1.2. Any element not specified in this section is unchanged from its definition in the Base-PP..</consistency-rationale>
 				<description>
 				<h:p>This SFR is modified to prohibit the selection of distributed TOE options.</h:p>
 				<h:p>The text of FAU_STG_EXT.1.2 is replaced with:</h:p>
-				<h:p><h:b>FAU_STG_EXT.1.2: </h:b>The TSF shall be able to store generated audit data on the TOE
+				<h:p><h:b>FAU_STG_EXT.1.2 </h:b>The TSF shall be able to store generated audit data on the TOE
 					itself. In addition, 
 				<h:ul><h:li>[<h:i>The TOE shall consist of a single standalone component that stores audit
 					data locally</h:i>].</h:li></h:ul></h:p>
@@ -684,7 +683,7 @@
 				<h:p>This SFR is modified to mandate the inclusion of TLS. Any other protocols may additionally be claimed. 
 				Any element that is not included in this section is unchanged from its definition in the Base-PP.</h:p>
 				<h:p>The text of the requirement is replaced with:</h:p>
-				<h:p><h:b>FTP_ITC.1.1: </h:b>The TSF shall be capable of using <h:b>TLS as defined in the Functional Package for TLS and
+				<h:p><h:b>FTP_ITC.1.1 </h:b>The TSF shall be capable of using <h:b>TLS as defined in the Functional Package for TLS and
 				</h:b>[<h:b>selection: </h:b><h:i>IPsec, SSH as defined in the Functional Package for SSH, DTLS
 					as defined in the Functional Package for TLS, HTTPS, <h:b>no other protocols</h:b></h:i>]
 					to provide a trusted communication channel between itself and authorized IT entities supporting the following capabilities: audit server, 
@@ -865,7 +864,7 @@
 						<h:p>This SFR is modified from its definition in the Base-PP to mandate the inclusion of TLS as a method to protect data 
 						and to add support for the use of SRTP to protect data in transit.</h:p>
 						<h:p>The text of the requirement is replaced with:</h:p>
-						<h:p><h:b>FTP_DIT_EXT.1.1: </h:b>
+						<h:p><h:b>FTP_DIT_EXT.1.1 </h:b>
 							The application shall [<h:b>selection: </h:b>
 							<h:ul>
 								<h:li><h:i>not transmit any [<h:b>selection, choose one of: </h:b>data, sensitive
