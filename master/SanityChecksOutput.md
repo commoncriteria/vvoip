@@ -8,7 +8,6 @@
         /Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[2]""/f-element[1]""/title[1]"The TSF s"/h:ol[1]""/h:li[2]""/h:s[1]"All audit"/selectables[1]""
 * Error: f-element FTP_DIT_EXT.1.1  appears not to have an associated evaluation activity.:
         /Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/modified-sfrs[1]""/section[2]""/base-sfr-spec[1]""/replace[1]""/xpath-specified[1]""/f-component[1]""/f-element[1]""
-* Warning: This document still has at least one comment.
 * Error: Detected dangling id-reference to fcs-eap-ext-1 from attribute
         on/Module[1]""/include-pkg[2]""/depends[1]""/on[1]""
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
@@ -30,7 +29,6 @@
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
 	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[2]""/config[1]""/ref-id[1]"dummy-ref"
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Problem_Definition[1]""/sec:Assumptions[1]""/assumptions[1]""/assumption[1]""/description[1]"It is ass"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_Operational_Environment[1]""/SOEs[1]""/SOE[1]""/description[1]"TOE admin"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/modified-sfrs[1]""/section[3]""/base-sfr-spec[1]""/description[1]""/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/modified-sfrs[1]""/section[2]""/base-sfr-spec[1]""/replace[2]""/xpath-specified[1]""/note[1]"The App P"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/modified-sfrs[1]""/section[2]""/base-sfr-spec[1]""/replace[2]""/xpath-specified[1]""/note[1]"The App P"/h:p[2]""
