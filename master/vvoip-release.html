@@ -1054,7 +1054,7 @@ provide all of its security functionality.</p>
 		<h4 id="@id" class="indexable" data-level="4">5.1.1.1 Security Audit (FAU)</h4><div class="comp" id="@id"><h4>FAU_STG_EXT.1: Protected Audit Event Storage</h4><span class="description">
 				<p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is modified to prohibit the selection of distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> options.</p>
 				<p>The text of FAU_STG_EXT.1.2 is replaced with:</p>
-				<p><b>FAU_STG_EXT.1.2: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to store generated audit data on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
+				<p><b>FAU_STG_EXT.1.2 </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to store generated audit data on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
 					itself. In addition, 
 				<ul><li>[<i>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall consist of a single standalone component that stores audit
 					data locally</i>].</li></ul></p>
@@ -1085,7 +1085,7 @@ provide all of its security functionality.</p>
 				<p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is modified to mandate the inclusion of TLS. Any other protocols may additionally be claimed. 
 				Any element that is not included in this section is unchanged from its definition in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</p>
 				<p>The text of the requirement is replaced with:</p>
-				<p><b>FTP_ITC.1.1: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of using <b>TLS as defined in the Functional Package for TLS and
+				<p><b>FTP_ITC.1.1 </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of using <b>TLS as defined in the Functional Package for TLS and
 				</b>[<b>selection: </b><i>IPsec, SSH as defined in the Functional Package for SSH, DTLS
 					as defined in the Functional Package for TLS, HTTPS, <b>no other protocols</b></i>]
 					to provide a trusted communication channel between itself and authorized IT entities supporting the following capabilities: audit server, 
@@ -1133,7 +1133,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 						<p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is modified from its definition in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to mandate the inclusion of TLS as a method to protect data 
 						and to add support for the use of <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> to protect data in transit.</p>
 						<p>The text of the requirement is replaced with:</p>
-						<p><b>FTP_DIT_EXT.1.1: </b>
+						<p><b>FTP_DIT_EXT.1.1 </b>
 							The application shall [<b>selection: </b>
 							<ul>
 								<li><i>not transmit any [<b>selection, choose one of: </b>data, sensitive
@@ -1503,8 +1503,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
       <table><caption><span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">6</span></span>: Consistency of Requirements (NDcPP base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th></tr><tr><th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td>FAU_STG_EXT.1</td><td>
 				This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> modifies this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to prohibit the selection of any
-				“distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>” behavior in FAU_STG_EXT.1.2. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is otherwise
-				unchanged.</td></tr><tr><td>FCS_NTP_EXT.1</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only modifies the circumstances
+				“distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>” behavior in FAU_STG_EXT.1.2. Any element not specified in this section is unchanged from its definition in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>..</td></tr><tr><td>FCS_NTP_EXT.1</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only modifies the circumstances
 				that trigger its inclusion in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s logical boundary.</td></tr><tr><td>FPT_TUD_EXT.1</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>; it only specifies that the source of
 				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software/firmware updates must be a specific type of server.
 				</td></tr><tr><td>FTP_ITC.1</td><td>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> restricts the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to a subset of existing permissible
