@@ -590,10 +590,10 @@
 		</h:p>
 	  <SOEs>
         <SOE name="OE.UPDATE_SOURCE">
-          <description>TOE administrators will ensure that the TOE is installed in a manner that will allow the TOE to effectively
-			enforce its policies on network traffic of monitored networks. <h:p/>
-			Note that because this PP-Module specifically disallows distributed TOEs, a conformant TOE will not claim
-			OE.COMPONENTS_RUNNING when NDcPP is the Base-PP.
+        	<description><h:p>The operational environment will have TOE software/firmware made available on either the call
+        		control server that the TOE connects to or a separate file server managed by the organization.</h:p>
+			<h:p>Note that because this PP-Module specifically disallows distributed TOEs, a conformant TOE will not claim
+				OE.COMPONENTS_RUNNING when NDcPP is the Base-PP.</h:p>
 		</description>
         </SOE>
       </SOEs>
@@ -621,13 +621,11 @@
 	  	<section title="Security Audit (FAU)" id="nd-mod-fau">
 			<base-sfr-spec cc-id="fau_stg_ext.1" title="Protected Audit Event Storage" id="nd-mod-fau-stg-ext-1">
 				<consistency-rationale>
-				<comment>This SFR will need to be revisited when its upstream definitions are finalized. We assume that this SFR is going to be refactored to FAU_STG.1 in the next release of the NDcPP, but it's unclear in what form the distributed TOE selections will be included.</comment>
 				This PP-Module modifies this SFR to prohibit the selection of any
 				“distributed TOE” behavior in FAU_STG_EXT.1.2. The SFR is otherwise
 				unchanged.</consistency-rationale>
 				<description>
-				<h:p>This SFR is modified to prohibit the selection of distributed TOE options. Any element not mentioned in this 
-				section is unchanged from its definition in the Base-PP.</h:p>
+				<h:p>This SFR is modified to prohibit the selection of distributed TOE options.</h:p>
 				<h:p>The text of FAU_STG_EXT.1.2 is replaced with:</h:p>
 				<h:p><h:b>FAU_STG_EXT.1.2: </h:b>The TSF shall be able to store generated audit data on the TOE
 					itself. In addition, 
@@ -648,8 +646,7 @@
 				<description>
 					<h:p>This SFR is selection-based in the NDcPP and remains selection-based in this PP-Module. However, an
 					additional trigger for this SFR’s inclusion is added for the selection of “register the TOE to an ESC…” in
-					FMT_SMF.1/VVoIP if the TOE is a hardware device. This is because any hardware-based VVoIP TOE that can be registered to ESCs is required to use them
-					as NTP servers.</h:p>
+					FMT_SMF.1/VVoIP if the TOE is a hardware device. This is because any hardware-based VVoIP TOE that can be registered to an ESC is required to use the ESC as an NTP time source.</h:p>
 					<h:p>If the TOE is not registered to an ESC, it is not relevant to this PP-Module whether or not NTP is
 					implemented, and in this case this SFR remains selection-based on FPT_STM_EXT.1.2, which is not
 					modified by this PP-Module (i.e. a peer-to-peer TOE does not register to an ESC but may still receive time
@@ -1022,12 +1019,6 @@
 			particular location.
 		</con-mod>
 		<con-mod ref="OE.UPDATE_SOURCE">
-		<comment>This rationale could be interpreted as vague or conflicting with FPT_TUD_EXT.2, as applications 
-		that are not packaged with the OS do have format requirements. There is no defined requirement for update location, since 
-		there may be an alternate use case where "the place you get the app from" is different from "the mobile device vendor's app store" 
-		because an MDM might have a separate mobile app server that devices enrolled in the MDM must use. Is this still an anticipated 
-		use case? If so, the objective may need to be reworded in terms of a generic "trusted source" to make clear that 
-		this module is not conflicting with FPT_TUD_EXT.2's requirements.</comment>
 			The App PP requires the TOE to be able to apply software/firmware updates
 			but does not define any specific way that these updates need to be made
 			available. This PP-Module defines an objective that allows for an assumption
@@ -2498,7 +2489,16 @@
 	
 	<!-- Bibliography is auto generated here with CC and CEM docs. If you want other docs -->
 	<!-- included, add them here. -->
-	<bibliography/>
+	<bibliography>
+		<cc-entry/>
+		<entry id="bibNDcPP">
+			<tag>NDcPP</tag>
+			<description>
+				<h:a href="https://www.niap-ccevs.org/protectionprofiles/524">
+					collaborative Protection Profile for Network Devices, Version 4.0, December 22, 2025</h:a>
+			</description>
+		</entry>
+	</bibliography>
 		
 
 </Module>
