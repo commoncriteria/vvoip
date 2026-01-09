@@ -2051,6 +2051,7 @@
 								<h:p>Option 2: A packet capture tool should be used with the SIP server's private key loaded in. The
 									evaluator shall decrypt the TLS-SIP traffic, view the SDES negotiation, and ensure that the correct
 									cipher suite was negotiated.</h:p>
+								<h:p>Option 3: The evaluator shall inspect the VVoIP endpoint's audit or system log to ensure that the correct cipher suite was negotiated.</h:p>
 								<h:p>Next, the evaluator shall configure the SIP server to only allow the SRTP NULL cipher suite. The evaluator
 									shall attempt to both place and receive a call and confirm that both attempts failed.</h:p>
 							</Tests>
