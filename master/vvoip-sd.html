@@ -862,6 +862,7 @@ The following sections list Common Criteria and technology terms used in this do
 								<p>Option 2: A packet capture tool should be used with the SIP server's private key loaded in. The
 									evaluator shall decrypt the TLS-SIP traffic, view the SDES negotiation, and ensure that the correct
 									cipher suite was negotiated.</p>
+								<p>Option 3: The evaluator shall inspect the VVoIP endpoint's audit or system log to ensure that the correct cipher suite was negotiated.</p>
 								<p>Next, the evaluator shall configure the SIP server to only allow the SRTP NULL cipher suite. The evaluator
 									shall attempt to both place and receive a call and confirm that both attempts failed.</p>
 							</div></div></span></div><h2 class="indexable" data-level="2" id="fdp-sel_based">2.5.3 User Data Protection (FDP)</h2><div class="comp" id="FDP-IFC-1-CALLCONTROL"><h4>FDP_IFC.1/CALLCONTROL Subset Information Flow Control (for Call Control)</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_IFC.1/CALLCONTROL</div>

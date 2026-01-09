@@ -2422,6 +2422,7 @@ This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does 
 								<p>Option 2: A packet capture tool should be used with the <abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr> server's private key loaded in. The
 									evaluator shall decrypt the TLS-SIP traffic, view the SDES negotiation, and ensure that the correct
 									cipher suite was negotiated.</p>
+								<p>Option 3: The evaluator shall inspect the <abbr class="dyn-abbr"><a href="#abbr_VVoIP">VVoIP</a></abbr> endpoint's audit or system log to ensure that the correct cipher suite was negotiated.</p>
 								<p>Next, the evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_SIP">SIP</a></abbr> server to only allow the <abbr class="dyn-abbr"><a href="#abbr_SRTP">SRTP</a></abbr> NULL cipher suite. The evaluator
 									shall attempt to both place and receive a call and confirm that both attempts failed.</p>
 							</div></div></div></div></div>
