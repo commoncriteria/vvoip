@@ -1,0 +1,6 @@
+* https://commoncriteria.github.io/vvoip/xml-builder-review/Master-Diff.html[Master-Diff.html]
+* https://commoncriteria.github.io/vvoip/xml-builder-review/diff-v1.0.html[diff-v1.0.html]
+* https://commoncriteria.github.io/vvoip/xml-builder-review/vvoip-release-linkable.html[vvoip-release-linkable.html]
+* https://commoncriteria.github.io/vvoip/xml-builder-review/vvoip-release.html[vvoip-release.html]
+* https://commoncriteria.github.io/vvoip/xml-builder-review/vvoip-sd.html[vvoip-sd.html]
+* https://commoncriteria.github.io/vvoip/xml-builder-review/vvoip.html[vvoip.html]
