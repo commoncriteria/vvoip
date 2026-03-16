@@ -30,7 +30,7 @@
     </git>
     <url><![CDATA[https://www.niap-ccevs.org/protectionprofiles/515]]></url>
     
-  </include-pkg
+  </include-pkg>
   <include-pkg id="tls">
     <git>
       <url>https://github.com/commoncriteria/tls</url>
