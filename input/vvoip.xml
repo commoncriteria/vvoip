@@ -23,7 +23,36 @@
       <subject>CC:2022 updates, incorporation of TDs</subject>
     </entry>
   </RevisionHistory>
-  <include-pkg/>
+   <include-pkg id="ssh">
+    <git>
+      <url>https://github.com/commoncriteria/ssh</url>
+      <branch>master</branch>
+    </git>
+    <url><![CDATA[https://www.niap-ccevs.org/protectionprofiles/515]]></url>
+    
+  </include-pkg
+  <include-pkg id="tls">
+    <git>
+      <url>https://github.com/commoncriteria/tls</url>
+      <branch>release-2.1</branch>
+    </git>
+    <url><![CDATA[https://www.niap-ccevs.org/protectionprofiles/465]]></url>
+    <depends on="fcs-eap-ext-1"/>
+  </include-pkg>
+  <include-pkg id="X509">
+    <git>
+      <url>https://github.com/commoncriteria/X509</url>
+      <branch>master</branch>
+    </git>
+    <url><![CDATA[https://www.niap-ccevs.org/protectionprofiles/511]]></url>
+  </include-pkg>
+  <include-pkg id="pkgVPNC">
+	<git>
+	  <url>https://github.com/commoncriteria/vpnclient</url>
+	  <branch>release-3.0</branch>
+	</git>
+	<url>https://www.niap-ccevs.org/protectionprofiles/487</url>
+  </include-pkg>
   <modules/>
   <pp-preferences/>
   <sec:Introduction>
