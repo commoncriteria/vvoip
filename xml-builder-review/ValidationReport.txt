@@ -1,2 +1,0 @@
-/home/runner/work/vvoip/vvoip/input/vvoip.xml:345:16: error: element "man-sfrs" not allowed yet; missing required element "base-pp"
-/home/runner/work/vvoip/vvoip/input/vvoip.xml:345:16: error: element "man-sfrs" incomplete; expected element "description" or "section" or an element from another namespace
