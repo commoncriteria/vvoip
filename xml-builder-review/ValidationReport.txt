@@ -1,7 +1,2 @@
-/home/runner/work/vvoip/vvoip/input/vvoip.xml:56:13: error: element "modules" not allowed here; expected element "include-pkg", "pp-preferences" or "section" or an element from another namespace
-/home/runner/work/vvoip/vvoip/input/vvoip.xml:338:14: error: element "appendix" not allowed yet; expected element "section" or an element from another namespace
-/home/runner/work/vvoip/vvoip/input/vvoip.xml:338:14: error: element "appendix" missing required attributes "id" and "title"
-/home/runner/work/vvoip/vvoip/input/vvoip.xml:340:13: error: element "entry" missing required attribute "id"
-/home/runner/work/vvoip/vvoip/input/vvoip.xml:340:13: error: element "entry" incomplete; missing required element "tag"
-/home/runner/work/vvoip/vvoip/input/vvoip.xml:342:60: error: element "sec:Security_Requirements" not allowed here; expected the element end-tag
-/home/runner/work/vvoip/vvoip/input/vvoip.xml:342:60: error: found attribute "title", but no attributes allowed here
+/home/runner/work/vvoip/vvoip/input/vvoip.xml:345:16: error: element "man-sfrs" not allowed yet; missing required element "base-pp"
+/home/runner/work/vvoip/vvoip/input/vvoip.xml:345:16: error: element "man-sfrs" incomplete; expected element "description" or "section" or an element from another namespace
