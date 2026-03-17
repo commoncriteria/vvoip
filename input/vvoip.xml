@@ -201,61 +201,62 @@
       server when using P2P. The VVoIP endpoint shall be able to secure file download from a file server to
       update VVoIP endpoint software and configuration, to establish secure communication for call control
       with the call control server, and to secure streaming media to other devices.
-   	</h:p><h:p>
+		</h:p>
+		<h:p>
 			The combination of the NDcPP and this PP-Module is a network device that provides VVoIP endpoint
       functionality in addition to all of the security functionality expected of a network device as mandated by
       the NDcPP. The combination of the App PP and this PP-Module is a software application running on a
       general-purpose operating system that includes VVoIP endpoint capabilities in addition to all of the
       security functionality expected of a software application as mandated by the App PP.
-    </h:p><h:p>
+    	</h:p>
+		<h:p>
       This PP-Module describes the functional requirements and threats specific to the VVoIP endpoint. The
       most notable additions are requirements for the call control protocol (SIP, H.323) and streaming media
       protocol (SRTP, RTP). A conformant TOE is expected to be a standalone device or application; distributed
       TOE’s are not permitted.
-</h:p>
-	</sec:Compliant_Targets_of_Evaluation>
-	<!-- 1.4 TOE_Boundary -->
-    <sec:TOE_Boundary>
-        <h:p>The TOE boundary includes the VVoIP-capable device or application (VVoIP endpoint). A VVoIP-capable
-			device is a dedicated phone whereas a VVoIP endpoint application is just one of many applications that
-			runs on a general-purpose device such as a smartphone, tablet, or PC. Regardless of whether the TOE is a
-			hardware appliance or a client application on an operating system, it will be deployed in the same
-			environment. The figure below shows a typical VVoIP infrastructure from the perspective of the TOE.
-			Many of the environmental components have direct connections between one another, but since these
-			are not visible to the TOE, these connections have not been depicted.</h:p>
-			<figure entity="images/Toe.png" title="Typical VVoIP Deployment" id="toeDeployment"/>
-		<h:p>The TOE uses a VVoIP call control server, either by connecting to an ESC or acting as one itself when using
-			P2P, in order to set up connections with other VVoIP endpoint devices or other telephony equipment such
-			as a conference bridge. The call control server also may have the ability to deliver software/firmware
-			updates to the TOE, but this can alternatively be performed by a file server. The TOE must be able to
-			process Internet Protocol version 4 (IPv4) and/or IPv6 packets.</h:p>
-		<h:p>To be able to initiate communications in a client-server architecture, the TOE needs at minimum an IP
-			address, network mask, gateway address, configuration server address, update server address (or may
-			rely on platform for updates if it is a software application configured to do so), and call control server
-			address. The address may be obtained by Dynamic Host Configuration Protocol (DHCP), manually entered
-			on the VVoIP endpoint, or inherited from the device the TOE resides on (if it is a software application);
-			addresses can belong to the same device if it performs multiple functions (such as an ESC which also
-			performs updates). The TOE should allow basic telephony functions. Once the IP addresses are obtained,
-			the TOE downloads any VVoIP application updates, downloads VVoIP endpoint configuration, and
-			connects to the call control server as a VVoIP client. When a call is finished or the line is otherwise not in
-			use, the TOE will ensure that streaming media communication paths/ports are closed while call control
-			remains open.</h:p>
-		<h:p>To be able to initiate communications in P2P, the TOE needs at minimum an IP address, network mask,
-			gateway address, and update server address (or may rely on platform for updates if it is a software
-			application configured to do so). The address may be obtained by DHCP, manually entered on the VVoIP
-			endpoint, or inherited from the device the TOE resides on (if it is a software application). The TOE should
-			allow basic telephony functions. Once the IP addresses are obtained, the TOE downloads any VVoIP application updates. The endpoint configuration for P2P TOE of telephony functions is local. When the
-			TOE initiates a call, the TOE connects to the other peer’s call control (which is active) and the TOE is a
-			client. When the TOE receives a call, the other peer acts as a client and connects to the TOE’s call control.
-			When a call is finished or the line is otherwise not in use, the TOE will ensure that streaming media
-			communication paths/ports are closed while call control remains open.</h:p>
-		<h:p>The TOE has three paths for three different functions that need to execute: streaming media path that
-			contains voice, video, and session control (endpoint to endpoint); call control path to control the endpoint
-			(endpoint to VVoIP call control server), and configuration/management path to configure and manage the
-			TOE (software/firmware updates, configuration updates, audit).</h:p>
-			
-    </sec:TOE_Boundary>
+		</h:p>
 
+		<sec:TOE_Boundary>
+			<h:p>The TOE boundary includes the VVoIP-capable device or application (VVoIP endpoint). A VVoIP-capable
+				device is a dedicated phone whereas a VVoIP endpoint application is just one of many applications that
+				runs on a general-purpose device such as a smartphone, tablet, or PC. Regardless of whether the TOE is a
+				hardware appliance or a client application on an operating system, it will be deployed in the same
+				environment. The figure below shows a typical VVoIP infrastructure from the perspective of the TOE.
+				Many of the environmental components have direct connections between one another, but since these
+				are not visible to the TOE, these connections have not been depicted.</h:p>
+				<figure entity="images/Toe.png" title="Typical VVoIP Deployment" id="toeDeployment"/>
+			<h:p>The TOE uses a VVoIP call control server, either by connecting to an ESC or acting as one itself when using
+				P2P, in order to set up connections with other VVoIP endpoint devices or other telephony equipment such
+				as a conference bridge. The call control server also may have the ability to deliver software/firmware
+				updates to the TOE, but this can alternatively be performed by a file server. The TOE must be able to
+				process Internet Protocol version 4 (IPv4) and/or IPv6 packets.</h:p>
+			<h:p>To be able to initiate communications in a client-server architecture, the TOE needs at minimum an IP
+				address, network mask, gateway address, configuration server address, update server address (or may
+				rely on platform for updates if it is a software application configured to do so), and call control server
+				address. The address may be obtained by Dynamic Host Configuration Protocol (DHCP), manually entered
+				on the VVoIP endpoint, or inherited from the device the TOE resides on (if it is a software application);
+				addresses can belong to the same device if it performs multiple functions (such as an ESC which also
+				performs updates). The TOE should allow basic telephony functions. Once the IP addresses are obtained,
+				the TOE downloads any VVoIP application updates, downloads VVoIP endpoint configuration, and
+				connects to the call control server as a VVoIP client. When a call is finished or the line is otherwise not in
+				use, the TOE will ensure that streaming media communication paths/ports are closed while call control
+				remains open.</h:p>
+			<h:p>To be able to initiate communications in P2P, the TOE needs at minimum an IP address, network mask,
+				gateway address, and update server address (or may rely on platform for updates if it is a software
+				application configured to do so). The address may be obtained by DHCP, manually entered on the VVoIP
+				endpoint, or inherited from the device the TOE resides on (if it is a software application). The TOE should
+				allow basic telephony functions. Once the IP addresses are obtained, the TOE downloads any VVoIP application updates. The endpoint configuration for P2P TOE of telephony functions is local. When the
+				TOE initiates a call, the TOE connects to the other peer’s call control (which is active) and the TOE is a
+				client. When the TOE receives a call, the other peer acts as a client and connects to the TOE’s call control.
+				When a call is finished or the line is otherwise not in use, the TOE will ensure that streaming media
+				communication paths/ports are closed while call control remains open.</h:p>
+			<h:p>The TOE has three paths for three different functions that need to execute: streaming media path that
+				contains voice, video, and session control (endpoint to endpoint); call control path to control the endpoint
+				(endpoint to VVoIP call control server), and configuration/management path to configure and manage the
+				TOE (software/firmware updates, configuration updates, audit).</h:p>
+				
+		</sec:TOE_Boundary>
+	</sec:Compliant_Targets_of_Evaluation>
 
     <!-- 1.5 Use Cases -->
     <sec:Use_Cases>
