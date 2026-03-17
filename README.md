@@ -14,7 +14,7 @@ A list of products that have passed evaluation against this Protection Profile c
 
 ## Draft Version
 
-* [Protection Profile for Voice and Video over IP (VVoIP)](https://commoncriteria.github.io/pp/vvoip/vvoip-release.html) (html)
+* [Protection Profile for Voice and Video over IP (VVoIP)](https://commoncriteria.github.io/vvoip/master/vvoip.html) (html)
 * [Protection Profile for Voice and Video over IP (VVoIP)](https://commoncriteria.github.io/pp/vvoip/vvoip-release.pdf) (pdf)
 
 ## Release Version
