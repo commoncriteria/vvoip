@@ -1525,7 +1525,7 @@
 				</f-component>
 				</section>
 
-				<section title="Trusted Path/Channels (FTP)">
+				<section title="Trusted Path/Channels (FTP)" id="m-ftp">
 							
 				<f-component name="Inter-TSF Trusted Channel (Signaling Channel)" cc-id="ftp_itc.1" iteration="CONTROL" id="ftp-itc-1-control">
 					
