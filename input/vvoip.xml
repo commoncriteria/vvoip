@@ -1305,7 +1305,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables><selectable id="fau_gen.1.1_CSADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_CSADMIN_4">basic</selectable><selectable id="fau_gen.1.1_CSADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_CSADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_CSADMIN_4">basic</selectable><selectable id="fau_gen.1.1_CSADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_CSADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>All administrative actions comprising:
 						<h:ol type="i"><h:li>Administrative login and logout (name of user account shall be
@@ -1378,7 +1378,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables><selectable id="fau_gen.1.1_CSVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_CSVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_CSVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_CSVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_CSVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_CSVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_CSVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>auditable events defined in the Auditable Events for Mandatory SFRs table (<xref to="at-mandatory"/>)</h:i>].</h:li>
               </h:ol>
@@ -1447,7 +1447,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables><selectable id="fau_gen.1.1_P2PADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_P2PADMIN_4">basic</selectable><selectable id="fau_gen.1.1_P2PADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_P2PADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_P2PADMIN_4">basic</selectable><selectable id="fau_gen.1.1_P2PADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_P2PADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>All administrative actions comprising:
 						<h:ol type="i"><h:li>Administrative login and logout (name of user account shall be
@@ -1518,7 +1518,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables><selectable id="fau_gen.1.1_P2PVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_P2PVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_P2PVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_P2PVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_P2PVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_P2PVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_P2PVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>auditable events defined in the Auditable Events for Mandatory SFRs table (<xref to="at-mandatory"/>)</h:i>].</h:li>
               </h:ol>
