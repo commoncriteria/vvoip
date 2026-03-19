@@ -10,9 +10,9 @@
         /Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/modified-sfrs[1]""/section[2]""/base-sfr-spec[1]""/replace[1]""/xpath-specified[1]""/f-component[1]""/f-element[1]""
 * Error: Detected dangling id-reference to fcs-eap-ext-1 from attribute
         on/Module[1]""/include-pkg[2]""/depends[1]""/on[1]""
-* Error: Detected dangling id-reference to 970012c2-3096-49e9-8a3e-da19fa123921 from attribute
+* Error: Detected dangling id-reference to 9f8e7237-74e8-40c9-8116-a35b26f54114 from attribute
         on-sel/Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[2]""/f-component[1]""/depends[1]""/on-sel[1]""
-* Error: Detected dangling id-reference to 970012c2-3096-49e9-8a3e-da19fa123921 from attribute
+* Error: Detected dangling id-reference to 9f8e7237-74e8-40c9-8116-a35b26f54114 from attribute
         on-sel/Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[2]""/f-component[2]""/depends[1]""/on-sel[1]""
 * Error: Detected multiple elements with an id of 'app-mod-ftp-dit-ext-1'.
 * Error: Detected multiple elements with an id of 'app-mod-ftp-dit-ext-1'.
