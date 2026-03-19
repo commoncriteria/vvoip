@@ -1618,6 +1618,7 @@
         <!-- FAU_GEN.1/P2PADMIN Audit Data Generation (Peer-to-Peer Admin Events) -->
         <f-component cc-id="fau_gen.1" id="fau-gen-1-p2padmin" name="Audit Data Generation (Peer-to-Peer Admin Events)" iteration="P2PADMIN">
           <depends on-sel="sel-p2p-server-iff"/>
+          <depends on-sel="sel-p2p-server-smf"/>
           <consistency-rationale/>
           <f-element id="fau-gen-1e1-p2padmin">
             <title>
@@ -1695,6 +1696,7 @@
         <!-- FAU_GEN.1/P2PVVOIP Audit Data Generation (Peer-to-Peer VVoIP Events) -->
         <f-component cc-id="fau_gen.1" id="fau-gen-1-p2pvvoip" name="Audit Data Generation (Peer-to-Peer VVoIP Events)" iteration="P2PVVOIP">
           <depends on-sel="sel-p2p-server-iff"/>
+          <depends on-sel="sel-p2p-server-smf"/>
           <consistency-rationale/>
           <f-element id="fau-gen-1e1-p2pvvoip">
             <title>
@@ -1755,7 +1757,8 @@
         </ext-comp-def>
         <!-- FCS_COP.1/SRTP Cryptographic Operation (Encryption/Decryption for SRTP -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-srtp" name="Cryptographic Operation (Encryption/Decryption for SRTP" iteration="SRTP">
-          <depends on-sel="970012c2-3096-49e9-8a3e-da19fa123921"/>
+          <depends on-sel="9f8e7237-74e8-40c9-8116-a35b26f54114"/>
+          <depends on-sel="sel_media_srtp"/>
           <consistency-rationale/>
           <f-element id="fcs-cop-1e1-srtp">
             <title>
@@ -1787,7 +1790,8 @@
         </f-component>
         <!-- FCS_SRTP_EXT.1 Secure Real-Time Transport Protocol -->
         <f-component cc-id="fcs_srtp_ext.1" id="fcs-srtp-ext-1" name="Secure Real-Time Transport Protocol">
-          <depends on-sel="970012c2-3096-49e9-8a3e-da19fa123921"/>
+          <depends on-sel="9f8e7237-74e8-40c9-8116-a35b26f54114"/>
+          <depends on-sel="sel_media_srtp"/>
           <consistency-rationale/>
           <comp-lev>requires the TSF to implement SRTP and defines conditions on its use.</comp-lev>
           <management>No specific management functions are identified.</management>
@@ -1845,6 +1849,7 @@
         <!-- FDP_IFC.1/CALLCONTROL Subset Information Flow Control (for Call Control) -->
         <f-component cc-id="fdp_ifc.1" id="fdp-ifc-1-callcontrol" name="Subset Information Flow Control (for Call Control)" iteration="CALLCONTROL">
           <depends on-sel="sel-p2p-server-iff"/>
+          <depends on-sel="sel-p2p-server-smf"/>
           <consistency-rationale/>
           <f-element id="fdp-ifc-1e1-callcontrol">
             <title>The TSF shall enforce the [<h:i>call control policy</h:i>] on [<h:i>call control information transmitted by the TOE</h:i>].</title>
@@ -1858,6 +1863,7 @@
         <!-- FDP_IFF.1/CALLCONTROL Subset Information Flow Control (for Call Control) -->
         <f-component cc-id="fdp_iff.1" id="fdp-iff-1-callcontrol" name="Subset Information Flow Control (for Call Control)" iteration="CALLCONTROL">
           <depends on-sel="sel-p2p-server-iff"/>
+          <depends on-sel="sel-p2p-server-smf"/>
           <consistency-rationale/>
           <f-element id="fdp-iff-1e1-callcontrol">
             <title>
