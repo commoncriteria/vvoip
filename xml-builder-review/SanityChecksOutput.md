@@ -16,6 +16,12 @@
         on-sel/Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[2]""/f-component[2]""/depends[1]""/on-sel[1]""
 * Error: Detected multiple elements with an id of 'app-mod-ftp-dit-ext-1'.
 * Error: Detected multiple elements with an id of 'app-mod-ftp-dit-ext-1'.
+* Error: Detected multiple elements with an id of 'fau_gen.1.1_CSADMIN_1'.
+* Error: Detected multiple elements with an id of 'fau_gen.1.1_CSADMIN_1'.
+* Error: Detected multiple elements with an id of 'fau_gen.1.1_P2PADMIN_1'.
+* Error: Detected multiple elements with an id of 'fau_gen.1.1_P2PADMIN_1'.
+* Error: Detected multiple elements with an id of 'fau_stg.5.1_1'.
+* Error: Detected multiple elements with an id of 'fau_stg.5.1_1'.
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
 	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[1]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
