@@ -1079,7 +1079,7 @@
             <title>
               The TSF shall permit an information flow between a controlled subject and
 						controlled information via a controlled operation if the following rules hold: [<h:i><h:ul>
-                  <h:li>The TOE is  <selectables><selectable id="fdp_iff.1.2_1">registered with a VVoIP call control server</selectable><selectable id="sel-p2p-server-iff">acting as a VVoIP call control server when using P2P</selectable></selectables>,</h:li>
+                  <h:li>The TOE is   <selectables><selectable id="fdp_iff.1.2_1">registered with a VVoIP call control server</selectable><selectable id="sel-p2p-server-iff">acting as a VVoIP call control server when using P2P</selectable></selectables>,</h:li>
                   <h:li>A call has been established with a telephony device (VVoIP endpoint),</h:li>
                   <h:li>The TOE is in the off-hook state,</h:li>
                   <h:li>The TOE is not in the mute state,</h:li>
@@ -1541,7 +1541,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_CSADMIN_4">basic</selectable><selectable id="fau_gen.1.1_CSADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_CSADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the   <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_CSADMIN_4">basic</selectable><selectable id="fau_gen.1.1_CSADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_CSADMIN_6">not specified</selectable></selectables>   level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>All administrative actions comprising:
 						<h:ol type="i"><h:li>Administrative login and logout (name of user account shall be
@@ -1550,7 +1550,7 @@
 								addition to the information that a change occurred it shall be
 								logged what has been changed).</h:li> <h:li>Generating/import of, changing, or deleting of cryptographic
 								keys (in addition to the action itself a unique key name or key
-								reference shall be logged).</h:li> <h:li>Resetting passwords (name of related user account shall be logged).</h:li> <h:li> <selectables><selectable id="fau_gen.1.1_CSADMIN_8"><assignable>list of other uses of privileges</assignable></selectable><selectable id="fau_gen.1.1_CSADMIN_9">no other actions</selectable></selectables></h:li></h:ol></h:i></h:li>].
+								reference shall be logged).</h:li> <h:li>Resetting passwords (name of related user account shall be logged).</h:li> <h:li> <selectables><selectable id="fau_gen.1.1_CSADMIN_1"><assignable>list of other uses of privileges</assignable></selectable><selectable id="fau_gen.1.1_CSADMIN_9">no other actions</selectable></selectables></h:li></h:ol></h:i></h:li>].
               </h:ol>
             </title>
             <note role="application">
@@ -1614,7 +1614,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_CSVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_CSVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_CSVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the   <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_CSVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_CSVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_CSVVOIP_4">not specified</selectable></selectables>   level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>auditable events defined in the Auditable Events for Mandatory SFRs table (<xref to="at-mandatory"/>)</h:i>].</h:li>
               </h:ol>
@@ -1683,7 +1683,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_P2PADMIN_4">basic</selectable><selectable id="fau_gen.1.1_P2PADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_P2PADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the   <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_P2PADMIN_4">basic</selectable><selectable id="fau_gen.1.1_P2PADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_P2PADMIN_6">not specified</selectable></selectables>   level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>All administrative actions comprising:
 						<h:ol type="i"><h:li>Administrative login and logout (name of user account shall be
@@ -1692,7 +1692,7 @@
 								addition to the information that a change occurred it shall be
 								logged what has been changed).</h:li> <h:li>Generating/import of, changing, or deleting of cryptographic
 								keys (in addition to the action itself a unique key name or key
-								reference shall be logged).</h:li> <h:li>Resetting passwords (name of related user account shall be logged).</h:li> <h:li> <selectables><selectable id="fau_gen.1.1_P2PADMIN_8"><assignable>list of other uses of privileges</assignable></selectable><selectable id="fau_gen.1.1_P2PADMIN_9">no other actions</selectable></selectables></h:li></h:ol></h:i></h:li>].
+								reference shall be logged).</h:li> <h:li>Resetting passwords (name of related user account shall be logged).</h:li> <h:li> <selectables><selectable id="fau_gen.1.1_P2PADMIN_1"><assignable>list of other uses of privileges</assignable></selectable><selectable id="fau_gen.1.1_P2PADMIN_9">no other actions</selectable></selectables></h:li></h:ol></h:i></h:li>].
               </h:ol>
             </title>
           </f-element>
@@ -1754,7 +1754,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_P2PVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_P2PVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_P2PVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the   <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_P2PVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_P2PVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_P2PVVOIP_4">not specified</selectable></selectables>   level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>auditable events defined in the Auditable Events for Mandatory SFRs table (<xref to="at-mandatory"/>)</h:i>].</h:li>
               </h:ol>
@@ -1913,7 +1913,7 @@
             <title>
               The TSF shall enforce the [<h:i>call control policy</h:i>] based on the following types of subject and information security attributes:
               <assignable>method by which the TSF identifies each endpoint for a call</assignable>
-              <h:b> using the following call control protocols:  <selectables><selectable id="fdp_iff.1.1_CALLCONTROL_2">SIP</selectable><selectable id="fdp_iff.1.1_CALLCONTROL_3">H.323</selectable></selectables></h:b>.
+              <h:b> using the following call control protocols:   <selectables><selectable id="fdp_iff.1.1_CALLCONTROL_2">SIP</selectable><selectable id="fdp_iff.1.1_CALLCONTROL_3">H.323</selectable></selectables></h:b>.
             </title>
             <note role="application">The ST author should complete the assignment with an endpoint
 					identifier (i.e. how the TSF identifies the endpoints each endpoint for a
@@ -1933,10 +1933,10 @@
             <title>The TSF shall enforce <h:s>the</h:s> [<h:i>no additional information flow control policy rules</h:i>].</title>
           </f-element>
           <f-element id="fdp-iff-1e4-callcontrol">
-            <title>The TSF shall explicitly authorize an information flow based on the following rules:  <assignable>rules based on security attributes that explicitly authorize information flows</assignable>.</title>
+            <title>The TSF shall explicitly authorize an information flow based on the following rules:   <assignable>rules based on security attributes that explicitly authorize information flows</assignable>.</title>
           </f-element>
           <f-element id="fdp-iff-1e5-callcontrol">
-            <title>The TSF shall explicitly deny an information flow based on the following rules:  <assignable>rules based on security attributes that explicitly deny information flows</assignable>.</title>
+            <title>The TSF shall explicitly deny an information flow based on the following rules:   <assignable>rules based on security attributes that explicitly deny information flows</assignable>.</title>
             <aactivity>
               <TSS>The evaluator shall examine the TSS to verify that it describes the call control protocol(s) used by the TOE
 						and any explicit circumstances under which the TSF will and will not transmit call control data as defined
@@ -2069,7 +2069,7 @@
           <depends on="feat-swapp"/>
           <consistency-rationale/>
           <f-element id="fau_stg-5-1">
-            <title>The TSF shall  <selectables><selectable id="fau_stg.5.1_1">ignore audited events</selectable><selectable id="fau_stg.5.1_2">overwrite the oldest stored audit records</selectable><selectable id="fau_stg.5.1_4"><assignable>other actions to be taken in case of audit storage failure and conditions for the actions</assignable></selectable></selectables>  if the audit data storage is full.</title>
+            <title>The TSF shall   <selectables><selectable id="fau_stg.5.1_1">ignore audited events</selectable><selectable id="fau_stg.5.1_2">overwrite the oldest stored audit records</selectable><selectable id="fau_stg.5.1_1"><assignable>other actions to be taken in case of audit storage failure and conditions for the actions</assignable></selectable></selectables>   if the audit data storage is full.</title>
             <note role="application">Note that this SFR is only applicable for software application TOEs that implement logging, because the NDcPP 
 		specifies log data storage requirements itself. This SFR should not be claimed when the NDcPP is the Base-PP.</note>
             <aactivity>
