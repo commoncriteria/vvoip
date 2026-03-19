@@ -847,59 +847,9 @@
 							FCS_COP.1/SRTP and FCS_SRTP_EXT.1 must be claimed.</h:p>
                   </description>
                   <f-element id="fel-transmit">
-                    <title>
-                      The application shall
-                      <selectables linebreak="yes">
-                        <selectable id="ftp_dit_ext.1.1_1">encrypt all transmitted <selectables><selectable id="ftp_dit_ext.1.1_2" exclusive="yes">sensitive data</selectable><selectable id="ftp_dit_ext.1.1_3" exclusive="yes">data</selectable></selectables> with <h:b>TLS as defined in the <xref to="tls"/> and</h:b><selectables><selectable id="sel_all_https_cl">HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client</selectable><selectable id="sel_all_https_sv">HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server</selectable><selectable id="sel_all_https_ma">HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2</selectable><selectable id="sel_all_tls">TLS as defined in the <xref to="tls"/></selectable><selectable id="sel_all_dtls">DTLS as defined in the <xref to="tls"/></selectable><selectable id="sel_all_ssh">SSH as defined in the <xref to="ssh"/></selectable><selectable id="ftp_dit_ext.1.1_4">IPsec as defined in the <xref to="pkgVPNC"/></selectable><selectable id="sel_all_srtp"><h:b>Secure Real-Time Transport Protocol (SRTP)</h:b></selectable><selectable id="ftp_dit_ext.1.1_5" exclusive="yes"><h:b>no other protocols</h:b></selectable></selectables></selectable>
-                        <selectable id="ftp_dit_ext.1.1_6">invoke platform-provided functionality to encrypt all transmitted sensitive data with <h:b>TLS and</h:b><selectables><selectable id="ftp_dit_ext.1.1_7">HTTPS</selectable><selectable id="ftp_dit_ext.1.1_8">DTLS</selectable><selectable id="ftp_dit_ext.1.1_9">SSH</selectable><selectable id="ftp_dit_ext.1.1_10" exclusive="yes"><h:b>no other protocols</h:b></selectable></selectables></selectable>
-                        <selectable id="ftp_dit_ext.1.1_11">invoke platform-provided functionality to encrypt all transmitted data with <h:b>TLS and</h:b><selectables><selectable id="ftp_dit_ext.1.1_12">HTTPS</selectable><selectable id="ftp_dit_ext.1.1_13">DTLS</selectable><selectable id="ftp_dit_ext.1.1_14">SSH</selectable><selectable id="ftp_dit_ext.1.1_15"><h:b>no other protocols</h:b></selectable></selectables></selectable>
-                      </selectables>
-                      between itself and another trusted IT product.
-                    </title>
-                    <note role="application">
-                      The App PP provides the ability for the ST author to specify the protocols used to
-								establish trusted communications and the behavior that trusted communications
-								are used to protect. This PP-Module mandates the inclusion of TLS because it is
-								the underlying protocol used to secure communications with a VVoIP call control
-								server and other VVoIP endpoints. Additional protocols may be selected if they are
-								used for securing other channels. For example, the TSF may communicate with an
-								ESC using TLS for call control functions but some other protocol for remote transmission of audit data.
-                      <h:p/>
-                      Since the App PP does not define separate SFRs for trusted channel (TOE to trusted
-								third party) and trusted path (administrator to TOE), FTP_DIT_EXT.1 is expected
-								to cover both use cases. The proper protocols should be selected accordingly.
-                      <h:p/>
-                      Sensitive data includes at minimum call control/signal data, media data, and
-								audit/management data.
-                      <h:p/>
-                      If “SRTP” is selected in FTP_DIT_EXT.1.1, the selection-based SFRs
-								FCS_COP.1/SRTP and FCS_SRTP_EXT.1 must be claimed.
-                    </note>
+                    <title/>
                   </f-element>
                 </f-component>
-              </xpath-specified>
-            </replace>
-            <replace>
-              <xpath-specified xpath="*//cc:f-element[@id='fel-transmit']//cc:note">
-                <note role="application">
-                  The App PP provides the ability for the ST author to specify the protocols used to
-								establish trusted communications and the behavior that trusted communications
-								are used to protect. This PP-Module mandates the inclusion of TLS because it is
-								the underlying protocol used to secure communications with a VVoIP call control
-								server and other VVoIP endpoints. Additional protocols may be selected if they are
-								used for securing other channels. For example, the TSF may communicate with an
-								ESC using TLS for call control functions but some other protocol for remote transmission of audit data.
-                  <h:p/>
-                  Since the App PP does not define separate SFRs for trusted channel (TOE to trusted
-								third party) and trusted path (administrator to TOE), FTP_DIT_EXT.1 is expected
-								to cover both use cases. The proper protocols should be selected accordingly.
-                  <h:p/>
-                  Sensitive data includes at minimum call control/signal data, media data, and
-								audit/management data.
-                  <h:p/>
-                  If “SRTP” is selected in FTP_DIT_EXT.1.1, the selection-based SFRs
-								FCS_COP.1/SRTP and FCS_SRTP_EXT.1 must be claimed.
-                </note>
               </xpath-specified>
             </replace>
           </base-sfr-spec>
@@ -1079,7 +1029,7 @@
             <title>
               The TSF shall permit an information flow between a controlled subject and
 						controlled information via a controlled operation if the following rules hold: [<h:i><h:ul>
-                  <h:li>The TOE is   <selectables><selectable id="fdp_iff.1.2_1">registered with a VVoIP call control server</selectable><selectable id="sel-p2p-server-iff">acting as a VVoIP call control server when using P2P</selectable></selectables>,</h:li>
+                  <h:li>The TOE is  <selectables><selectable id="fdp_iff.1.2_1">registered with a VVoIP call control server</selectable><selectable id="sel-p2p-server-iff">acting as a VVoIP call control server when using P2P</selectable></selectables>,</h:li>
                   <h:li>A call has been established with a telephony device (VVoIP endpoint),</h:li>
                   <h:li>The TOE is in the off-hook state,</h:li>
                   <h:li>The TOE is not in the mute state,</h:li>
@@ -1541,7 +1491,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the   <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_CSADMIN_4">basic</selectable><selectable id="fau_gen.1.1_CSADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_CSADMIN_6">not specified</selectable></selectables>   level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_CSADMIN_4">basic</selectable><selectable id="fau_gen.1.1_CSADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_CSADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>All administrative actions comprising:
 						<h:ol type="i"><h:li>Administrative login and logout (name of user account shall be
@@ -1550,7 +1500,7 @@
 								addition to the information that a change occurred it shall be
 								logged what has been changed).</h:li> <h:li>Generating/import of, changing, or deleting of cryptographic
 								keys (in addition to the action itself a unique key name or key
-								reference shall be logged).</h:li> <h:li>Resetting passwords (name of related user account shall be logged).</h:li> <h:li> <selectables><selectable id="fau_gen.1.1_CSADMIN_1"><assignable>list of other uses of privileges</assignable></selectable><selectable id="fau_gen.1.1_CSADMIN_9">no other actions</selectable></selectables></h:li></h:ol></h:i></h:li>].
+								reference shall be logged).</h:li> <h:li>Resetting passwords (name of related user account shall be logged).</h:li> <h:li> <selectables><selectable id="fau_gen.1.1_CSADMIN_8"><assignable>list of other uses of privileges</assignable></selectable><selectable id="fau_gen.1.1_CSADMIN_9">no other actions</selectable></selectables></h:li></h:ol></h:i></h:li>].
               </h:ol>
             </title>
             <note role="application">
@@ -1614,7 +1564,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the   <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_CSVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_CSVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_CSVVOIP_4">not specified</selectable></selectables>   level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_CSVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_CSVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_CSVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>auditable events defined in the Auditable Events for Mandatory SFRs table (<xref to="at-mandatory"/>)</h:i>].</h:li>
               </h:ol>
@@ -1683,7 +1633,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the   <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_P2PADMIN_4">basic</selectable><selectable id="fau_gen.1.1_P2PADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_P2PADMIN_6">not specified</selectable></selectables>   level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_P2PADMIN_4">basic</selectable><selectable id="fau_gen.1.1_P2PADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_P2PADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>All administrative actions comprising:
 						<h:ol type="i"><h:li>Administrative login and logout (name of user account shall be
@@ -1692,7 +1642,7 @@
 								addition to the information that a change occurred it shall be
 								logged what has been changed).</h:li> <h:li>Generating/import of, changing, or deleting of cryptographic
 								keys (in addition to the action itself a unique key name or key
-								reference shall be logged).</h:li> <h:li>Resetting passwords (name of related user account shall be logged).</h:li> <h:li> <selectables><selectable id="fau_gen.1.1_P2PADMIN_1"><assignable>list of other uses of privileges</assignable></selectable><selectable id="fau_gen.1.1_P2PADMIN_9">no other actions</selectable></selectables></h:li></h:ol></h:i></h:li>].
+								reference shall be logged).</h:li> <h:li>Resetting passwords (name of related user account shall be logged).</h:li> <h:li> <selectables><selectable id="fau_gen.1.1_P2PADMIN_8"><assignable>list of other uses of privileges</assignable></selectable><selectable id="fau_gen.1.1_P2PADMIN_9">no other actions</selectable></selectables></h:li></h:ol></h:i></h:li>].
               </h:ol>
             </title>
           </f-element>
@@ -1754,7 +1704,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the   <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_P2PVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_P2PVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_P2PVVOIP_4">not specified</selectable></selectables>   level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_P2PVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_P2PVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_P2PVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>auditable events defined in the Auditable Events for Mandatory SFRs table (<xref to="at-mandatory"/>)</h:i>].</h:li>
               </h:ol>
@@ -1805,7 +1755,7 @@
         </ext-comp-def>
         <!-- FCS_COP.1/SRTP Cryptographic Operation (Encryption/Decryption for SRTP -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-srtp" name="Cryptographic Operation (Encryption/Decryption for SRTP" iteration="SRTP">
-          <depends on-sel="6d259954-6a03-4cf1-b175-f22fcd6c0ce9"/>
+          <depends on-sel="970012c2-3096-49e9-8a3e-da19fa123921"/>
           <consistency-rationale/>
           <f-element id="fcs-cop-1e1-srtp">
             <title>
@@ -1837,7 +1787,7 @@
         </f-component>
         <!-- FCS_SRTP_EXT.1 Secure Real-Time Transport Protocol -->
         <f-component cc-id="fcs_srtp_ext.1" id="fcs-srtp-ext-1" name="Secure Real-Time Transport Protocol">
-          <depends on-sel="6d259954-6a03-4cf1-b175-f22fcd6c0ce9"/>
+          <depends on-sel="970012c2-3096-49e9-8a3e-da19fa123921"/>
           <consistency-rationale/>
           <comp-lev>requires the TSF to implement SRTP and defines conditions on its use.</comp-lev>
           <management>No specific management functions are identified.</management>
@@ -1913,7 +1863,7 @@
             <title>
               The TSF shall enforce the [<h:i>call control policy</h:i>] based on the following types of subject and information security attributes:
               <assignable>method by which the TSF identifies each endpoint for a call</assignable>
-              <h:b> using the following call control protocols:   <selectables><selectable id="fdp_iff.1.1_CALLCONTROL_2">SIP</selectable><selectable id="fdp_iff.1.1_CALLCONTROL_3">H.323</selectable></selectables></h:b>.
+              <h:b> using the following call control protocols:  <selectables><selectable id="fdp_iff.1.1_CALLCONTROL_2">SIP</selectable><selectable id="fdp_iff.1.1_CALLCONTROL_3">H.323</selectable></selectables></h:b>.
             </title>
             <note role="application">The ST author should complete the assignment with an endpoint
 					identifier (i.e. how the TSF identifies the endpoints each endpoint for a
@@ -1933,10 +1883,10 @@
             <title>The TSF shall enforce <h:s>the</h:s> [<h:i>no additional information flow control policy rules</h:i>].</title>
           </f-element>
           <f-element id="fdp-iff-1e4-callcontrol">
-            <title>The TSF shall explicitly authorize an information flow based on the following rules:   <assignable>rules based on security attributes that explicitly authorize information flows</assignable>.</title>
+            <title>The TSF shall explicitly authorize an information flow based on the following rules:  <assignable>rules based on security attributes that explicitly authorize information flows</assignable>.</title>
           </f-element>
           <f-element id="fdp-iff-1e5-callcontrol">
-            <title>The TSF shall explicitly deny an information flow based on the following rules:   <assignable>rules based on security attributes that explicitly deny information flows</assignable>.</title>
+            <title>The TSF shall explicitly deny an information flow based on the following rules:  <assignable>rules based on security attributes that explicitly deny information flows</assignable>.</title>
             <aactivity>
               <TSS>The evaluator shall examine the TSS to verify that it describes the call control protocol(s) used by the TOE
 						and any explicit circumstances under which the TSF will and will not transmit call control data as defined
@@ -2069,7 +2019,7 @@
           <depends on="feat-swapp"/>
           <consistency-rationale/>
           <f-element id="fau_stg-5-1">
-            <title>The TSF shall   <selectables><selectable id="fau_stg.5.1_1">ignore audited events</selectable><selectable id="fau_stg.5.1_2">overwrite the oldest stored audit records</selectable><selectable id="fau_stg.5.1_1"><assignable>other actions to be taken in case of audit storage failure and conditions for the actions</assignable></selectable></selectables>   if the audit data storage is full.</title>
+            <title>The TSF shall  <selectables><selectable id="fau_stg.5.1_1">ignore audited events</selectable><selectable id="fau_stg.5.1_2">overwrite the oldest stored audit records</selectable><selectable id="fau_stg.5.1_4"><assignable>other actions to be taken in case of audit storage failure and conditions for the actions</assignable></selectable></selectables>  if the audit data storage is full.</title>
             <note role="application">Note that this SFR is only applicable for software application TOEs that implement logging, because the NDcPP 
 		specifies log data storage requirements itself. This SFR should not be claimed when the NDcPP is the Base-PP.</note>
             <aactivity>
