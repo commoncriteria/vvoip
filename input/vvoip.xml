@@ -1757,7 +1757,7 @@
         </ext-comp-def>
         <!-- FCS_COP.1/SRTP Cryptographic Operation (Encryption/Decryption for SRTP -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-srtp" name="Cryptographic Operation (Encryption/Decryption for SRTP" iteration="SRTP">
-          <depends on-sel="9f8e7237-74e8-40c9-8116-a35b26f54114"/>
+          <depends on-sel="sel_all_srtp"/>
           <depends on-sel="sel_media_srtp"/>
           <consistency-rationale/>
           <f-element id="fcs-cop-1e1-srtp">
@@ -1790,7 +1790,7 @@
         </f-component>
         <!-- FCS_SRTP_EXT.1 Secure Real-Time Transport Protocol -->
         <f-component cc-id="fcs_srtp_ext.1" id="fcs-srtp-ext-1" name="Secure Real-Time Transport Protocol">
-          <depends on-sel="9f8e7237-74e8-40c9-8116-a35b26f54114"/>
+          <depends on-sel="sel_all_srtp"/>
           <depends on-sel="sel_media_srtp"/>
           <consistency-rationale/>
           <comp-lev>requires the TSF to implement SRTP and defines conditions on its use.</comp-lev>
