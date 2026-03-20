@@ -315,6 +315,10 @@
           <!-- New mapping to build updated threat mapping table. -->
           <addressed-by>FAU_STG_EXT.1 (modified from NDcPP)</addressed-by>
           <rationale>Mitigates the threat by ensuring that audit data is securely stored locally and transmitted to an external entity.</rationale>
+          <addressed-by>FAU_STG.1 (optional for software-only TOEs)</addressed-by>
+          <rationale>Mitigates the threat by ensuring that audit data is securely transmitted to an external entity.</rationale>
+          <addressed-by>FAU_STG.5 (optional for software-only TOEs)</addressed-by>
+          <rationale>Mitigates the threat by defining behavior for response to log space overruns.</rationale>
           <addressed-by>FCO_VOC_EXT.1</addressed-by>
           <rationale>Mitigates the threat by defining the use of a fixed-rate vocoder to prevent the exposure of encryption vulnerabilities that are present with variable-rate vocoders.</rationale>
           <addressed-by>FCS_COP.1/SRTP (selection-based)</addressed-by>
