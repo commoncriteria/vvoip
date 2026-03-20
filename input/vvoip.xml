@@ -959,31 +959,27 @@
 											</selectable>	    	    
 										</selectables> between itself and another trusted IT product.
 									</title>
+									<note role="application">
+										The App PP provides the ability for the ST author to specify the protocols used to
+										establish trusted communications and the behavior that trusted communications
+										are used to protect. This PP-Module mandates the inclusion of TLS because it is
+										the underlying protocol used to secure communications with a VVoIP call control
+										server and other VVoIP endpoints. Additional protocols may be selected if they are
+										used for securing other channels. For example, the TSF may communicate with an
+										ESC using TLS for call control functions but some other protocol for remote transmission of audit data.
+										<h:p/>
+										Since the App PP does not define separate SFRs for trusted channel (TOE to trusted
+										third party) and trusted path (administrator to TOE), FTP_DIT_EXT.1 is expected
+										to cover both use cases. The proper protocols should be selected accordingly.
+										<h:p/>
+										Sensitive data includes at minimum call control/signal data, media data, and
+										audit/management data.
+										<h:p/>
+										If “SRTP” is selected in FTP_DIT_EXT.1.1, the selection-based SFRs
+										FCS_COP.1/SRTP and FCS_SRTP_EXT.1 must be claimed.
+									</note>
 								</f-element>
 							</f-component>
-						</xpath-specified>
-					</replace>
-					<replace>
-						<xpath-specified xpath="*//cc:f-element[@id='fel-transmit']//cc:note">
-							<note role="application">
-								The App PP provides the ability for the ST author to specify the protocols used to
-								establish trusted communications and the behavior that trusted communications
-								are used to protect. This PP-Module mandates the inclusion of TLS because it is
-								the underlying protocol used to secure communications with a VVoIP call control
-								server and other VVoIP endpoints. Additional protocols may be selected if they are
-								used for securing other channels. For example, the TSF may communicate with an
-								ESC using TLS for call control functions but some other protocol for remote transmission of audit data.
-								<h:p/>
-								Since the App PP does not define separate SFRs for trusted channel (TOE to trusted
-								third party) and trusted path (administrator to TOE), FTP_DIT_EXT.1 is expected
-								to cover both use cases. The proper protocols should be selected accordingly.
-								<h:p/>
-								Sensitive data includes at minimum call control/signal data, media data, and
-								audit/management data.
-								<h:p/>
-								If “SRTP” is selected in FTP_DIT_EXT.1.1, the selection-based SFRs
-								FCS_COP.1/SRTP and FCS_SRTP_EXT.1 must be claimed.
-							</note>
 						</xpath-specified>
 					</replace>
 				</base-sfr-spec>
