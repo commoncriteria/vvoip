@@ -1,7 +1,6 @@
 output/vvoip-release-linkable.html: 38D
 output/vvoip-release-linkable.html: CEM
 output/vvoip-release-linkable.html: CNSA
-output/vvoip-release-linkable.html: CSVVoIP
 output/vvoip-release-linkable.html: DTLSC
 output/vvoip-release-linkable.html: DTLSS
 output/vvoip-release-linkable.html: DataEncryption
@@ -9,7 +8,6 @@ output/vvoip-release-linkable.html: ESCs
 output/vvoip-release-linkable.html: FIA
 output/vvoip-release-linkable.html: MSA
 output/vvoip-release-linkable.html: OCSP
-output/vvoip-release-linkable.html: P2PVVoIP
 output/vvoip-release-linkable.html: RTP
 output/vvoip-release-linkable.html: SDES
 output/vvoip-release-linkable.html: SKC
@@ -32,7 +30,6 @@ output/vvoip-release-linkable.html: vocoders
 output/vvoip-release.html: 38D
 output/vvoip-release.html: CEM
 output/vvoip-release.html: CNSA
-output/vvoip-release.html: CSVVoIP
 output/vvoip-release.html: DTLSC
 output/vvoip-release.html: DTLSS
 output/vvoip-release.html: DataEncryption
@@ -41,7 +38,6 @@ output/vvoip-release.html: FIA
 output/vvoip-release.html: MSA
 output/vvoip-release.html: NDcPP’s
 output/vvoip-release.html: OCSP
-output/vvoip-release.html: P2PVVoIP
 output/vvoip-release.html: RTP
 output/vvoip-release.html: SDES
 output/vvoip-release.html: SKC
@@ -84,7 +80,6 @@ output/vvoip-sd.html: ’
 output/vvoip.html: 38D
 output/vvoip.html: CEM
 output/vvoip.html: CNSA
-output/vvoip.html: CSVVoIP
 output/vvoip.html: DTLSC
 output/vvoip.html: DTLSS
 output/vvoip.html: DataEncryption
@@ -93,7 +88,6 @@ output/vvoip.html: FIA
 output/vvoip.html: MSA
 output/vvoip.html: NDcPP’s
 output/vvoip.html: OCSP
-output/vvoip.html: P2PVVoIP
 output/vvoip.html: RTP
 output/vvoip.html: SDES
 output/vvoip.html: SKC
