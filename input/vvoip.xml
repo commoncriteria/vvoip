@@ -668,6 +668,133 @@
             <no-change/>
           </base-sfr-spec>
         </section>
+        <section title="Trusted Path/Channel (FTP)" id="app-mod-ftp">
+          <!-- FTP_DIT_EXT.1 Protection of Data in Transit -->
+          <base-sfr-spec cc-id="ftp_dit_ext.1" id="app-mod-ftp-dit-ext-1" title="Protection of Data in Transit">
+            <consistency-rationale>This PP-Module modifies the App PP SFR by mandating the use of trusted
+						communications to secure transmitted data, mandating support for TLS, and
+						permitting support for SRTP. The first two modifications are derived from
+						selections that are already present in the App PP version of the SFR. The
+						addition of SRTP does not prevent any of the other protocols from being
+						used if supported.</consistency-rationale>
+            <description>
+              <h:p>This SFR is modified from its definition in the Base-PP to mandate the inclusion of TLS as a method to protect data 
+						and to add support for the use of SRTP to protect data in transit.</h:p>
+              <h:p>The text of the requirement is replaced with:</h:p>
+              <h:p>
+                <h:b>FTP_DIT_EXT.1.1 </h:b>
+                The application shall [<h:b>selection: </h:b>
+                <h:ul>
+                  <h:li><h:i>not transmit any [<h:b>selection, choose one of: </h:b>data, sensitive
+									data</h:i>]</h:li>
+                  <h:li>
+                    <h:i>
+                      encrypt all transmitted [<h:b>selection, choose one of: </h:b>
+                      sensitive data, data] with
+                      <h:b>
+                        TLS as a server as defined in the Functional Package for Transport Layer Security (TLS),
+										version 2.1 and also supports functionality for [<h:b>selection:</h:b>
+                        mutual authentication, none] 
+										and TLS as a client as defined in the Functional Package for Transport Layer Security (TLS), version 2.1
+                      </h:b>
+                      and
+                      <h:b>[selection:</h:b>
+                      <h:ul>
+                        <h:li>HTTPS as a client in accordance with FCS_HTTPS_EXT.1 and FCS_HTTPS_EXT.2</h:li>
+                        <h:li>HTTPS as a server in accordance with FCS_HTTPS_EXT.1</h:li>
+                        <h:li>HTTPS as a server with support for mutual authentication in accordance with FCS_HTTPS_EXT.1
+										and FCS_HTTPS_EXT.2</h:li>
+                        <h:li>
+                          DTLS as a server defined in the Functional Package for Transport Layer Security (TLS),
+										version 2.1 and also supports functionality for [<h:b>selection:</h:b>
+                          mutual authentication,
+											none]
+                        </h:li>
+                        <h:li>DTLS as a client defined in the Functional Package for Transport Layer Security (TLS), version 2.1</h:li>
+                        <h:li>SSH as defined in the Functional Package for Secure Shell (SSH), version 2.0</h:li>
+                        <h:li>IPsec as defined in the VPN Client PP-Module, version 3.0</h:li>
+                        <h:li>
+                          <h:b>Secure Real-Time Transport Protocol (SRTP)</h:b>
+                        </h:li>
+                      </h:ul>] for [<h:b>assignment:</h:b>
+                      function(s)] using certificates as defined in the Functional
+									Package for X.509
+                      <h:li>
+                        invoke platform-provided functionality to encrypt all transmitted sensitive data with
+                        <h:b>TLS and </h:b>
+                        [<h:b>selection: </h:b>
+                        HTTPS, DTLS, SSH, IPsec] for [<h:b>assignment:</h:b>
+                        function(s)]
+								using certificates as defined in the Functional Package for X.509
+                      </h:li>
+                      <h:li>
+                        invoke platform-provided functionality to encrypt all transmitted data with
+                        <h:b>TLS and </h:b>
+                        [<h:b>selection: </h:b>
+                        HTTPS, DTLS, SSH, IPsec] for [<h:b>assignment:</h:b>
+                        function(s)]
+								using certificates as defined in the Functional Package for X.509
+                      </h:li>
+                    </h:i>
+                  </h:li>
+                </h:ul>] between itself and another trusted IT product.
+              </h:p>
+              <h:p>
+                <h:b>Application Note: </h:b>
+                The App PP provides the ability for the ST author to specify the protocols used to
+							establish trusted communications and the behavior that trusted communications
+							are used to protect. This PP-Module mandates the inclusion of TLS because it is
+							the underlying protocol used to secure communications with a VVoIP call control
+							server and other VVoIP endpoints. Additional protocols may be selected if they are
+							used for securing other channels. For example, the TSF may communicate with an ESC using TLS for call control functions but some other protocol for remote
+							transmission of audit data.
+              </h:p>
+              <h:p>Since the App PP does not define separate SFRs for trusted channel (TOE to trusted
+							third party) and trusted path (administrator to TOE), FTP_DIT_EXT.1 is expected
+							to cover both use cases. The proper protocols should be selected accordingly.</h:p>
+              <h:p>Sensitive data includes at minimum call control/signal data, media data, and
+							audit/management data.</h:p>
+              <h:p>If “SRTP” is selected in FTP_DIT_EXT.1.1, the selection-based SFRs
+							FCS_COP.1/SRTP and FCS_SRTP_EXT.1 must be claimed.</h:p>
+            </description>
+            <replace>
+              <xpath-specified xpath="*//cc:f-component[@cc-id='ftp_dit_ext.1']">
+                <f-component cc-id="ftp_dit_ext.1" name="Protection of Data in Transit">
+                  <f-element id="fel-transmit">
+                    <title>
+                      The application shall
+                      <selectables linebreak="yes">
+                        <selectable id="FTP_DIT_EXT.1_1">encrypt all transmitted <selectables><selectable id="FTP_DIT_EXT.1_2" exclusive="yes">sensitive data</selectable><selectable id="FTP_DIT_EXT.1_3" exclusive="yes">data</selectable></selectables> with <h:b>TLS as defined in the <xref to="tls"/> and</h:b><selectables><selectable id="sel_all_https_cl">HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client</selectable><selectable id="sel_all_https_sv">HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server</selectable><selectable id="sel_all_https_ma">HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2</selectable><selectable id="sel_all_tls">TLS as defined in the <xref to="tls"/></selectable><selectable id="sel_all_dtls">DTLS as defined in the <xref to="tls"/></selectable><selectable id="sel_all_ssh">SSH as defined in the <xref to="ssh"/></selectable><selectable id="FTP_DIT_EXT.1_4">IPsec as defined in the <xref to="pkgVPNC"/></selectable><selectable id="sel_all_srtp"><h:b>Secure Real-Time Transport Protocol (SRTP)</h:b></selectable><selectable id="FTP_DIT_EXT.1_5" exclusive="yes"><h:b>no other protocols</h:b></selectable></selectables></selectable>
+                        <selectable id="FTP_DIT_EXT.1_6">invoke platform-provided functionality to encrypt all transmitted sensitive data with <h:b>TLS and</h:b><selectables><selectable id="FTP_DIT_EXT.1_7">HTTPS</selectable><selectable id="FTP_DIT_EXT.1_8">DTLS</selectable><selectable id="FTP_DIT_EXT.1_9">SSH</selectable><selectable id="FTP_DIT_EXT.1_10" exclusive="yes"><h:b>no other protocols</h:b></selectable></selectables></selectable>
+                        <selectable id="FTP_DIT_EXT.1_11">invoke platform-provided functionality to encrypt all transmitted data with <h:b>TLS and</h:b><selectables><selectable id="FTP_DIT_EXT.1_12">HTTPS</selectable><selectable id="FTP_DIT_EXT.1_13">DTLS</selectable><selectable id="FTP_DIT_EXT.1_14">SSH</selectable><selectable id="FTP_DIT_EXT.1_15"><h:b>no other protocols</h:b></selectable></selectables></selectable>
+                      </selectables>
+                      between itself and another trusted IT product.
+                    </title>
+                    <note role="application">
+                      The App PP provides the ability for the ST author to specify the protocols used to
+										establish trusted communications and the behavior that trusted communications
+										are used to protect. This PP-Module mandates the inclusion of TLS because it is
+										the underlying protocol used to secure communications with a VVoIP call control
+										server and other VVoIP endpoints. Additional protocols may be selected if they are
+										used for securing other channels. For example, the TSF may communicate with an
+										ESC using TLS for call control functions but some other protocol for remote transmission of audit data.
+                      <h:p/>
+                      Since the App PP does not define separate SFRs for trusted channel (TOE to trusted
+										third party) and trusted path (administrator to TOE), FTP_DIT_EXT.1 is expected
+										to cover both use cases. The proper protocols should be selected accordingly.
+                      <h:p/>
+                      Sensitive data includes at minimum call control/signal data, media data, and
+										audit/management data.
+                      <h:p/>
+                      If “SRTP” is selected in FTP_DIT_EXT.1.1, the selection-based SFRs
+										FCS_COP.1/SRTP and FCS_SRTP_EXT.1 must be claimed.
+                    </note>
+                  </f-element>
+                </f-component>
+              </xpath-specified>
+            </replace>
+          </base-sfr-spec>
+        </section>
       </modified-sfrs>
       <!-- 5.2.2 Additional SFRs -->
       <additional-sfrs/>
@@ -1305,7 +1432,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables><selectable id="fau_gen.1.1_CSADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_CSADMIN_4">basic</selectable><selectable id="fau_gen.1.1_CSADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_CSADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_CSADMIN_4">basic</selectable><selectable id="fau_gen.1.1_CSADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_CSADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>All administrative actions comprising:
 						<h:ol type="i"><h:li>Administrative login and logout (name of user account shall be
@@ -1378,7 +1505,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables><selectable id="fau_gen.1.1_CSVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_CSVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_CSVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_CSVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_CSVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_CSVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_CSVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_CSVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>auditable events defined in the Auditable Events for Mandatory SFRs table (<xref to="at-mandatory"/>)</h:i>].</h:li>
               </h:ol>
@@ -1432,6 +1559,7 @@
         <!-- FAU_GEN.1/P2PADMIN Audit Data Generation (Peer-to-Peer Admin Events) -->
         <f-component cc-id="fau_gen.1" id="fau-gen-1-p2padmin" name="Audit Data Generation (Peer-to-Peer Admin Events)" iteration="P2PADMIN">
           <depends on-sel="sel-p2p-server-iff"/>
+          <depends on-sel="sel-p2p-server-smf"/>
           <consistency-rationale/>
           <f-element id="fau-gen-1e1-p2padmin">
             <title>
@@ -1447,7 +1575,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables><selectable id="fau_gen.1.1_P2PADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_P2PADMIN_4">basic</selectable><selectable id="fau_gen.1.1_P2PADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_P2PADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PADMIN_3">minimum</selectable><selectable id="fau_gen.1.1_P2PADMIN_4">basic</selectable><selectable id="fau_gen.1.1_P2PADMIN_5">detailed</selectable><selectable id="fau_gen.1.1_P2PADMIN_6">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>All administrative actions comprising:
 						<h:ol type="i"><h:li>Administrative login and logout (name of user account shall be
@@ -1509,6 +1637,7 @@
         <!-- FAU_GEN.1/P2PVVOIP Audit Data Generation (Peer-to-Peer VVoIP Events) -->
         <f-component cc-id="fau_gen.1" id="fau-gen-1-p2pvvoip" name="Audit Data Generation (Peer-to-Peer VVoIP Events)" iteration="P2PVVOIP">
           <depends on-sel="sel-p2p-server-iff"/>
+          <depends on-sel="sel-p2p-server-smf"/>
           <consistency-rationale/>
           <f-element id="fau-gen-1e1-p2pvvoip">
             <title>
@@ -1518,7 +1647,7 @@
                   <h:s>Start-up and shutdown of the audit functions;</h:s>
                 </h:li>
                 <h:li>
-                  <h:s>All auditable events for the  <selectables><selectable id="fau_gen.1.1_P2PVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_P2PVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_P2PVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_P2PVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
+                  <h:s>All auditable events for the  <selectables choose-one-of="yes"><selectable id="fau_gen.1.1_P2PVVOIP_1">minimum</selectable><selectable id="fau_gen.1.1_P2PVVOIP_2">basic</selectable><selectable id="fau_gen.1.1_P2PVVOIP_3">detailed</selectable><selectable id="fau_gen.1.1_P2PVVOIP_4">not specified</selectable></selectables>  level of audit;</h:s>
                 </h:li>
                 <h:li>[<h:i>auditable events defined in the Auditable Events for Mandatory SFRs table (<xref to="at-mandatory"/>)</h:i>].</h:li>
               </h:ol>
@@ -1570,6 +1699,7 @@
         <!-- FCS_COP.1/SRTP Cryptographic Operation (Encryption/Decryption for SRTP -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-srtp" name="Cryptographic Operation (Encryption/Decryption for SRTP" iteration="SRTP">
           <depends on-sel="sel_all_srtp"/>
+          <depends on-sel="sel_media_srtp"/>
           <consistency-rationale/>
           <f-element id="fcs-cop-1e1-srtp">
             <title>
@@ -1602,6 +1732,7 @@
         <!-- FCS_SRTP_EXT.1 Secure Real-Time Transport Protocol -->
         <f-component cc-id="fcs_srtp_ext.1" id="fcs-srtp-ext-1" name="Secure Real-Time Transport Protocol">
           <depends on-sel="sel_all_srtp"/>
+          <depends on-sel="sel_media_srtp"/>
           <consistency-rationale/>
           <comp-lev>requires the TSF to implement SRTP and defines conditions on its use.</comp-lev>
           <management>No specific management functions are identified.</management>
@@ -1659,6 +1790,7 @@
         <!-- FDP_IFC.1/CALLCONTROL Subset Information Flow Control (for Call Control) -->
         <f-component cc-id="fdp_ifc.1" id="fdp-ifc-1-callcontrol" name="Subset Information Flow Control (for Call Control)" iteration="CALLCONTROL">
           <depends on-sel="sel-p2p-server-iff"/>
+          <depends on-sel="sel-p2p-server-smf"/>
           <consistency-rationale/>
           <f-element id="fdp-ifc-1e1-callcontrol">
             <title>The TSF shall enforce the [<h:i>call control policy</h:i>] on [<h:i>call control information transmitted by the TOE</h:i>].</title>
@@ -1672,6 +1804,7 @@
         <!-- FDP_IFF.1/CALLCONTROL Subset Information Flow Control (for Call Control) -->
         <f-component cc-id="fdp_iff.1" id="fdp-iff-1-callcontrol" name="Subset Information Flow Control (for Call Control)" iteration="CALLCONTROL">
           <depends on-sel="sel-p2p-server-iff"/>
+          <depends on-sel="sel-p2p-server-smf"/>
           <consistency-rationale/>
           <f-element id="fdp-iff-1e1-callcontrol">
             <title>
