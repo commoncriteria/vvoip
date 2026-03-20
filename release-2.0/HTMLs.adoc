@@ -1,0 +1,5 @@
+* https://commoncriteria.github.io/vvoip/release-2.0/diff-v1.0.html[diff-v1.0.html]
+* https://commoncriteria.github.io/vvoip/release-2.0/vvoip-release-linkable.html[vvoip-release-linkable.html]
+* https://commoncriteria.github.io/vvoip/release-2.0/vvoip-release.html[vvoip-release.html]
+* https://commoncriteria.github.io/vvoip/release-2.0/vvoip-sd.html[vvoip-sd.html]
+* https://commoncriteria.github.io/vvoip/release-2.0/vvoip.html[vvoip.html]
