@@ -10,6 +10,12 @@
         /Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/modified-sfrs[1]""/section[2]""/base-sfr-spec[1]""/replace[1]""/xpath-specified[1]""/f-component[1]""/f-element[1]""
 * Error: Detected dangling id-reference to fcs-eap-ext-1 from attribute
         on/Module[1]""/include-pkg[2]""/depends[1]""/on[1]""
+* Error: Detected multiple elements with an id of 'fau_gen.1.1_CSADMIN_1'.
+* Error: Detected multiple elements with an id of 'fau_gen.1.1_CSADMIN_1'.
+* Error: Detected multiple elements with an id of 'fau_gen.1.1_P2PADMIN_1'.
+* Error: Detected multiple elements with an id of 'fau_gen.1.1_P2PADMIN_1'.
+* Error: Detected multiple elements with an id of 'fau_stg.5.1_1'.
+* Error: Detected multiple elements with an id of 'fau_stg.5.1_1'.
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
 	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[1]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
