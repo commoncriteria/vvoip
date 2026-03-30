@@ -451,7 +451,7 @@
             <no-change/>
           </base-sfr-spec>
         </section>
-        <section title="Class FCS: Cryptographic Support)" id="nd-mod-fcs">
+        <section title="Class FCS: Cryptographic Support" id="nd-mod-fcs">
           <!-- FCS_NTP_EXT.1 NTP Protocol -->
           <base-sfr-spec cc-id="fcs_ntp_ext.1" id="nd-mod-fcs-ntp-ext-1" title="NTP Protocol">
             <consistency-rationale>This PP-Module does not modify this SFR; it only modifies the circumstances
@@ -1790,7 +1790,7 @@
         </f-component>
       </section>
       <!-- 5.3.9 User Data Protection (FDP) -->
-      <section title="Class FDP: User Data Protection)" id="fdp-sel_based">
+      <section title="Class FDP: User Data Protection" id="fdp-sel_based">
         <!-- FDP_IFC.1/CALLCONTROL Subset Information Flow Control (for Call Control) -->
         <f-component cc-id="fdp_ifc.1" id="fdp-ifc-1-callcontrol" name="Subset Information Flow Control (for Call Control)" iteration="CALLCONTROL">
           <depends on-sel="sel-p2p-server-iff"/>
