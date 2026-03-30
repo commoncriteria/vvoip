@@ -424,7 +424,7 @@
 		NDcPP in addition to what is mandated by section 5.3.</sec-func-req-dir>
       <!-- 5.1.1 Modified SFRs -->
       <modified-sfrs>
-        <section title="Security Audit (FAU)" id="nd-mod-fau">
+        <section title="Class FAU: Security Audit" id="nd-mod-fau">
           <!-- FAU_STG_EXT.1 Protected Audit Event Storage -->
           <base-sfr-spec cc-id="fau_stg_ext.1" id="nd-mod-fau-stg-ext-1" title="Protected Audit Event Storage">
             <consistency-rationale>This PP-Module modifies this SFR to prohibit the selection of any
@@ -451,7 +451,7 @@
             <no-change/>
           </base-sfr-spec>
         </section>
-        <section title="Cryptographic Support (FCS)" id="nd-mod-fcs">
+        <section title="Class FCS: Cryptographic Support)" id="nd-mod-fcs">
           <!-- FCS_NTP_EXT.1 NTP Protocol -->
           <base-sfr-spec cc-id="fcs_ntp_ext.1" id="nd-mod-fcs-ntp-ext-1" title="NTP Protocol">
             <consistency-rationale>This PP-Module does not modify this SFR; it only modifies the circumstances
@@ -468,7 +468,7 @@
             <no-change/>
           </base-sfr-spec>
         </section>
-        <section title="Protection of the TSF (FPT)" id="nd-mod-fpt">
+        <section title="Class FPT: Protection of the TSF" id="nd-mod-fpt">
           <!-- FPT_TUD_EXT.1 Trusted Update -->
           <base-sfr-spec cc-id="fpt_tud_ext.1" id="nd-mod-fpt-tud-ext-1" title="Trusted Update">
             <consistency-rationale>This PP-Module does not modify this SFR; it only specifies that the source of
@@ -496,7 +496,7 @@
             <no-change/>
           </base-sfr-spec>
         </section>
-        <section title="Trusted Path (FTP)" id="nd-mod-ftp">
+        <section title="Class FTP: Trusted Path" id="nd-mod-ftp">
           <!-- FTP_ITC.1 Inter-TSF Trusted Channel -->
           <base-sfr-spec cc-id="ftp_itc.1" id="nd-mod-ftp-itc-1" title="Inter-TSF Trusted Channel">
             <consistency-rationale>This PP-Module restricts the Base-PP SFR to a subset of existing permissible
@@ -645,7 +645,7 @@
 			in the App PP in addition to what is mandated by section 5.3.</sec-func-req-dir>
       <!-- 5.2.1 Modified SFRs -->
       <modified-sfrs>
-        <section title="Protection of the TSF (FPT)" id="app-mod-fpt">
+        <section title="Class FPT: Protection of the TSF" id="app-mod-fpt">
           <!-- FPT_TUD_EXT.1 Trusted Update -->
           <base-sfr-spec cc-id="fpt_tud_ext.1" id="app-mod-fpt-tud-ext-1" title="Trusted Update">
             <consistency-rationale>This PP-Module does not modify this SFR; it only specifies that the source of
@@ -672,7 +672,7 @@
             <no-change/>
           </base-sfr-spec>
         </section>
-        <section title="Trusted Path/Channel (FTP)" id="app-mod-ftp">
+        <section title="Class FTP: Trusted Path/Channel" id="app-mod-ftp">
           <!-- FTP_DIT_EXT.1 Protection of Data in Transit -->
           <base-sfr-spec cc-id="ftp_dit_ext.1" id="app-mod-ftp-dit-ext-1" title="Protection of Data in Transit">
             <consistency-rationale>This PP-Module modifies the App PP SFR by mandating the use of trusted
@@ -896,7 +896,7 @@
         <audit-table id="at-mandatory" table="mandatory"/>
       </section>
       <!-- 5.3.1 Communications (FCO) -->
-      <section title="Communications (FCO)" id="m-fco">
+      <section title="Class FCO: Communications" id="m-fco">
         <ext-comp-def title="Fixed-Rate Vocoder" fam-id="FCO_VOC_EXT">
           <fam-behavior>Components in this family define the use of vocoders in audio transmission.</fam-behavior>
         </ext-comp-def>
@@ -936,7 +936,7 @@
         </f-component>
       </section>
       <!-- 5.3.2 User Data Protection (FDP) -->
-      <section title="User Data Protection (FDP)" id="m-fdp">
+      <section title="Class FDP: User Data Protection" id="m-fdp">
         <!-- FDP_IFC.1 Subset Information Flow Control -->
         <f-component cc-id="fdp_ifc.1" id="fdp-ifc-1" name="Subset Information Flow Control">
           <consistency-rationale/>
@@ -1092,7 +1092,7 @@
         </f-component>
       </section>
       <!-- 5.3.3 Security Management (FMT) -->
-      <section title="Security Management (FMT)" id="m-fmt">
+      <section title="Class FMT: Security Management" id="m-fmt">
         <!-- FMT_SMF.1/VVoIP Specification of Management Functions (VVoIP Communications) -->
         <f-component cc-id="fmt_smf.1" id="fmt-smf-1-vvoip" name="Specification of Management Functions (VVoIP Communications)" iteration="VVoIP">
           <consistency-rationale/>
@@ -1171,7 +1171,7 @@
         </f-component>
       </section>
       <!-- 5.3.4 TOE Access (FTA) -->
-      <section title="TOE Access (FTA)" id="m-fta">
+      <section title="Class FTA: TOE Access" id="m-fta">
         <!-- FTA_SSL.3/MEDIA TSF-Initiated Termination (Media Channel) -->
         <f-component cc-id="fta_ssl.3" id="fta-ssl-3-media" name="TSF-Initiated Termination (Media Channel)" iteration="MEDIA">
           <consistency-rationale/>
@@ -1238,7 +1238,7 @@
         </f-component>
       </section>
       <!-- 5.3.5 Trusted Path/Channels (FTP) -->
-      <section title="Trusted Path/Channels (FTP)" id="m-ftp">
+      <section title="Class FTP: Trusted Path/Channels" id="m-ftp">
         <!-- FTP_ITC.1/CONTROL Inter-TSF Trusted Channel (Signaling Channel) -->
         <f-component cc-id="ftp_itc.1" id="ftp-itc-1-control" name="Inter-TSF Trusted Channel (Signaling Channel)" iteration="CONTROL">
           <consistency-rationale/>
@@ -1415,7 +1415,7 @@
     </man-sfrs>
     <opt-sfrs>
       <!-- 5.3.6 Security Audit(FAU) -->
-      <section title="Security Audit(FAU)" id="fau-ops">
+      <section title="Class FAU: Security Audit" id="fau-ops">
         <!-- FAU_GEN.1/CSADMIN Audit Data Generation (Client-Server Admin Events) -->
         <f-component cc-id="fau_gen.1" id="fau-gen-1-csadmin" name="Audit Data Generation (Client-Server Admin Events)" iteration="CSADMIN">
           <depends>
@@ -1559,7 +1559,7 @@
     </opt-sfrs>
     <sel-sfrs>
       <!-- 5.3.7 Security Audit (FAU) -->
-      <section title="Security Audit (FAU)" id="fau-sel_based">
+      <section title="Class FAU: Security Audit" id="fau-sel_based">
         <!-- FAU_GEN.1/P2PADMIN Audit Data Generation (Peer-to-Peer Admin Events) -->
         <f-component cc-id="fau_gen.1" id="fau-gen-1-p2padmin" name="Audit Data Generation (Peer-to-Peer Admin Events)" iteration="P2PADMIN">
           <depends on-sel="sel-p2p-server-iff"/>
@@ -1696,7 +1696,7 @@
         </f-component>
       </section>
       <!-- 5.3.8 Cryptographic Support (FCS) -->
-      <section title="Cryptographic Support (FCS)" id="fcs-sel_based">
+      <section title="Class FCS: Cryptographic Support" id="fcs-sel_based">
         <ext-comp-def title="Secure Real-Time Transport Protocol" fam-id="FCS_SRTP_EXT">
           <fam-behavior>Components in this family define the implementation of the Secure Real-Time Transport Protocol (SRTP).</fam-behavior>
         </ext-comp-def>
@@ -1790,7 +1790,7 @@
         </f-component>
       </section>
       <!-- 5.3.9 User Data Protection (FDP) -->
-      <section title="User Data Protection (FDP)" id="fdp-sel_based">
+      <section title="Class FDP: User Data Protection)" id="fdp-sel_based">
         <!-- FDP_IFC.1/CALLCONTROL Subset Information Flow Control (for Call Control) -->
         <f-component cc-id="fdp_ifc.1" id="fdp-ifc-1-callcontrol" name="Subset Information Flow Control (for Call Control)" iteration="CALLCONTROL">
           <depends on-sel="sel-p2p-server-iff"/>
@@ -1867,7 +1867,7 @@
         </f-component>
       </section>
       <!-- 5.3.10 Protection of the TSF (FPT) -->
-      <section title="Protection of the TSF (FPT)" id="fpt-sel_based">
+      <section title="Class FPT: Protection of the TSF" id="fpt-sel_based">
         <!-- FPT_STM_EXT.1/VVoIP Reliable Time Stamps (VVoIP Communications) -->
         <f-component cc-id="fpt_stm_ext.1" id="fpt-stm-ext-1-vvoip" name="Reliable Time Stamps (VVoIP Communications)" iteration="VVoIP">
           <depends on-sel="sel-register"/>
@@ -1906,7 +1906,7 @@
     <obj-sfrs/>
     <impl-dep-sfrs>
       <!-- 5.3.11 Security Audit (FAU) -->
-      <section title="Security Audit (FAU)" id="fau-imp_dep">
+      <section title="Class FAU: Security Audit" id="fau-imp_dep">
         <!-- FAU_STG.1 Audit data storage location -->
         <f-component cc-id="fau_stg.1" id="fau-stg-1" name="Audit data storage location">
           <depends on="feat-swapp"/>
