@@ -1,3 +1,8 @@
+transforms/xsl/module2html.xsl:449: namespace error : Failed to parse QName 'xsl:'
+                 --><xsl::apply-templates select="cc:cc-doc-ref[@id=cc:from-doc/
+                         ^
+compilation error: file transforms/xsl/module-commons.xsl line 70 element apply-template
+xsltStylePreCompute: unknown xsl:apply-template
 * Error: Found a "selectables" element that is buried under stricken text:
         /Module[1]""/sec:Security_Requirements[1]""/opt-sfrs[1]""/section[1]""/f-component[1]""/f-element[1]""/title[1]"The"/h:ol[1]""/h:li[2]""/h:s[1]"All audit"/selectables[1]""
 * Error: Found a "selectables" element that is buried under stricken text:
@@ -9,7 +14,7 @@
 * Error: f-element FTP_DIT_EXT.1.1  appears not to have an associated evaluation activity.:
         /Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/modified-sfrs[1]""/section[2]""/base-sfr-spec[1]""/replace[1]""/xpath-specified[1]""/f-component[1]""/f-element[1]""
 * Error: Detected dangling id-reference to fcs-eap-ext-1 from attribute
-        on/Module[1]""/include-pkg[2]""/depends[1]""/on[1]""
+        on/Module[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[2]""/cc-doc-ref[1]""/depends[1]""/on[1]""
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
 	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[1]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
