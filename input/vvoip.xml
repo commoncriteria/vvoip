@@ -24,35 +24,6 @@
       <subject>CC:2022 updates, incorporation of TDs</subject>
     </entry>
   </RevisionHistory>
-  <include-pkg id="ssh">
-    <git>
-      <url>https://github.com/commoncriteria/ssh</url>
-      <branch>master</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/protectionprofiles/515</url>
-  </include-pkg>
-  <include-pkg id="tls">
-    <git>
-      <url>https://github.com/commoncriteria/tls</url>
-      <branch>release-2.1</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/protectionprofiles/465</url>
-    <depends on="fcs-eap-ext-1"/>
-  </include-pkg>
-  <include-pkg id="X509">
-    <git>
-      <url>https://github.com/commoncriteria/X509</url>
-      <branch>master</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/protectionprofiles/511</url>
-  </include-pkg>
-  <include-pkg id="pkgVPNC">
-    <git>
-      <url>https://github.com/commoncriteria/vpnclient</url>
-      <branch>release-3.0</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/protectionprofiles/487</url>
-  </include-pkg>
   <pp-preferences/>
   <sec:Introduction>
     <sec:Overview title="Overview">
@@ -293,11 +264,71 @@
       <cc-pt3-conf>extended</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with>
-        <PP-cc-ref>Network Device collaborative Protection Profile Version 4.0</PP-cc-ref>
-        <PP-cc-ref>Protection Profile for Application Software Version 2.0</PP-cc-ref>
+        <PP-cc-ref>
+			<!-- Network Device collaborative Protection Profile Version 4.0 -->
+			<cc-doc-ref id="ndcpp" 
+				name="Network Device collaborative Protection Profile"      
+				version="4.0"                            
+				short="ND"                             
+				product="network device"     
+				plural="network devices"
+                doctype="cPP">     
+				<url>https://www.niap-ccevs.org/protectionprofiles/524</url>
+			</cc-doc-ref>
+		</PP-cc-ref>
+        <PP-cc-ref>
+			<!-- Protection Profile for Application Software Version 2.0 --> 
+			<cc-doc-ref id="application">
+				<git>
+					<url>https://github.com/commoncriteria/application</url>
+					<branch>release-2.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/516</url>
+			</cc-doc-ref>
+		</PP-cc-ref>
+        <Mod-cc-ref>
+			<!-- PP-Module for VPN Client, Version 3.0 -->
+			<cc-doc-ref id="vpnclient">
+				<git>
+					<url>https://github.com/commoncriteria/vpnclient</url>
+					<branch>release-3.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/522</url>
+			</cc-doc-ref>		
+		</Mod-cc-ref>
       </cc-pp-config-with>
       <cc-pkg-claim>
-        <FP-cc-ref conf="conformant">Functional Package for TLS, version 2.0</FP-cc-ref>
+        <FP-cc-ref conf="conformant">
+			<!-- Functional Package for Secure Shell Version 2.0 -->
+			<cc-doc-ref id="ssh">
+				<git>
+					<url>https://github.com/commoncriteria/ssh</url>
+					<branch>release-2.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/515</url>
+			</cc-doc-ref>
+		</FP-cc-ref>
+        <FP-cc-ref conf="conformant">
+			<!-- Functional Package for Transport Layer Security Version 2.1 -->
+			<cc-doc-ref id="tls">
+				<git>
+					<url>https://github.com/commoncriteria/tls</url>
+					<branch>release-2.1</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/519</url>
+				<depends on="fcs-eap-ext-1"/>
+			</cc-doc-ref>
+		</FP-cc-ref>
+        <FP-cc-ref conf="conformant">
+			<!-- Functional Package for X.509 Version 1.0 -->
+			<cc-doc-ref id="X509">
+				<git>
+					<url>https://github.com/commoncriteria/X509</url>
+					<branch>release-1.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/511</url>
+			</cc-doc-ref>
+		</FP-cc-ref>
       </cc-pkg-claim>
     </CClaimsInfo>
   </sec:Conformance_Claims>
@@ -416,8 +447,7 @@
   <!-- 5.0 Security Requirements -->
   <sec:Security_Requirements title="Security Requirements">
     <!-- 5.1 ND PP Security Functional Requirements Direction -->
-    <base-pp id="ND" name="Network Device" product="Network Device" short="ND" version="4.0" plural="Network Devices">
-      <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
+    <base-pp ref="ndcpp">
       <cPP/>
       <sec-func-req-dir>In a PP-Configuration that includes the NDcPP, the VVoIP client is expected to rely on some of the security
 		functions implemented by the network device as a whole and evaluated against the NDcPP. In this case,
@@ -634,12 +664,7 @@
 			Base-PP.</con-mod>
     </base-pp>
     <!-- 5.2 APP PP Security Functional Requirements Direction -->
-    <base-pp id="APP" name="Application Software" product="Application Software" short="APP" version="2.0" plural="Application Software">
-      <git>
-        <url>https://github.com/commoncriteria/application</url>
-        <branch>release-1.4</branch>
-      </git>
-      <url>https://github.com/commoncriteria/application</url>
+    <base-pp ref="application">
       <sec-func-req-dir>In a PP-Configuration that includes the App PP, the VVoIP client is expected to rely on some of the security
 			functions implemented by the software application as a whole and evaluated against the App PP. In this
 			case, the following sections describe any modifications that the ST author must make to the SFRs defined
@@ -769,7 +794,7 @@
                     <title>
                       The application shall
                       <selectables linebreak="yes">
-                        <selectable id="FTP_DIT_EXT.1_1">encrypt all transmitted <selectables><selectable id="FTP_DIT_EXT.1_2" exclusive="yes">sensitive data</selectable><selectable id="FTP_DIT_EXT.1_3" exclusive="yes">data</selectable></selectables> with <h:b>TLS as defined in the <xref to="tls"/> and</h:b><selectables><selectable id="sel_all_https_cl">HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client</selectable><selectable id="sel_all_https_sv">HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server</selectable><selectable id="sel_all_https_ma">HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2</selectable><selectable id="sel_all_tls">TLS as defined in the <xref to="tls"/></selectable><selectable id="sel_all_dtls">DTLS as defined in the <xref to="tls"/></selectable><selectable id="sel_all_ssh">SSH as defined in the <xref to="ssh"/></selectable><selectable id="FTP_DIT_EXT.1_4">IPsec as defined in the <xref to="pkgVPNC"/></selectable><selectable id="sel_all_srtp"><h:b>Secure Real-Time Transport Protocol (SRTP)</h:b></selectable><selectable id="FTP_DIT_EXT.1_5" exclusive="yes"><h:b>no other protocols</h:b></selectable></selectables></selectable>
+                        <selectable id="FTP_DIT_EXT.1_1">encrypt all transmitted <selectables><selectable id="FTP_DIT_EXT.1_2" exclusive="yes">sensitive data</selectable><selectable id="FTP_DIT_EXT.1_3" exclusive="yes">data</selectable></selectables> with <h:b>TLS as defined in the <xref to="tls"/> and</h:b><selectables><selectable id="sel_all_https_cl">HTTPS as a client in accordance with FCS_HTTPS_EXT.1/Client</selectable><selectable id="sel_all_https_sv">HTTPS as a server in accordance with FCS_HTTPS_EXT.1/Server</selectable><selectable id="sel_all_https_ma">HTTPS as a server using mutual authentication in accordance with FCS_HTTPS_EXT.2</selectable><selectable id="sel_all_tls">TLS as defined in the <xref to="tls"/></selectable><selectable id="sel_all_dtls">DTLS as defined in the <xref to="tls"/></selectable><selectable id="sel_all_ssh">SSH as defined in the <xref to="ssh"/></selectable><selectable id="FTP_DIT_EXT.1_4">IPsec as defined in the <xref to="vpnclient"/></selectable><selectable id="sel_all_srtp"><h:b>Secure Real-Time Transport Protocol (SRTP)</h:b></selectable><selectable id="FTP_DIT_EXT.1_5" exclusive="yes"><h:b>no other protocols</h:b></selectable></selectables></selectable>
                         <selectable id="FTP_DIT_EXT.1_6">invoke platform-provided functionality to encrypt all transmitted sensitive data with <h:b>TLS and</h:b><selectables><selectable id="FTP_DIT_EXT.1_7">HTTPS</selectable><selectable id="FTP_DIT_EXT.1_8">DTLS</selectable><selectable id="FTP_DIT_EXT.1_9">SSH</selectable><selectable id="FTP_DIT_EXT.1_10" exclusive="yes"><h:b>no other protocols</h:b></selectable></selectables></selectable>
                         <selectable id="FTP_DIT_EXT.1_11">invoke platform-provided functionality to encrypt all transmitted data with <h:b>TLS and</h:b><selectables><selectable id="FTP_DIT_EXT.1_12">HTTPS</selectable><selectable id="FTP_DIT_EXT.1_13">DTLS</selectable><selectable id="FTP_DIT_EXT.1_14">SSH</selectable><selectable id="FTP_DIT_EXT.1_15"><h:b>no other protocols</h:b></selectable></selectables></selectable>
                       </selectables>
